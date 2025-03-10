@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKOPE  DESIGNS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #181818;
+            color: #f4f4f4;
+        }
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/564x/b6/22/dd/b622dd956ac993b293a6e678e27720fd.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        header .logo {
+            width: 100px; 
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 50px;
+        }
+        header h1 {
+            font-size: 3em;
+            font-weight: 600;
+        }
+        header h2 {
+            font-size: 1.5em;
+            font-weight: 300;
+        }
+        .btn {
+            margin: 20px;
+            padding: 10px 30px;
+            background-color: #00bcd4;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0097a7;
+            transform: scale(1.05);
+        }
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #00bcd4;
+        }
+        section {
+            padding: 50px;
+        }
+        #about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/236x/ea/f5/10/eaf510c27dc1a8296c26605310b76f71.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        #about img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        #about .content {
+            max-width: 600px;
+        }
+        #services {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/236x/5e/a2/33/5ea23390752fb31d688b8d6cf2bb7336.jpg') no-repeat center center/cover;
+            color: white;
+        }
+        #services .content {
+            max-width: 100%;
+            text-align: center;
+        }
+        #services img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .services ul {
+            list-style: none;
+            padding: 0;
+        }
+        .services li {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+        footer .social-icons {
+            margin-top: 10px;
+        }
+        footer .social-icons a {
+            color: #00bcd4;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+        footer .social-icons a:hover {
+            color: #0097a7;
+        }
+        footer .contact-info {
+            margin-top: 20px;
+            color: #00bcd4;
+        }
+        footer .contact-info a {
+            color: #00bcd4;
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+        footer .contact-info a:hover {
+            color: #0097a7;
+        }
+        .blog {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .blog h2 {
+            color: #0077ff; /* Cyan blue */
+            margin-bottom: 20px;
+        }
+
+        .blog-posts {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .blog-post {
+            background-color: #00a2ffad;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 200px;
+        }
+        .faqs dl {
+            margin: 20px auto;
+            max-width: 800px;
+            color: #ffffff;
+        }
+        .faqs dt {
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        .faqs dd {
+            margin: 0 0 20px 0;
+        }
+        .faqs{
+            background-color: rgba(95, 158, 160, 0.548);
+background-image: url("https://www.pinterest.com/pin/630926229063500131/");
+background-size: cover;     
+background-repeat: no-repeat;  
+}
+
+        @media (min-width: 768px) {
+            #about {
+                flex-direction: row;
+                text-align: left;
+            }
+            #about img {
+                margin-right: 30px;
+                margin-bottom: 0;
+            }
+            #services {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            #services .content {
+                max-width: 50%;
+                text-align: left;
+            }
+            #services img {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            header {
+                height: auto;
+                padding: 50px 20px;
+                text-align: center;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header h2 {
+                font-size: 1.2em;
+            }
+            .btn {
+                font-size: 1em;
+                padding: 8px 20px;
+            }
+            nav {
+                position: static;
+                margin-top: 20px;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            #services {
+                flex-direction: column;
+                align-items: center;
+            }
+            #services .content {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://i.pinimg.com/736x/10/b8/8e/10b88e9fb82dd35825d1277965f0d5aa.jpg"alt="Skope Designs Logo" class="logo">
+    <h1>SKOPE DESIGNS</h1>
+    <h2>Creative Design Studio</h2>
+    <h3><i>Design Beyond Boundaries</i></h3>
+    <a href="https://drive.google.com/file/d/1XV3odTHSQ7ljORClFbZaEJERpmwzchOx/view?usp=sharing" class="btn">Resume</a>
+    <a href="https://wa.me/p/7852689948125343/254742380183" class="btn">Portfolio</a>
+    <nav>
+        <a href="#about" target="_blank">About</a>
+        <a href="#services" target="_blank>Services</a>
+        <a href="#blog" target="_blank" >Blog</a>
+        <a href="#faqs" target="_blank">FAQs</a>
+        <a href="#contact" target="_blank">Contact</a>
+    </nav>
+</header>
+
+<section id="about">
+    <img src="https://i.pinimg.com/236x/ea/f5/10/eaf510c27dc1a8296c26605310b76f71.jpg" alt="Profile Image">
+    <div class="content">
+        <h2>About Us</h2>
+        <p>Welcome to Skope Designs, where creativity meets precision. With over a decade of experience in the design industry, we are dedicated to crafting visually stunning and impactful designs. Our expertise spans creative branding, UI/UX design, and print media. We work closely with our clients to understand their vision and deliver bespoke solutions that make a lasting impression. Based in Kisumu, Kenya, we are passionate about helping businesses and individuals shine through innovative design.</p>
+    </div>
+</section>
+
+<section id="services">
+    <div class="content">
+        <h2>Our Services</h2>
+        <ul>
+            <li>🎨 Custom Logo Design</li>
+            <li>🌐 Website Design</li>
+            <li>💼 Business Card Design</li>
+            <li>📑 Brochure Design</li>
+            <li>✈️ Flyer Design</li>
+            <li>🖼️ Banner and Poster Design</li>
+            <li>📱 Social Media Graphics</li>
+            <li>📊 Social Media Management</li>
+            <li>🔖 Brand Identity Creation</li>
+            <li>✍️ Article Writing</li>
+        </ul>
+    </div>
+    <img src="https://i.pinimg.com/236x/5e/a2/33/5ea23390752fb31d688b8d6cf2bb7336.jpg" alt="Services Image">
+</section>
+
+</div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="blog">
+    <h2>Latest from Our Blog</h2>
+    <div class="blog-posts">
+        <article class="blog-post">
+            <h3>Stepping into the World of Skills:</h3>
+            <p> A Roadmap for Lifelong Learning by Sege Peter</p>
+            <a href="https://skopetv.blogspot.com/2024/11/stepping-into-world-of-skills-roadmap.html" target="_blank">Read More</a>
+        </article>
+        <article class="blog-post">
+            <h3>Learn Graphics </h3>
+            <p>Master the skill of graphics design within...</p>
+            <a href="https/:skopetv.blogspot.com"target="_blank">Read More</a>
+        </article>
+        <article class="blog-post">
+            <h3>Secrets Of Effective logo design</h3>
+            <p>This is all it entails about graphics design...</p>
+            <a href="https/:skopetv.blogspot.com"target="_blank">Read More</a>
+        </article>
+        <article class="blog-post">
+            <h3>Latest Design Tools in 2024</h3>
+            <p>Get to know the latest and improvised  graphic design tools...</p>
+            <a href="https/:skopetv.blogspot.com"target="_blank">Read More</a>
+        </article>
+        <!-- Add more blog posts as needed -->
+    </div>
+</section>
+
+<section id="faqs" class="faqs">
+    <h2>FAQs</h2>
+    <dl>
+        <dt>What is your process for starting a new project?</dt>
+        <dd>We start with a consultation to understand your needs and goals. Then, we create a project brief and timeline. Once agreed upon, we proceed with the design and keep you updated throughout the process.</dd>
+        <dt>How long does a typical project take?</dt>
+        <dd>Project timelines vary depending on complexity. On average, design projects take between 2 to 4 weeks.</dd>
+        <dt>What is your pricing structure?</dt>
+        <dd>Our pricing depends on the scope of the project. We provide a detailed quote after discussing your requirements.</dd>
+        <dt>Do you offer revisions?</dt>
+        <dd>Yes, we offer revisions based on the terms outlined in our agreement. We want to ensure you are satisfied with the final design.</dd>
+    </dl>
+</section>
+
+<footer>
+    <p>&copy; 2025 Skope Designs. All rights reserved.</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/SkopeDesigns" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com/SkopeDesigns" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/SkopeDesigns" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/skope-designs" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <div class="contact-info">
+        <a href="mailto:skopedesigns91@gmail.com">skopedesigns91@gmail.com</a>
+        <a href="tel:+254742380183">+254 742 380 183</a>
+        <a href="https://www.tiktok.com/@eng_skope" aria-label="TikTok">TikTok</a>
+    </div>
+</footer>
+
+</body>
+</html>
