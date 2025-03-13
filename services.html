@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: url('https://i.pinimg.com/236x/8e/66/a0/8e66a0c836fc244d436a5f78c702f235.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            z-index: 0;
+        }
+        .form-content {
+            position: relative;
+            z-index: 1;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00bcd4;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #ddd;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #00bcd4;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0097a7;
+        }
+        .alert {
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success {
+            background: #4CAF50;
+        }
+        .error {
+            background: #D32F2F;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-content">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                <label for="service">Select Service</label>
+                <select id="service" name="service" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="Logo Design">Logo Design</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Social Media Management">Social Media Management</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter your message or more descriptions" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <div id="responseMessage" class="alert" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        function showMessage(message, type) {
+            let responseDiv = document.getElementById("responseMessage");
+            responseDiv.textContent = message;
+            responseDiv.className = "alert " + type;
+            responseDiv.style.display = "block";
+            setTimeout(() => responseDiv.style.display = "none", 3000);
+        }
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            showMessage("Your message has been sent!", "success");
+        });
+    </script>
+
+</body>
+</html>
