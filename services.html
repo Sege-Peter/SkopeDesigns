@@ -79,41 +79,27 @@
         button:hover {
             background: #0097a7;
         }
-        .alert {
-            padding: 10px;
-            text-align: center;
-            margin-top: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .success {
-            background: #4CAF50;
-        }
-        .error {
-            background: #D32F2F;
-        }
         .hidden {
             display: none;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="form-content">
             <h2>Contact Us</h2>
             <form id="contactForm">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
+                
                 <label for="email">Your Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
+                
                 <label for="phone">Phone Number</label>
                 <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
-
+                
                 <label for="service">Select Service</label>
-                <select id="service" name="service" required>
+                <select id="service" name="service" required onchange="toggleServiceFields()">
                     <option value="" disabled selected>Select a service</option>
                     <option value="Logo Design">Logo Design</option>
                     <option value="Graphic Design">Graphic Design</option>
@@ -121,34 +107,37 @@
                     <option value="Social Media Management">Social Media Management</option>
                     <option value="Other">Other</option>
                 </select>
-
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
-
+                
+                <div id="logoFields" class="hidden">
+                    <label for="brandName">Brand/Business Name</label>
+                    <input type="text" id="brandName" name="brandName" placeholder="Enter brand name">
+                    
+                    <label for="colors">Preferred Colors</label>
+                    <input type="text" id="colors" name="colors" placeholder="Enter colors">
+                    
+                    <label for="description">Business Description</label>
+                    <textarea id="description" name="description" rows="3" placeholder="Describe your business"></textarea>
+                </div>
+                
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" placeholder="Enter your message or more descriptions" required></textarea>
-
+                <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+                
                 <button type="submit">Send Message</button>
+                <button type="button" onclick="clearForm()">Clear</button>
             </form>
-
-            <div id="responseMessage" class="alert" style="display: none;"></div>
         </div>
     </div>
 
     <script>
-        function showMessage(message, type) {
-            let responseDiv = document.getElementById("responseMessage");
-            responseDiv.textContent = message;
-            responseDiv.className = "alert " + type;
-            responseDiv.style.display = "block";
-            setTimeout(() => responseDiv.style.display = "none", 3000);
+        function toggleServiceFields() {
+            let service = document.getElementById("service").value;
+            document.getElementById("logoFields").classList.toggle("hidden", service !== "Logo Design");
         }
-
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            showMessage("Your message has been sent!", "success");
-        });
+        
+        function clearForm() {
+            document.getElementById("contactForm").reset();
+            document.getElementById("logoFields").classList.add("hidden");
+        }
     </script>
-
 </body>
 </html>
