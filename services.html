@@ -65,9 +65,8 @@
             color: #ddd;
         }
         button {
-            width: 100%;
+            width: 48%;
             padding: 12px;
-            background: #00bcd4;
             border: none;
             color: white;
             font-size: 16px;
@@ -75,9 +74,36 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s;
+            margin-top: 10px;
         }
-        button:hover {
+        .send-btn {
+            background: #00bcd4;
+        }
+        .send-btn:hover {
             background: #0097a7;
+        }
+        .clear-btn {
+            background: #d32f2f;
+        }
+        .clear-btn:hover {
+            background: #b71c1c;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .alert {
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success {
+            background: #4CAF50;
+        }
+        .error {
+            background: #D32F2F;
         }
         .hidden {
             display: none;
@@ -85,21 +111,22 @@
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="form-content">
             <h2>Contact Us</h2>
             <form id="contactForm">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                
+
                 <label for="email">Your Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                
+
                 <label for="phone">Phone Number</label>
                 <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
-                
+
                 <label for="service">Select Service</label>
-                <select id="service" name="service" required onchange="toggleServiceFields()">
+                <select id="service" name="service" required>
                     <option value="" disabled selected>Select a service</option>
                     <option value="Logo Design">Logo Design</option>
                     <option value="Graphic Design">Graphic Design</option>
@@ -107,37 +134,67 @@
                     <option value="Social Media Management">Social Media Management</option>
                     <option value="Other">Other</option>
                 </select>
-                
-                <div id="logoFields" class="hidden">
-                    <label for="brandName">Brand/Business Name</label>
-                    <input type="text" id="brandName" name="brandName" placeholder="Enter brand name">
-                    
-                    <label for="colors">Preferred Colors</label>
-                    <input type="text" id="colors" name="colors" placeholder="Enter colors">
-                    
-                    <label for="description">Business Description</label>
-                    <textarea id="description" name="description" rows="3" placeholder="Describe your business"></textarea>
+
+                <!-- Dynamic Fields for Logo Design -->
+                <div id="logoDetails" class="hidden">
+                    <label for="logoStyle">Preferred Logo Style</label>
+                    <select id="logoStyle" name="logoStyle">
+                        <option value="Minimalist">Minimalist</option>
+                        <option value="3D">3D</option>
+                        <option value="Vintage">Vintage</option>
+                        <option value="Abstract">Abstract</option>
+                    </select>
+
+                    <label for="logoColor">Preferred Colors</label>
+                    <input type="text" id="logoColor" name="logoColor" placeholder="Enter preferred colors">
                 </div>
-                
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
-                
-                <button type="submit">Send Message</button>
-                <button type="button" onclick="clearForm()">Clear</button>
+                <textarea id="message" name="message" rows="4" placeholder="Enter your message or more details" required></textarea>
+
+                <div class="button-group">
+                    <button type="submit" class="send-btn">Send Message</button>
+                    <button type="button" class="clear-btn" id="clearBtn">Clear</button>
+                </div>
             </form>
+
+            <div id="responseMessage" class="alert" style="display: none;"></div>
         </div>
     </div>
 
     <script>
-        function toggleServiceFields() {
-            let service = document.getElementById("service").value;
-            document.getElementById("logoFields").classList.toggle("hidden", service !== "Logo Design");
+        function showMessage(message, type) {
+            let responseDiv = document.getElementById("responseMessage");
+            responseDiv.textContent = message;
+            responseDiv.className = "alert " + type;
+            responseDiv.style.display = "block";
+            setTimeout(() => responseDiv.style.display = "none", 3000);
         }
-        
-        function clearForm() {
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            showMessage("Your message has been sent!", "success");
+        });
+
+        // Clear button functionality
+        document.getElementById("clearBtn").addEventListener("click", function() {
             document.getElementById("contactForm").reset();
-            document.getElementById("logoFields").classList.add("hidden");
-        }
+            document.getElementById("logoDetails").classList.add("hidden");
+        });
+
+        // Show extra fields when "Logo Design" is selected
+        document.getElementById("service").addEventListener("change", function() {
+            const logoDetails = document.getElementById("logoDetails");
+            if (this.value === "Logo Design") {
+                logoDetails.classList.remove("hidden");
+            } else {
+                logoDetails.classList.add("hidden");
+            }
+        });
     </script>
+
 </body>
 </html>
