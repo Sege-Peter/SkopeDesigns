@@ -84,6 +84,44 @@
 }
 
   </style>
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- Swiper for Image Slider -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Custom Animations -->
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 1.5s ease-in-out;
+  }
+  .animate-slide-in-left {
+    animation: slideInLeft 1.2s ease-in-out;
+  }
+  .animate-slide-in-right {
+    animation: slideInRight 1.2s ease-in-out;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeInUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes slideInLeft { from { transform: translateX(-100px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  @keyframes slideInRight { from { transform: translateX(100px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper(".mySwiper", {
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      loop: true,
+    });
+  });
+</script>
+
 </head>
 
 <body class="bg-dark text-white font-sans overflow-x-hidden">
@@ -121,21 +159,135 @@
     <li><a href="shop.html">Shop</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
+<br>
+<section id="about" class="bg-white text-orange py-16 px-4 md:px-20">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl md:text-5xl font-bold text-orange-800 text-primary animate-fade-in">About Us</h2>
+    <p class="mt-4 text-lg text-gray-600 animate-fade-in-up">
+      Discover our story, vision, and the creative mind behind Skope Designs.
+    </p>
+  </div>
 
-  <!-- HERO SECTION -->
-  <section id="hero" class="hero-slide h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center pt-[70px]">
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 animate-pulse-slow">
-      <span>Designing Brands.</span>
-      <span>Building Code.</span>
-      <span class="text-secondary">Beyond Boundaries.</span>
-    </h1>
-    <p class="text-lg md:text-xl mb-10 max-w-2xl">We create stunning digital experiences that elevate your brand.</p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="service.html" class="bg-secondary hover:bg-orange-600 px-8 py-3 rounded-full">Get Started</a>
-      <a href="portfolio.html" class="bg-primary hover:bg-cyan-600 px-8 py-3 rounded-full">View Portfolio</a>
-      <a href="contact.html" class="bg-white text-dark hover:bg-gray-200 px-8 py-3 rounded-full">Join Hub</a>
+  <!-- Sege Peter Bio & Slider -->
+  <div class="grid md:grid-cols-2 gap-10 items-center">
+    <!-- Image Slider -->
+    <div class="relative overflow-hidden rounded-lg shadow-lg animate-slide-in-left">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/ceo sege.png" alt="Sege Peter" class="w-full object-cover" /></div>
+          <div class="swiper-slide"><img src="images/DSC_0237.jpg" alt="Sege Peter Speaking" class="w-full object-cover" /></div>
+           <div class="swiper-slide"><img src="images/sege1.jpg" alt="Sege Peter" class="w-full object-cover" /></div>
+          <div class="swiper-slide"><img src="images/sege2.jpg" alt="Sege Peter Speaking" class="w-full object-cover" /></div>
+        </div>
+      </div>
     </div>
-  </section>
+
+    <!-- Bio Content -->
+    <div class="animate-slide-in-right">
+      <h3 class="text-2xl md:text-3xl font-semibold text-secondary mb-4">Meet Sege Peter</h3>
+      <p class="text-gray-700 leading-relaxed">
+        <strong>Sege Peter</strong> is a highly skilled passionate Software Developer & Graphic Designer with a keen eye for aesthetics and innovation.
+        He is the <strong>FOUNDER</strong> and Creative Lead at <strong>Skope Designs</strong>. where Sege specializes in brand identity, web development, UI/UX design, 
+        ,photography and social media management. His technical skills span HTML, CSS, Tailwind, JavaScript, MySQL, Python, Java, and modern frameworks.
+      </p>
+      <p class="mt-4 text-gray-700 leading-relaxed">
+        With a strong foundation in design thinking and a detail-oriented approach, Sege has delivered impactful designs 
+        for clients across various sectors. He is also certified in multiple design and development tools, making him 
+        a versatile digital creative leader.
+      </p>
+
+      <a href="https://wa.me/254742380183?text=Hi%20Sege%2C%20I'm%20interested%20in%20your%20design%20services!" target="_blank"
+         class="mt-6 inline-block px-6 py-3 bg-secondary text-white rounded-md shadow hover:bg-orange-600 transition">
+        Hire Sege 
+      </a>
+    </div>
+  </div>
+
+  <!-- About Skope Designs -->
+  <div class="mt-20 bg-gradient-to-r from-cyan-50 to-white p-6 md:p-12 rounded-xl shadow-lg">
+    <h3 class="text-3xl font-bold text-primary mb-6 text-center animate-fade-in">About Skope Designs</h3>
+    <p class="text-gray-800 text-lg leading-relaxed text-center max-w-4xl mx-auto animate-fade-in-up">
+      <strong>Skope Designs</strong> is a cutting-edge creative agency delivering <span class="text-secondary font-semibold">“Designs Beyond Boundaries.”</span>
+      We provide innovative, visually stunning, and functional designs for individuals, startups, and enterprises in Kenya and beyond.
+      Our core values are creativity, quality, and customer-centric service.
+    </p>
+
+    <!-- Mission & Vision -->
+    <div class="mt-10 grid md:grid-cols-2 gap-8">
+      <div class="bg-white p-6 rounded-md shadow-md animate-slide-in-left">
+        <h4 class="text-2xl font-semibold text-secondary mb-2">Our Mission</h4>
+        <p class="text-gray-700">
+          To empower brands and individuals through exceptional design and digital solutions that communicate value, drive engagement,
+          and leave lasting impressions.
+        </p>
+      </div>
+      <div class="bg-white p-6 rounded-md shadow-md animate-slide-in-right">
+        <h4 class="text-2xl font-semibold text-secondary mb-2">Our Vision</h4>
+        <p class="text-gray-700">
+          To be Africa’s leading digital design powerhouse recognized for creativity, innovation, and transformative visual storytelling.
+        </p>
+      </div>
+    </div>
+    <!-- Skills and Tools Section -->
+<div class="mt-20 text-center">
+  <h3 class="text-3xl md:text-4xl font-bold text-primary mb-6 animate-fade-in">Skills & Tools</h3>
+  <p class="text-gray-700 max-w-3xl mx-auto mb-10 animate-fade-in-up">
+    Sege Peter is a multi-disciplinary creative with a solid foundation in design and technology. His toolbox spans across top industry-standard tools and programming languages.
+  </p>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-left max-w-5xl mx-auto">
+    <!-- Design Tools -->
+    <div class="bg-white p-5 rounded-lg shadow animate-slide-in-left">
+      <h4 class="text-xl font-semibold text-secondary mb-2">Design Tools</h4>
+      <ul class="list-disc list-inside text-gray-700 space-y-1">
+        <li>Adobe Photoshop</li>
+        <li>Adobe Illustrator</li>
+        <li>Canva Pro</li>
+        <li>Figma</li>
+        <li>CapCut & VN Editor</li>
+      </ul>
+    </div>
+
+    <!-- Web Development -->
+    <div class="bg-white p-5 rounded-lg shadow animate-slide-in-right">
+      <h4 class="text-xl font-semibold text-secondary mb-2">Web Development</h4>
+      <ul class="list-disc list-inside text-gray-700 space-y-1">
+        <li>HTML5, CSS3, Tailwind CSS</li>
+        <li>JavaScript (ES6+)</li>
+        <li>PHP, MySQL</li>
+        <li>Git & GitHub</li>
+      </ul>
+    </div>
+
+    <!-- Programming & Analytics -->
+    <div class="bg-white p-5 rounded-lg shadow animate-slide-in-left">
+      <h4 class="text-xl font-semibold text-secondary mb-2">Programming & Tech</h4>
+      <ul class="list-disc list-inside text-gray-700 space-y-1">
+        <li>Python</li>
+        <li>Java</li>
+        <li>SQL Scripting</li>
+        <li>Power BI</li>
+        <li>Google Analytics</li>
+      </ul>
+    </div>
+
+    <!-- Social & Productivity -->
+    <div class="bg-white p-5 rounded-lg shadow animate-slide-in-right">
+      <h4 class="text-xl font-semibold text-secondary mb-2">Other Tools</h4>
+      <ul class="list-disc list-inside text-gray-700 space-y-1">
+        <li>Meta Business Suite</li>
+        <li>Hootsuite & Planners</li>
+        <li>Notion & Trello</li>
+        <li>MS Office & Google Docs</li>
+        <li>SEO & Page Speed Optimization</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
 
   <!-- FOOTER -->
   <footer class="bg-primary py-8 px-6">
@@ -177,7 +329,7 @@
 
   // Hero BG Slider
   const hero = document.getElementById('hero');
-  const images = ['cover1.png','cover2.png','image/sege-profile.png'];
+  const images = ['img/cover1.png','img/cover2.png','img/sege-profile.png'];
   let idx = 0;
 
   function changeBg() {

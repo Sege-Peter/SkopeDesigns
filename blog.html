@@ -82,7 +82,41 @@
 .hamburger-menu.open span:nth-child(3) {
   transform: translateY(-11px) rotate(-45deg);
 }
+.section-under-dev {
+  position: relative; /* Required for overlay positioning */
+  min-height: 300px; /* Adjust based on your section's size */
+}
 
+.dev-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 243, 205, 0.9); /* Semi-transparent yellow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it stays on top */
+  border: 2px dashed #ffc107; /* Optional: dashed border */
+  border-radius: 8px;
+}
+
+.dev-content {
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #856404;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.actual-content {
+  opacity: 0.3; /* Optional: Fade out existing content */
+  pointer-events: none; /* Prevents interaction */
+}
   </style>
 </head>
 
@@ -121,21 +155,22 @@
     <li><a href="shop.html">Shop</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
+<br>
+<br>
+<br>
 
-  <!-- HERO SECTION -->
-  <section id="hero" class="hero-slide h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center pt-[70px]">
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 animate-pulse-slow">
-      <span>Designing Brands.</span>
-      <span>Building Code.</span>
-      <span class="text-secondary">Beyond Boundaries.</span>
-    </h1>
-    <p class="text-lg md:text-xl mb-10 max-w-2xl">We create stunning digital experiences that elevate your brand.</p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="service.html" class="bg-secondary hover:bg-orange-600 px-8 py-3 rounded-full">Get Started</a>
-      <a href="portfolio.html" class="bg-primary hover:bg-cyan-600 px-8 py-3 rounded-full">View Portfolio</a>
-      <a href="contact.html" class="bg-white text-dark hover:bg-gray-200 px-8 py-3 rounded-full">Join Hub</a>
+ <div class="section-under-dev">
+  <div class="dev-overlay">
+    <div class="dev-content">
+      ⚠️ This section is under development. Coming soon!
     </div>
-  </section>
+  </div>
+  
+  <!-- Your existing content (hidden behind overlay) -->
+  <div class="actual-content">
+    <!-- Your section's normal content goes here -->
+  </div>
+</div>
 
   <!-- FOOTER -->
   <footer class="bg-primary py-8 px-6">
