@@ -1,200 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Now</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Skope Designs | Sege Peter | Designing Brands. Building Code. Beyond Boundaries.</title>
+  <meta name="description" content="Skope Designs is your creative partner for stunning graphic design, web development, and branding services in Kenya. Elevate your brand with our innovative visuals.">
+  <meta name="keywords" content="Skope Designs, graphic design Kenya, web design Kenya, branding, logo design, website development, social media design, Kenya designers">
+  <meta name="author" content="Skope Designs">
+
+  <!-- Open Graph (Facebook & LinkedIn) -->
+  <meta property="og:title" content="Skope Designs | Graphic & Web Design in Kenya">
+  <meta property="og:description" content="Elevate your brand with creative graphic design, professional websites, and branding solutions from Skope Designs, Kenya.">
+  <meta property="og:image" content="https://skopedesigns.co.ke/ceo sege.png">
+  <meta property="og:url" content="https://skopedesigns.co.ke/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Skope Designs | Graphic & Web Design in Kenya">
+  <meta name="twitter:description" content="Skope Designs offers creative graphic design, website development, and branding services in Kenya.">
+  <meta name="twitter:image" content="https://skopedesigns.co.ke/images/twitter-card.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="fav.ico" type="image/x-icon">
+
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Skope Designs—led by Sege Peter—crafts compelling digital experiences. Specializing in branding, responsive web design, and modern development with Tailwind, Java, Python, MySQL.">
+  <meta name="keywords" content="Skope Designs, Sege Peter, Branding, Web Developer, Tailwind CSS, UI/UX Design, Python Developer, Java Developer, MySQL">
+  <meta name="author" content="Sege Peter" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.skopedesigns.co.ke/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.skopedesigns.com/" />
+  <meta property="og:title" content="Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
+  <meta property="og:description" content="Explore Skope Designs—where design, development, and innovation meet." />
+  <meta property="og:image" content="https://www.skopedesigns.com/fav.ico" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
+  <meta name="twitter:description" content="Explore Skope Designs—where design, development, and innovation meet." />
+  <meta name="twitter:image" content="https://www.skopedesigns.com/fav.ico" />
+
+  <link rel="icon" href="fav.ico" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#06b6d4',
+            secondary: '#f97316',
+            dark: '#0f172a'
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s ease-in-out infinite'
+          }
         }
-        .container {
-            background: url('https://i.pinimg.com/236x/8e/66/a0/8e66a0c836fc244d436a5f78c702f235.jpg') no-repeat center center;
-            background-size: cover;
-            padding: 20px;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: 0 0 15px rgba(0, 188, 212, 0.6);
-            position: relative;
-            overflow: hidden;
-        }
-        .container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            z-index: 0;
-        }
-        .form-content {
-            position: relative;
-            z-index: 1;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #00bcd4;
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-        input, textarea, select {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            outline: none;
-        }
-        input::placeholder, textarea::placeholder {
-            color: #ddd;
-        }
-        button {
-            width: 48%;
-            padding: 12px;
-            border: none;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 10px;
-        }
-        .send-btn {
-            background: #00bcd4;
-        }
-        .send-btn:hover {
-            background: #0097a7;
-        }
-        .clear-btn {
-            background: #d32f2f;
-        }
-        .clear-btn:hover {
-            background: #b71c1c;
-        }
-        .button-group {
-            display: flex;
-            justify-content: space-between;
-        }
-        .alert {
-            padding: 10px;
-            text-align: center;
-            margin-top: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .success {
-            background: #4CAF50;
-        }
-        .error {
-            background: #D32F2F;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <style>
+    .hero-slide { background-size: cover; background-position: center; transition: background-image 1s ease-in-out; }
+    .hamburger, .menu-items { transition: all 0.3s ease; }
+    .menu-items { transform: translateX(100%); }
+    .menu-items.open { transform: translateX(0); }
+    .static-header { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #0f9d58; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; transition: all .3s; }
+    .static-header.scrolled { padding: .5rem 2rem; background-color: rgba(15,157,88,.95); backdrop-filter: blur(5px); }
+    .logo-img { height: 50px; transition: transform .3s; border-radius: 50px; border: 1.7px solid #f57c00; }
+    .logo-img:hover { transform: rotate(10deg); }
+    .hamburger-menu { position: relative; width: 30px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
+    .hamburger-menu span { display: block; height: 3px; width: 100%; background: white; border-radius: 3px; }
+    .hamburger-menu.open span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+    .hamburger-menu.open span:nth-child(2) { opacity: 0; }
+    .hamburger-menu.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+    .menu-items li { opacity: 0; transform: translateX(20px); transition: all .4s ease; }
+    .menu-items.open li { opacity: 1; transform: translateX(0); }
+    .menu-items a { display: block; padding: .6rem 1rem; color: white; text-decoration: none; border-radius: 6px; position: relative; margin-bottom: .5rem; }
+    .menu-items a:hover { background-color: rgba(255,255,255,0.1); transform: translateX(5px); }
+    .menu-items a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: rgba(245,123,0,0.22); transition: width .3s; }
+    .menu-items a:hover::before { width: 100%; }
+    .menu-items {
+  transition: transform 0.3s ease-in-out;
+}
+.menu-items.open {
+  transform: translateX(0);
+}
+.hamburger-menu span {
+  transition: all 0.3s;
+}
+.hamburger-menu.open span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+.hamburger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-menu.open span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+  </style>
 </head>
-<body>
 
-    <div class="container">
-        <div class="form-content">
-            <h2>Contact Us</h2>
-            <form action="https://formsubmit.co/el/confirm/16e7c60b8a2a135974a89c4bd4e12bed" method="POST" id="contactForm">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+<body class="bg-dark text-white font-sans overflow-x-hidden">
 
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+  <!-- HEADER -->
+  <header id="header" class="static-header bg-primary text-white px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="logo.png" alt="Skope Logo" class="logo-img" />
+      <div>
+        <span class="font-bold text-lg">SKOPE DESIGNS</span>
+        <span class="block text-xs italic">Design Beyond Boundaries</span>
+      </div>
+    </div>
+    <nav class="hidden md:flex gap-8">
+      <a href="index.html" class="hover:text-secondary">Home</a>
+      <a href="about.html" class="hover:text-secondary">About</a>
+      <a href="service.html" class="hover:text-secondary">Services</a>
+      <a href="portfolio.html" class="hover:text-secondary">Portfolio</a>
+      <a href="blog.html" class="hover:text-secondary">Blog</a>
+      <a href="shop.html" class="hover:text-secondary">Shop</a>
+      <a href="contact.html" class="hover:text-secondary">Contact</a>
+    </nav>
+    <div id="menu-btn" class="md:hidden hamburger-menu">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
 
-                <label for="phone">Phone Number</label>
-                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+  <!-- MOBILE MENU -->
+  <ul id="mobile-menu" class="menu-items fixed top-[70px] right-0 w-56 h-[calc(100%-70px)] bg-secondary bg-opacity-90 backdrop-blur-lg z-40 p-6 flex flex-col list-none">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
 
-                <label for="service">Select Service</label>
-                <select id="service" name="service" required>
-                    <option value="" disabled selected>Select a service</option>
-                    <option value="Logo Design">Logo Design</option>
-                    <option value="Graphic Design">Graphic Design</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="Social Media Management">Social Media Management</option>
-                    <option value="Other">Other</option>
-                </select>
+  <br>
+<section id="services" class="bg-white py-20 px-6 md:px-20">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl font-extrabold text-orange-600 mb-4 animate__animated animate__fadeInDown">Our Services</h2>
+    <p class="text-gray-600 text-lg animate__animated animate__fadeInUp">Empowering your brand with smart design, digital solutions, and creative storytelling.</p>
+  </div>
 
-                <!-- Dynamic Fields for Logo Design -->
-                <div id="logoDetails" class="hidden">
-                    <label for="logoStyle">Preferred Logo Style</label>
-                    <select id="logoStyle" name="logoStyle">
-                        <option value="Minimalist">Minimalist</option>
-                        <option value="3D">3D</option>
-                        <option value="Vintage">Vintage</option>
-                        <option value="Abstract">Abstract</option>
-                    </select>
-
-                    <label for="logoColor">Preferred Colors</label>
-                    <input type="text" id="logoColor" name="logoColor" placeholder="Enter preferred colors">
-                </div>
-
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" placeholder="Enter your message or more details" required></textarea>
-
-                <div class="button-group">
-                    <button type="submit" class="send-btn">Send Message</button>
-                    <button type="button" class="clear-btn" id="clearBtn">Clear</button>
-                </div>
-            </form>
-
-            <div id="responseMessage" class="alert" style="display: none;"></div>
-        </div>
+  <div class="grid gap-10 md:grid-cols-3 lg:grid-cols-3">
+    <!-- Service Card -->
+    <div class="bg-gradient-to-br from-cyan-100 to-blue-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500" data-aos="fade-up">
+      <div class="text-5xl text-blue-700 mb-4"><i class="fas fa-pencil-ruler"></i></div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Graphic Design</h3>
+      <p class="text-gray-600 mb-4">From logo design to social media creatives and branding materials — we craft visuals that connect.</p>
+      <a href="https://wa.me/254742380183?text=Hello%2C%20I%27m%20interested%20in%20your%20Graphic%20Design%20services.
+" class="inline-block bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 text-sm">Hire Us</a>
     </div>
 
-    <script>
-        function showMessage(message, type) {
-            let responseDiv = document.getElementById("responseMessage");
-            responseDiv.textContent = message;
-            responseDiv.className = "alert " + type;
-            responseDiv.style.display = "block";
-            setTimeout(() => responseDiv.style.display = "none", 3000);
+    <div class="bg-gradient-to-br from-orange-100 to-yellow-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500" data-aos="fade-up" data-aos-delay="100">
+      <div class="text-5xl text-yellow-600 mb-4"><i class="fas fa-code"></i></div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Web Design & Development</h3>
+      <p class="text-gray-600 mb-4">Responsive websites, blogs, portfolios, and systems — all SEO-ready and beautifully built.</p>
+      <a href="portfolio.html" class="inline-block bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 text-sm">View Projects</a>
+    </div>
+
+    <div class="bg-gradient-to-br from-green-100 to-lime-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500" data-aos="fade-up" data-aos-delay="200">
+      <div class="text-5xl text-green-600 mb-4"><i class="fas fa-bullhorn"></i></div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Social Media Marketing</h3>
+      <p class="text-gray-600 mb-4">We strategize and manage your digital presence — content plans, captions, engagement, and ads.</p>
+      <a href="https://wa.me/254742380183?text=Hello%2C%20I%27m%20interested%20in%20your%20Social%20Media%20Marketing%20services.
+" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 text-sm">Boost My Brand</a>
+    </div>
+
+    <div class="bg-gradient-to-br from-pink-100 to-purple-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500" data-aos="fade-up">
+      <div class="text-5xl text-pink-600 mb-4"><i class="fas fa-lightbulb"></i></div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Content Creation</h3>
+      <p class="text-gray-600 mb-4">Posters, reels, carousels, intros, digital flyers — content that sparks attention and conversions.</p>
+      <a href="portfolio.html" class="inline-block bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 text-sm">See Samples</a>
+    </div>
+
+    <div class="bg-gradient-to-br from-red-100 to-pink-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500" data-aos="fade-up" data-aos-delay="100">
+      <div class="text-5xl text-red-600 mb-4"><i class="fas fa-camera-retro"></i></div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Photography</h3>
+      <p class="text-gray-600 mb-4">Event coverage, portraits, product photography and editing for digital & print display.</p>
+      <a href="https://youtu.be/MPG--QQWuL4?si=7cBx37RUBD7TZb-G" class="inline-block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm">View Gallery</a>
+    </div>
+
+    <div class="bg-gradient-to-br from-indigo-100 to-blue-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500" data-aos="fade-up" data-aos-delay="200">
+      <div class="text-5xl text-indigo-600 mb-4"><i class="fas fa-video"></i></div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Videography</h3>
+      <p class="text-gray-600 mb-4">Professional filming, editing, reels, YouTube intros, promo clips, and motion graphics.</p>
+      <a href="https://wa.me/254742380183?text=Hello%2C%20I%27m%20requesting%20for%20your%20Videography%20services.
+" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 text-sm">Request Shoot</a>
+    </div>
+
+    <div class="bg-gradient-to-br from-yellow-100 to-orange-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500" data-aos="fade-up">
+      <div class="text-5xl text-orange-600 mb-4"><i class="fas fa-chart-line"></i></div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">SEO & Analytics</h3>
+      <p class="text-gray-600 mb-4">We help you rank, track performance, and use data-driven insights to grow online visibility.</p>
+      <a href="https://wa.me/254742380183?text=Hello%2C%20I%27m%20interested%20in%20your%20SEO%20and%20Analytics%20services.
+" class="inline-block bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 text-sm">Optimize Site</a>
+    </div>
+
+    <div class="bg-gradient-to-br from-gray-100 to-slate-200 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500" data-aos="fade-up" data-aos-delay="100">
+      <div class="text-5xl text-gray-700 mb-4"><i class="fas fa-id-badge"></i></div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Branding & Identity</h3>
+      <p class="text-gray-600 mb-4">We build brands from the ground up — visuals, messaging, mockups, colors, and brand books.</p>
+      <a href="#about" class="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 text-sm">Build My Brand</a>
+    </div>
+
+    <div class="bg-gradient-to-br from-blue-100 to-white p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500" data-aos="fade-up" data-aos-delay="200">
+      <div class="text-5xl text-blue-500 mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Training & Mentorship</h3>
+      <p class="text-gray-600 mb-4">Join our Free Design Learning Hub to grow your digital and creative skills with mentorship and real projects.</p>
+      <a href="https://chat.whatsapp.com/HBc25gQBosqD91ebi69REn" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">Join Free Training</a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="bg-gray-100 py-12">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-orange-700 mb-8">What Our Clients Say</h2>
+
+    <!-- Wrapper -->
+    <div id="testimonialWrapper" class="flex space-x-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6 md:space-x-0 no-scrollbar transition-all duration-500">
+      
+      <!-- Testimonial Card -->
+      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
+        <p class="text-gray-700 mb-4">"Working with Skope Designs on our website was transformative. Their attention to detail and modern design approach brought our vision to life."</p>
+        <h4 class="text-green-700 font-semibold">Hope Rekindled Initiative</h4>
+        <span class="text-yellow-500">★★★★★</span>
+      </div>
+
+      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
+        <p class="text-gray-700 mb-4">"Skope Designs gave our brand identity a complete makeover. From the logo to the brand guidelines, everything was crisp, creative, and meaningful."</p>
+        <h4 class="text-green-700 font-semibold">vincentmakori.co.ke</h4>
+        <span class="text-yellow-500">★★★★★</span>
+      </div>
+
+      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
+        <p class="text-gray-700 mb-4">"Their ability to combine storytelling with elegant visuals gave our NGO site the credibility and charm we needed to connect with donors."</p>
+        <h4 class="text-green-700 font-semibold">Light & Nature Foundation</h4>
+        <span class="text-yellow-500">★★★★★</span>
+      </div>
+
+      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
+        <p class="text-gray-700 mb-4">"The brand kit they created for our startup gave us a confident launch. Skope Designs delivers with excellence and creativity."</p>
+        <h4 class="text-green-700 font-semibold">Mama Bear</h4>
+        <span class="text-yellow-500">★★★★★</span>
+      </div>
+
+      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
+        <p class="text-gray-700 mb-4">"From logo animation to social media templates, they gave us everything we needed to stand out online."</p>
+        <h4 class="text-green-700 font-semibold">We Can Feed Us</h4>
+        <span class="text-yellow-500">★★★★★</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hide Scrollbar -->
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary py-8 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <img src="fav.ico" alt="Logo" class="h-14 w-14" />
+        <div>
+          <span class="font-bold text-lg">SKOPE DESIGNS</span>
+          <span class="block text-xs">Design Beyond Boundaries</span>
+        </div>
+      </div>
+      <div class="flex gap-6 text-xl text-white">
+        <a href="https://facebook.com/Skope" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/sege_peter79144" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
+        <a href="instagram.com" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i class="fab fa-pinterest"></i></a>
+        <a href="https://telegram.com" class="hover:text-secondary"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+      <div class="text-sm">&copy; <span id="year"></span> Skope Designs. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+   <script>
+  const btn = document.getElementById('menu-btn');
+  const mobile = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    mobile.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Animate header on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+
+
+  // Set year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+  <script>
+    const hero = document.getElementById('hero');
+    const images = ['cover1.png','cover2.png','sege-profile.png'];
+    let idx = 0;
+    function changeBg() {
+      idx = (idx + 1) % images.length;
+      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
+    }
+    hero.style.backgroundImage = `url(${images[0]})`;
+    setInterval(changeBg,6000);
+
+    const btn = document.getElementById('menu-btn');
+    const mobile = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      mobile.classList.toggle('open');
+      btn.classList.toggle('open');
+      document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
+    });
+
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+    });
+ /*SkopeAI*/
+<!-- Fix the script section -->
+<script>
+  const hero = document.getElementById('hero');
+  const images = ['img/cover1.png','img/cover2.png','img/sege-profile.png']; // Updated paths
+  let idx = 0;
+  
+  function changeBg() {
+    idx = (idx + 1) % images.length;
+    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
+  }
+  
+  // Set initial background with same style
+  hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
+  setInterval(changeBg, 6000);
+
+  // Mobile menu toggle
+  const btn = document.getElementById('menu-btn');
+  const mobile = document.getElementById('mobile-menu');
+  
+  btn.addEventListener('click', () => {
+    mobile.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
+    
+    // Animate menu items with staggered delay
+    const items = mobile.querySelectorAll('li');
+    if (mobile.classList.contains('open')) {
+      items.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+      });
+    } else {
+      items.forEach(item => {
+        item.style.transitionDelay = '0s';
+      });
+    }
+  });
+
+  // Set copyright year
+  document.getElementById('year').innerText = new Date().getFullYear();
+
+  // Scroll effect for header
+  window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+
+<!-- SkopeAI script - properly closed -->
+<script>
+  (function() {
+    if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+      window.chatbase = (...arguments) => {
+        if (!window.chatbase.q) { window.chatbase.q = [] }
+        window.chatbase.q.push(arguments)
+      };
+      window.chatbase = new Proxy(window.chatbase, {
+        get(target, prop) {
+          if (prop === "q") return target.q;
+          return (...args) => target(prop, ...args);
         }
-
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            showMessage("Your message has been sent!", "success");
-        });
-
-        // Clear button functionality
-        document.getElementById("clearBtn").addEventListener("click", function() {
-            document.getElementById("contactForm").reset();
-            document.getElementById("logoDetails").classList.add("hidden");
-        });
-
-        // Show extra fields when "Logo Design" is selected
-        document.getElementById("service").addEventListener("change", function() {
-            const logoDetails = document.getElementById("logoDetails");
-            if (this.value === "Logo Design") {
-                logoDetails.classList.remove("hidden");
-            } else {
-                logoDetails.classList.add("hidden");
-            }
-        });
-    </script>
-
+      });
+    }
+    const onLoad = function() {
+      const script = document.createElement("script");
+      script.src = "https://www.chatbase.co/embed.min.js";
+      script.id = "YCDDERnlEOB4ItW9207d_";
+      script.domain = "www.chatbase.co";
+      document.body.appendChild(script);
+    };
+    if (document.readyState === "complete") {
+      onLoad();
+    } else {
+      window.addEventListener("load", onLoad);
+    }
+  })();
+</script>
+  </script>
 </body>
 </html>
