@@ -158,19 +158,94 @@
 <br>
 <br>
 <br>
+<!-- Blog Section -->
+<section id="blog" class="py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-green-700 mb-12">Latest from Our Blog</h2>
 
- <div class="section-under-dev">
-  <div class="dev-overlay">
-    <div class="dev-content">
-      ⚠️ This section is under development. Coming soon!
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Blog Post 1 -->
+      <article class="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center text-orange-500 text-5xl mb-4">
+          <i class="fas fa-road"></i>
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 text-green-800">Stepping into the World of Skills</h3>
+        <p class="text-gray-600 mb-4">A Roadmap for Lifelong Learning by Sege Peter...</p>
+        <button onclick="openBlog(`Stepping into the World of Skills`, `This blog explores the steps to start your skill journey, how to stay consistent, and make learning part of your lifestyle. Written by Sege Peter, it’s your go-to resource for personal growth.`)" class="text-orange-500 font-medium hover:underline">Read More</button>
+      </article>
+
+      <!-- Blog Post 2 -->
+      <article class="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center text-orange-500 text-5xl mb-4">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 text-green-800">Learn Graphics</h3>
+        <p class="text-gray-600 mb-4">Master the skill of graphics design within weeks...</p>
+        <button onclick="openBlog(`Learn Graphics`, `Dive into graphics design essentials, tips, and techniques that can transform your creativity into a professional skill.`)" class="text-orange-500 font-medium hover:underline">Read More</button>
+      </article>
+
+      <!-- Blog Post 3 -->
+      <article class="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center text-orange-500 text-5xl mb-4">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 text-green-800">Secrets of Effective Logo Design</h3>
+        <p class="text-gray-600 mb-4">The core principles and creative process for powerful logos...</p>
+        <button onclick="openBlog(`Secrets of Effective Logo Design`, `Explore the science and art behind designing logos that stand out and leave a lasting impression.`)" class="text-orange-500 font-medium hover:underline">Read More</button>
+      </article>
+
+      <!-- Blog Post 4 -->
+      <article class="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center text-orange-500 text-5xl mb-4">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 text-green-800">Latest Design Tools in 2024</h3>
+        <p class="text-gray-600 mb-4">Discover the most powerful and improved tools for designers...</p>
+        <button onclick="openBlog(`Latest Design Tools in 2024`, `From AI-powered apps to advanced typography tools, this article covers the must-have resources for modern designers.`)" class="text-orange-500 font-medium hover:underline">Read More</button>
+      </article>
+
+      <!-- Blog Post 5: Importance of Chatbots -->
+      <article class="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center text-orange-500 text-5xl mb-4">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3 class="text-2xl font-semibold mb-2 text-green-800">The Importance of Chatbots on Websites</h3>
+        <p class="text-gray-600 mb-4">How chatbots improve user experience, increase sales, and save time...</p>
+        <button onclick="openBlog(`The Importance of Chatbots on Websites`, `In today’s fast-paced online environment, customers expect quick answers. Chatbots provide 24/7 customer support, reduce waiting times, and improve engagement. They can guide visitors through your services, answer common questions, and even help close sales. With AI-powered personalization, chatbots enhance user experience and free up human resources to handle complex inquiries. This makes them an essential tool for any modern business website.`)" class="text-orange-500 font-medium hover:underline">Read More</button>
+      </article>
+
     </div>
   </div>
-  
-  <!-- Your existing content (hidden behind overlay) -->
-  <div class="actual-content">
-    <!-- Your section's normal content goes here -->
+</section>
+
+<!-- Blog Modal -->
+<div id="blogModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-lg max-w-2xl w-full p-6 relative">
+    <button onclick="closeBlog()" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">
+      <i class="fas fa-times"></i>
+    </button>
+    <h2 id="blogTitle" class="text-3xl font-bold text-green-700 mb-4"></h2>
+    <p id="blogContent" class="text-gray-700 leading-relaxed"></p>
   </div>
 </div>
+
+<!-- Scripts -->
+<script>
+function openBlog(title, content) {
+  document.getElementById('blogTitle').innerText = title;
+  document.getElementById('blogContent').innerText = content;
+  document.getElementById('blogModal').classList.remove('hidden');
+  document.getElementById('blogModal').classList.add('flex');
+}
+function closeBlog() {
+  document.getElementById('blogModal').classList.add('hidden');
+  document.getElementById('blogModal').classList.remove('flex');
+}
+</script>
+
+<!-- Font Awesome CDN for Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <!-- FOOTER -->
   <footer class="bg-primary py-8 px-6">
@@ -209,19 +284,6 @@
   window.addEventListener('scroll', () => {
     document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
   });
-
-  // Hero BG Slider
-  const hero = document.getElementById('hero');
-  const images = ['cover1.png','cover2.png','image/sege-profile.png'];
-  let idx = 0;
-
-  function changeBg() {
-    idx = (idx + 1) % images.length;
-    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-  }
-
-  hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
-  setInterval(changeBg, 6000);
 
   // Set year
   document.getElementById('year').textContent = new Date().getFullYear();
