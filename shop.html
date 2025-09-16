@@ -12,7 +12,7 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://skopedesigns.co.ke/">
+    <meta property="og:url" content="https://skopedesigns.co.ke/shop.html">
     <meta property="og:title" content="Skope Sana | ShopSana - Best Laptops in Kenya">
     <meta property="og:description"
         content="Quality laptops and accessories in Kenya. Order via WhatsApp (0742380183).">
@@ -186,20 +186,19 @@
             cursor: pointer;
         }
 
-        .hamburger span {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-        }
-
+        /* show the three bars inside the hamburger */
         .hamburger span {
             height: 3px;
             background: var(--dark);
             border-radius: 3px;
             display: block;
+            width: 100%;
+        }
+
+        /* when we swap img to the fallback logo, apply monochrome style */
+        .img-fallback {
+            filter: grayscale(100%) contrast(0.9);
+            object-fit: contain;
         }
 
         .exit-btn {
@@ -618,18 +617,53 @@
         }
 
         /* Section Animations */
-        .animated-section {
+        /* promote animated elements to compositor layer, use GPU-friendly transform */
+        .animate-hidden {
             opacity: 0;
-            transform: translateY(20px);
-            animation: fade-in-up 1s forwards;
+            transform: translate3d(0, 20px, 0);
+            /* hint to browser: this element will animate transform/opacity */
+            will-change: transform, opacity;
+            backface-visibility: hidden;
         }
 
+        .animate-visible {
+            /* shorter, smoother animation; uses translate3d for compositor */
+            animation: fade-in-up 420ms cubic-bezier(.2, .8, .2, 1) forwards;
+            /* keep same compositor hint while animating */
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+        }
+
+        /* Use 3D translate in keyframes to stay on compositor thread */
         @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+
             to {
                 opacity: 1;
-                transform: translateY(0);
-                will-change: opacity, transform;
+                transform: translate3d(0, 0, 0);
             }
+        }
+
+        /* Promote frequently-transformed cards/images to their own layer */
+        /* prevents transform changes from forcing paint on ancestors with shadows/filters */
+        .product-card,
+        .sales-item,
+        .product-image img,
+        .logo,
+        .logo img {
+            will-change: transform;
+            backface-visibility: hidden;
+            /* small 3D hint to promote layer only when needed */
+            transform: translateZ(0);
+        }
+
+        /* also hint for hover image scale (keeps hover smooth) */
+        .product-image img {
+            transition: transform .45s;
+            /* the will-change above covers the transform hint; no extra paint-causing properties here */
         }
 
         /* Responsive */
@@ -847,7 +881,7 @@
                 </div>
                 <div class="sales-item" onclick="showPopup('Dell 7280', 'Ksh 21,000')">
                     <div class="sales-image"><img
-                            src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=500&q=80"
+                            src="(Refurbished) DELL LATITUDE 7280 (Core i7 6th GEN_ 8GB_ 256GB SSD_ WEBCAM_ 12_5'' NO TOUCH_ WIN-10 PRO).jpeg"
                             alt="Dell 7280"></div>
                     <div class="sales-info">
                         <div class="sales-product-name">Dell 7280 i7 6th Gen</div>
@@ -905,7 +939,7 @@
                 <article class="product-card" data-category="laptop" data-price="25500" data-rating="4.5" data-date="2023-06-15" data-name="HP 830 G5 i5 8th Gen">
                     <div class="product-image"><img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80" alt="HP 830 G5 Laptop"></div>
                     <div class="product-info">
-                        <div class="product-category">Laptop • Refurbished</div>
+                        <div class="product-category">Laptop • </div>
                         <h3 class="product-title">HP 830 G5 i5 8th Gen</h3>
                         <div class="product-specs">8GB RAM • 256GB SSD • 14" Display</div>
                         <div class="product-price"><span class="current-price">Ksh 25,500</span><span class="original-price">Ksh 28,500</span></div>
@@ -921,7 +955,7 @@
                 <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.7" data-date="2023-07-02" data-name="HP 840 G5 i5 8th Gen">
                     <div class="product-image"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80" alt="HP 840 G5 Laptop"></div>
                     <div class="product-info">
-                        <div class="product-category">Laptop • Refurbished</div>
+                        <div class="product-category">Laptop • </div>
                         <h3 class="product-title">HP 840 G5 i5 8th Gen</h3>
                         <div class="product-specs">8GB RAM • 256GB SSD • 14" Display</div>
                         <div class="product-price"><span class="current-price">Ksh 26,000</span><span class="original-price">Ksh 29,000</span></div>
@@ -937,7 +971,7 @@
                 <article class="product-card" data-category="laptop" data-price="17500" data-rating="4.2" data-date="2023-06-28" data-name="HP 840 G1 i5 4th Gen">
                     <div class="product-image"><img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80" alt="HP 840 G1 Laptop"></div>
                     <div class="product-info">
-                        <div class="product-category">Laptop • Refurbished</div>
+                        <div class="product-category">Laptop • </div>
                         <h3 class="product-title">HP 840 G1 i5 4th Gen</h3>
                         <div class="product-specs">8GB RAM • 500GB HDD • 14" Display</div>
                         <div class="product-price"><span class="current-price">Ksh 17,500</span><span class="original-price">Ksh 20,500</span></div>
@@ -951,9 +985,9 @@
 
                 <!-- Product: Dell 7280 -->
                 <article class="product-card" data-category="laptop" data-price="21000" data-rating="4.8" data-date="2023-07-10" data-name="Dell 7280 i7 6th Gen">
-                    <div class="product-image"><img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=500&q=80" alt="Dell 7280 Laptop"></div>
+                    <div class="product-image"><img src="(Refurbished) DELL LATITUDE 7280 (Core i7 6th GEN_ 8GB_ 256GB SSD_ WEBCAM_ 12_5'' NO TOUCH_ WIN-10 PRO).jpeg" alt="Dell 7280 Laptop"></div>
                     <div class="product-info">
-                        <div class="product-category">Laptop • Refurbished</div>
+                        <div class="product-category">Laptop •</div>
                         <h3 class="product-title">Dell 7280 i7 6th Gen</h3>
                         <div class="product-specs">8GB RAM • 256GB SSD • 12.5" Display</div>
                         <div class="product-price"><span class="current-price">Ksh 21,000</span><span class="original-price">Ksh 24,000</span></div>
@@ -983,7 +1017,7 @@
 
                 <!-- Product: HP SEALED LAPTOPS (prices increased by Ksh 3,000) -->
                 <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.5" data-date="2023-10-01" data-name="HP 840G6 i5 8TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840G6 i5"></div>
+                    <div class="product-image"><img src="HP 840G6 i5.png" alt="HP 840G6 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
                         <h3 class="product-title">HP 840G6 i5 8TH GEN 8/256GB</h3>
@@ -994,7 +1028,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="30999" data-rating="4.6" data-date="2023-10-01" data-name="HP 840G5 i7 8TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840G5 i7"></div>
+                    <div class="product-image"><img src="hp 840 g5.png" alt="HP 840G5 i7"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
                         <h3 class="product-title">HP 840G5 i7 8TH GEN 8/256GB</h3>
@@ -1005,7 +1039,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="37000" data-rating="4.7" data-date="2023-10-01" data-name="HP 840 G8 i5 11TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840 G8 i5"></div>
+                    <div class="product-image"><img src="HP 840 G8 i5.png" alt="HP 840 G8 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
                         <h3 class="product-title">HP 840 G8 i5 11TH GEN 8/256GB</h3>
@@ -1016,7 +1050,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="25500" data-rating="4.4" data-date="2023-10-01" data-name="HP 830 G6 i5 8THGEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 830 G6 i5"></div>
+                    <div class="product-image"><img src="HP 830 G6 i5.png" alt="HP 830 G6 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
                         <h3 class="product-title">HP 830 G6 i5 8TH GEN 8/256GB</h3>
@@ -1027,7 +1061,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="27000" data-rating="4.5" data-date="2023-10-01" data-name="HP 830 G6 i5 16/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 830 G6 16GB"></div>
+                    <div class="product-image"><img src="HP 830 G6 16GB.png" alt="HP 830 G6 16GB"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
                         <h3 class="product-title">HP 830 G6 i5 16/256GB</h3>
@@ -1038,7 +1072,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="25500" data-rating="4.4" data-date="2023-10-01" data-name="HP 830 G5 i5 8TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 830 G5 i5"></div>
+                    <div class="product-image"><img src="HP 830 G5 i5.png" alt="HP 830 G5 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
                         <h3 class="product-title">HP 830 G5 i5 8TH GEN 8/256GB</h3>
@@ -1049,7 +1083,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.4" data-date="2023-10-01" data-name="HP 840 G5 i5 8TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840 G5 i5 8th"></div>
+                    <div class="product-image"><img src="hp g5.png" alt="HP 840 G5 i5 8th"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
                         <h3 class="product-title">HP 840 G5 i5 8TH GEN 8/256GB</h3>
@@ -1060,7 +1094,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.3" data-date="2023-10-01" data-name="HP 840 G5 i5 7TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840 G5 i5 7th"></div>
+                    <div class="product-image"><img src="HP 840 G5 i5 7th.png" alt="HP 840 G5 i5 7th"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
                         <h3 class="product-title">HP 840 G5 i5 7TH GEN 8/256GB</h3>
@@ -1326,13 +1360,11 @@
                 const timeZone = 'Africa/Nairobi';
                 const now = new Date();
 
-                // Get hour in 24h format for timezone
                 const hourStr = new Intl.DateTimeFormat('en-GB', { timeZone, hour: '2-digit', hour12: false }).format(now);
                 const hour = parseInt(hourStr, 10);
 
-                // Get formatted weekday and time (12-hour)
                 const options = { timeZone, weekday: 'long', hour: 'numeric', minute: '2-digit', hour12: true };
-                const dayTime = now.toLocaleString('en-GB', options); // e.g. "Tuesday, 10:34 AM"
+                const dayTime = now.toLocaleString('en-GB', options);
 
                 let greet = 'Hello';
                 if (hour >= 5 && hour < 12) greet = 'Good morning';
@@ -1343,42 +1375,43 @@
                 const greetingEl = document.getElementById('greeting');
                 if (greetingEl) greetingEl.textContent = `${greet}! ${dayTime} EAT`;
             } catch (e) {
-                // Fallback
                 const greetingEl = document.getElementById('greeting');
                 if (greetingEl) greetingEl.textContent = 'Welcome!';
             }
         }
         updateGreeting();
-        // update every minute to keep time current
         setInterval(updateGreeting, 60 * 1000);
 
-        // Mobile menu toggle
+        // Mobile menu toggle (keeps focus accessible)
         (function setupMobileMenu() {
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
             const closeBtn = document.getElementById('close-menu');
-
             if (!hamburger || !mobileMenu) return;
 
             function openMenu() {
                 mobileMenu.classList.add('active');
                 mobileMenu.setAttribute('aria-hidden', 'false');
+                closeBtn && closeBtn.focus();
             }
             function closeMenu() {
                 mobileMenu.classList.remove('active');
                 mobileMenu.setAttribute('aria-hidden', 'true');
+                hamburger.focus();
             }
 
             hamburger.addEventListener('click', openMenu);
             if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-            // close when clicking outside menu on small screens
             document.addEventListener('click', (e) => {
                 if (!mobileMenu.classList.contains('active')) return;
                 const target = e.target;
-                if (!mobileMenu.contains(target) && !hamburger.contains(target)) {
-                    closeMenu();
-                }
+                if (!mobileMenu.contains(target) && !hamburger.contains(target)) closeMenu();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMenu();
+
             });
         })();
 
@@ -1397,25 +1430,26 @@
             });
         });
 
-        // Trigger animations when sections come into view
-        const observer = new IntersectionObserver((entries) => {
+        // Animate sections when they come into view
+        const io = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animated-section');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.remove('animate-hidden');
+                    entry.target.classList.add('animate-visible');
+                    io.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.animated-section').forEach(section => {
-            observer.observe(section);
+        }, { threshold: 0.12 });
+        // observe main sections
+        document.querySelectorAll('section').forEach(s => {
+            s.classList.add('animate-hidden');
+            io.observe(s);
         });
 
-        // Flash Sales Popup
+        // Flash Sales Popup (keeps behaviour)
         function showPopup(product, price) {
             const popup = document.getElementById('popup');
             if (!popup) {
-                // minimal inline popup creation if missing
                 const newPopup = document.createElement('div');
                 newPopup.id = 'popup';
                 newPopup.className = 'popup active';
@@ -1427,42 +1461,103 @@
             document.getElementById('popup-link').href = `https://wa.me/254742380183?text=I%20want%20to%20order%20${encodeURIComponent(product)}`;
             document.getElementById('popup').classList.add('active');
         }
-
         function closePopup() {
             const popup = document.getElementById('popup');
             if (popup) popup.classList.remove('active');
         }
-
-        // Expose to global (so onclick attributes still work)
         window.showPopup = showPopup;
         window.closePopup = closePopup;
 
-          const timerElement = document.getElementById('sales-timer');
-    const TEN_DAYS_MS = 10 * 24 * 60 * 60 * 1000; // 10 days in milliseconds
+        // Safe sales timer update
+        (function setupSalesTimer() {
+            const timerElement = document.getElementById('sales-timer');
+            if (!timerElement) return;
+            const TEN_DAYS_MS = 10 * 24 * 60 * 60 * 1000;
+            const cycleStart = new Date('2025-01-01T00:00:00').getTime();
+            function updateTimer() {
+                const now = Date.now();
+                const elapsed = (now - cycleStart) % TEN_DAYS_MS;
+                const remaining = TEN_DAYS_MS - elapsed;
+                const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+                timerElement.textContent =
+                    `${days.toString().padStart(2,'0')}:${hours.toString().padStart(2,'0')}:` +
+                    `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+            }
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        })();
 
-    function updateTimer() {
-        const now = new Date().getTime();
-        // Start the countdown cycle from a fixed epoch (e.g., Jan 1, 2025)
-        const cycleStart = new Date('2025-01-01T00:00:00').getTime();
-        const elapsed = (now - cycleStart) % TEN_DAYS_MS;
-        const remaining = TEN_DAYS_MS - elapsed;
+        // Image fallback: replace broken images with site's logo (monochrome applied)
+        (function setupImageFallbacks() {
+            const fallback = 'https://skopedesigns.co.ke/logo%20(7).png';
+            document.querySelectorAll('img').forEach(img => {
+                // if image already missing, attach onerror
+                img.addEventListener('error', function () {
+                    if (this.dataset.fallbackApplied) return;
+                    this.dataset.fallbackApplied = '1';
+                    this.classList.add('img-fallback');
+                    this.src = fallback;
+                });
+                // quick check: if no src or blank, apply fallback immediately
+                if (!img.getAttribute('src')) {
+                    img.dispatchEvent(new Event('error'));
+                }
+            });
+        })();
 
-        const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+        // Search & Sort for products
+        (function setupSearchAndSort() {
+            const grid = document.getElementById('products-grid');
+            const input = document.getElementById('search-input');
+            const select = document.getElementById('sort-select');
+            if (!grid) return;
 
-        timerElement.innerHTML = 
-            `${days.toString().padStart(2,'0')}:${hours.toString().padStart(2,'0')}:` +
-            `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-    }
+            function filterProducts(query) {
+                query = (query || '').trim().toLowerCase();
+                Array.from(grid.children).forEach(card => {
+                    if (!card.classList || !card.classList.contains('product-card')) {
+                        // allow accessory cards etc.
+                        card.style.display = '';
+                        return;
+                    }
+                    const name = (card.dataset.name || '').toLowerCase();
+                    const category = (card.dataset.category || '').toLowerCase();
+                    const specs = (card.querySelector('.product-specs') || { textContent: '' }).textContent.toLowerCase();
+                    const match = !query || name.includes(query) || category.includes(query) || specs.includes(query);
+                    card.style.display = match ? '' : 'none';
+                });
+            }
 
-    // Update every second
-    setInterval(updateTimer, 1000);
-    updateTimer(); // Initial call
+            function sortProducts(mode) {
+                const items = Array.from(grid.querySelectorAll('.product-card'));
+                const compareFns = {
+                    'name': (a, b) => (a.dataset.name || '').localeCompare(b.dataset.name || ''),
+                    'price-low': (a, b) => (parseInt(a.dataset.price || '0') - parseInt(b.dataset.price || '0')),
+                    'price-high': (a, b) => (parseInt(b.dataset.price || '0') - parseInt(a.dataset.price || '0')),
+                    'newest': (a, b) => (new Date(b.dataset.date || 0) - new Date(a.dataset.date || 0)),
+                    'rating': (a, b) => (parseFloat(b.dataset.rating || '0') - parseFloat(a.dataset.rating || '0')),
+                    'default': () => 0
+                };
+                const cmp = compareFns[mode] || compareFns['default'];
+                items.sort(cmp);
+                // append in order (this moves nodes)
+                items.forEach(i => grid.appendChild(i));
+            }
+
+            input && input.addEventListener('input', (e) => {
+                filterProducts(e.target.value);
+            });
+            select && select.addEventListener('change', (e) => {
+                sortProducts(e.target.value);
+            });
+        })();
+ 
     </script>
-
+ 
 </body>
-
+ 
 </html>
 
