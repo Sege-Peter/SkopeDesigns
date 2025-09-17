@@ -16,7 +16,8 @@
     <meta property="og:title" content="Skope Sana | ShopSana - Best Laptops in Kenya">
     <meta property="og:description"
         content="Quality laptops and accessories in Kenya. Order via WhatsApp (0742380183).">
-    <meta property="og:image" content="https://skopedesigns.co.ke/logo (7).png">
+    <!-- use embedded SVG fallback (guaranteed to exist) -->
+    <meta property="og:image" content="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -24,7 +25,7 @@
     <meta property="twitter:title" content="Skope Sana | ShopSana - Best Laptops in Kenya">
     <meta property="twitter:description"
         content="Quality laptops and accessories in Kenya. Order via WhatsApp (0742380183).">
-    <meta property="twitter:image" content="https://skopedesigns.co.ke/logo (7).png">
+    <meta property="twitter:image" content="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 
     <!-- Favicon -->
     <link rel="icon"
@@ -617,24 +618,25 @@
         }
 
         /* Section Animations */
-        /* promote animated elements to compositor layer, use GPU-friendly transform */
+        /* 
+           Animating transform and opacity together is GPU-accelerated and triggers only composite, not paint, 
+           when used with translate3d and will-change. 
+           This is the recommended pattern for performant fade-in-up animations.
+        */
         .animate-hidden {
             opacity: 0;
             transform: translate3d(0, 20px, 0);
-            /* hint to browser: this element will animate transform/opacity */
             will-change: transform, opacity;
             backface-visibility: hidden;
         }
 
         .animate-visible {
-            /* shorter, smoother animation; uses translate3d for compositor */
+            /* Animation is compositor-friendly: transform + opacity only */
             animation: fade-in-up 420ms cubic-bezier(.2, .8, .2, 1) forwards;
-            /* keep same compositor hint while animating */
             will-change: transform, opacity;
             backface-visibility: hidden;
         }
 
-        /* Use 3D translate in keyframes to stay on compositor thread */
         @keyframes fade-in-up {
             from {
                 opacity: 0;
@@ -647,8 +649,7 @@
             }
         }
 
-        /* Promote frequently-transformed cards/images to their own layer */
-        /* prevents transform changes from forcing paint on ancestors with shadows/filters */
+        /* Promote frequently-transformed cards/images to their own layer for smooth animation */
         .product-card,
         .sales-item,
         .product-image img,
@@ -656,14 +657,7 @@
         .logo img {
             will-change: transform;
             backface-visibility: hidden;
-            /* small 3D hint to promote layer only when needed */
             transform: translateZ(0);
-        }
-
-        /* also hint for hover image scale (keeps hover smooth) */
-        .product-image img {
-            transition: transform .45s;
-            /* the will-change above covers the transform hint; no extra paint-causing properties here */
         }
 
         /* Responsive */
@@ -697,6 +691,8 @@
 
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                /* ensure items flow correctly on very small viewports */
+                grid-auto-flow: row;
             }
         }
 
@@ -798,7 +794,8 @@
         <div class="header-main">
             <div class="container">
                 <div class="logo" aria-label="Skope Sana">
-                    <img src="logo (12).png" alt="Skope Sana Logo" class="logo-img">
+                    <!-- percent-encode local filename to avoid simple 404s -->
+                    <img src="logo%20(12).png" alt="Skope Sana Logo" class="logo-img">
                 </div>
 
                 <ul class="nav-menu">
@@ -906,7 +903,7 @@
     <!-- Sales Counter -->
     <section class="sales-counter" aria-hidden="false">
         <div class="container">
-            </div>
+            <!-- counter content can go here if needed -->
         </div>
     </section>
 
@@ -1419,6 +1416,14 @@
         document.querySelectorAll('button').forEach(b => { if (!b.hasAttribute('type')) b.setAttribute('type', 'button'); });
 
         // Smooth scroll for internal links
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+        })();
+
+        // Defensive: ensure all buttons have type attribute
+        document.querySelectorAll('button').forEach(b => { if (!b.hasAttribute('type')) b.setAttribute('type', 'button'); });
+
+        // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1490,18 +1495,34 @@
             setInterval(updateTimer, 1000);
         })();
 
-        // Image fallback: replace broken images with site's logo (monochrome applied)
+        // Image fallback: replace broken images with site's embedded SVG (monochrome applied)
         (function setupImageFallbacks() {
-            const fallback = 'https://skopedesigns.co.ke/logo%20(7).png';
+            // embedded SVG fallback - guaranteed to load, no external request
+            const fallback = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>';
             document.querySelectorAll('img').forEach(img => {
-                // if image already missing, attach onerror
+                // Defensive: if the raw src attribute contains spaces or parentheses, normalize it
+                const raw = img.getAttribute('src');
+                if (raw && !raw.startsWith('data:')) {
+                    // only replace common problem characters (space, parentheses) once
+                    if (/[ \(\)]/.test(raw)) {
+                        const safe = raw.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
+                        // set attribute to the safer encoded form (avoids some 404s)
+                        img.setAttribute('src', safe);
+                        // also set DOM src to ensure browser uses the new value
+                        try { img.src = safe; } catch (e) { /* ignore */ }
+                    }
+                }
+                // attach onerror to apply fallback when image cannot load
                 img.addEventListener('error', function () {
                     if (this.dataset.fallbackApplied) return;
                     this.dataset.fallbackApplied = '1';
+                    // clear srcset to avoid alternate broken sources
+                    if (this.hasAttribute('srcset')) this.removeAttribute('srcset');
                     this.classList.add('img-fallback');
                     this.src = fallback;
+                    this.alt = this.alt || 'Skope Sana logo';
                 });
-                // quick check: if no src or blank, apply fallback immediately
+                // if no src present, trigger the error handler to apply fallback immediately
                 if (!img.getAttribute('src')) {
                     img.dispatchEvent(new Event('error'));
                 }
