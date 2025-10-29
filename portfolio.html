@@ -4,37 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Skope Designs | Sege Peter | Designing Brands. Building Code. Beyond Boundaries.</title>
+
+  <title>Skope Designs | Portfolio by Sege Peter | Creative Web & Brand Designer in Kenya</title>
 
   <!-- SEO Meta -->
-  <meta name="description" content="Skope Designs—led by Sege Peter—crafts compelling digital experiences. Specializing in branding, responsive web design, and modern development with Tailwind, Java, Python, MySQL.">
-  <meta name="keywords" content="Skope Designs, Sege Peter, Branding, Web Developer, Tailwind CSS, UI/UX Design, Python Developer, Java Developer, MySQL">
+  <meta name="description" content="Explore the professional portfolio of Sege Peter at Skope Designs — where creativity meets technology. Specializing in branding, responsive web design, and modern full-stack development using Tailwind CSS, Java, Python, and MySQL.">
+  <meta name="keywords" content="Skope Designs, Sege Peter, Portfolio, Branding, Web Developer, UI/UX Design, Tailwind CSS, Python, Java, MySQL, Kenya, Graphic Design, Digital Agency">
   <meta name="author" content="Sege Peter" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.skopedesigns.co.ke/" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.skopedesigns.com/" />
-  <meta property="og:title" content="Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
-  <meta property="og:description" content="Explore Skope Designs—where design, development, and innovation meet." />
-  <meta property="og:image" content="https://www.skopedesigns.com/fav.ico" />
+  <meta property="og:url" content="https://www.skopedesigns.co.ke/" />
+  <meta property="og:title" content="Skope Designs | Portfolio by Sege Peter | Creative Web & Brand Designer in Kenya" />
+  <meta property="og:description" content="See creative works by Sege Peter — the founder of Skope Designs — delivering top-tier branding, web design, and software solutions." />
+  <meta property="og:image" content="ceo sege.png" />
+
+  <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
-  <meta name="twitter:description" content="Explore Skope Designs—where design, development, and innovation meet." />
-  <meta name="twitter:image" content="https://www.skopedesigns.com/fav.ico" />
+  <meta name="twitter:title" content="Skope Designs | Portfolio by Sege Peter | Creative Web & Brand Designer in Kenya" />
+  <meta name="twitter:description" content="See creative works by Sege Peter — the founder of Skope Designs — delivering top-tier branding, web design, and software solutions." />
+  <meta name="twitter:image" content="ceo sege.png" />
 
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
-     crossorigin="anonymous"></script>
-  
-  <link rel="icon" href="fav.ico" type="image/x-icon" />
+  <!-- Favicon -->
+  <link rel="icon" href="fav-logo.png" type="image/png" />
+
+  <!-- External Libraries -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Include TailwindCSS and AOS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-<script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654" crossorigin="anonymous"></script>
+
+  <!-- Tailwind Config -->
   <script>
     tailwind.config = {
       theme: {
@@ -62,7 +66,7 @@
     .logo-img { height: 50px; transition: transform .3s; border-radius: 50px; border: 1.7px solid #f57c00; }
     .logo-img:hover { transform: rotate(10deg); }
     .hamburger-menu { position: relative; width: 30px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
-    .hamburger-menu span { display: block; height: 3px; width: 100%; background: white; border-radius: 3px; }
+    .hamburger-menu span { display: block; height: 3px; width: 100%; background: white; border-radius: 3px; transition: all 0.3s; }
     .hamburger-menu.open span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
     .hamburger-menu.open span:nth-child(2) { opacity: 0; }
     .hamburger-menu.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
@@ -72,56 +76,22 @@
     .menu-items a:hover { background-color: rgba(255,255,255,0.1); transform: translateX(5px); }
     .menu-items a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: rgba(245,123,0,0.22); transition: width .3s; }
     .menu-items a:hover::before { width: 100%; }
-    .menu-items {
-  transition: transform 0.3s ease-in-out;
-}
-.menu-items.open {
-  transform: translateX(0);
-}
-.hamburger-menu span {
-  transition: all 0.3s;
-}
-.hamburger-menu.open span:nth-child(1) {
-  transform: translateY(11px) rotate(45deg);
-}
-.hamburger-menu.open span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger-menu.open span:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
-}
 
-  /* Custom scrollbar hide */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 767px) {
-    #projectContainer {
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-    
-    #projectContainer > div {
-      scroll-snap-align: start;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    #projectContainer > div {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-</style>
+    /* Hide scrollbar */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
+    /* Responsive scroll */
+    @media (max-width: 767px) {
+      #projectContainer { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+      #projectContainer > div { scroll-snap-align: start; }
+    }
+    @media (min-width: 768px) {
+      #projectContainer > div { height: 100%; display: flex; flex-direction: column; }
+    }
+  </style>
 </head>
+
 
 <body class="bg-dark text-white font-sans overflow-x-hidden">
 
@@ -203,19 +173,19 @@ const projects = [
   {
     name: "Judes CBO",
     description: "A community platform supporting social outreach, empowerment, and impact reporting.",
-    image: "judescbo.png",
+    image: "judescbo.jpeg",
     link: "https://judescbo.org"
   },
   {
     name: "Community-Led Solutions CBO",
     description: "A responsive CBO website promoting transparency, youth empowerment, and local action.",
-    image: "clscbo.png",
+    image: "clscbo.jpeg",
     link: "https://clscbo.netlify.app/"
   },
   {
     name: "Fortitude Transform CBO",
     description: "An engaging community site focused on empowerment, resilience, and sustainable growth.",
-    image: "fortitude.png",
+    image: "fortitude.jpeg",
     link: "https://fortitudetransformcbo.org"
   },
   {
@@ -606,6 +576,7 @@ const projects = [
   </script>
 </body>
 </html>
+
 
 
 
