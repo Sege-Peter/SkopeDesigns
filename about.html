@@ -7,22 +7,22 @@
   <title>About | Sege Peter | Designing Brands. Building Code. Beyond Boundaries.</title>
 
   <!-- SEO Meta -->
-  <meta name="description" content="Skope Designs—led by Sege Peter—crafts compelling digital experiences. Specializing in branding, responsive web design, and modern development with Tailwind, Java, Python, MySQL.">
-  <meta name="keywords" content="Skope Designs, Sege Peter, Branding, Web Developer, Tailwind CSS, UI/UX Design, Python Developer, Java Developer, MySQL">
+  <meta name="description" content="Meet Sege Peter, founder of Skope Designs - a visionary creative technologist crafting compelling digital experiences. Specializing in branding, responsive web design, and modern development with Tailwind, Java, Python, MySQL.">
+  <meta name="keywords" content="Skope Designs, Sege Peter, Branding, Web Developer, Tailwind CSS, UI/UX Design, Python Developer, Java Developer, MySQL, Kenya Web Designer">
   <meta name="author" content="Sege Peter" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.skopedesigns.com/" />
+  <link rel="canonical" href="https://www.skopedesigns.com/about" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.skopedesigns.com/" />
-  <meta property="og:title" content="Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
-  <meta property="og:description" content="Explore Skope Designs—where design, development, and innovation meet." />
-  <meta property="og:image" content="https://www.skopedesigns.com/fav.ico" />
+  <meta property="og:url" content="https://www.skopedesigns.com/about" />
+  <meta property="og:title" content="About Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
+  <meta property="og:description" content="Discover the story behind Skope Designs and meet Sege Peter - a creative technologist transforming ideas into impactful digital experiences." />
+  <meta property="og:image" content="https://www.skopedesigns.com/images/og-about.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
-  <meta name="twitter:description" content="Explore Skope Designs—where design, development, and innovation meet." />
-  <meta name="twitter:image" content="https://www.skopedesigns.com/fav.ico" />
+  <meta name="twitter:title" content="About Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
+  <meta name="twitter:description" content="Discover the story behind Skope Designs and meet Sege Peter - a creative technologist transforming ideas into impactful digital experiences." />
+  <meta name="twitter:image" content="https://www.skopedesigns.com/images/og-about.jpg" />
 
   <link rel="icon" href="fav.ico" type="image/x-icon" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
@@ -33,8 +33,27 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: { primary: '#06b6d4', secondary: '#f97316', dark: '#0f172a' },
-          animation: { 'pulse-slow': 'pulse 3s ease-in-out infinite' }
+          colors: { 
+            primary: '#06b6d4', 
+            secondary: '#f97316', 
+            dark: '#0f172a',
+            accent: '#8b5cf6'
+          },
+          keyframes: {
+            'fade-in': { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+            'fade-in-up': { '0%': { opacity: 0, transform: 'translateY(20px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            'slide-in-left': { '0%': { opacity: 0, transform: 'translateX(-50px)' }, '100%': { opacity: 1, transform: 'translateX(0)' } },
+            'slide-in-right': { '0%': { opacity: 0, transform: 'translateX(50px)' }, '100%': { opacity: 1, transform: 'translateX(0)' } },
+            'float': { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+          },
+          animation: {
+            'fade-in': 'fade-in 1s ease forwards',
+            'fade-in-up': 'fade-in-up 1s ease forwards',
+            'slide-in-left': 'slide-in-left 1s ease forwards',
+            'slide-in-right': 'slide-in-right 1s ease forwards',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+            'float': 'float 5s ease-in-out infinite'
+          }
         }
       }
     }
@@ -42,6 +61,82 @@
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  
+  <style>
+    .static-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      transition: all 0.3s ease;
+    }
+    
+    .static-header.scrolled {
+      background-color: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo-img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+    }
+    
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    
+    .hamburger-menu span {
+      width: 24px;
+      height: 2px;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .hamburger-menu.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger-menu.open span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger-menu.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .menu-items {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .menu-items.open {
+      transform: translateX(0);
+    }
+    
+    .menu-items li {
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.3s ease;
+    }
+    
+    .menu-items.open li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .animation-delay-300 {
+      animation-delay: 0.3s;
+    }
+    
+    .animation-delay-500 {
+      animation-delay: 0.5s;
+    }
+  </style>
 </head>
 <body class="bg-dark text-white font-sans overflow-x-hidden">
 
@@ -55,13 +150,13 @@
       </div>
     </div>
     <nav class="hidden md:flex gap-8">
-      <a href="index.html" class="hover:text-secondary">Home</a>
-      <a href="about.html" class="hover:text-secondary">About</a>
-      <a href="service.html" class="hover:text-secondary">Services</a>
-      <a href="portfolio.html" class="hover:text-secondary">Portfolio</a>
-      <a href="blog.html" class="hover:text-secondary">Blog</a>
-      <a href="shop.html" class="hover:text-secondary">Shop</a>
-      <a href="contact.html" class="hover:text-secondary">Contact</a>
+      <a href="index.html" class="hover:text-secondary transition-colors">Home</a>
+      <a href="about.html" class="text-secondary font-semibold">About</a>
+      <a href="service.html" class="hover:text-secondary transition-colors">Services</a>
+      <a href="portfolio.html" class="hover:text-secondary transition-colors">Portfolio</a>
+      <a href="blog.html" class="hover:text-secondary transition-colors">Blog</a>
+      <a href="shop.html" class="hover:text-secondary transition-colors">Shop</a>
+      <a href="contact.html" class="hover:text-secondary transition-colors">Contact</a>
     </nav>
     <div id="menu-btn" class="md:hidden hamburger-menu">
       <span></span><span></span><span></span>
@@ -70,52 +165,224 @@
 
   <!-- MOBILE MENU -->
   <ul id="mobile-menu" class="menu-items fixed top-[70px] right-0 w-56 h-[calc(100%-70px)] bg-secondary bg-opacity-90 backdrop-blur-lg z-40 p-6 flex flex-col list-none">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="service.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li class="py-2 border-b border-white/20"><a href="index.html" class="block hover:text-dark transition-colors">Home</a></li>
+    <li class="py-2 border-b border-white/20"><a href="about.html" class="block hover:text-dark transition-colors">About</a></li>
+    <li class="py-2 border-b border-white/20"><a href="service.html" class="block hover:text-dark transition-colors">Services</a></li>
+    <li class="py-2 border-b border-white/20"><a href="portfolio.html" class="block hover:text-dark transition-colors">Portfolio</a></li>
+    <li class="py-2 border-b border-white/20"><a href="blog.html" class="block hover:text-dark transition-colors">Blog</a></li>
+    <li class="py-2 border-b border-white/20"><a href="shop.html" class="block hover:text-dark transition-colors">Shop</a></li>
+    <li class="py-2"><a href="contact.html" class="block hover:text-dark transition-colors">Contact</a></li>
   </ul>
 
+  <!-- HERO SECTION -->
+  <section class="pt-32 pb-20 px-6 md:px-20 bg-gradient-to-br from-primary/10 to-dark relative overflow-hidden">
+    <div class="absolute top-10 right-10 w-40 h-40 rounded-full bg-secondary/10 animate-pulse-slow"></div>
+    <div class="absolute bottom-20 left-10 w-20 h-20 rounded-full bg-accent/10 animate-pulse-slow"></div>
+    
+    <div class="max-w-6xl mx-auto text-center relative z-10">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+        Crafting Digital <span class="text-primary">Experiences</span> That <span class="text-secondary">Inspire</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 animate-fade-in-up animation-delay-300">
+        Where creative vision meets technical excellence to build brands that stand out and perform
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-500">
+        <a href="#story" class="px-8 py-3 bg-primary text-white rounded-lg font-medium hover:bg-cyan-600 transition-colors shadow-lg">
+          Our Story
+        </a>
+        <a href="portfolio.html" class="px-8 py-3 bg-secondary text-white rounded-lg font-medium hover:bg-orange-600 transition-colors shadow-lg">
+          View Our Work
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT SECTION -->
-  <section id="about" class="bg-white text-orange py-16 px-4 md:px-20">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-orange-800 text-primary animate-fade-in">About Us</h2>
-      <p class="mt-4 text-lg text-gray-600 animate-fade-in-up">
-        Discover our story, vision, and the creative mind driving Skope Designs.
+  <section id="about" class="bg-white text-gray-800 py-20 px-6 md:px-20">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-primary animate-fade-in">About Us</h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up">
+        Discover the story, vision, and the creative mind driving Skope Designs - where innovation meets execution to deliver exceptional digital experiences.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-10 items-center">
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
       <!-- Image Slider -->
-      <div class="relative overflow-hidden rounded-lg shadow-lg animate-slide-in-left">
+      <div class="relative overflow-hidden rounded-2xl shadow-2xl animate-slide-in-left">
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="ceo sege.png" alt="Sege Peter" class="w-full object-cover" /></div>
-            <div class="swiper-slide"><img src="DSC_0237.jpg" alt="Sege Peter Speaking" class="w-full object-cover" /></div>
-            <div class="swiper-slide"><img src="sege1.jpg" alt="Sege Peter" class="w-full object-cover" /></div>
-            <div class="swiper-slide"><img src="sege2.jpg" alt="Sege Peter Speaking" class="w-full object-cover" /></div>
+            <div class="swiper-slide"><img src="ceo-sege.png" alt="Sege Peter - Founder & CEO of Skope Designs" class="w-full h-96 object-cover" /></div>
+            <div class="swiper-slide"><img src="DSC_0237.jpg" alt="Sege Peter Speaking at an Event" class="w-full h-96 object-cover" /></div>
+            <div class="swiper-slide"><img src="sege1.jpg" alt="Sege Peter - Creative Technologist" class="w-full h-96 object-cover" /></div>
+            <div class="swiper-slide"><img src="sege2.jpg" alt="Sege Peter Presenting Design Work" class="w-full h-96 object-cover" /></div>
           </div>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
 
       <!-- Bio Content -->
       <div class="animate-slide-in-right">
         <h3 class="text-2xl md:text-3xl font-semibold text-secondary mb-4">Meet Sege Peter</h3>
-        <p class="text-gray-700 leading-relaxed">
-          <strong>Sege Peter</strong> is a passionate and innovative <strong>Software Developer</strong> & <strong>Graphic Designer</strong>...
+        <p class="text-gray-700 leading-relaxed mb-4">
+          <strong>Sege Peter</strong> is a passionate and innovative <strong>Software Developer</strong> & <strong>Graphic Designer</strong> based in Kenya. As the Founder and CEO of <strong>Skope Designs</strong>, he blends creativity and technology to design brands and build digital experiences that inspire, engage, and perform.
         </p>
-        <a href="https://wa.me/254742380183?text=Hi%20Sege%2C%20I'm%20interested%20in%20your%20design%20services!" target="_blank"
-           class="mt-6 inline-block px-6 py-3 bg-secondary text-white rounded-md shadow hover:bg-orange-600 transition">
-          Hire Sege
-        </a>
+
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Sege's expertise spans <em>branding, UI/UX design, website development, digital marketing, and system integration</em>. His mission is to empower startups and organizations through visuals and code that inspire connection, growth, and lasting impact.
+        </p>
+
+        <p class="text-gray-700 leading-relaxed mb-6">
+          With over <strong>2 years of hands-on experience</strong> in the creative and tech industry, Sege has successfully delivered impactful solutions using <strong>React.js</strong>, <strong>Laravel</strong>, <strong>Tailwind CSS</strong>, <strong>Power BI</strong>, and <strong>MySQL</strong>. His projects help brands establish a strong online presence, improve engagement, and achieve measurable results.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="https://wa.me/254742380183?text=Hi%20Sege%2C%20I'm%20interested%20in%20your%20design%20services!" 
+             target="_blank"
+             class="px-6 py-3 bg-secondary text-white rounded-lg shadow hover:bg-orange-600 transition-colors font-medium">
+            <i class="fab fa-whatsapp mr-2"></i> Hire Sege
+          </a>
+
+          <a href="contact.html" 
+             class="px-6 py-3 bg-primary text-white rounded-lg shadow hover:bg-cyan-600 transition-colors font-medium">
+            <i class="fas fa-envelope mr-2"></i> Get Quote
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- Skills & Tools, Mission & Vision, About Skope Designs sections -->
-    <!-- ... include your existing sections here ... -->
+    <!-- Stats Section -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+      <div class="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-xl text-center shadow-md">
+        <div class="text-3xl font-bold text-primary mb-2">50+</div>
+        <div class="text-gray-600">Brands Designed</div>
+      </div>
+      <div class="bg-gradient-to-br from-secondary/10 to-secondary/5 p-6 rounded-xl text-center shadow-md">
+        <div class="text-3xl font-bold text-secondary mb-2">2+</div>
+        <div class="text-gray-600">Years Experience</div>
+      </div>
+      <div class="bg-gradient-to-br from-accent/10 to-accent/5 p-6 rounded-xl text-center shadow-md">
+        <div class="text-3xl font-bold text-accent mb-2">25+</div>
+        <div class="text-gray-600">Dev Projects</div>
+      </div>
+      <div class="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-xl text-center shadow-md">
+        <div class="text-3xl font-bold text-primary mb-2">75+</div>
+        <div class="text-gray-600">Happy Clients</div>
+      </div>
+    </div>
+
+    <!-- Skills & Tools -->
+    <div class="mb-20">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-semibold text-primary mb-4">Skills & Expertise</h3>
+        <p class="max-w-2xl mx-auto text-gray-600">
+          A comprehensive blend of creative and technical skills that power impactful digital experiences — from design to development, and data analytics.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+        <!-- Design Tools -->
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fab fa-html5 text-3xl text-orange-500 mb-2"></i>
+          HTML & CSS
+        </div>
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fab fa-js-square text-3xl text-yellow-500 mb-2"></i>
+          JavaScript
+        </div>
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fab fa-react text-3xl text-blue-500 mb-2"></i>
+          React.js
+        </div>
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fab fa-laravel text-3xl text-red-500 mb-2"></i>
+          Laravel (PHP)
+        </div>
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fab fa-python text-3xl text-blue-700 mb-2"></i>
+          Python
+        </div>
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fab fa-java text-3xl text-red-600 mb-2"></i>
+          Java
+        </div>
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fas fa-database text-3xl text-blue-600 mb-2"></i>
+          MySQL
+        </div>
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fas fa-chart-bar text-3xl text-yellow-600 mb-2"></i>
+          Power BI
+        </div>
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fab fa-figma text-3xl text-purple-600 mb-2"></i>
+          Figma
+        </div>
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fab fa-adobe text-3xl text-red-500 mb-2"></i>
+          Adobe Illustrator
+        </div>
+        <!-- Added Adobe Photoshop -->
+        <div class="bg-gradient-to-br from-white to-gray-100 text-dark rounded-xl py-6 px-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-medium flex flex-col items-center justify-center">
+          <i class="fab fa-adobe text-3xl text-blue-500 mb-2"></i>
+          Adobe Photoshop
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="grid md:grid-cols-2 gap-10 mb-20">
+      <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-2xl shadow-lg border border-primary/20">
+        <div class="flex items-center mb-4">
+          <div class="bg-primary text-white p-3 rounded-full mr-4">
+            <i class="fas fa-bullseye text-xl"></i>
+          </div>
+          <h4 class="text-2xl font-bold text-primary">Our Mission</h4>
+        </div>
+        <p class="text-gray-700 leading-relaxed">
+          To empower brands and individuals through creativity, innovation, and technology — crafting digital experiences that speak, connect, and inspire action. We transform ideas into impactful digital solutions that drive growth and create lasting impressions.
+        </p>
+      </div>
+      <div class="bg-gradient-to-br from-secondary/5 to-secondary/10 p-8 rounded-2xl shadow-lg border border-secondary/20">
+        <div class="flex items-center mb-4">
+          <div class="bg-secondary text-white p-3 rounded-full mr-4">
+            <i class="fas fa-eye text-xl"></i>
+          </div>
+          <h4 class="text-2xl font-bold text-secondary">Our Vision</h4>
+        </div>
+        <p class="text-gray-700 leading-relaxed">
+          To be Africa's leading creative technology brand — redefining design and development across the digital landscape. We envision a future where African creativity and innovation set global standards in digital experiences.
+        </p>
+      </div>
+    </div>
+
+    <!-- About Skope Designs -->
+    <div class="bg-gradient-to-br from-dark to-primary/10 p-10 rounded-2xl text-center text-white">
+      <h3 class="text-3xl font-semibold mb-6">About Skope Designs</h3>
+      <p class="text-gray-200 leading-relaxed max-w-4xl mx-auto mb-6">
+        <strong>Skope Designs</strong> is more than just a design studio — it's a creative hub where ideas come to life through strategy, aesthetics, and innovation. We specialize in <strong>branding, web design, content creation, and digital strategy</strong>, helping businesses build a memorable presence both online and offline.
+      </p>
+      <p class="text-gray-200 leading-relaxed max-w-4xl mx-auto">
+        Our approach combines artistic vision with technical precision to deliver solutions that not only look stunning but also perform exceptionally. We believe in creating digital experiences that resonate with audiences and drive meaningful results for our clients.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="py-16 px-6 md:px-20 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Digital Presence?</h3>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Let's collaborate to create something extraordinary that captures your vision and drives results.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="px-8 py-3 bg-white text-primary rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg">
+          Start Your Project
+        </a>
+        <a href="portfolio.html" class="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-bold hover:bg-white/10 transition-colors">
+          View Our Work
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -129,14 +396,14 @@
         </div>
       </div>
       <div class="flex gap-6 text-xl text-white">
-        <a href="https://web.facebook.com/engskope/" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://x.com/sege_peter79144" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
-        <a href="instagram.com" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i class="fab fa-pinterest"></i></a>
-        <a href="https://telegram.com" class="hover:text-secondary"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://web.facebook.com/engskope/" class="hover:text-secondary transition-colors"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/sege_peter79144" class="hover:text-secondary transition-colors"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/skopedesigns/" class="hover:text-secondary transition-colors"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary transition-colors"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary transition-colors"><i class="fab fa-pinterest"></i></a>
+        <a href="https://t.me/skopedesigns" class="hover:text-secondary transition-colors"><i class="fab fa-telegram-plane"></i></a>
       </div>
-      <div class="text-sm">&copy; <span id="year"></span> Skope Designs. All rights reserved.</div>
+      <div class="text-sm text-white">&copy; <span id="year"></span> Skope Designs. All rights reserved.</div>
     </div>
   </footer>
 
@@ -145,22 +412,12 @@
   <script>
     // Swiper initialization
     const swiper = new Swiper(".mySwiper", {
-      autoplay: { delay: 3000, disableOnInteraction: false },
-      loop: true
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      effect: 'fade',
+      fadeEffect: { crossFade: true }
     });
-
-    // Hero background slider
-    const hero = document.getElementById('hero');
-    const heroImages = ['img/cover1.png','img/cover2.png','img/sege-profile.png'];
-    let idx = 0;
-    function changeBg() {
-      if(hero) {
-        idx = (idx + 1) % heroImages.length;
-        hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${heroImages[idx]})`;
-      }
-    }
-    if(hero) hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${heroImages[0]})`;
-    setInterval(changeBg, 6000);
 
     // Mobile menu toggle
     const btn = document.getElementById('menu-btn');
@@ -176,11 +433,33 @@
 
     // Header scroll effect
     window.addEventListener('scroll', () => {
-      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+      const header = document.getElementById('header');
+      header.classList.toggle('scrolled', window.scrollY > 10);
     });
 
-    // Set copyright year
-    document.getElementById('year').innerText = new Date().getFullYear();
+    // Copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animation classes
+    document.querySelectorAll('.animate-fade-in, .animate-fade-in-up, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
   </script>
 
   <!-- Chatbase / SkopeAI -->
