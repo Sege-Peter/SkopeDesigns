@@ -60,8 +60,8 @@
     .hamburger, .menu-items { transition: all 0.3s ease; }
     .menu-items { transform: translateX(100%); }
     .menu-items.open { transform: translateX(0); }
-    .static-header { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #0f9d58; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; transition: all .3s; }
-    .static-header.scrolled { padding: .5rem 2rem; background-color: rgba(15,157,88,.95); backdrop-filter: blur(5px); }
+    .static-header { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #06b6d4; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; transition: all .3s; }
+    .static-header.scrolled { padding: .5rem 2rem; background-color: rgba(6, 182, 212, 0.95); backdrop-filter: blur(5px); }
     .logo-img { height: 50px; transition: transform .3s; border-radius: 50px; border: 1.7px solid #f57c00; }
     .logo-img:hover { transform: rotate(10deg); }
     .hamburger-menu { position: relative; width: 30px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
@@ -69,229 +69,239 @@
     .hamburger-menu.open span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
     .hamburger-menu.open span:nth-child(2) { opacity: 0; }
     .hamburger-menu.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+    .menu-items { 
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 250px;
+      background-color: #0f172a;
+      padding-top: 80px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .menu-items.open { transform: translateX(0); }
     .menu-items li { opacity: 0; transform: translateX(20px); transition: all .4s ease; }
     .menu-items.open li { opacity: 1; transform: translateX(0); }
     .menu-items a { display: block; padding: .6rem 1rem; color: white; text-decoration: none; border-radius: 6px; position: relative; margin-bottom: .5rem; }
     .menu-items a:hover { background-color: rgba(255,255,255,0.1); transform: translateX(5px); }
     .menu-items a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: rgba(245,123,0,0.22); transition: width .3s; }
     .menu-items a:hover::before { width: 100%; }
-    .menu-items {
-  transition: transform 0.3s ease-in-out;
-}
-.menu-items.open {
-  transform: translateX(0);
-}
-.hamburger-menu span {
-  transition: all 0.3s;
-}
-.hamburger-menu.open span:nth-child(1) {
-  transform: translateY(11px) rotate(45deg);
-}
-.hamburger-menu.open span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger-menu.open span:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
-}
+    .hamburger-menu span {
+      transition: all 0.3s;
+    }
+    .hamburger-menu.open span:nth-child(1) {
+      transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger-menu.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-menu.open span:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);
+    }
 
-/* Christmas Overlay Styles */
-.christmas-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  overflow: hidden;
-}
+    /* Christmas Overlay Styles */
+    .christmas-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
 
-.snowflake {
-  position: absolute;
-  top: -10px;
-  color: white;
-  font-size: 1em;
-  user-select: none;
-  pointer-events: none;
-  opacity: 0.8;
-}
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      color: white;
+      font-size: 1em;
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.8;
+    }
 
-@keyframes fall {
-  to {
-    transform: translateY(100vh) rotate(360deg);
-  }
-}
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
 
-.christmas-light {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px 2px;
-  animation: twinkle 2s infinite alternate;
-}
+    .christmas-light {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 2px;
+      animation: twinkle 2s infinite alternate;
+    }
 
-@keyframes twinkle {
-  0% { opacity: 0.3; }
-  100% { opacity: 1; }
-}
+    @keyframes twinkle {
+      0% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
 
-.christmas-greeting {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: #c41e3a;
-  font-family: 'Arial', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-  opacity: 0.8;
-  animation: pulse 3s infinite;
-}
+    .christmas-greeting {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #c41e3a;
+      font-family: 'Arial', sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+      opacity: 0.8;
+      animation: pulse 3s infinite;
+    }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
 
-.christmas-garland {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 30px;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #c41e3a,
-    #c41e3a 10px,
-    #228b22 10px,
-    #228b22 20px
-  );
-  opacity: 0.7;
-}
+    .christmas-garland {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background-image: repeating-linear-gradient(
+        45deg,
+        #c41e3a,
+        #c41e3a 10px,
+        #228b22 10px,
+        #228b22 20px
+      );
+      opacity: 0.7;
+    }
 
-/* Christmas tree in corner */
-.christmas-tree {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 80px;
-  height: 100px;
-  z-index: 9999;
-  pointer-events: none;
-}
+    /* Christmas tree in corner */
+    .christmas-tree {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 80px;
+      height: 100px;
+      z-index: 9999;
+      pointer-events: none;
+    }
 
-.tree-top {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 40px solid #228b22;
-  bottom: 60px;
-  left: 15px;
-}
+    .tree-top {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-bottom: 40px solid #228b22;
+      bottom: 60px;
+      left: 15px;
+    }
 
-.tree-middle {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 35px solid transparent;
-  border-right: 35px solid transparent;
-  border-bottom: 50px solid #1e7c1e;
-  bottom: 30px;
-  left: 5px;
-}
+    .tree-middle {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 35px solid transparent;
+      border-right: 35px solid transparent;
+      border-bottom: 50px solid #1e7c1e;
+      bottom: 30px;
+      left: 5px;
+    }
 
-.tree-bottom {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 45px solid transparent;
-  border-right: 45px solid transparent;
-  border-bottom: 60px solid #176917;
-  bottom: 0;
-  left: -5px;
-}
+    .tree-bottom {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 45px solid transparent;
+      border-right: 45px solid transparent;
+      border-bottom: 60px solid #176917;
+      bottom: 0;
+      left: -5px;
+    }
 
-.tree-trunk {
-  position: absolute;
-  width: 10px;
-  height: 20px;
-  background: #8B4513;
-  bottom: -20px;
-  left: 35px;
-}
+    .tree-trunk {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+      background: #8B4513;
+      bottom: -20px;
+      left: 35px;
+    }
 
-.tree-ornament {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #c41e3a;
-  box-shadow: 0 0 5px #c41e3a;
-  animation: twinkle 2s infinite alternate;
-}
+    .tree-ornament {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c41e3a;
+      box-shadow: 0 0 5px #c41e3a;
+      animation: twinkle 2s infinite alternate;
+    }
 
-.tree-star {
-  position: absolute;
-  color: gold;
-  font-size: 20px;
-  bottom: 100px;
-  left: 30px;
-  text-shadow: 0 0 10px gold;
-  animation: spin 4s linear infinite;
-}
+    .tree-star {
+      position: absolute;
+      color: gold;
+      font-size: 20px;
+      bottom: 100px;
+      left: 30px;
+      text-shadow: 0 0 10px gold;
+      animation: spin 4s linear infinite;
+    }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
-/* Christmas message banner */
-.christmas-banner {
-  position: fixed;
-  top: 80px;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(90deg, #c41e3a, #228b22, #c41e3a);
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-weight: bold;
-  z-index: 9998;
-  animation: bannerSlide 15s linear infinite;
-}
+    /* Christmas message banner */
+    .christmas-banner {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #c41e3a, #228b22, #c41e3a);
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-weight: bold;
+      z-index: 9998;
+      animation: bannerSlide 15s linear infinite;
+    }
 
-@keyframes bannerSlide {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
+    @keyframes bannerSlide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
 
-/* Close button for overlay */
-.close-overlay {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10000;
-  pointer-events: auto;
-  font-size: 20px;
-}
+    /* Close button for overlay */
+    .close-overlay {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10000;
+      pointer-events: auto;
+      font-size: 20px;
+    }
 
-.close-overlay:hover {
-  background: rgba(0,0,0,0.9);
-}
+    .close-overlay:hover {
+      background: rgba(0,0,0,0.9);
+    }
 
   </style>
 </head>
@@ -321,10 +331,19 @@
     </div>
   </header>
 
+  <!-- MOBILE MENU -->
+  <ul id="mobile-menu" class="menu-items fixed top-[70px] right-0 w-56 h-[calc(100%-70px)] bg-secondary bg-opacity-90 backdrop-blur-lg z-40 p-6 flex flex-col list-none">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
   <!-- CHRISTMAS OVERLAY -->
   <div id="christmasOverlay" class="christmas-overlay">
-    <div class="christmas-garland"></div>
-    <div class="christmas-greeting"></div>
     <div class="christmas-banner">🎄 Wishing you a joyful holiday season from Skope Designs! 🎁</div>
     
     <!-- Christmas tree -->
@@ -464,14 +483,24 @@
       });
     });
 
-    // Existing website functionality
+    // Hamburger menu functionality
     const btn = document.getElementById('menu-btn');
-    const mobile = document.getElementById('mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
 
     btn.addEventListener('click', () => {
-      mobile.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
       btn.classList.toggle('open');
-      document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = document.querySelectorAll('.menu-items a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        btn.classList.remove('open');
+        document.body.style.overflow = '';
+      });
     });
 
     // Animate header on scroll
