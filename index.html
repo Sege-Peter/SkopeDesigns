@@ -94,6 +94,205 @@
   transform: translateY(-11px) rotate(-45deg);
 }
 
+/* Christmas Overlay Styles */
+.christmas-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 1em;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+.christmas-light {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.christmas-greeting {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #c41e3a;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  opacity: 0.8;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.christmas-garland {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #c41e3a,
+    #c41e3a 10px,
+    #228b22 10px,
+    #228b22 20px
+  );
+  opacity: 0.7;
+}
+
+/* Christmas tree in corner */
+.christmas-tree {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 80px;
+  height: 100px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.tree-top {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 40px solid #228b22;
+  bottom: 60px;
+  left: 15px;
+}
+
+.tree-middle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 50px solid #1e7c1e;
+  bottom: 30px;
+  left: 5px;
+}
+
+.tree-bottom {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 60px solid #176917;
+  bottom: 0;
+  left: -5px;
+}
+
+.tree-trunk {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: #8B4513;
+  bottom: -20px;
+  left: 35px;
+}
+
+.tree-ornament {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c41e3a;
+  box-shadow: 0 0 5px #c41e3a;
+  animation: twinkle 2s infinite alternate;
+}
+
+.tree-star {
+  position: absolute;
+  color: gold;
+  font-size: 20px;
+  bottom: 100px;
+  left: 30px;
+  text-shadow: 0 0 10px gold;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Christmas message banner */
+.christmas-banner {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #c41e3a, #228b22, #c41e3a);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  z-index: 9998;
+  animation: bannerSlide 15s linear infinite;
+}
+
+@keyframes bannerSlide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Close button for overlay */
+.close-overlay {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+  pointer-events: auto;
+  font-size: 20px;
+}
+
+.close-overlay:hover {
+  background: rgba(0,0,0,0.9);
+}
+
   </style>
 </head>
 
@@ -122,16 +321,30 @@
     </div>
   </header>
 
-  <!-- MOBILE MENU -->
-  <ul id="mobile-menu" class="menu-items fixed top-[70px] right-0 w-56 h-[calc(100%-70px)] bg-secondary bg-opacity-90 backdrop-blur-lg z-40 p-6 flex flex-col list-none">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="service.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+  <!-- CHRISTMAS OVERLAY -->
+  <div id="christmasOverlay" class="christmas-overlay">
+    <div class="christmas-garland"></div>
+    <div class="christmas-greeting"></div>
+    <div class="christmas-banner">🎄 Wishing you a joyful holiday season from Skope Designs! 🎁</div>
+    
+    <!-- Christmas tree -->
+    <div class="christmas-tree">
+      <div class="tree-star">★</div>
+      <div class="tree-top"></div>
+      <div class="tree-middle"></div>
+      <div class="tree-bottom"></div>
+      <div class="tree-trunk"></div>
+      <!-- Ornaments -->
+      <div class="tree-ornament" style="top: 20px; left: 30px;"></div>
+      <div class="tree-ornament" style="top: 40px; left: 15px; background: gold;"></div>
+      <div class="tree-ornament" style="top: 40px; left: 45px; background: #1e90ff;"></div>
+      <div class="tree-ornament" style="top: 60px; left: 25px; background: white;"></div>
+      <div class="tree-ornament" style="top: 60px; left: 55px; background: gold;"></div>
+    </div>
+    
+    <!-- Close button -->
+    <button id="closeOverlay" class="close-overlay">×</button>
+  </div>
 
   <!-- HERO SECTION -->
   <section id="hero" class="hero-slide h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center pt-[70px]">
@@ -171,144 +384,147 @@
   </footer>
 
   <!-- SCRIPTS -->
-   <script>
-  const btn = document.getElementById('menu-btn');
-  const mobile = document.getElementById('mobile-menu');
-
-  btn.addEventListener('click', () => {
-    mobile.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-  });
-
-  // Animate header on scroll
-  window.addEventListener('scroll', () => {
-    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-  });
-
-  // Hero BG Slider
-  const hero = document.getElementById('hero');
-  const images = ['cover1.png','cover2.png','image/sege-profile.png'];
-  let idx = 0;
-
-  function changeBg() {
-    idx = (idx + 1) % images.length;
-    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-  }
-
-  hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
-  setInterval(changeBg, 6000);
-
-  // Set year
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
   <script>
-    const hero = document.getElementById('hero');
-    const images = ['cover1.png','cover2.png','sege-profile.png'];
-    let idx = 0;
-    function changeBg() {
-      idx = (idx + 1) % images.length;
-      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
+    // Create snowflakes
+    function createSnowflakes() {
+      const overlay = document.getElementById('christmasOverlay');
+      const snowflakeCount = 100;
+      
+      for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.innerHTML = '❄';
+        
+        // Random properties
+        const size = Math.random() * 1.5 + 0.5;
+        const startPosition = Math.random() * window.innerWidth;
+        const fallDuration = Math.random() * 10 + 10;
+        const delay = Math.random() * 5;
+        
+        // Apply styles
+        snowflake.style.left = `${startPosition}px`;
+        snowflake.style.fontSize = `${size}em`;
+        snowflake.style.animation = `fall ${fallDuration}s linear ${delay}s infinite`;
+        
+        overlay.appendChild(snowflake);
+      }
     }
-    hero.style.backgroundImage = `url(${images[0]})`;
-    setInterval(changeBg,6000);
+    
+    // Create Christmas lights
+    function createLights() {
+      const overlay = document.getElementById('christmasOverlay');
+      const lightCount = 30;
+      const colors = ['#c41e3a', '#228b22', '#ffd700', '#1e90ff', '#ff69b4'];
+      
+      for (let i = 0; i < lightCount; i++) {
+        const light = document.createElement('div');
+        light.className = 'christmas-light';
+        
+        // Random properties
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const top = Math.random() * 100;
+        const left = Math.random() * 100;
+        const animationDelay = Math.random() * 2;
+        
+        // Apply styles
+        light.style.backgroundColor = color;
+        light.style.boxShadow = `0 0 10px 2px ${color}`;
+        light.style.top = `${top}%`;
+        light.style.left = `${left}%`;
+        light.style.animationDelay = `${animationDelay}s`;
+        
+        overlay.appendChild(light);
+      }
+    }
+    
+    // Initialize the overlay
+    window.addEventListener('load', function() {
+      createSnowflakes();
+      createLights();
+      
+      // Close overlay functionality
+      document.getElementById('closeOverlay').addEventListener('click', function() {
+        document.getElementById('christmasOverlay').style.display = 'none';
+        
+        // Store in localStorage to remember user preference
+        localStorage.setItem('christmasOverlayClosed', 'true');
+      });
+      
+      // Check if user previously closed the overlay
+      if (localStorage.getItem('christmasOverlayClosed') === 'true') {
+        document.getElementById('christmasOverlay').style.display = 'none';
+      }
+    });
+    
+    // Adjust snowflake positions on window resize
+    window.addEventListener('resize', function() {
+      const snowflakes = document.querySelectorAll('.snowflake');
+      snowflakes.forEach(snowflake => {
+        snowflake.style.left = `${Math.random() * window.innerWidth}px`;
+      });
+    });
 
+    // Existing website functionality
     const btn = document.getElementById('menu-btn');
     const mobile = document.getElementById('mobile-menu');
+
     btn.addEventListener('click', () => {
       mobile.classList.toggle('open');
       btn.classList.toggle('open');
       document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
     });
 
-    document.getElementById('year').innerText = new Date().getFullYear();
-
+    // Animate header on scroll
     window.addEventListener('scroll', () => {
       document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
     });
- /*SkopeAI*/
-<!-- Fix the script section -->
-<script>
-  const hero = document.getElementById('hero');
-  const images = ['img/cover1.png','img/cover2.png','img/sege-profile.png']; // Updated paths
-  let idx = 0;
-  
-  function changeBg() {
-    idx = (idx + 1) % images.length;
-    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-  }
-  
-  // Set initial background with same style
-  hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
-  setInterval(changeBg, 6000);
 
-  // Mobile menu toggle
-  const btn = document.getElementById('menu-btn');
-  const mobile = document.getElementById('mobile-menu');
-  
-  btn.addEventListener('click', () => {
-    mobile.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-    
-    // Animate menu items with staggered delay
-    const items = mobile.querySelectorAll('li');
-    if (mobile.classList.contains('open')) {
-      items.forEach((item, index) => {
-        item.style.transitionDelay = `${index * 0.1}s`;
-      });
-    } else {
-      items.forEach(item => {
-        item.style.transitionDelay = '0s';
-      });
+    // Hero BG Slider
+    const hero = document.getElementById('hero');
+    const images = ['cover1.png','cover2.png','image/sege-profile.png'];
+    let idx = 0;
+
+    function changeBg() {
+      idx = (idx + 1) % images.length;
+      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
     }
-  });
 
-  // Set copyright year
-  document.getElementById('year').innerText = new Date().getFullYear();
+    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
+    setInterval(changeBg, 6000);
 
-  // Scroll effect for header
-  window.addEventListener('scroll', () => {
-    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-  });
-</script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
-<!-- SkopeAI script - properly closed -->
-<script>
-  (function() {
-    if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-      window.chatbase = (...arguments) => {
-        if (!window.chatbase.q) { window.chatbase.q = [] }
-        window.chatbase.q.push(arguments)
+  <!-- SkopeAI script - properly closed -->
+  <script>
+    (function() {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => {
+          if (!window.chatbase.q) { window.chatbase.q = [] }
+          window.chatbase.q.push(arguments)
+        };
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") return target.q;
+            return (...args) => target(prop, ...args);
+          }
+        });
+      }
+      const onLoad = function() {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "YCDDERnlEOB4ItW9207d_";
+        script.domain = "www.chatbase.co";
+        document.body.appendChild(script);
       };
-      window.chatbase = new Proxy(window.chatbase, {
-        get(target, prop) {
-          if (prop === "q") return target.q;
-          return (...args) => target(prop, ...args);
-        }
-      });
-    }
-    const onLoad = function() {
-      const script = document.createElement("script");
-      script.src = "https://www.chatbase.co/embed.min.js";
-      script.id = "YCDDERnlEOB4ItW9207d_";
-      script.domain = "www.chatbase.co";
-      document.body.appendChild(script);
-    };
-    if (document.readyState === "complete") {
-      onLoad();
-    } else {
-      window.addEventListener("load", onLoad);
-    }
-  })();
-</script>
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    })();
   </script>
   
 </body>
 </html>
-
-
-
-
-
