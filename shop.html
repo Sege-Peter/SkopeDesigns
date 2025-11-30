@@ -67,6 +67,9 @@
             --success: #28A745;
             --white: #FFFFFF;
             --black: #000000;
+            --christmas-red: #C41E3A;
+            --christmas-green: #228B22;
+            --christmas-gold: #FFD700;
         }
 
         * {
@@ -80,6 +83,183 @@
             color: var(--dark);
             background-color: var(--light);
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Christmas decorations */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1.2rem;
+            user-select: none;
+            z-index: 10000;
+            pointer-events: none;
+            animation: snowfall linear forwards;
+        }
+
+        @keyframes snowfall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .christmas-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, 
+                #ff0000, #ff8000, #ffff00, #80ff00, 
+                #00ff00, #00ff80, #00ffff, #0080ff, 
+                #0000ff, #8000ff, #ff00ff, #ff0080);
+            background-size: 200% 100%;
+            animation: lights 2s linear infinite;
+            z-index: 9999;
+        }
+
+        @keyframes lights {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .christmas-header {
+            background: linear-gradient(90deg, var(--christmas-red), var(--christmas-green));
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .christmas-header::before, .christmas-header::after {
+            content: "🎄";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+        }
+
+        .christmas-header::before {
+            left: 20px;
+        }
+
+        .christmas-header::after {
+            right: 20px;
+        }
+
+        .holiday-offer {
+            background: linear-gradient(135deg, var(--christmas-red), var(--christmas-green));
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .holiday-offer::before {
+            content: "🎁";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5rem;
+        }
+
+        .holiday-offer::after {
+            content: "🌟";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .holiday-offer h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .holiday-offer p {
+            margin-bottom: 10px;
+        }
+
+        .holiday-discount {
+            background-color: var(--christmas-gold);
+            color: var(--dark);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .festive-border {
+            border: 2px dashed var(--christmas-red);
+            position: relative;
+        }
+
+        .festive-border::before, .festive-border::after {
+            content: "❄️";
+            position: absolute;
+            font-size: 0.8rem;
+        }
+
+        .festive-border::before {
+            top: -10px;
+            left: -10px;
+        }
+
+        .festive-border::after {
+            bottom: -10px;
+            right: -10px;
+        }
+
+        .christmas-product-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--christmas-red);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .christmas-greeting {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--christmas-red), var(--christmas-green));
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 300px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .close-greeting {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
         }
 
         a {
@@ -267,6 +447,7 @@
             padding: 100px 0;
             text-align: center;
             color: #fff;
+            position: relative;
         }
 
         .hero-title {
@@ -355,6 +536,7 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
             color: var(--dark);
             transition: transform 0.3s;
+            position: relative;
         }
 
         .sales-item:hover {
@@ -529,6 +711,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, .04);
             transition: transform .25s;
+            position: relative;
         }
 
         .product-card:hover {
@@ -948,6 +1131,13 @@
                 align-items: flex-start;
                 gap: 10px;
             }
+
+            .christmas-greeting {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                max-width: none;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1011,6 +1201,16 @@
     </style>
 </head>
 <body>
+    <!-- Christmas decorations -->
+    <div class="christmas-lights"></div>
+    
+    <!-- Christmas header banner -->
+    <div class="christmas-header">
+        <div class="container">
+            🎄 Merry Christmas! Enjoy Special Holiday Offers on All Laptops 🎄
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="header-top">
@@ -1073,6 +1273,16 @@
         </div>
     </section>
 
+    <!-- Christmas Holiday Offer -->
+    <section class="container">
+        <div class="holiday-offer">
+            <h3>🎁 Christmas Special Offers 🎁</h3>
+            <p>Spread the holiday cheer with amazing discounts on our premium laptops!</p>
+            <div class="holiday-discount">UP TO 15% OFF SELECTED MODELS</div>
+            <p>Free delivery for orders above Ksh 25,000! Limited time offer.</p>
+        </div>
+    </section>
+
     <!-- Flash Sales -->
     <section class="flash-sales">
         <div class="container">
@@ -1082,14 +1292,16 @@
             </div>
 
             <div class="sales-items" aria-label="Flash sale items">
-                <div class="sales-item" onclick="showPopup('HP 830 G5', 'Ksh 25,500')">
+                <div class="sales-item festive-border" onclick="showPopup('HP 830 G5', 'Ksh 25,500')">
+                    <div class="christmas-product-tag">Christmas Deal</div>
                     <div class="sales-image"><img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80" alt="HP 830 G5"></div>
                     <div class="sales-info">
                         <div class="sales-product-name">HP 830 G5 i5 8th Gen</div>
                         <div class="sales-price"><span class="sales-current">Ksh 25,500</span><span class="sales-original">Ksh 28,500</span></div>
                     </div>
                 </div>
-                <div class="sales-item" onclick="showPopup('HP 840 G5', 'Ksh 26,000')">
+                <div class="sales-item festive-border" onclick="showPopup('HP 840 G5', 'Ksh 26,000')">
+                    <div class="christmas-product-tag">Christmas Deal</div>
                     <div class="sales-image"><img
                             src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80"
                             alt="HP 840 G5"></div>
@@ -1099,7 +1311,8 @@
                             class="sales-original">Ksh 29,000</span></div>
                     </div>
                 </div>
-                <div class="sales-item" onclick="showPopup('HP 840 G1', 'Ksh 17,500')">
+                <div class="sales-item festive-border" onclick="showPopup('HP 840 G1', 'Ksh 17,500')">
+                    <div class="christmas-product-tag">Christmas Deal</div>
                     <div class="sales-image"><img
                             src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80"
                             alt="HP 840 G1"></div>
@@ -1109,7 +1322,8 @@
                             class="sales-original">Ksh 20,500</span></div>
                     </div>
                 </div>
-                <div class="sales-item" onclick="showPopup('Dell 7280', 'Ksh 21,000')">
+                <div class="sales-item festive-border" onclick="showPopup('Dell 7280', 'Ksh 21,000')">
+                    <div class="christmas-product-tag">Christmas Deal</div>
                     <div class="sales-image"><img
                             src="(Refurbished) DELL LATITUDE 7280 (Core i7 6th GEN_ 8GB_ 256GB SSD_ WEBCAM_ 12_5'' NO TOUCH_ WIN-10 PRO).jpeg"
                             alt="Dell 7280"></div>
@@ -1119,7 +1333,8 @@
                             class="sales-original">Ksh 24,000</span></div>
                     </div>
                 </div>
-                <div class="sales-item" onclick="showPopup('Lenovo T460s', 'Ksh 19,500')">
+                <div class="sales-item festive-border" onclick="showPopup('Lenovo T460s', 'Ksh 19,500')">
+                    <div class="christmas-product-tag">Christmas Deal</div>
                     <div class="sales-image"><img
                             src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=500&q=80"
                             alt="Lenovo T460s"></div>
@@ -1184,6 +1399,7 @@
             <div id="products-grid" class="products-grid" aria-live="polite">
                 <!-- Product: HP 830 G5 -->
                 <article class="product-card" data-category="laptop" data-price="25500" data-rating="4.5" data-date="2023-06-15" data-name="HP 830 G5 i5 8th Gen">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80" alt="HP 830 G5 Laptop"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • </div>
@@ -1200,6 +1416,7 @@
 
                 <!-- Product: HP 840 G5 -->
                 <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.7" data-date="2023-07-02" data-name="HP 840 G5 i5 8th Gen">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80" alt="HP 840 G5 Laptop"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • </div>
@@ -1216,6 +1433,7 @@
 
                 <!-- Product: HP 840 G1 -->
                 <article class="product-card" data-category="laptop" data-price="17500" data-rating="4.2" data-date="2023-06-28" data-name="HP 840 G1 i5 4th Gen">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80" alt="HP 840 G1 Laptop"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • </div>
@@ -1232,6 +1450,7 @@
 
                 <!-- Product: Dell 7280 -->
                 <article class="product-card" data-category="laptop" data-price="21000" data-rating="4.8" data-date="2023-07-10" data-name="Dell 7280 i7 6th Gen">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="(Refurbished) DELL LATITUDE 7280 (Core i7 6th GEN_ 8GB_ 256GB SSD_ WEBCAM_ 12_5'' NO TOUCH_ WIN-10 PRO).jpeg" alt="Dell 7280 Laptop"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop •</div>
@@ -1248,6 +1467,7 @@
 
                 <!-- Product: Lenovo T460s -->
                 <article class="product-card" data-category="laptop" data-price="19500" data-rating="4.3" data-date="2023-07-05" data-name="Lenovo T460s i5 6th Gen">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=500&q=80" alt="Lenovo T460s"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Refurbished</div>
@@ -1264,6 +1484,7 @@
 
                 <!-- Product: HP SEALED LAPTOPS (prices increased by Ksh 3,000) -->
                 <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.5" data-date="2023-10-01" data-name="HP 840G6 i5 8TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="HP 840G6 i5.png" alt="HP 840G6 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1275,6 +1496,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="30999" data-rating="4.6" data-date="2023-10-01" data-name="HP 840G5 i7 8TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="hp 840 g5.png" alt="HP 840G5 i7"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1286,6 +1508,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="37000" data-rating="4.7" data-date="2023-10-01" data-name="HP 840 G8 i5 11TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="HP 840 G8 i5.png" alt="HP 840 G8 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1297,6 +1520,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="25500" data-rating="4.4" data-date="2023-10-01" data-name="HP 830 G6 i5 8THGEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="HP 830 G6 i5.png" alt="HP 830 G6 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1308,6 +1532,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="27000" data-rating="4.5" data-date="2023-10-01" data-name="HP 830 G6 i5 16/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="HP 830 G6 16GB.png" alt="HP 830 G6 16GB"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1319,6 +1544,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="25500" data-rating="4.4" data-date="2023-10-01" data-name="HP 830 G5 i5 8TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="HP 830 G5 i5.png" alt="HP 830 G5 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1330,6 +1556,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.4" data-date="2023-10-01" data-name="HP 840 G5 i5 8TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="hp g5.png" alt="HP 840 G5 i5 8th"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1341,6 +1568,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.3" data-date="2023-10-01" data-name="HP 840 G5 i5 7TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="HP 840 G5 i5 7th.png" alt="HP 840 G5 i5 7th"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1352,6 +1580,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="18000" data-rating="4.0" data-date="2023-10-01" data-name="HP 840 G2 i5 5TH GEN 8/500GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840 G2 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1363,6 +1592,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="32000" data-rating="4.7" data-date="2023-10-01" data-name="HP 840 G5 i7 16/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840 G5 i7 16GB"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1374,6 +1604,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="27000" data-rating="4.5" data-date="2023-10-01" data-name="HP 840 G5 i5 16/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840 G5 i5 16GB"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1385,6 +1616,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="28000" data-rating="4.4" data-date="2023-10-01" data-name="HP TOUCH 840 G5 i5 7TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP TOUCH 840 G5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed • Touch</div>
@@ -1396,6 +1628,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="32000" data-rating="4.6" data-date="2023-10-01" data-name="LENOVO T14 THINKPAD GEN21 I5 11th 16/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="Lenovo T14 Gen21"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1407,6 +1640,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="21000" data-rating="4.5" data-date="2023-10-01" data-name="DELL 7280 i7 7TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="DELL 7280 i7"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1418,6 +1652,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="29999" data-rating="4.5" data-date="2023-10-01" data-name="HP TOUCH 1030G2 i5 7TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP TOUCH 1030G2"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed • Touch</div>
@@ -1429,6 +1664,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="28000" data-rating="4.6" data-date="2023-10-01" data-name="DELL 7400 i7 8TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="DELL 7400 i7"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1440,6 +1676,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="23000" data-rating="4.4" data-date="2023-10-01" data-name="Dell E5470 i7 8/256SSD">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="Dell E5470 i7"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Sealed</div>
@@ -1452,6 +1689,7 @@
 
                 <!-- Added: NON SEALED LAPTOPS (prices as provided) -->
                 <article class="product-card" data-category="laptop" data-price="17999" data-rating="4.2" data-date="2023-10-01" data-name="HP 820G3 i7 6THGEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 820G3 i7"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Non-sealed</div>
@@ -1463,6 +1701,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="17999" data-rating="4.2" data-date="2023-10-01" data-name="HP 440G3 i7 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 440G3 i7"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Non-sealed</div>
@@ -1474,6 +1713,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="34000" data-rating="4.6" data-date="2023-10-01" data-name="HP 430G7 i5 16/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 430G7 i5"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Non-sealed</div>
@@ -1485,6 +1725,7 @@
                 </article>
 
                 <article class="product-card" data-category="laptop" data-price="18999" data-rating="4.3" data-date="2023-10-01" data-name="HP 840G3 i7 6TH GEN 8/256GB">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840G3 i7"></div>
                     <div class="product-info">
                         <div class="product-category">Laptop • Non-sealed</div>
@@ -1508,6 +1749,7 @@
 
                 <!-- 14" Screens -->
                 <div class="product-card">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1587825140708-64f0fba05c9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Slim 40 Touch 14in">
                     </div>
@@ -1524,6 +1766,7 @@
                 </div>
 
                 <div class="product-card">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Slim 32 Pin Touch 14in">
                     </div>
@@ -1541,6 +1784,7 @@
 
                 <!-- 15.6" Screens -->
                 <div class="product-card">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1587825140744-0a73f6a7c7b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Slim 40 Pin 15.6in">
                     </div>
@@ -1558,6 +1802,7 @@
 
                 <!-- 13.3" Screens -->
                 <div class="product-card">
+                    <div class="christmas-product-tag">Holiday Special</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1587825140790-2d2f74b0f4c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Slim 30 Top/Side Brackets 13.3in">
                     </div>
@@ -1650,6 +1895,14 @@
     <!-- Back to top button -->
     <div class="back-to-top" id="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Christmas Greeting -->
+    <div class="christmas-greeting" id="christmas-greeting">
+        <button class="close-greeting" onclick="closeGreeting()">&times;</button>
+        <h3>🎄 Merry Christmas! 🎄</h3>
+        <p>Enjoy special holiday discounts on all laptops and accessories. Limited time offer!</p>
+        <a href="#products" class="order-btn" style="margin-top: 10px;">Shop Now</a>
     </div>
 
     <!-- Popup -->
@@ -1971,6 +2224,48 @@
             });
         });
 
+        // Christmas snow effect
+        function createSnowflakes() {
+            const snowflakeContainer = document.createElement('div');
+            snowflakeContainer.style.position = 'fixed';
+            snowflakeContainer.style.top = '0';
+            snowflakeContainer.style.left = '0';
+            snowflakeContainer.style.width = '100%';
+            snowflakeContainer.style.height = '100%';
+            snowflakeContainer.style.pointerEvents = 'none';
+            snowflakeContainer.style.zIndex = '10000';
+            document.body.appendChild(snowflakeContainer);
+
+            const snowflakes = ['❄️', '❅', '❆', '•'];
+            
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                
+                snowflakeContainer.appendChild(snowflake);
+                
+                setTimeout(() => {
+                    snowflake.remove();
+                }, 5000);
+            }
+            
+            // Create snowflakes at intervals
+            setInterval(createSnowflake, 100);
+        }
+
+        // Close Christmas greeting
+        function closeGreeting() {
+            const greeting = document.getElementById('christmas-greeting');
+            if (greeting) {
+                greeting.style.display = 'none';
+            }
+        }
+
         // Initialize all functionality when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             updateGreeting();
@@ -1981,6 +2276,12 @@
             setupBackToTop();
             animateCounters();
             setupProductPreview();
+            
+            // Only create Christmas effects in December
+            const currentMonth = new Date().getMonth();
+            if (currentMonth === 11) { // December is month 11 (0-indexed)
+                createSnowflakes();
+            }
         });
     </script>
 </body>
