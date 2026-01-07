@@ -342,29 +342,6 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
 
-  <!-- CHRISTMAS OVERLAY -->
-  <div id="christmasOverlay" class="christmas-overlay">
-    <div class="christmas-banner">🎄 Wishing you a joyful holiday season from Skope Designs! 🎁</div>
-    
-    <!-- Christmas tree -->
-    <div class="christmas-tree">
-      <div class="tree-star">★</div>
-      <div class="tree-top"></div>
-      <div class="tree-middle"></div>
-      <div class="tree-bottom"></div>
-      <div class="tree-trunk"></div>
-      <!-- Ornaments -->
-      <div class="tree-ornament" style="top: 20px; left: 30px;"></div>
-      <div class="tree-ornament" style="top: 40px; left: 15px; background: gold;"></div>
-      <div class="tree-ornament" style="top: 40px; left: 45px; background: #1e90ff;"></div>
-      <div class="tree-ornament" style="top: 60px; left: 25px; background: white;"></div>
-      <div class="tree-ornament" style="top: 60px; left: 55px; background: gold;"></div>
-    </div>
-    
-    <!-- Close button -->
-    <button id="closeOverlay" class="close-overlay">×</button>
-  </div>
-
   <!-- HERO SECTION -->
   <section id="hero" class="hero-slide h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center pt-[70px]">
     <h1 class="text-4xl md:text-6xl font-extrabold mb-6 animate-pulse-slow">
@@ -404,41 +381,7 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Create snowflakes
-    function createSnowflakes() {
-      const overlay = document.getElementById('christmasOverlay');
-      const snowflakeCount = 100;
-      
-      for (let i = 0; i < snowflakeCount; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.innerHTML = '❄';
-        
-        // Random properties
-        const size = Math.random() * 1.5 + 0.5;
-        const startPosition = Math.random() * window.innerWidth;
-        const fallDuration = Math.random() * 10 + 10;
-        const delay = Math.random() * 5;
-        
-        // Apply styles
-        snowflake.style.left = `${startPosition}px`;
-        snowflake.style.fontSize = `${size}em`;
-        snowflake.style.animation = `fall ${fallDuration}s linear ${delay}s infinite`;
-        
-        overlay.appendChild(snowflake);
-      }
-    }
-    
-    // Create Christmas lights
-    function createLights() {
-      const overlay = document.getElementById('christmasOverlay');
-      const lightCount = 30;
-      const colors = ['#c41e3a', '#228b22', '#ffd700', '#1e90ff', '#ff69b4'];
-      
-      for (let i = 0; i < lightCount; i++) {
-        const light = document.createElement('div');
-        light.className = 'christmas-light';
-        
+   
         // Random properties
         const color = colors[Math.floor(Math.random() * colors.length)];
         const top = Math.random() * 100;
@@ -557,3 +500,4 @@
   
 </body>
 </html>
+
