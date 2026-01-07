@@ -104,204 +104,7 @@
       transform: translateY(-11px) rotate(-45deg);
     }
 
-    /* Christmas Overlay Styles */
-    .christmas-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-      overflow: hidden;
-    }
 
-    .snowflake {
-      position: absolute;
-      top: -10px;
-      color: white;
-      font-size: 1em;
-      user-select: none;
-      pointer-events: none;
-      opacity: 0.8;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh) rotate(360deg);
-      }
-    }
-
-    .christmas-light {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px 2px;
-      animation: twinkle 2s infinite alternate;
-    }
-
-    @keyframes twinkle {
-      0% { opacity: 0.3; }
-      100% { opacity: 1; }
-    }
-
-    .christmas-greeting {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: #c41e3a;
-      font-family: 'Arial', sans-serif;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-      opacity: 0.8;
-      animation: pulse 3s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    .christmas-garland {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 30px;
-      background-image: repeating-linear-gradient(
-        45deg,
-        #c41e3a,
-        #c41e3a 10px,
-        #228b22 10px,
-        #228b22 20px
-      );
-      opacity: 0.7;
-    }
-
-    /* Christmas tree in corner */
-    .christmas-tree {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      width: 80px;
-      height: 100px;
-      z-index: 9999;
-      pointer-events: none;
-    }
-
-    .tree-top {
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-left: 25px solid transparent;
-      border-right: 25px solid transparent;
-      border-bottom: 40px solid #228b22;
-      bottom: 60px;
-      left: 15px;
-    }
-
-    .tree-middle {
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-left: 35px solid transparent;
-      border-right: 35px solid transparent;
-      border-bottom: 50px solid #1e7c1e;
-      bottom: 30px;
-      left: 5px;
-    }
-
-    .tree-bottom {
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-left: 45px solid transparent;
-      border-right: 45px solid transparent;
-      border-bottom: 60px solid #176917;
-      bottom: 0;
-      left: -5px;
-    }
-
-    .tree-trunk {
-      position: absolute;
-      width: 10px;
-      height: 20px;
-      background: #8B4513;
-      bottom: -20px;
-      left: 35px;
-    }
-
-    .tree-ornament {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #c41e3a;
-      box-shadow: 0 0 5px #c41e3a;
-      animation: twinkle 2s infinite alternate;
-    }
-
-    .tree-star {
-      position: absolute;
-      color: gold;
-      font-size: 20px;
-      bottom: 100px;
-      left: 30px;
-      text-shadow: 0 0 10px gold;
-      animation: spin 4s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Christmas message banner */
-    .christmas-banner {
-      position: fixed;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(90deg, #c41e3a, #228b22, #c41e3a);
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      font-weight: bold;
-      z-index: 9998;
-      animation: bannerSlide 15s linear infinite;
-    }
-
-    @keyframes bannerSlide {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-
-    /* Close button for overlay */
-    .close-overlay {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: rgba(0,0,0,0.7);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 10000;
-      pointer-events: auto;
-      font-size: 20px;
-    }
-
-    .close-overlay:hover {
-      background: rgba(0,0,0,0.9);
-    }
 
   </style>
 </head>
@@ -342,6 +145,7 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
 
+
   <!-- HERO SECTION -->
   <section id="hero" class="hero-slide h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center pt-[70px]">
     <h1 class="text-4xl md:text-6xl font-extrabold mb-6 animate-pulse-slow">
@@ -381,50 +185,7 @@
 
   <!-- SCRIPTS -->
   <script>
-   
-        // Random properties
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const top = Math.random() * 100;
-        const left = Math.random() * 100;
-        const animationDelay = Math.random() * 2;
-        
-        // Apply styles
-        light.style.backgroundColor = color;
-        light.style.boxShadow = `0 0 10px 2px ${color}`;
-        light.style.top = `${top}%`;
-        light.style.left = `${left}%`;
-        light.style.animationDelay = `${animationDelay}s`;
-        
-        overlay.appendChild(light);
-      }
-    }
-    
-    // Initialize the overlay
-    window.addEventListener('load', function() {
-      createSnowflakes();
-      createLights();
-      
-      // Close overlay functionality
-      document.getElementById('closeOverlay').addEventListener('click', function() {
-        document.getElementById('christmasOverlay').style.display = 'none';
-        
-        // Store in localStorage to remember user preference
-        localStorage.setItem('christmasOverlayClosed', 'true');
-      });
-      
-      // Check if user previously closed the overlay
-      if (localStorage.getItem('christmasOverlayClosed') === 'true') {
-        document.getElementById('christmasOverlay').style.display = 'none';
-      }
-    });
-    
-    // Adjust snowflake positions on window resize
-    window.addEventListener('resize', function() {
-      const snowflakes = document.querySelectorAll('.snowflake');
-      snowflakes.forEach(snowflake => {
-        snowflake.style.left = `${Math.random() * window.innerWidth}px`;
-      });
-    });
+
 
     // Hamburger menu functionality
     const btn = document.getElementById('menu-btn');
@@ -500,4 +261,3 @@
   
 </body>
 </html>
-
