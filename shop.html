@@ -15,7 +15,6 @@
     <meta property="og:title" content="Skope Sana | ShopSana - Best Laptops in Kenya">
     <meta property="og:description"
         content="Quality laptops and accessories in Kenya. Order via WhatsApp (0742380183).">
-    <!-- use embedded SVG fallback (guaranteed to exist) -->
     <meta property="og:image" content="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 
     <!-- Twitter -->
@@ -35,30 +34,6 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Manifest for PWA -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#FF7000">
-
-    <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Skope Sana | ShopSana",
-      "description": "Quality laptops and accessories in Kenya",
-      "url": "https://skopedesigns.co.ke/shop.html",
-      "telephone": "+254742380183",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Maseno",
-        "addressRegion": "Kisumu",
-        "addressCountry": "Kenya"
-      },
-      "openingHours": "Mo-Su 08:00-20:00",
-      "priceRange": "Ksh 17,500 - Ksh 37,000"
-    }
-    </script>
 
     <style>
         :root {
@@ -150,23 +125,6 @@
             height: 50px;
         }
 
-        @keyframes logo-bounce {
-            0%,
-            100% {
-                transform: translateY(0);
-                will-change: transform;
-            }
-
-            50% {
-                transform: translateY(-10px);
-                will-change: transform;
-            }
-        }
-
-        .logo-text img {
-            height: 34px;
-        }
-
         .nav-menu {
             display: flex;
             list-style: none;
@@ -228,7 +186,6 @@
             cursor: pointer;
         }
 
-        /* show the three bars inside the hamburger */
         .hamburger span {
             height: 3px;
             background: var(--dark);
@@ -250,7 +207,6 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* when we swap img to the fallback logo, apply monochrome style */
         .img-fallback {
             filter: grayscale(100%) contrast(0.9);
             object-fit: contain;
@@ -407,16 +363,6 @@
             margin-bottom: 15px;
         }
 
-        .sales-item {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .sales-item:hover {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
         .sales-items {
             display: flex;
             overflow-x: auto;
@@ -430,9 +376,9 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
-            color: var(--dark);
             transition: transform 0.3s;
             position: relative;
+            cursor: pointer;
         }
 
         .sales-item:hover {
@@ -1229,43 +1175,6 @@
             color: #fff;
         }
 
-        /* Section Animations */
-        .animate-hidden {
-            opacity: 0;
-            transform: translate3d(0, 20px, 0);
-            will-change: transform, opacity;
-            backface-visibility: hidden;
-        }
-
-        .animate-visible {
-            animation: fade-in-up 420ms cubic-bezier(.2, .8, .2, 1) forwards;
-            will-change: transform, opacity;
-            backface-visibility: hidden;
-        }
-
-        @keyframes fade-in-up {
-            from {
-                opacity: 0;
-                transform: translate3d(0, 20px, 0);
-            }
-
-            to {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        /* Promote frequently-transformed cards/images to their own layer for smooth animation */
-        .product-card,
-        .sales-item,
-        .product-image img,
-        .logo,
-        .logo img {
-            will-change: transform;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-        }
-
         /* Popup Styling */
         .popup {
             display: none;
@@ -1397,6 +1306,30 @@
 
         @keyframes spin {
             to { transform: rotate(360deg); }
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
         }
 
         /* Responsive */
@@ -1631,14 +1564,14 @@
             </div>
 
             <div class="sales-items" aria-label="Flash sale items">
-                <div class="sales-item" onclick="showPopup('HP 830 G5', 'Ksh 25,500')">
+                <div class="sales-item" onclick="showProductDetails(1)">
                     <div class="sales-image"><img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80" alt="HP 830 G5"></div>
                     <div class="sales-info">
                         <div class="sales-product-name">HP 830 G5 i5 8th Gen</div>
                         <div class="sales-price"><span class="sales-current">Ksh 25,500</span><span class="sales-original">Ksh 28,500</span></div>
                     </div>
                 </div>
-                <div class="sales-item" onclick="showPopup('HP 840 G5', 'Ksh 26,000')">
+                <div class="sales-item" onclick="showProductDetails(2)">
                     <div class="sales-image"><img
                             src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80"
                             alt="HP 840 G5"></div>
@@ -1648,7 +1581,7 @@
                             class="sales-original">Ksh 29,000</span></div>
                     </div>
                 </div>
-                <div class="sales-item" onclick="showPopup('HP 840 G1', 'Ksh 17,500')">
+                <div class="sales-item" onclick="showProductDetails(3)">
                     <div class="sales-image"><img
                             src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80"
                             alt="HP 840 G1"></div>
@@ -1658,7 +1591,7 @@
                             class="sales-original">Ksh 20,500</span></div>
                     </div>
                 </div>
-                <div class="sales-item" onclick="showPopup('Dell 7280', 'Ksh 21,000')">
+                <div class="sales-item" onclick="showProductDetails(4)">
                     <div class="sales-image"><img
                             src="(Refurbished) DELL LATITUDE 7280 (Core i7 6th GEN_ 8GB_ 256GB SSD_ WEBCAM_ 12_5'' NO TOUCH_ WIN-10 PRO).jpeg"
                             alt="Dell 7280"></div>
@@ -1668,7 +1601,7 @@
                             class="sales-original">Ksh 24,000</span></div>
                     </div>
                 </div>
-                <div class="sales-item" onclick="showPopup('Lenovo T460s', 'Ksh 19,500')">
+                <div class="sales-item" onclick="showProductDetails(5)">
                     <div class="sales-image"><img
                             src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=500&q=80"
                             alt="Lenovo T460s"></div>
@@ -1719,7 +1652,7 @@
     <!-- Products Section with Filters -->
     <section class="products" id="products">
         <div class="container">
-            <h2 class="section-title">Featured Products</h2>
+            <h2 class="section-title">Featured Laptops</h2>
 
             <!-- Product Filters -->
             <div class="product-filters">
@@ -1747,11 +1680,11 @@
             <div class="products-header">
                 <div class="search-box">
                     <i class="fas fa-search search-icon"></i>
-                    <input id="search-input" class="search-input" type="search" placeholder="Search products..." aria-label="Search products">
+                    <input id="search-input" class="search-input" type="search" placeholder="Search laptops..." aria-label="Search laptops">
                 </div>
 
                 <div class="sort-filter">
-                    <select id="sort-select" class="sort-select" aria-label="Sort products">
+                    <select id="sort-select" class="sort-select" aria-label="Sort laptops">
                         <option value="default">Sort by</option>
                         <option value="name">Name A-Z</option>
                         <option value="price-low">Price: Low to High</option>
@@ -1923,14 +1856,15 @@
     <div id="popup" class="popup">
         <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
         <div class="popup-header" id="popup-product"></div>
-        <div class="popup-content">Price: <span id="popup-price"></span></div>
+        <div class="popup-content" id="popup-content"></div>
         <a id="popup-link" class="popup-btn" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
     </div>
 
-    <!-- Consolidated scripts -->
+    <!-- JavaScript -->
     <script>
-        // Product Data
-        const products = [
+        // Complete Laptop Product Database
+        const laptopProducts = [
+            // HP Laptops
             {
                 id: 1,
                 name: "HP 830 G5 i5 8th Gen",
@@ -1939,8 +1873,8 @@
                 price: 25500,
                 originalPrice: 28500,
                 rating: 4.5,
-                date: "2023-06-15",
-                specs: "8GB RAM • 256GB SSD • 14\" Display",
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
                 image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80",
                 stock: "in-stock",
                 sealed: true,
@@ -1951,7 +1885,9 @@
                     storage: "256GB SSD",
                     display: "14\" FHD (1920x1080)",
                     battery: "Up to 8 hours",
-                    weight: "1.5 kg"
+                    weight: "1.5 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
                 }
             },
             {
@@ -1962,8 +1898,8 @@
                 price: 26000,
                 originalPrice: 29000,
                 rating: 4.7,
-                date: "2023-07-02",
-                specs: "8GB RAM • 256GB SSD • 14\" Display",
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
                 image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80",
                 stock: "in-stock",
                 sealed: true,
@@ -1974,7 +1910,9 @@
                     storage: "256GB SSD",
                     display: "14\" FHD (1920x1080)",
                     battery: "Up to 9 hours",
-                    weight: "1.6 kg"
+                    weight: "1.6 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
                 }
             },
             {
@@ -1985,8 +1923,8 @@
                 price: 17500,
                 originalPrice: 20500,
                 rating: 4.2,
-                date: "2023-06-28",
-                specs: "8GB RAM • 500GB HDD • 14\" Display",
+                date: "2023-09-15",
+                specs: "8GB RAM • 500GB HDD • 14\" Display • Windows 10 Pro",
                 image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
                 stock: "low-stock",
                 sealed: false,
@@ -1997,53 +1935,9 @@
                     storage: "500GB HDD",
                     display: "14\" HD (1366x768)",
                     battery: "Up to 6 hours",
-                    weight: "2.0 kg"
-                }
-            },
-            {
-                id: 4,
-                name: "Dell 7280 i7 6th Gen",
-                category: "laptop",
-                brand: "dell",
-                price: 21000,
-                originalPrice: 24000,
-                rating: 4.8,
-                date: "2023-07-10",
-                specs: "8GB RAM • 256GB SSD • 12.5\" Display",
-                image: "(Refurbished) DELL LATITUDE 7280 (Core i7 6th GEN_ 8GB_ 256GB SSD_ WEBCAM_ 12_5'' NO TOUCH_ WIN-10 PRO).jpeg",
-                stock: "in-stock",
-                sealed: true,
-                warranty: "6 Months",
-                fullSpecs: {
-                    processor: "Intel Core i7 6th Generation",
-                    ram: "8GB DDR4",
-                    storage: "256GB SSD",
-                    display: "12.5\" FHD (1920x1080)",
-                    battery: "Up to 10 hours",
-                    weight: "1.2 kg"
-                }
-            },
-            {
-                id: 5,
-                name: "Lenovo T460s i5 6th Gen",
-                category: "laptop",
-                brand: "lenovo",
-                price: 19500,
-                originalPrice: 22500,
-                rating: 4.3,
-                date: "2023-07-05",
-                specs: "8GB RAM • 256GB SSD • 14\" Display",
-                image: "https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=500&q=80",
-                stock: "out-of-stock",
-                sealed: false,
-                warranty: "3 Months",
-                fullSpecs: {
-                    processor: "Intel Core i5 6th Generation",
-                    ram: "8GB DDR4",
-                    storage: "256GB SSD",
-                    display: "14\" FHD (1920x1080)",
-                    battery: "Up to 7 hours",
-                    weight: "1.4 kg"
+                    weight: "2.0 kg",
+                    graphics: "Intel HD Graphics 4400",
+                    ports: "2x USB 3.0, VGA, HDMI, Ethernet"
                 }
             },
             {
@@ -2054,8 +1948,8 @@
                 price: 26000,
                 rating: 4.5,
                 date: "2023-10-01",
-                specs: "8GB RAM • 256GB SSD • 14\"",
-                image: "HP 840G6 i5.png",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
                 stock: "in-stock",
                 sealed: true,
                 warranty: "6 Months",
@@ -2065,7 +1959,9 @@
                     storage: "256GB SSD",
                     display: "14\" FHD (1920x1080)",
                     battery: "Up to 8 hours",
-                    weight: "1.5 kg"
+                    weight: "1.5 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
                 }
             },
             {
@@ -2076,8 +1972,8 @@
                 price: 30999,
                 rating: 4.6,
                 date: "2023-10-01",
-                specs: "8GB RAM • 256GB SSD • 14\"",
-                image: "hp 840 g5.png",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
                 stock: "in-stock",
                 sealed: true,
                 warranty: "6 Months",
@@ -2087,7 +1983,517 @@
                     storage: "256GB SSD",
                     display: "14\" FHD (1920x1080)",
                     battery: "Up to 9 hours",
-                    weight: "1.6 kg"
+                    weight: "1.6 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 8,
+                name: "HP 840 G8 i5 11TH GEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 37000,
+                rating: 4.7,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 11 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 11th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 10 hours",
+                    weight: "1.4 kg",
+                    graphics: "Intel Iris Xe Graphics",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 9,
+                name: "HP 830 G6 i5 8THGEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 25500,
+                rating: 4.4,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 13.3\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 8th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "13.3\" FHD (1920x1080)",
+                    battery: "Up to 8 hours",
+                    weight: "1.3 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI"
+                }
+            },
+            {
+                id: 10,
+                name: "HP 830 G6 i5 16/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 27000,
+                rating: 4.5,
+                date: "2023-10-01",
+                specs: "16GB RAM • 256GB SSD • 13.3\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 8th Generation",
+                    ram: "16GB DDR4",
+                    storage: "256GB SSD",
+                    display: "13.3\" FHD (1920x1080)",
+                    battery: "Up to 8 hours",
+                    weight: "1.3 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI"
+                }
+            },
+            {
+                id: 11,
+                name: "HP 830 G5 i5 8TH GEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 25500,
+                rating: 4.4,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 13.3\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 8th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "13.3\" FHD (1920x1080)",
+                    battery: "Up to 8 hours",
+                    weight: "1.3 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI"
+                }
+            },
+            {
+                id: 12,
+                name: "HP 840 G5 i5 8TH GEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 26000,
+                rating: 4.4,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 8th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 9 hours",
+                    weight: "1.6 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 13,
+                name: "HP 840 G5 i5 7TH GEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 26000,
+                rating: 4.3,
+                date: "2023-09-20",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 7th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 8 hours",
+                    weight: "1.6 kg",
+                    graphics: "Intel HD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 14,
+                name: "HP 840 G2 i5 5TH GEN 8/500GB",
+                category: "laptop",
+                brand: "hp",
+                price: 18000,
+                rating: 4.0,
+                date: "2023-09-10",
+                specs: "8GB RAM • 500GB HDD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "low-stock",
+                sealed: false,
+                warranty: "3 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 5th Generation",
+                    ram: "8GB DDR3",
+                    storage: "500GB HDD",
+                    display: "14\" HD (1366x768)",
+                    battery: "Up to 5 hours",
+                    weight: "2.1 kg",
+                    graphics: "Intel HD Graphics 5500",
+                    ports: "2x USB 3.0, VGA, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 15,
+                name: "HP 840 G5 i7 16/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 32000,
+                rating: 4.7,
+                date: "2023-10-01",
+                specs: "16GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 8th Generation",
+                    ram: "16GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 9 hours",
+                    weight: "1.6 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 16,
+                name: "HP 840 G5 i5 16/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 27000,
+                rating: 4.5,
+                date: "2023-10-01",
+                specs: "16GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 8th Generation",
+                    ram: "16GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 9 hours",
+                    weight: "1.6 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 17,
+                name: "HP TOUCH 840 G5 i5 7TH GEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 28000,
+                rating: 4.4,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 14\" Touch Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 7th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD Touch (1920x1080)",
+                    battery: "Up to 7 hours",
+                    weight: "1.7 kg",
+                    graphics: "Intel HD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 18,
+                name: "HP TOUCH 1030G2 i5 7TH GEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 29999,
+                rating: 4.5,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 13.3\" Touch Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 7th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "13.3\" FHD Touch (1920x1080)",
+                    battery: "Up to 8 hours",
+                    weight: "1.2 kg",
+                    graphics: "Intel HD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI"
+                }
+            },
+            {
+                id: 19,
+                name: "HP 820G3 i7 6THGEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 17999,
+                rating: 4.2,
+                date: "2023-09-15",
+                specs: "8GB RAM • 256GB SSD • 12.5\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "low-stock",
+                sealed: false,
+                warranty: "3 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 6th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "12.5\" HD (1366x768)",
+                    battery: "Up to 7 hours",
+                    weight: "1.3 kg",
+                    graphics: "Intel HD Graphics 520",
+                    ports: "2x USB 3.0, HDMI, VGA, Ethernet"
+                }
+            },
+            {
+                id: 20,
+                name: "HP 440G3 i7 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 17999,
+                rating: 4.2,
+                date: "2023-09-15",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "low-stock",
+                sealed: false,
+                warranty: "3 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 6th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" HD (1366x768)",
+                    battery: "Up to 6 hours",
+                    weight: "1.8 kg",
+                    graphics: "Intel HD Graphics 520",
+                    ports: "2x USB 3.0, HDMI, VGA, Ethernet"
+                }
+            },
+            {
+                id: 21,
+                name: "HP 430G7 i5 16/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 34000,
+                rating: 4.6,
+                date: "2023-10-01",
+                specs: "16GB RAM • 256GB SSD • 14\" Display • Windows 11 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 10th Generation",
+                    ram: "16GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 10 hours",
+                    weight: "1.5 kg",
+                    graphics: "Intel UHD Graphics",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 22,
+                name: "HP 840G3 i7 6TH GEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 18999,
+                rating: 4.3,
+                date: "2023-09-20",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "low-stock",
+                sealed: false,
+                warranty: "3 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 6th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 7 hours",
+                    weight: "1.7 kg",
+                    graphics: "Intel HD Graphics 520",
+                    ports: "2x USB 3.0, HDMI, VGA, Ethernet"
+                }
+            },
+            // Dell Laptops
+            {
+                id: 4,
+                name: "Dell 7280 i7 6th Gen",
+                category: "laptop",
+                brand: "dell",
+                price: 21000,
+                originalPrice: 24000,
+                rating: 4.8,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 12.5\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 6th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "12.5\" FHD (1920x1080)",
+                    battery: "Up to 10 hours",
+                    weight: "1.2 kg",
+                    graphics: "Intel HD Graphics 520",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 23,
+                name: "DELL 7280 i7 7TH GEN 8/256GB",
+                category: "laptop",
+                brand: "dell",
+                price: 21000,
+                rating: 4.5,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 12.5\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 7th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "12.5\" FHD (1920x1080)",
+                    battery: "Up to 10 hours",
+                    weight: "1.2 kg",
+                    graphics: "Intel HD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 24,
+                name: "DELL 7400 i7 8TH GEN 8/256GB",
+                category: "laptop",
+                brand: "dell",
+                price: 28000,
+                rating: 4.6,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 8th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 11 hours",
+                    weight: "1.4 kg",
+                    graphics: "Intel UHD Graphics 620",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 25,
+                name: "Dell E5470 i7 8/256SSD",
+                category: "laptop",
+                brand: "dell",
+                price: 23000,
+                rating: 4.4,
+                date: "2023-09-25",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 6th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 8 hours",
+                    weight: "1.8 kg",
+                    graphics: "Intel HD Graphics 520",
+                    ports: "2x USB 3.0, HDMI, VGA, Ethernet"
+                }
+            },
+            // Lenovo Laptops
+            {
+                id: 5,
+                name: "Lenovo T460s i5 6th Gen",
+                category: "laptop",
+                brand: "lenovo",
+                price: 19500,
+                originalPrice: 22500,
+                rating: 4.3,
+                date: "2023-09-28",
+                specs: "8GB RAM • 256GB SSD • 14\" Display • Windows 10 Pro",
+                image: "https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=500&q=80",
+                stock: "out-of-stock",
+                sealed: false,
+                warranty: "3 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 6th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 7 hours",
+                    weight: "1.4 kg",
+                    graphics: "Intel HD Graphics 520",
+                    ports: "2x USB 3.0, HDMI, Ethernet"
+                }
+            },
+            {
+                id: 26,
+                name: "LENOVO T14 THINKPAD GEN21 i5 11th 16/256GB",
+                category: "laptop",
+                brand: "lenovo",
+                price: 32000,
+                rating: 4.6,
+                date: "2023-10-01",
+                specs: "16GB RAM • 256GB SSD • 14\" Display • Windows 11 Pro",
+                image: "https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 11th Generation",
+                    ram: "16GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 12 hours",
+                    weight: "1.5 kg",
+                    graphics: "Intel Iris Xe Graphics",
+                    ports: "USB-C, 2x USB 3.0, HDMI, Ethernet"
                 }
             }
         ];
@@ -2107,9 +2513,8 @@
             setupSearchAndSort();
             setupBackToTop();
             animateCounters();
-            setupProductPreview();
-            renderProducts();
             setupFilters();
+            renderAllLaptops();
             setupFAQ();
             setupNewsletter();
             setupBulkInquiry();
@@ -2117,7 +2522,6 @@
             renderRecentlyViewed();
             setupDeliveryCalculator();
             
-            // Initialize cart and wishlist counts
             updateCartCount();
             updateWishlistCount();
             updateComparisonCount();
@@ -2128,10 +2532,7 @@
             try {
                 const timeZone = 'Africa/Nairobi';
                 const now = new Date();
-
-                const hourStr = new Intl.DateTimeFormat('en-GB', { timeZone, hour: '2-digit', hour12: false }).format(now);
-                const hour = parseInt(hourStr, 10);
-
+                const hour = now.getHours();
                 const options = { timeZone, weekday: 'long', hour: 'numeric', minute: '2-digit', hour12: true };
                 const dayTime = now.toLocaleString('en-GB', options);
 
@@ -2151,7 +2552,7 @@
         setInterval(updateGreeting, 60 * 1000);
 
         // Mobile menu toggle
-        (function setupMobileMenu() {
+        function setupMobileMenu() {
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
             const closeBtn = document.getElementById('close-menu');
@@ -2184,7 +2585,7 @@
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMenu();
             });
-        })();
+        }
 
         // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -2194,7 +2595,6 @@
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        // Close mobile menu if open
                         const mobileMenu = document.getElementById('mobile-menu');
                         const hamburger = document.getElementById('hamburger');
                         if (mobileMenu && mobileMenu.classList.contains('active')) {
@@ -2210,43 +2610,44 @@
             });
         });
 
-        // Animate sections when they come into view
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.remove('animate-hidden');
-                    entry.target.classList.add('animate-visible');
-                    io.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        
-        document.querySelectorAll('section').forEach(s => {
-            s.classList.add('animate-hidden');
-            io.observe(s);
-        });
-
         // Flash Sales Popup
-        function showPopup(product, price) {
+        function showProductDetails(productId) {
+            const product = laptopProducts.find(p => p.id === productId);
+            if (!product) return;
+
             const popup = document.getElementById('popup');
             if (popup) {
-                document.getElementById('popup-product').textContent = product;
-                document.getElementById('popup-price').textContent = price;
-                document.getElementById('popup-link').href = `https://wa.me/254742380183?text=I%20want%20to%20order%20${encodeURIComponent(product)}`;
+                document.getElementById('popup-product').textContent = product.name;
+                document.getElementById('popup-content').innerHTML = `
+                    <p>Price: <strong>Ksh ${product.price.toLocaleString()}</strong></p>
+                    <p>${product.specs}</p>
+                    <div style="margin-top: 15px;">
+                        <strong>Specifications:</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            ${Object.entries(product.fullSpecs).map(([key, value]) => `
+                                <li><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${value}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+                document.getElementById('popup-link').href = `https://wa.me/254742380183?text=I%20want%20to%20order%20${encodeURIComponent(product.name)}%20(Ksh%20${product.price})`;
+                
                 popup.classList.add('active');
             }
+
+            // Add to recently viewed
+            addToRecentlyViewed(productId);
         }
-        
+
         function closePopup() {
             const popup = document.getElementById('popup');
             if (popup) popup.classList.remove('active');
         }
-        
-        window.showPopup = showPopup;
+
         window.closePopup = closePopup;
 
         // Safe sales timer update
-        (function setupSalesTimer() {
+        function setupSalesTimer() {
             const timerElement = document.getElementById('sales-timer');
             if (!timerElement) return;
             const TEN_DAYS_MS = 10 * 24 * 60 * 60 * 1000;
@@ -2265,10 +2666,10 @@
             }
             updateTimer();
             setInterval(updateTimer, 1000);
-        })();
+        }
 
         // Image fallback
-        (function setupImageFallbacks() {
+        function setupImageFallbacks() {
             const fallback = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>';
             document.querySelectorAll('img').forEach(img => {
                 const raw = img.getAttribute('src');
@@ -2291,28 +2692,28 @@
                     img.dispatchEvent(new Event('error'));
                 }
             });
-        })();
+        }
 
-        // Render Products
-        function renderProducts(filteredProducts = products) {
+        // Render All Laptops
+        function renderAllLaptops() {
             const grid = document.getElementById('products-grid');
             if (!grid) return;
 
-            grid.innerHTML = filteredProducts.map(product => `
-                <article class="product-card" data-id="${product.id}" data-category="laptop" data-price="${product.price}" data-rating="${product.rating}" data-date="${product.date}" data-name="${product.name}">
+            grid.innerHTML = laptopProducts.map(product => `
+                <article class="product-card" data-id="${product.id}" data-category="${product.category}" data-price="${product.price}" data-rating="${product.rating}" data-date="${product.date}" data-name="${product.name.toLowerCase()}" data-brand="${product.brand}" data-sealed="${product.sealed}" data-stock="${product.stock}">
                     <div class="stock-status ${product.stock}">
                         <i class="fas ${product.stock === 'in-stock' ? 'fa-check-circle' : product.stock === 'low-stock' ? 'fa-exclamation-triangle' : 'fa-times-circle'}"></i>
-                        ${product.stock === 'in-stock' ? 'In Stock' : product.stock === 'low-stock' ? 'Only 2 left' : 'Out of Stock'}
+                        ${product.stock === 'in-stock' ? 'In Stock' : product.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock'}
                     </div>
                     <div class="warranty-info">
                         <i class="fas fa-shield-alt"></i>
                         ${product.warranty}
                     </div>
                     <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}" class="lazy-load">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Laptop • ${product.sealed ? 'Sealed' : 'Refurbished'}</div>
+                        <div class="product-category">${product.brand.toUpperCase()} • ${product.sealed ? 'Sealed' : 'Refurbished'}</div>
                         <h3 class="product-title">${product.name}</h3>
                         <div class="product-specs">${product.specs}</div>
                         <div class="product-price">
@@ -2324,38 +2725,9 @@
                             <span class="rating-count">(${Math.floor(Math.random() * 50) + 10})</span>
                         </div>
                         
-                        <!-- Specifications Table -->
-                        <table class="specs-table" style="display: none;">
-                            ${Object.entries(product.fullSpecs).map(([key, value]) => `
-                                <tr><th>${key.charAt(0).toUpperCase() + key.slice(1)}</th><td>${value}</td></tr>
-                            `).join('')}
-                        </table>
-                        
-                        <!-- Delivery Calculator (initially hidden) -->
-                        <div class="delivery-calculator" style="display: none; margin: 15px 0;">
-                            <h4>Estimate Delivery</h4>
-                            <select class="delivery-location">
-                                <option value="nairobi">Nairobi</option>
-                                <option value="kisumu">Kisumu</option>
-                                <option value="mombasa">Mombasa</option>
-                            </select>
-                            <div class="delivery-estimate">
-                                <i class="fas fa-shipping-fast"></i>
-                                <span>Delivery: 2-3 days • Ksh ${['nairobi', 'kisumu'].includes('kisumu') ? '0' : '500'}</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Payment Options -->
-                        <div class="payment-options" style="margin: 15px 0;">
-                            <div class="installment-plan">
-                                <i class="fas fa-credit-card"></i>
-                                <span>Pay in 3 installments with Lipa Na M-Pesa</span>
-                            </div>
-                        </div>
-                        
                         <div class="product-actions">
                             <button type="button" class="preview-btn" onclick="showProductDetails(${product.id})">Preview</button>
-                            <button class="add-to-cart" onclick="addToCart(${product.id})">
+                            <button class="add-to-cart" onclick="addToCart(${product.id})" ${product.stock === 'out-of-stock' ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : ''}>
                                 <i class="fas fa-shopping-cart"></i> Add to Cart
                             </button>
                             <button class="add-to-wishlist ${wishlist.includes(product.id) ? 'active' : ''}" onclick="toggleWishlist(${product.id})">
@@ -2364,7 +2736,7 @@
                         </div>
                         
                         <!-- Comparison checkbox -->
-                        <div style="margin-top: 10px;">
+                        <div style="margin-top: 10px; font-size: 0.85rem;">
                             <label>
                                 <input type="checkbox" class="compare-checkbox" data-id="${product.id}" ${comparisonItems.includes(product.id) ? 'checked' : ''}>
                                 Add to comparison
@@ -2389,26 +2761,32 @@
             const maxPriceDisplay = document.getElementById('max-price');
             const categoryCheckboxes = document.querySelectorAll('.filter-category input');
             const brandCheckboxes = document.querySelectorAll('.filter-brand input');
+            const searchInput = document.getElementById('search-input');
+            const sortSelect = document.getElementById('sort-select');
 
             if (priceSlider) {
                 priceSlider.addEventListener('input', function() {
                     const price = parseInt(this.value);
                     maxPriceDisplay.textContent = price.toLocaleString();
-                    filterProducts();
+                    filterAndSortProducts();
                 });
             }
 
-            categoryCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
-            brandCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
+            categoryCheckboxes.forEach(cb => cb.addEventListener('change', filterAndSortProducts));
+            brandCheckboxes.forEach(cb => cb.addEventListener('change', filterAndSortProducts));
+            searchInput.addEventListener('input', filterAndSortProducts);
+            sortSelect.addEventListener('change', filterAndSortProducts);
         }
 
-        // Filter Products
-        function filterProducts() {
+        // Filter and Sort Products
+        function filterAndSortProducts() {
             const maxPrice = parseInt(document.getElementById('price-slider').value);
             const selectedCategories = Array.from(document.querySelectorAll('.filter-category input:checked')).map(cb => cb.value);
             const selectedBrands = Array.from(document.querySelectorAll('.filter-brand input:checked')).map(cb => cb.value);
+            const searchQuery = document.getElementById('search-input').value.toLowerCase();
+            const sortValue = document.getElementById('sort-select').value;
 
-            const filtered = products.filter(product => {
+            let filtered = laptopProducts.filter(product => {
                 // Price filter
                 if (product.price > maxPrice) return false;
 
@@ -2417,7 +2795,12 @@
                     const categoryMatch = selectedCategories.some(cat => {
                         if (cat === 'sealed') return product.sealed;
                         if (cat === 'refurbished') return !product.sealed;
-                        if (cat === 'new') return new Date(product.date) > new Date('2023-09-01');
+                        if (cat === 'new') {
+                            const productDate = new Date(product.date);
+                            const thirtyDaysAgo = new Date();
+                            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                            return productDate > thirtyDaysAgo;
+                        }
                         return true;
                     });
                     if (!categoryMatch) return false;
@@ -2428,58 +2811,103 @@
                     return false;
                 }
 
+                // Search filter
+                if (searchQuery && !product.name.toLowerCase().includes(searchQuery) && 
+                    !product.specs.toLowerCase().includes(searchQuery)) {
+                    return false;
+                }
+
                 return true;
             });
 
-            renderProducts(filtered);
+            // Sort products
+            switch(sortValue) {
+                case 'name':
+                    filtered.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'price-low':
+                    filtered.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filtered.sort((a, b) => b.price - a.price);
+                    break;
+                case 'newest':
+                    filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    break;
+                case 'rating':
+                    filtered.sort((a, b) => b.rating - a.rating);
+                    break;
+                default:
+                    // Default sorting
+                    break;
+            }
+
+            // Re-render filtered products
+            const grid = document.getElementById('products-grid');
+            if (!grid) return;
+
+            grid.innerHTML = filtered.map(product => `
+                <article class="product-card" data-id="${product.id}" data-category="${product.category}" data-price="${product.price}" data-rating="${product.rating}" data-date="${product.date}" data-name="${product.name.toLowerCase()}" data-brand="${product.brand}" data-sealed="${product.sealed}" data-stock="${product.stock}">
+                    <div class="stock-status ${product.stock}">
+                        <i class="fas ${product.stock === 'in-stock' ? 'fa-check-circle' : product.stock === 'low-stock' ? 'fa-exclamation-triangle' : 'fa-times-circle'}"></i>
+                        ${product.stock === 'in-stock' ? 'In Stock' : product.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock'}
+                    </div>
+                    <div class="warranty-info">
+                        <i class="fas fa-shield-alt"></i>
+                        ${product.warranty}
+                    </div>
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.brand.toUpperCase()} • ${product.sealed ? 'Sealed' : 'Refurbished'}</div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-specs">${product.specs}</div>
+                        <div class="product-price">
+                            <span class="current-price">Ksh ${product.price.toLocaleString()}</span>
+                            ${product.originalPrice ? `<span class="original-price">Ksh ${product.originalPrice.toLocaleString()}</span>` : ''}
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">${'<i class="fas fa-star"></i>'.repeat(Math.floor(product.rating))}${product.rating % 1 ? '<i class="fas fa-star-half-alt"></i>' : ''}${'<i class="far fa-star"></i>'.repeat(5 - Math.ceil(product.rating))}</div>
+                            <span class="rating-count">(${Math.floor(Math.random() * 50) + 10})</span>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button type="button" class="preview-btn" onclick="showProductDetails(${product.id})">Preview</button>
+                            <button class="add-to-cart" onclick="addToCart(${product.id})" ${product.stock === 'out-of-stock' ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : ''}>
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="add-to-wishlist ${wishlist.includes(product.id) ? 'active' : ''}" onclick="toggleWishlist(${product.id})">
+                                <i class="${wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart"></i>
+                            </button>
+                        </div>
+                        
+                        <div style="margin-top: 10px; font-size: 0.85rem;">
+                            <label>
+                                <input type="checkbox" class="compare-checkbox" data-id="${product.id}" ${comparisonItems.includes(product.id) ? 'checked' : ''}>
+                                Add to comparison
+                            </label>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+
+            // Re-attach event listeners
+            document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const productId = parseInt(this.dataset.id);
+                    toggleComparison(productId);
+                });
+            });
         }
 
         // Setup Search & Sort
-        (function setupSearchAndSort() {
-            const grid = document.getElementById('products-grid');
-            const input = document.getElementById('search-input');
-            const select = document.getElementById('sort-select');
-            if (!grid) return;
-
-            function filterProducts(query) {
-                query = (query || '').trim().toLowerCase();
-                Array.from(grid.children).forEach(card => {
-                    if (!card.classList || !card.classList.contains('product-card')) {
-                        card.style.display = '';
-                        return;
-                    }
-                    const name = (card.dataset.name || '').toLowerCase();
-                    const specs = (card.querySelector('.product-specs') || { textContent: '' }).textContent.toLowerCase();
-                    const match = !query || name.includes(query) || specs.includes(query);
-                    card.style.display = match ? '' : 'none';
-                });
-            }
-
-            function sortProducts(mode) {
-                const items = Array.from(grid.querySelectorAll('.product-card'));
-                const compareFns = {
-                    'name': (a, b) => (a.dataset.name || '').localeCompare(b.dataset.name || ''),
-                    'price-low': (a, b) => (parseInt(a.dataset.price || '0') - parseInt(b.dataset.price || '0')),
-                    'price-high': (a, b) => (parseInt(b.dataset.price || '0') - parseInt(a.dataset.price || '0')),
-                    'newest': (a, b) => (new Date(b.dataset.date || 0) - new Date(a.dataset.date || 0)),
-                    'rating': (a, b) => (parseFloat(b.dataset.rating || '0') - parseFloat(a.dataset.rating || '0')),
-                    'default': () => 0
-                };
-                const cmp = compareFns[mode] || compareFns['default'];
-                items.sort(cmp);
-                items.forEach(i => grid.appendChild(i));
-            }
-
-            input && input.addEventListener('input', (e) => {
-                filterProducts(e.target.value);
-            });
-            select && select.addEventListener('change', (e) => {
-                sortProducts(e.target.value);
-            });
-        })();
+        function setupSearchAndSort() {
+            // Already handled in setupFilters
+        }
 
         // Back to top button
-        (function setupBackToTop() {
+        function setupBackToTop() {
             const backToTop = document.getElementById('back-to-top');
             if (!backToTop) return;
 
@@ -2498,10 +2926,10 @@
             });
             
             toggleBackToTop();
-        })();
+        }
 
         // Animate counter values
-        (function animateCounters() {
+        function animateCounters() {
             const counters = document.querySelectorAll('.counter-value');
             if (!counters.length) return;
 
@@ -2530,73 +2958,39 @@
             }, { threshold: 0.5 });
 
             counters.forEach(counter => observer.observe(counter));
-        })();
-
-        // Product preview functionality
-        function setupProductPreview() {
-            // This is handled by the showProductDetails function
-        }
-
-        function showProductDetails(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-
-            // Show details in popup
-            const popup = document.getElementById('popup');
-            if (popup) {
-                document.getElementById('popup-product').textContent = product.name;
-                document.getElementById('popup-price').textContent = `Ksh ${product.price.toLocaleString()}`;
-                document.getElementById('popup-link').href = `https://wa.me/254742380183?text=I%20want%20to%20order%20${encodeURIComponent(product.name)}`;
-                
-                // Add specifications to popup content
-                const popupContent = document.querySelector('.popup-content');
-                popupContent.innerHTML = `
-                    <p>Price: <strong>Ksh ${product.price.toLocaleString()}</strong></p>
-                    <p>${product.specs}</p>
-                    <div style="margin-top: 15px;">
-                        <strong>Specifications:</strong>
-                        <ul style="margin-top: 10px;">
-                            ${Object.entries(product.fullSpecs).map(([key, value]) => `
-                                <li><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${value}</li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                `;
-                
-                popup.classList.add('active');
-            }
-
-            // Add to recently viewed
-            addToRecentlyViewed(productId);
         }
 
         // Shopping Cart Functions
         function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
+            const product = laptopProducts.find(p => p.id === productId);
             if (!product) return;
 
             if (product.stock === 'out-of-stock') {
-                alert('This product is out of stock');
+                showNotification('This product is out of stock');
                 return;
             }
 
-            cart.push({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                quantity: 1
-            });
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    image: product.image
+                });
+            }
 
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
-            
-            // Show notification
             showNotification(`Added ${product.name} to cart!`);
         }
 
         function updateCartCount() {
             const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            // You can display this count in the header if you add a cart icon
+            // Update cart count display in header if needed
         }
 
         // Wishlist Functions
@@ -2612,11 +3006,11 @@
             
             localStorage.setItem('wishlist', JSON.stringify(wishlist));
             updateWishlistCount();
-            renderProducts(); // Re-render to update heart icons
+            filterAndSortProducts(); // Re-render to update heart icons
         }
 
         function updateWishlistCount() {
-            // Update wishlist count display if you add a wishlist icon
+            // Update wishlist count display if needed
         }
 
         // Comparison Functions
@@ -2653,7 +3047,7 @@
 
         function showComparison() {
             if (comparisonItems.length === 0) {
-                alert('Please select products to compare');
+                showNotification('Please select products to compare');
                 return;
             }
 
@@ -2662,31 +3056,48 @@
             
             if (!modal || !content) return;
 
-            const productsToCompare = products.filter(p => comparisonItems.includes(p.id));
+            const productsToCompare = laptopProducts.filter(p => comparisonItems.includes(p.id));
             
-            let html = '<table class="comparison-table"><tr><th>Feature</th>';
+            let html = '<table class="comparison-table"><thead><tr><th>Feature</th>';
             productsToCompare.forEach(product => {
                 html += `<th>${product.name}</th>`;
             });
+            html += '</tr></thead><tbody>';
+
+            // Add price
+            html += '<tr><td>Price</td>';
+            productsToCompare.forEach(product => {
+                html += `<td>Ksh ${product.price.toLocaleString()}</td>`;
+            });
             html += '</tr>';
 
-            // Add specifications
-            const specs = ['price', 'processor', 'ram', 'storage', 'display', 'battery', 'weight'];
+            // Add key specifications
+            const specs = ['processor', 'ram', 'storage', 'display', 'battery', 'weight', 'graphics'];
             specs.forEach(spec => {
                 html += `<tr><td>${spec.charAt(0).toUpperCase() + spec.slice(1)}</td>`;
                 productsToCompare.forEach(product => {
-                    let value = '';
-                    if (spec === 'price') {
-                        value = `Ksh ${product.price.toLocaleString()}`;
-                    } else {
-                        value = product.fullSpecs[spec] || 'N/A';
-                    }
-                    html += `<td>${value}</td>`;
+                    html += `<td>${product.fullSpecs[spec] || 'N/A'}</td>`;
                 });
                 html += '</tr>';
             });
 
-            html += '</table>';
+            // Add warranty
+            html += '<tr><td>Warranty</td>';
+            productsToCompare.forEach(product => {
+                html += `<td>${product.warranty}</td>`;
+            });
+            html += '</tr>';
+
+            // Add stock status
+            html += '<tr><td>Availability</td>';
+            productsToCompare.forEach(product => {
+                const statusText = product.stock === 'in-stock' ? 'In Stock' : 
+                                 product.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock';
+                html += `<td>${statusText}</td>`;
+            });
+            html += '</tr>';
+
+            html += '</tbody></table>';
             content.innerHTML = html;
             modal.style.display = 'block';
         }
@@ -2696,6 +3107,8 @@
             if (modal) modal.style.display = 'none';
         }
 
+        window.closeComparison = closeComparison;
+
         // Recently Viewed
         function addToRecentlyViewed(productId) {
             const index = recentlyViewed.indexOf(productId);
@@ -2703,20 +3116,23 @@
                 recentlyViewed.splice(index, 1);
             }
             recentlyViewed.unshift(productId);
-            recentlyViewed = recentlyViewed.slice(0, 4); // Keep only 4 items
+            recentlyViewed = recentlyViewed.slice(0, 4);
             localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
             renderRecentlyViewed();
         }
 
         function renderRecentlyViewed() {
             const grid = document.getElementById('recently-viewed-grid');
-            if (!grid || recentlyViewed.length === 0) return;
+            if (!grid || recentlyViewed.length === 0) {
+                grid.innerHTML = '<p style="grid-column:1/-1; text-align:center; color:var(--gray);">Browse laptops to see recently viewed items here</p>';
+                return;
+            }
 
-            const recentlyViewedProducts = products.filter(p => recentlyViewed.includes(p.id));
+            const recentlyViewedProducts = laptopProducts.filter(p => recentlyViewed.includes(p.id));
             grid.innerHTML = recentlyViewedProducts.map(product => `
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">${product.name}</h3>
@@ -2736,12 +3152,20 @@
             document.querySelectorAll('.faq-question').forEach(question => {
                 question.addEventListener('click', function() {
                     const item = this.parentElement;
-                    item.classList.toggle('active');
+                    const isActive = item.classList.contains('active');
                     
-                    // Rotate arrow
-                    const icon = this.querySelector('i');
-                    if (icon) {
-                        icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                    // Close all other FAQs
+                    document.querySelectorAll('.faq-item').forEach(faq => {
+                        faq.classList.remove('active');
+                        const icon = faq.querySelector('.faq-question i');
+                        if (icon) icon.style.transform = 'rotate(0deg)';
+                    });
+                    
+                    // Toggle current if wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                        const icon = this.querySelector('i');
+                        if (icon) icon.style.transform = 'rotate(180deg)';
                     }
                 });
             });
@@ -2755,8 +3179,14 @@
                     e.preventDefault();
                     const email = this.querySelector('input[type="email"]').value;
                     
+                    // Simple validation
+                    if (!email || !email.includes('@')) {
+                        showNotification('Please enter a valid email address');
+                        return;
+                    }
+                    
                     // In a real application, you would send this to your server
-                    showNotification('Thank you for subscribing!');
+                    showNotification('Thank you for subscribing to our newsletter!');
                     this.reset();
                 });
             }
@@ -2767,7 +3197,7 @@
             const btn = document.getElementById('bulk-inquiry');
             if (btn) {
                 btn.addEventListener('click', function() {
-                    window.location.href = 'https://wa.me/254742380183?text=I%20am%20interested%20in%20bulk%20purchase%20of%20laptops%20for%20my%20business.';
+                    window.open('https://wa.me/254742380183?text=I%20am%20interested%20in%20bulk%20purchase%20of%20laptops%20for%20my%20business.%20Please%20send%20me%20a%20quote.', '_blank');
                 });
             }
         }
@@ -2780,20 +3210,12 @@
 
         // Notification System
         function showNotification(message) {
+            // Remove existing notifications
+            document.querySelectorAll('.notification').forEach(n => n.remove());
+            
             // Create notification element
             const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: var(--success);
-                color: white;
-                padding: 15px 20px;
-                border-radius: 6px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                z-index: 10000;
-                animation: slideIn 0.3s ease;
-            `;
+            notification.className = 'notification';
             notification.textContent = message;
             document.body.appendChild(notification);
 
@@ -2803,20 +3225,6 @@
                 setTimeout(() => notification.remove(), 300);
             }, 3000);
         }
-
-        // Add CSS for notifications
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
 
         // Add loading state to buttons
         document.querySelectorAll('a.order-btn, a.hero-cta').forEach(btn => {
@@ -2832,69 +3240,13 @@
             });
         });
 
-        // Service Worker Registration for PWA
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(error => {
-                    console.log('Service Worker registration failed:', error);
-                });
-            });
-        }
+        // Initialize counters
+        updateCartCount();
+        updateWishlistCount();
+        updateComparisonCount();
 
-        // Add to Home Screen Prompt
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            
-            // Show install button (you can add this to your UI)
-            setTimeout(() => {
-                if (deferredPrompt) {
-                    const installBtn = document.createElement('button');
-                    installBtn.textContent = 'Install App';
-                    installBtn.style.cssText = `
-                        position: fixed;
-                        bottom: 120px;
-                        right: 20px;
-                        background: var(--primary);
-                        color: white;
-                        padding: 10px 15px;
-                        border-radius: 6px;
-                        border: none;
-                        cursor: pointer;
-                        z-index: 1000;
-                        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                    `;
-                    installBtn.addEventListener('click', () => {
-                        deferredPrompt.prompt();
-                        deferredPrompt.userChoice.then(() => {
-                            deferredPrompt = null;
-                            installBtn.remove();
-                        });
-                    });
-                    document.body.appendChild(installBtn);
-                }
-            }, 5000);
-        });
-
-        // Lazy Loading Images
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    const src = img.getAttribute('data-src');
-                    if (src) {
-                        img.src = src;
-                        img.removeAttribute('data-src');
-                    }
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('img.lazy-load').forEach(img => {
-            imageObserver.observe(img);
-        });
+        // Show all laptops initially
+        renderAllLaptops();
     </script>
 </body>
 </html>
