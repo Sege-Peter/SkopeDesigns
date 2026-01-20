@@ -36,6 +36,10 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF7000">
+
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
     {
@@ -65,6 +69,8 @@
             --light: #F8F9FA;
             --gray: #6C757D;
             --success: #28A745;
+            --warning: #FFC107;
+            --danger: #DC3545;
             --white: #FFFFFF;
             --black: #000000;
         }
@@ -301,6 +307,74 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
+        /* Value Propositions */
+        .value-props {
+            background: var(--white);
+            padding: 60px 0;
+        }
+
+        .value-props-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: var(--light);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .value-item i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .value-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .value-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Special Offers */
+        .special-offer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .special-offer h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .special-offer .discount-badge {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
         /* Flash sales */
         .flash-sales {
             background: #fdfdfd;
@@ -445,6 +519,53 @@
             opacity: 0.9;
         }
 
+        /* Product Filters */
+        .product-filters {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .filter-category, .filter-price, .filter-brand {
+            margin-bottom: 15px;
+        }
+
+        .filter-category h4, .filter-price h4, .filter-brand h4 {
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .filter-category label, .filter-brand label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .filter-category input, .filter-brand input {
+            margin-right: 8px;
+        }
+
+        #price-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        #price-display {
+            text-align: center;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
         /* Products */
         .products {
             padding: 60px 0;
@@ -507,6 +628,7 @@
         .sort-filter {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
         .sort-select {
@@ -519,6 +641,21 @@
 
         .sort-select:focus {
             border-color: var(--primary);
+        }
+
+        .comparison-tools {
+            margin-left: 10px;
+        }
+
+        #compare-btn {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
         }
 
         .products-grid {
@@ -547,6 +684,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
         }
 
         .product-image img {
@@ -558,6 +696,50 @@
 
         .product-card:hover .product-image img {
             transform: scale(1.04);
+        }
+
+        /* Stock Status */
+        .stock-status {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .in-stock {
+            background: rgba(40, 167, 69, 0.9);
+            color: white;
+        }
+
+        .low-stock {
+            background: rgba(255, 193, 7, 0.9);
+            color: var(--dark);
+        }
+
+        .out-of-stock {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+        }
+
+        /* Warranty Info */
+        .warranty-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 112, 0, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .product-info {
@@ -617,6 +799,7 @@
             color: var(--gray);
         }
 
+        /* Product Actions */
         .product-actions {
             display: flex;
             justify-content: space-between;
@@ -649,6 +832,281 @@
 
         .order-btn:hover {
             background: #218838;
+        }
+
+        /* New product actions */
+        .add-to-cart {
+            background: var(--primary);
+            color: white;
+            border-radius: 6px;
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .add-to-wishlist {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 8px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-to-wishlist.active {
+            color: var(--danger);
+        }
+
+        /* Specifications Table */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .specs-table th, .specs-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .specs-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            width: 40%;
+        }
+
+        /* Delivery Calculator */
+        .delivery-calculator {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .delivery-calculator h4 {
+            margin-bottom: 10px;
+        }
+
+        #delivery-location {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        #delivery-estimate {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        /* Payment Options */
+        .payment-options {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .payment-options h4 {
+            margin-bottom: 10px;
+        }
+
+        .installment-plan {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        /* Bulk Order */
+        .bulk-order {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .bulk-order h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        #bulk-inquiry {
+            background: white;
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        /* Customer Reviews */
+        .customer-reviews {
+            margin: 40px 0;
+        }
+
+        .review {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reviewer {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .review-rating {
+            color: #FFC107;
+        }
+
+        .review-date {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 40px 0;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--light);
+        }
+
+        .faq-answer {
+            padding: 15px 20px;
+            display: none;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Testimonial Carousel */
+        .testimonial-carousel {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .testimonial p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .customer {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .newsletter h3 {
+            margin-bottom: 10px;
+        }
+
+        #newsletter-form {
+            max-width: 500px;
+            margin: 20px auto 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        #newsletter-form input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        #newsletter-form button {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* Recently Viewed */
+        .recently-viewed {
+            margin: 40px 0;
+        }
+
+        /* Live Chat */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-chat {
+            background: var(--success);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         /* Footer */
@@ -772,11 +1230,6 @@
         }
 
         /* Section Animations */
-        /* 
-           Animating transform and opacity together is GPU-accelerated and triggers only composite, not paint, 
-           when used with translate3d and will-change. 
-           This is the recommended pattern for performant fade-in-up animations.
-        */
         .animate-hidden {
             opacity: 0;
             transform: translate3d(0, 20px, 0);
@@ -785,7 +1238,6 @@
         }
 
         .animate-visible {
-            /* Animation is compositor-friendly: transform + opacity only */
             animation: fade-in-up 420ms cubic-bezier(.2, .8, .2, 1) forwards;
             will-change: transform, opacity;
             backface-visibility: hidden;
@@ -869,10 +1321,44 @@
             background: #218838;
         }
 
+        /* Comparison Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1003;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 8px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
         /* Back to top button */
         .back-to-top {
             position: fixed;
-            bottom: 20px;
+            bottom: 80px;
             right: 20px;
             width: 50px;
             height: 50px;
@@ -930,6 +1416,10 @@
             .sort-filter {
                 align-self: flex-end;
             }
+
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -944,7 +1434,6 @@
 
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                /* ensure items flow correctly on very small viewports */
                 grid-auto-flow: row;
             }
 
@@ -952,6 +1441,14 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
+            }
+
+            .product-actions {
+                flex-wrap: wrap;
+            }
+
+            #newsletter-form {
+                flex-direction: column;
             }
         }
 
@@ -993,6 +1490,16 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+
+            .chat-widget {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .back-to-top {
+                bottom: 70px;
+                right: 10px;
+            }
         }
 
         /* Accessibility improvements */
@@ -1027,7 +1534,6 @@
         <div class="header-main">
             <div class="container">
                 <div class="logo" aria-label="Skope Sana">
-                    <!-- percent-encode local filename to avoid simple 404s -->
                     <img src="logo%20(12).png" alt="Skope Sana Logo" class="logo-img">
                 </div>
 
@@ -1078,12 +1584,40 @@
         </div>
     </section>
 
+    <!-- Value Propositions -->
+    <section class="value-props">
+        <div class="container">
+            <div class="value-props-grid">
+                <div class="value-item">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Genuine Products</h4>
+                    <p>100% authentic laptops with original warranties</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-truck"></i>
+                    <h4>Free Delivery</h4>
+                    <p>Free shipping for orders above Ksh 25,000</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>6 Months Warranty</h4>
+                    <p>Free repair or replacement for manufacturing defects</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-credit-card"></i>
+                    <h4>Flexible Payments</h4>
+                    <p>Pay in installments with Lipa Na M-Pesa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Special Offers -->
     <section class="container">
-        <div class="holiday-offer" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center; color: white;">
+        <div class="special-offer">
             <h3>🔥 Special Offers 🔥</h3>
             <p>Get amazing discounts on our premium laptops!</p>
-            <div style="background-color: var(--primary-dark); color: white; padding: 5px 10px; border-radius: 4px; font-weight: bold; display: inline-block; margin: 5px 0;">BEST PRICES IN KENYA</div>
+            <div class="discount-badge">BEST PRICES IN KENYA</div>
             <p>Free delivery for orders above Ksh 25,000! Limited time offer.</p>
         </div>
     </section>
@@ -1172,10 +1706,43 @@
         </div>
     </section>
 
-    <!-- Products -->
+    <!-- Testimonial Carousel -->
+    <section class="testimonial-carousel">
+        <div class="container">
+            <div class="testimonial">
+                <p>"Best laptop prices in Kenya! Got my HP 840 G5 delivered in 2 days. Highly recommended!"</p>
+                <div class="customer">- James from Nairobi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section with Filters -->
     <section class="products" id="products">
         <div class="container">
             <h2 class="section-title">Featured Products</h2>
+
+            <!-- Product Filters -->
+            <div class="product-filters">
+                <div class="filters-grid">
+                    <div class="filter-category">
+                        <h4>Category</h4>
+                        <label><input type="checkbox" value="sealed" checked> Sealed Laptops</label>
+                        <label><input type="checkbox" value="refurbished" checked> Refurbished</label>
+                        <label><input type="checkbox" value="new" checked> New Arrivals</label>
+                    </div>
+                    <div class="filter-price">
+                        <h4>Price Range</h4>
+                        <input type="range" min="15000" max="40000" value="40000" id="price-slider">
+                        <div id="price-display">Up to Ksh <span id="max-price">40,000</span></div>
+                    </div>
+                    <div class="filter-brand">
+                        <h4>Brand</h4>
+                        <label><input type="checkbox" value="hp" checked> HP</label>
+                        <label><input type="checkbox" value="dell" checked> Dell</label>
+                        <label><input type="checkbox" value="lenovo" checked> Lenovo</label>
+                    </div>
+                </div>
+            </div>
 
             <div class="products-header">
                 <div class="search-box">
@@ -1184,7 +1751,6 @@
                 </div>
 
                 <div class="sort-filter">
-                    <label class="sr-only" for="sort-select">Sort products</label>
                     <select id="sort-select" class="sort-select" aria-label="Sort products">
                         <option value="default">Sort by</option>
                         <option value="name">Name A-Z</option>
@@ -1193,425 +1759,93 @@
                         <option value="newest">Newest First</option>
                         <option value="rating">Highest Rated</option>
                     </select>
+                    <div class="comparison-tools">
+                        <button id="compare-btn"><i class="fas fa-balance-scale"></i> Compare (0)</button>
+                    </div>
                 </div>
             </div>
 
             <div id="products-grid" class="products-grid" aria-live="polite">
-                <!-- Product: HP 830 G5 -->
-                <article class="product-card" data-category="laptop" data-price="25500" data-rating="4.5" data-date="2023-06-15" data-name="HP 830 G5 i5 8th Gen">
-                    <div class="product-image"><img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80" alt="HP 830 G5 Laptop"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • </div>
-                        <h3 class="product-title">HP 830 G5 i5 8th Gen</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • 14" Display</div>
-                        <div class="product-price"><span class="current-price">Ksh 25,500</span><span class="original-price">Ksh 28,500</span></div>
-                        <div class="product-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><span class="rating-count">(24)</span></div>
-                        <div class="product-actions">
-                            <button type="button" class="preview-btn">Preview</button>
-                            <a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20830%20G5" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product: HP 840 G5 -->
-                <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.7" data-date="2023-07-02" data-name="HP 840 G5 i5 8th Gen">
-                    <div class="product-image"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80" alt="HP 840 G5 Laptop"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • </div>
-                        <h3 class="product-title">HP 840 G5 i5 8th Gen</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • 14" Display</div>
-                        <div class="product-price"><span class="current-price">Ksh 26,000</span><span class="original-price">Ksh 29,000</span></div>
-                        <div class="product-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><span class="rating-count">(18)</span></div>
-                        <div class="product-actions">
-                            <button type="button" class="preview-btn">Preview</button>
-                            <a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840%20G5" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product: HP 840 G1 -->
-                <article class="product-card" data-category="laptop" data-price="17500" data-rating="4.2" data-date="2023-06-28" data-name="HP 840 G1 i5 4th Gen">
-                    <div class="product-image"><img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80" alt="HP 840 G1 Laptop"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • </div>
-                        <h3 class="product-title">HP 840 G1 i5 4th Gen</h3>
-                        <div class="product-specs">8GB RAM • 500GB HDD • 14" Display</div>
-                        <div class="product-price"><span class="current-price">Ksh 17,500</span><span class="original-price">Ksh 20,500</span></div>
-                        <div class="product-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div><span class="rating-count">(12)</span></div>
-                        <div class="product-actions">
-                            <button type="button" class="preview-btn">Preview</button>
-                            <a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840%20G1" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product: Dell 7280 -->
-                <article class="product-card" data-category="laptop" data-price="21000" data-rating="4.8" data-date="2023-07-10" data-name="Dell 7280 i7 6th Gen">
-                    <div class="product-image"><img src="(Refurbished) DELL LATITUDE 7280 (Core i7 6th GEN_ 8GB_ 256GB SSD_ WEBCAM_ 12_5'' NO TOUCH_ WIN-10 PRO).jpeg" alt="Dell 7280 Laptop"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop •</div>
-                        <h3 class="product-title">Dell 7280 i7 6th Gen</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • 12.5" Display</div>
-                        <div class="product-price"><span class="current-price">Ksh 21,000</span><span class="original-price">Ksh 24,000</span></div>
-                        <div class="product-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><span class="rating-count">(31)</span></div>
-                        <div class="product-actions">
-                            <button type="button" class="preview-btn">Preview</button>
-                            <a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20Dell%207280" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product: Lenovo T460s -->
-                <article class="product-card" data-category="laptop" data-price="19500" data-rating="4.3" data-date="2023-07-05" data-name="Lenovo T460s i5 6th Gen">
-                    <div class="product-image"><img src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=500&q=80" alt="Lenovo T460s"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Refurbished</div>
-                        <h3 class="product-title">Lenovo T460s i5 6th Gen</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • 14" Display</div>
-                        <div class="product-price"><span class="current-price">Ksh 19,500</span><span class="original-price">Ksh 22,500</span></div>
-                        <div class="product-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div><span class="rating-count">(9)</span></div>
-                        <div class="product-actions">
-                            <button type="button" class="preview-btn">Preview</button>
-                            <a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20Lenovo%20T460s" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product: HP SEALED LAPTOPS (prices increased by Ksh 3,000) -->
-                <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.5" data-date="2023-10-01" data-name="HP 840G6 i5 8TH GEN 8/256GB">
-                    <div class="product-image"><img src="HP 840G6 i5.png" alt="HP 840G6 i5"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 840G6 i5 8TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • 14"</div>
-                        <div class="product-price"><span class="current-price">Ksh 26,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840G6%20i5" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="30999" data-rating="4.6" data-date="2023-10-01" data-name="HP 840G5 i7 8TH GEN 8/256GB">
-                    <div class="product-image"><img src="hp 840 g5.png" alt="HP 840G5 i7"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 840G5 i7 8TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • 14"</div>
-                        <div class="product-price"><span class="current-price">Ksh 30,999</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840G5%20i7" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="37000" data-rating="4.7" data-date="2023-10-01" data-name="HP 840 G8 i5 11TH GEN 8/256GB">
-                    <div class="product-image"><img src="HP 840 G8 i5.png" alt="HP 840 G8 i5"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 840 G8 i5 11TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • 14"</div>
-                        <div class="product-price"><span class="current-price">Ksh 37,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840G8%20i5" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="25500" data-rating="4.4" data-date="2023-10-01" data-name="HP 830 G6 i5 8THGEN 8/256GB">
-                    <div class="product-image"><img src="HP 830 G6 i5.png" alt="HP 830 G6 i5"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 830 G6 i5 8TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • 13.3"</div>
-                        <div class="product-price"><span class="current-price">Ksh 25,500</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20830G6%20i5" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="27000" data-rating="4.5" data-date="2023-10-01" data-name="HP 830 G6 i5 16/256GB">
-                    <div class="product-image"><img src="HP 830 G6 16GB.png" alt="HP 830 G6 16GB"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 830 G6 i5 16/256GB</h3>
-                        <div class="product-specs">16GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 27,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20830G6%2016GB" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="25500" data-rating="4.4" data-date="2023-10-01" data-name="HP 830 G5 i5 8TH GEN 8/256GB">
-                    <div class="product-image"><img src="HP 830 G5 i5.png" alt="HP 830 G5 i5"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 830 G5 i5 8TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 25,500</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20830G5" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.4" data-date="2023-10-01" data-name="HP 840 G5 i5 8TH GEN 8/256GB">
-                    <div class="product-image"><img src="hp g5.png" alt="HP 840 G5 i5 8th"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 840 G5 i5 8TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 26,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840G5%20i5" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="26000" data-rating="4.3" data-date="2023-10-01" data-name="HP 840 G5 i5 7TH GEN 8/256GB">
-                    <div class="product-image"><img src="HP 840 G5 i5 7th.png" alt="HP 840 G5 i5 7th"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 840 G5 i5 7TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 26,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840G5%207th" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="18000" data-rating="4.0" data-date="2023-10-01" data-name="HP 840 G2 i5 5TH GEN 8/500GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840 G2 i5"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 840 G2 i5 5TH GEN 8/500GB</h3>
-                        <div class="product-specs">8GB RAM • 500GB HDD</div>
-                        <div class="product-price"><span class="current-price">Ksh 18,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840G2" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="32000" data-rating="4.7" data-date="2023-10-01" data-name="HP 840 G5 i7 16/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840 G5 i7 16GB"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 840 G5 i7 16/256GB</h3>
-                        <div class="product-specs">16GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 32,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840G5%20i7%2016GB" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="27000" data-rating="4.5" data-date="2023-10-01" data-name="HP 840 G5 i5 16/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840 G5 i5 16GB"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">HP 840 G5 i5 16/256GB</h3>
-                        <div class="product-specs">16GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 27,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840G5%2016GB" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="28000" data-rating="4.4" data-date="2023-10-01" data-name="HP TOUCH 840 G5 i5 7TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP TOUCH 840 G5"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed • Touch</div>
-                        <h3 class="product-title">HP TOUCH 840 G5 i5 7TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • Touch</div>
-                        <div class="product-price"><span class="current-price">Ksh 28,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20TOUCH%20840G5" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="32000" data-rating="4.6" data-date="2023-10-01" data-name="LENOVO T14 THINKPAD GEN21 I5 11th 16/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="Lenovo T14 Gen21"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">LENOVO T14 THINKPAD GEN21 i5 11th 16/256GB</h3>
-                        <div class="product-specs">16GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 32,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20Lenovo%20T14%20Gen21" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="21000" data-rating="4.5" data-date="2023-10-01" data-name="DELL 7280 i7 7TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="DELL 7280 i7"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">DELL 7280 i7 7TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 21,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20DELL%207280" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="29999" data-rating="4.5" data-date="2023-10-01" data-name="HP TOUCH 1030G2 i5 7TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP TOUCH 1030G2"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed • Touch</div>
-                        <h3 class="product-title">HP TOUCH 1030G2 i5 7TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD • Touch</div>
-                        <div class="product-price"><span class="current-price">Ksh 29,999</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%201030G2" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="28000" data-rating="4.6" data-date="2023-10-01" data-name="DELL 7400 i7 8TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="DELL 7400 i7"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">DELL 7400 i7 8TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 28,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20DELL%207400" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="23000" data-rating="4.4" data-date="2023-10-01" data-name="Dell E5470 i7 8/256SSD">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="Dell E5470 i7"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Sealed</div>
-                        <h3 class="product-title">Dell E5470 i7 8/256SSD</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 23,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20Dell%20E5470" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <!-- Added: NON SEALED LAPTOPS (prices as provided) -->
-                <article class="product-card" data-category="laptop" data-price="17999" data-rating="4.2" data-date="2023-10-01" data-name="HP 820G3 i7 6THGEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 820G3 i7"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Non-sealed</div>
-                        <h3 class="product-title">HP 820G3 i7 6TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 17,999</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20820G3" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="17999" data-rating="4.2" data-date="2023-10-01" data-name="HP 440G3 i7 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 440G3 i7"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Non-sealed</div>
-                        <h3 class="product-title">HP 440G3 i7 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 17,999</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20440G3" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="34000" data-rating="4.6" data-date="2023-10-01" data-name="HP 430G7 i5 16/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 430G7 i5"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Non-sealed</div>
-                        <h3 class="product-title">HP 430G7 i5 16/256GB</h3>
-                        <div class="product-specs">16GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 34,000</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20430G7" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="laptop" data-price="18999" data-rating="4.3" data-date="2023-10-01" data-name="HP 840G3 i7 6TH GEN 8/256GB">
-                    <div class="product-image"><img src="https://via.placeholder.com/500" alt="HP 840G3 i7"></div>
-                    <div class="product-info">
-                        <div class="product-category">Laptop • Non-sealed</div>
-                        <h3 class="product-title">HP 840G3 i7 6TH GEN 8/256GB</h3>
-                        <div class="product-specs">8GB RAM • 256GB SSD</div>
-                        <div class="product-price"><span class="current-price">Ksh 18,999</span></div>
-                        <div class="product-actions"><button type="button" class="preview-btn">Preview</button><a class="order-btn" href="https://wa.me/254742380183?text=I%20want%20to%20order%20HP%20840G3" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Order</a></div>
-                    </div>
-                </article>
-
-            </div> <!-- end #products-grid -->
-        </div>
-    </section> <!-- end Featured Products -->
-
-    <!-- Accessories Section -->
-    <section class="products" id="accessories">
-        <div class="container">
-            <h2 class="section-title">Accessories</h2>
-
-            <div class="products-grid">
-
-                <!-- 14" Screens -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1587825140708-64f0fba05c9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Slim 40 Touch 14in">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Slim 40 Touch (FHD) - 14"</div>
-                        <div class="product-specs">Top-quality FHD display, perfect fit for Slim 14" laptops</div>
-                        <div class="product-price"><span class="current-price">Ksh 9,800</span></div>
-                        <div class="product-actions">
-                            <a href="https://wa.me/254742380183?text=I%20want%20to%20order%20Slim%2040%20Touch%2014in" class="order-btn">
-                                <i class="fab fa-whatsapp"></i> Order Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Slim 32 Pin Touch 14in">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Slim 32 Pin Touch - 14"</div>
-                        <div class="product-specs">High-quality 14-inch touchscreen replacement</div>
-                        <div class="product-price"><span class="current-price">Ksh 9,800</span></div>
-                        <div class="product-actions">
-                            <a href="https://wa.me/254742380183?text=I%20want%20to%20order%20Slim%2032%20Pin%20Touch%2014in" class="order-btn">
-                                <i class="fab fa-whatsapp"></i> Order Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 15.6" Screens -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1587825140744-0a73f6a7c7b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Slim 40 Pin 15.6in">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Slim 40 Pin - 15.6"</div>
-                        <div class="product-specs">Reliable 15.6-inch replacement screen for Slim series laptops</div>
-                        <div class="product-price"><span class="current-price">Ksh 3,999</span></div>
-                        <div class="product-actions">
-                            <a href="https://wa.me/254742380183?text=I%20want%20to%20order%20Slim%2040%20Pin%2015.6in" class="order-btn">
-                                <i class="fab fa-whatsapp"></i> Order Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 13.3" Screens -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1587825140790-2d2f74b0f4c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Slim 30 Top/Side Brackets 13.3in">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">Slim 30 (Top/Side Brackets) - 13.3"</div>
-                        <div class="product-specs">Compact 13.3-inch replacement screen with top & side brackets</div>
-                        <div class="product-price"><span class="current-price">Ksh 3,800</span></div>
-                        <div class="product-actions">
-                            <a href="https://wa.me/254742380183?text=I%20want%20to%20order%20Slim%2030%20Top/Side%20Brackets%2013.3in" class="order-btn">
-                                <i class="fab fa-whatsapp"></i> Order Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Products will be loaded here -->
             </div>
         </div>
     </section>
 
-    <!-- Placeholder sections so nav links have targets -->
-    <section id="marketplace" class="products" aria-label="Marketplace">
-        <div class="container">
-            <h2 class="section-title">Marketplace</h2>
-            <p>Browse listings from third-party sellers and partners. Contact us if you want to list your item.</p>
+    <!-- Recently Viewed -->
+    <section class="recently-viewed container">
+        <h2 class="section-title">Recently Viewed</h2>
+        <div id="recently-viewed-grid" class="products-grid">
+            <!-- Will be populated by JavaScript -->
         </div>
     </section>
 
-    <section id="services" class="products" aria-label="Services">
-        <div class="container">
-            <h2 class="section-title">Services</h2>
-            <p>We offer repairs, upgrades and custom configurations. Get in touch for a quote.</p>
+    <!-- Bulk Order Section -->
+    <section class="container">
+        <div class="bulk-order">
+            <h3>Business/Bulk Orders?</h3>
+            <p>Contact us for special pricing on orders of 5+ units</p>
+            <button id="bulk-inquiry">Request Quote</button>
         </div>
     </section>
 
-    <section id="blog" class="products" aria-label="Blog">
-        <div class="container">
-            <h2 class="section-title">Blog</h2>
-            <p>Tips, tutorials and news about laptops and accessories. Check back for new posts.</p>
+    <!-- FAQ Section -->
+    <section class="faq-section container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question">Do you offer delivery outside Kisumu? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes, we deliver nationwide via courier services. Delivery costs vary by location.</div>
         </div>
+        <div class="faq-item">
+            <div class="faq-question">What is your return policy? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">We offer a 7-day return policy for manufacturing defects. Contact us within 7 days of delivery.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do you offer installment payments? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes, we offer Lipa Na M-Pesa installment plans. Contact us for details.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How long is the warranty? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">All laptops come with a 6-month warranty covering manufacturing defects.</div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="customer-reviews container">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="review">
+            <div class="review-header">
+                <div class="reviewer">John M.</div>
+                <div class="review-rating">★★★★★</div>
+                <div class="review-date">2 weeks ago</div>
+            </div>
+            <p>"Great laptop, fast delivery. The HP 840 G5 works perfectly for my business. Highly recommend!"</p>
+        </div>
+        <div class="review">
+            <div class="review-header">
+                <div class="reviewer">Sarah K.</div>
+                <div class="review-rating">★★★★★</div>
+                <div class="review-date">1 month ago</div>
+            </div>
+            <p>"Best prices I found online. The laptop arrived well-packaged and in perfect condition. Will buy again!"</p>
+        </div>
+        <div class="review">
+            <div class="review-header">
+                <div class="reviewer">David W.</div>
+                <div class="review-rating">★★★★☆</div>
+                <div class="review-date">3 weeks ago</div>
+            </div>
+            <p>"Good service, but delivery took 4 days instead of 2. Laptop quality is excellent though."</p>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter container">
+        <h3>Stay Updated</h3>
+        <p>Get notified about new arrivals and special offers</p>
+        <form id="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
     </section>
 
     <!-- Footer -->
@@ -1662,9 +1896,27 @@
         </div>
     </footer>
 
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <a href="https://wa.me/254742380183" class="whatsapp-chat" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Chat Now
+        </a>
+    </div>
+
     <!-- Back to top button -->
     <div class="back-to-top" id="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div id="comparison-modal" class="modal">
+        <div class="modal-content">
+            <h2>Product Comparison</h2>
+            <div id="comparison-content">
+                <p>Select 2-3 products to compare</p>
+            </div>
+            <button onclick="closeComparison()" style="margin-top: 20px; padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 6px;">Close</button>
+        </div>
     </div>
 
     <!-- Popup -->
@@ -1677,7 +1929,201 @@
 
     <!-- Consolidated scripts -->
     <script>
-        // Update greeting in East Africa Time (EAT - Africa/Nairobi)
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "HP 830 G5 i5 8th Gen",
+                category: "laptop",
+                brand: "hp",
+                price: 25500,
+                originalPrice: 28500,
+                rating: 4.5,
+                date: "2023-06-15",
+                specs: "8GB RAM • 256GB SSD • 14\" Display",
+                image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 8th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 8 hours",
+                    weight: "1.5 kg"
+                }
+            },
+            {
+                id: 2,
+                name: "HP 840 G5 i5 8th Gen",
+                category: "laptop",
+                brand: "hp",
+                price: 26000,
+                originalPrice: 29000,
+                rating: 4.7,
+                date: "2023-07-02",
+                specs: "8GB RAM • 256GB SSD • 14\" Display",
+                image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 8th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 9 hours",
+                    weight: "1.6 kg"
+                }
+            },
+            {
+                id: 3,
+                name: "HP 840 G1 i5 4th Gen",
+                category: "laptop",
+                brand: "hp",
+                price: 17500,
+                originalPrice: 20500,
+                rating: 4.2,
+                date: "2023-06-28",
+                specs: "8GB RAM • 500GB HDD • 14\" Display",
+                image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=500&q=80",
+                stock: "low-stock",
+                sealed: false,
+                warranty: "3 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 4th Generation",
+                    ram: "8GB DDR3",
+                    storage: "500GB HDD",
+                    display: "14\" HD (1366x768)",
+                    battery: "Up to 6 hours",
+                    weight: "2.0 kg"
+                }
+            },
+            {
+                id: 4,
+                name: "Dell 7280 i7 6th Gen",
+                category: "laptop",
+                brand: "dell",
+                price: 21000,
+                originalPrice: 24000,
+                rating: 4.8,
+                date: "2023-07-10",
+                specs: "8GB RAM • 256GB SSD • 12.5\" Display",
+                image: "(Refurbished) DELL LATITUDE 7280 (Core i7 6th GEN_ 8GB_ 256GB SSD_ WEBCAM_ 12_5'' NO TOUCH_ WIN-10 PRO).jpeg",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 6th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "12.5\" FHD (1920x1080)",
+                    battery: "Up to 10 hours",
+                    weight: "1.2 kg"
+                }
+            },
+            {
+                id: 5,
+                name: "Lenovo T460s i5 6th Gen",
+                category: "laptop",
+                brand: "lenovo",
+                price: 19500,
+                originalPrice: 22500,
+                rating: 4.3,
+                date: "2023-07-05",
+                specs: "8GB RAM • 256GB SSD • 14\" Display",
+                image: "https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=500&q=80",
+                stock: "out-of-stock",
+                sealed: false,
+                warranty: "3 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 6th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 7 hours",
+                    weight: "1.4 kg"
+                }
+            },
+            {
+                id: 6,
+                name: "HP 840G6 i5 8TH GEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 26000,
+                rating: 4.5,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 14\"",
+                image: "HP 840G6 i5.png",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i5 8th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 8 hours",
+                    weight: "1.5 kg"
+                }
+            },
+            {
+                id: 7,
+                name: "HP 840G5 i7 8TH GEN 8/256GB",
+                category: "laptop",
+                brand: "hp",
+                price: 30999,
+                rating: 4.6,
+                date: "2023-10-01",
+                specs: "8GB RAM • 256GB SSD • 14\"",
+                image: "hp 840 g5.png",
+                stock: "in-stock",
+                sealed: true,
+                warranty: "6 Months",
+                fullSpecs: {
+                    processor: "Intel Core i7 8th Generation",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "14\" FHD (1920x1080)",
+                    battery: "Up to 9 hours",
+                    weight: "1.6 kg"
+                }
+            }
+        ];
+
+        // State Management
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+        let comparisonItems = JSON.parse(localStorage.getItem('comparisonItems')) || [];
+
+        // Initialize on DOM Load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateGreeting();
+            setupMobileMenu();
+            setupSalesTimer();
+            setupImageFallbacks();
+            setupSearchAndSort();
+            setupBackToTop();
+            animateCounters();
+            setupProductPreview();
+            renderProducts();
+            setupFilters();
+            setupFAQ();
+            setupNewsletter();
+            setupBulkInquiry();
+            setupComparison();
+            renderRecentlyViewed();
+            setupDeliveryCalculator();
+            
+            // Initialize cart and wishlist counts
+            updateCartCount();
+            updateWishlistCount();
+            updateComparisonCount();
+        });
+
+        // Update greeting in East Africa Time
         function updateGreeting() {
             try {
                 const timeZone = 'Africa/Nairobi';
@@ -1702,10 +2148,9 @@
                 if (greetingEl) greetingEl.textContent = 'Welcome!';
             }
         }
-        updateGreeting();
         setInterval(updateGreeting, 60 * 1000);
 
-        // Mobile menu toggle (keeps focus accessible)
+        // Mobile menu toggle
         (function setupMobileMenu() {
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -1741,9 +2186,6 @@
             });
         })();
 
-        // Defensive: ensure all buttons have type attribute
-        document.querySelectorAll('button').forEach(b => { if (!b.hasAttribute('type')) b.setAttribute('type', 'button'); });
-
         // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', function (e) {
@@ -1778,13 +2220,13 @@
                 }
             });
         }, { threshold: 0.12 });
-        // observe main sections
+        
         document.querySelectorAll('section').forEach(s => {
             s.classList.add('animate-hidden');
             io.observe(s);
         });
 
-        // Flash Sales Popup (keeps behaviour)
+        // Flash Sales Popup
         function showPopup(product, price) {
             const popup = document.getElementById('popup');
             if (popup) {
@@ -1794,10 +2236,12 @@
                 popup.classList.add('active');
             }
         }
+        
         function closePopup() {
             const popup = document.getElementById('popup');
             if (popup) popup.classList.remove('active');
         }
+        
         window.showPopup = showPopup;
         window.closePopup = closePopup;
 
@@ -1823,41 +2267,174 @@
             setInterval(updateTimer, 1000);
         })();
 
-        // Image fallback: replace broken images with site's embedded SVG (monochrome applied)
+        // Image fallback
         (function setupImageFallbacks() {
-            // embedded SVG fallback - guaranteed to load, no external request
             const fallback = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>';
             document.querySelectorAll('img').forEach(img => {
-                // Defensive: if the raw src attribute contains spaces or parentheses, normalize it
                 const raw = img.getAttribute('src');
                 if (raw && !raw.startsWith('data:')) {
-                    // only replace common problem characters (space, parentheses) once
                     if (/[ \(\)]/.test(raw)) {
                         const safe = raw.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
-                        // set attribute to the safer encoded form (avoids some 404s)
                         img.setAttribute('src', safe);
-                        // also set DOM src to ensure browser uses the new value
                         try { img.src = safe; } catch (e) { /* ignore */ }
                     }
                 }
-                // attach onerror to apply fallback when image cannot load
                 img.addEventListener('error', function () {
                     if (this.dataset.fallbackApplied) return;
                     this.dataset.fallbackApplied = '1';
-                    // clear srcset to avoid alternate broken sources
                     if (this.hasAttribute('srcset')) this.removeAttribute('srcset');
                     this.classList.add('img-fallback');
                     this.src = fallback;
                     this.alt = this.alt || 'Skope Sana logo';
                 });
-                // if no src present, trigger the error handler to apply fallback immediately
                 if (!img.getAttribute('src')) {
                     img.dispatchEvent(new Event('error'));
                 }
             });
         })();
 
-        // Search & Sort for products
+        // Render Products
+        function renderProducts(filteredProducts = products) {
+            const grid = document.getElementById('products-grid');
+            if (!grid) return;
+
+            grid.innerHTML = filteredProducts.map(product => `
+                <article class="product-card" data-id="${product.id}" data-category="laptop" data-price="${product.price}" data-rating="${product.rating}" data-date="${product.date}" data-name="${product.name}">
+                    <div class="stock-status ${product.stock}">
+                        <i class="fas ${product.stock === 'in-stock' ? 'fa-check-circle' : product.stock === 'low-stock' ? 'fa-exclamation-triangle' : 'fa-times-circle'}"></i>
+                        ${product.stock === 'in-stock' ? 'In Stock' : product.stock === 'low-stock' ? 'Only 2 left' : 'Out of Stock'}
+                    </div>
+                    <div class="warranty-info">
+                        <i class="fas fa-shield-alt"></i>
+                        ${product.warranty}
+                    </div>
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" class="lazy-load">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Laptop • ${product.sealed ? 'Sealed' : 'Refurbished'}</div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-specs">${product.specs}</div>
+                        <div class="product-price">
+                            <span class="current-price">Ksh ${product.price.toLocaleString()}</span>
+                            ${product.originalPrice ? `<span class="original-price">Ksh ${product.originalPrice.toLocaleString()}</span>` : ''}
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">${'<i class="fas fa-star"></i>'.repeat(Math.floor(product.rating))}${product.rating % 1 ? '<i class="fas fa-star-half-alt"></i>' : ''}${'<i class="far fa-star"></i>'.repeat(5 - Math.ceil(product.rating))}</div>
+                            <span class="rating-count">(${Math.floor(Math.random() * 50) + 10})</span>
+                        </div>
+                        
+                        <!-- Specifications Table -->
+                        <table class="specs-table" style="display: none;">
+                            ${Object.entries(product.fullSpecs).map(([key, value]) => `
+                                <tr><th>${key.charAt(0).toUpperCase() + key.slice(1)}</th><td>${value}</td></tr>
+                            `).join('')}
+                        </table>
+                        
+                        <!-- Delivery Calculator (initially hidden) -->
+                        <div class="delivery-calculator" style="display: none; margin: 15px 0;">
+                            <h4>Estimate Delivery</h4>
+                            <select class="delivery-location">
+                                <option value="nairobi">Nairobi</option>
+                                <option value="kisumu">Kisumu</option>
+                                <option value="mombasa">Mombasa</option>
+                            </select>
+                            <div class="delivery-estimate">
+                                <i class="fas fa-shipping-fast"></i>
+                                <span>Delivery: 2-3 days • Ksh ${['nairobi', 'kisumu'].includes('kisumu') ? '0' : '500'}</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Payment Options -->
+                        <div class="payment-options" style="margin: 15px 0;">
+                            <div class="installment-plan">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Pay in 3 installments with Lipa Na M-Pesa</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button type="button" class="preview-btn" onclick="showProductDetails(${product.id})">Preview</button>
+                            <button class="add-to-cart" onclick="addToCart(${product.id})">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="add-to-wishlist ${wishlist.includes(product.id) ? 'active' : ''}" onclick="toggleWishlist(${product.id})">
+                                <i class="${wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Comparison checkbox -->
+                        <div style="margin-top: 10px;">
+                            <label>
+                                <input type="checkbox" class="compare-checkbox" data-id="${product.id}" ${comparisonItems.includes(product.id) ? 'checked' : ''}>
+                                Add to comparison
+                            </label>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+
+            // Attach event listeners to compare checkboxes
+            document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const productId = parseInt(this.dataset.id);
+                    toggleComparison(productId);
+                });
+            });
+        }
+
+        // Setup Filters
+        function setupFilters() {
+            const priceSlider = document.getElementById('price-slider');
+            const maxPriceDisplay = document.getElementById('max-price');
+            const categoryCheckboxes = document.querySelectorAll('.filter-category input');
+            const brandCheckboxes = document.querySelectorAll('.filter-brand input');
+
+            if (priceSlider) {
+                priceSlider.addEventListener('input', function() {
+                    const price = parseInt(this.value);
+                    maxPriceDisplay.textContent = price.toLocaleString();
+                    filterProducts();
+                });
+            }
+
+            categoryCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
+            brandCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
+        }
+
+        // Filter Products
+        function filterProducts() {
+            const maxPrice = parseInt(document.getElementById('price-slider').value);
+            const selectedCategories = Array.from(document.querySelectorAll('.filter-category input:checked')).map(cb => cb.value);
+            const selectedBrands = Array.from(document.querySelectorAll('.filter-brand input:checked')).map(cb => cb.value);
+
+            const filtered = products.filter(product => {
+                // Price filter
+                if (product.price > maxPrice) return false;
+
+                // Category filter
+                if (selectedCategories.length > 0) {
+                    const categoryMatch = selectedCategories.some(cat => {
+                        if (cat === 'sealed') return product.sealed;
+                        if (cat === 'refurbished') return !product.sealed;
+                        if (cat === 'new') return new Date(product.date) > new Date('2023-09-01');
+                        return true;
+                    });
+                    if (!categoryMatch) return false;
+                }
+
+                // Brand filter
+                if (selectedBrands.length > 0 && !selectedBrands.includes(product.brand)) {
+                    return false;
+                }
+
+                return true;
+            });
+
+            renderProducts(filtered);
+        }
+
+        // Setup Search & Sort
         (function setupSearchAndSort() {
             const grid = document.getElementById('products-grid');
             const input = document.getElementById('search-input');
@@ -1868,14 +2445,12 @@
                 query = (query || '').trim().toLowerCase();
                 Array.from(grid.children).forEach(card => {
                     if (!card.classList || !card.classList.contains('product-card')) {
-                        // allow accessory cards etc.
                         card.style.display = '';
                         return;
                     }
                     const name = (card.dataset.name || '').toLowerCase();
-                    const category = (card.dataset.category || '').toLowerCase();
                     const specs = (card.querySelector('.product-specs') || { textContent: '' }).textContent.toLowerCase();
-                    const match = !query || name.includes(query) || category.includes(query) || specs.includes(query);
+                    const match = !query || name.includes(query) || specs.includes(query);
                     card.style.display = match ? '' : 'none';
                 });
             }
@@ -1892,7 +2467,6 @@
                 };
                 const cmp = compareFns[mode] || compareFns['default'];
                 items.sort(cmp);
-                // append in order (this moves nodes)
                 items.forEach(i => grid.appendChild(i));
             }
 
@@ -1923,7 +2497,6 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
             
-            // Initialize
             toggleBackToTop();
         })();
 
@@ -1937,8 +2510,8 @@
                     if (entry.isIntersecting) {
                         const counter = entry.target;
                         const target = parseInt(counter.textContent);
-                        const duration = 2000; // 2 seconds
-                        const step = target / (duration / 16); // 60fps
+                        const duration = 2000;
+                        const step = target / (duration / 16);
                         let current = 0;
                         
                         const timer = setInterval(() => {
@@ -1960,21 +2533,294 @@
         })();
 
         // Product preview functionality
-        (function setupProductPreview() {
-            document.querySelectorAll('.preview-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const productCard = this.closest('.product-card');
-                    const productName = productCard.querySelector('.product-title').textContent;
-                    const productPrice = productCard.querySelector('.current-price').textContent;
-                    showPopup(productName, productPrice);
+        function setupProductPreview() {
+            // This is handled by the showProductDetails function
+        }
+
+        function showProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            // Show details in popup
+            const popup = document.getElementById('popup');
+            if (popup) {
+                document.getElementById('popup-product').textContent = product.name;
+                document.getElementById('popup-price').textContent = `Ksh ${product.price.toLocaleString()}`;
+                document.getElementById('popup-link').href = `https://wa.me/254742380183?text=I%20want%20to%20order%20${encodeURIComponent(product.name)}`;
+                
+                // Add specifications to popup content
+                const popupContent = document.querySelector('.popup-content');
+                popupContent.innerHTML = `
+                    <p>Price: <strong>Ksh ${product.price.toLocaleString()}</strong></p>
+                    <p>${product.specs}</p>
+                    <div style="margin-top: 15px;">
+                        <strong>Specifications:</strong>
+                        <ul style="margin-top: 10px;">
+                            ${Object.entries(product.fullSpecs).map(([key, value]) => `
+                                <li><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${value}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+                
+                popup.classList.add('active');
+            }
+
+            // Add to recently viewed
+            addToRecentlyViewed(productId);
+        }
+
+        // Shopping Cart Functions
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            if (product.stock === 'out-of-stock') {
+                alert('This product is out of stock');
+                return;
+            }
+
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: 1
+            });
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Show notification
+            showNotification(`Added ${product.name} to cart!`);
+        }
+
+        function updateCartCount() {
+            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            // You can display this count in the header if you add a cart icon
+        }
+
+        // Wishlist Functions
+        function toggleWishlist(productId) {
+            const index = wishlist.indexOf(productId);
+            if (index === -1) {
+                wishlist.push(productId);
+                showNotification('Added to wishlist!');
+            } else {
+                wishlist.splice(index, 1);
+                showNotification('Removed from wishlist');
+            }
+            
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            updateWishlistCount();
+            renderProducts(); // Re-render to update heart icons
+        }
+
+        function updateWishlistCount() {
+            // Update wishlist count display if you add a wishlist icon
+        }
+
+        // Comparison Functions
+        function setupComparison() {
+            const compareBtn = document.getElementById('compare-btn');
+            if (compareBtn) {
+                compareBtn.addEventListener('click', showComparison);
+            }
+        }
+
+        function toggleComparison(productId) {
+            const index = comparisonItems.indexOf(productId);
+            if (index === -1) {
+                if (comparisonItems.length >= 3) {
+                    alert('You can compare up to 3 products at a time');
+                    document.querySelector(`.compare-checkbox[data-id="${productId}"]`).checked = false;
+                    return;
+                }
+                comparisonItems.push(productId);
+            } else {
+                comparisonItems.splice(index, 1);
+            }
+            
+            localStorage.setItem('comparisonItems', JSON.stringify(comparisonItems));
+            updateComparisonCount();
+        }
+
+        function updateComparisonCount() {
+            const compareBtn = document.getElementById('compare-btn');
+            if (compareBtn) {
+                compareBtn.innerHTML = `<i class="fas fa-balance-scale"></i> Compare (${comparisonItems.length})`;
+            }
+        }
+
+        function showComparison() {
+            if (comparisonItems.length === 0) {
+                alert('Please select products to compare');
+                return;
+            }
+
+            const modal = document.getElementById('comparison-modal');
+            const content = document.getElementById('comparison-content');
+            
+            if (!modal || !content) return;
+
+            const productsToCompare = products.filter(p => comparisonItems.includes(p.id));
+            
+            let html = '<table class="comparison-table"><tr><th>Feature</th>';
+            productsToCompare.forEach(product => {
+                html += `<th>${product.name}</th>`;
+            });
+            html += '</tr>';
+
+            // Add specifications
+            const specs = ['price', 'processor', 'ram', 'storage', 'display', 'battery', 'weight'];
+            specs.forEach(spec => {
+                html += `<tr><td>${spec.charAt(0).toUpperCase() + spec.slice(1)}</td>`;
+                productsToCompare.forEach(product => {
+                    let value = '';
+                    if (spec === 'price') {
+                        value = `Ksh ${product.price.toLocaleString()}`;
+                    } else {
+                        value = product.fullSpecs[spec] || 'N/A';
+                    }
+                    html += `<td>${value}</td>`;
+                });
+                html += '</tr>';
+            });
+
+            html += '</table>';
+            content.innerHTML = html;
+            modal.style.display = 'block';
+        }
+
+        function closeComparison() {
+            const modal = document.getElementById('comparison-modal');
+            if (modal) modal.style.display = 'none';
+        }
+
+        // Recently Viewed
+        function addToRecentlyViewed(productId) {
+            const index = recentlyViewed.indexOf(productId);
+            if (index !== -1) {
+                recentlyViewed.splice(index, 1);
+            }
+            recentlyViewed.unshift(productId);
+            recentlyViewed = recentlyViewed.slice(0, 4); // Keep only 4 items
+            localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+            renderRecentlyViewed();
+        }
+
+        function renderRecentlyViewed() {
+            const grid = document.getElementById('recently-viewed-grid');
+            if (!grid || recentlyViewed.length === 0) return;
+
+            const recentlyViewedProducts = products.filter(p => recentlyViewed.includes(p.id));
+            grid.innerHTML = recentlyViewedProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-price">
+                            <span class="current-price">Ksh ${product.price.toLocaleString()}</span>
+                        </div>
+                        <button class="order-btn" onclick="showProductDetails(${product.id})">
+                            <i class="fab fa-whatsapp"></i> View Details
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // FAQ Section
+        function setupFAQ() {
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    item.classList.toggle('active');
+                    
+                    // Rotate arrow
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                    }
                 });
             });
-        })();
+        }
+
+        // Newsletter
+        function setupNewsletter() {
+            const form = document.getElementById('newsletter-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    
+                    // In a real application, you would send this to your server
+                    showNotification('Thank you for subscribing!');
+                    this.reset();
+                });
+            }
+        }
+
+        // Bulk Inquiry
+        function setupBulkInquiry() {
+            const btn = document.getElementById('bulk-inquiry');
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    window.location.href = 'https://wa.me/254742380183?text=I%20am%20interested%20in%20bulk%20purchase%20of%20laptops%20for%20my%20business.';
+                });
+            }
+        }
+
+        // Delivery Calculator
+        function setupDeliveryCalculator() {
+            // This would typically be implemented with an API
+            // For now, we'll just show static estimates
+        }
+
+        // Notification System
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--success);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 6px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add CSS for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
 
         // Add loading state to buttons
         document.querySelectorAll('a.order-btn, a.hero-cta').forEach(btn => {
             btn.addEventListener('click', function(e) {
-                // Only add loading for external links
                 if (this.href && this.href.startsWith('https://wa.me')) {
                     const originalText = this.innerHTML;
                     this.innerHTML = '<span class="loading"></span> Loading...';
@@ -1986,16 +2832,68 @@
             });
         });
 
-        // Initialize all functionality when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            updateGreeting();
-            setupMobileMenu();
-            setupSalesTimer();
-            setupImageFallbacks();
-            setupSearchAndSort();
-            setupBackToTop();
-            animateCounters();
-            setupProductPreview();
+        // Service Worker Registration for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(error => {
+                    console.log('Service Worker registration failed:', error);
+                });
+            });
+        }
+
+        // Add to Home Screen Prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button (you can add this to your UI)
+            setTimeout(() => {
+                if (deferredPrompt) {
+                    const installBtn = document.createElement('button');
+                    installBtn.textContent = 'Install App';
+                    installBtn.style.cssText = `
+                        position: fixed;
+                        bottom: 120px;
+                        right: 20px;
+                        background: var(--primary);
+                        color: white;
+                        padding: 10px 15px;
+                        border-radius: 6px;
+                        border: none;
+                        cursor: pointer;
+                        z-index: 1000;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                    `;
+                    installBtn.addEventListener('click', () => {
+                        deferredPrompt.prompt();
+                        deferredPrompt.userChoice.then(() => {
+                            deferredPrompt = null;
+                            installBtn.remove();
+                        });
+                    });
+                    document.body.appendChild(installBtn);
+                }
+            }, 5000);
+        });
+
+        // Lazy Loading Images
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('data-src');
+                    if (src) {
+                        img.src = src;
+                        img.removeAttribute('data-src');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img.lazy-load').forEach(img => {
+            imageObserver.observe(img);
         });
     </script>
 </body>
