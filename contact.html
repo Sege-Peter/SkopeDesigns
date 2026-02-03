@@ -238,7 +238,7 @@
 
   <!-- HEADER -->
   <header id="header"
-    class="fixed w-full top-0 z-50 transition-all duration-300 px-6 py-4 flex items-center justify-between bg-primary text-white">
+    class="fixed w-full top-0 z-50 transition-all duration-300 px-4 md:px-6 py-3 md:py-4 flex items-center justify-between bg-primary text-white">
     <div class="flex items-center gap-3">
       <img src="logo.png" alt="Skope Logo"
         class="h-12 w-12 rounded-full border-2 border-secondary hover:rotate-12 transition-transform duration-300" />
@@ -400,11 +400,11 @@
 
   <!-- Contact Hero Section -->
   <section
-    class="contact-hero min-h-[60vh] flex items-center pt-24 pb-16 px-6 bg-gradient-to-r from-slate-900 to-slate-800">
+    class="contact-hero min-h-[50vh] md:min-h-[60vh] flex items-center pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 bg-gradient-to-r from-slate-900 to-slate-800">
     <div class="max-w-6xl mx-auto text-center">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Let's Create <span
+      <h1 class="text-3xl md:text-6xl font-bold mb-4 md:mb-6 text-white text-balance">Let's Create <span
           class="text-orange-600">Together</span></h1>
-      <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-slate-300">
+      <p class="text-lg md:text-2xl max-w-2xl mx-auto mb-6 md:mb-8 text-slate-300 px-2">
         Ready to elevate your brand? Reach out for design inquiries, project quotes, or collaboration opportunities.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
@@ -421,7 +421,7 @@
   </section>
 
   <!-- Contact + Newsletter Section -->
-  <section id="contact" class="bg-slate-950 text-white py-16 px-6">
+  <section id="contact" class="bg-slate-950 text-white py-12 md:py-16 px-4 md:px-6">
     <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
 
       <!-- Left: Contact Info & Form -->
@@ -465,11 +465,11 @@
 
           <!-- Newsletter Form -->
           <form action="https://formspree.io/f/meozqvwk" method="POST"
-            class="flex items-center bg-slate-900 p-2 rounded-lg border border-slate-700 shadow-inner">
+            class="flex flex-col sm:flex-row items-center bg-slate-900 p-2 rounded-lg border border-slate-700 shadow-inner gap-2 sm:gap-0">
             <input type="email" name="email" required placeholder="Enter your email"
-              class="flex-grow px-4 py-2 bg-transparent text-white placeholder-gray-400 focus:outline-none">
+              class="w-full sm:flex-grow px-4 py-2 bg-transparent text-white placeholder-gray-400 focus:outline-none text-base">
             <button type="submit"
-              class="bg-orange-500 text-black px-4 py-2 rounded-md hover:bg-orange-400 transition duration-300 font-semibold">
+              class="w-full sm:w-auto bg-orange-500 text-black px-6 py-2 rounded-md hover:bg-orange-400 transition duration-300 font-semibold whitespace-nowrap">
               Subscribe
             </button>
           </form>
@@ -514,7 +514,7 @@
 
           <!-- 3D Interactive Map (Mapbox) -->
           <div id="mapbox-container"
-            class="w-full h-96 rounded-xl overflow-hidden border-2 border-slate-800 shadow-md relative transition-opacity duration-500">
+            class="w-full h-64 sm:h-96 rounded-xl overflow-hidden border-2 border-slate-800 shadow-md relative transition-opacity duration-500">
             <div id="map" class="w-full h-full"></div>
             <div class="absolute top-4 left-4 bg-slate-900 bg-opacity-90 px-4 py-2 rounded-lg text-sm">
               <p class="font-semibold text-cyan-400">📍 Maseno University</p>
@@ -525,7 +525,7 @@
 
           <!-- Google Maps (Traditional) -->
           <div id="google-container"
-            class="w-full h-96 rounded-xl overflow-hidden border-2 border-slate-800 shadow-md relative hidden transition-opacity duration-500">
+            class="w-full h-64 sm:h-96 rounded-xl overflow-hidden border-2 border-slate-800 shadow-md relative hidden transition-opacity duration-500">
             <iframe src="https://www.google.com/maps?q=Maseno+University,+Kenya&output=embed" width="100%" height="100%"
               style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
