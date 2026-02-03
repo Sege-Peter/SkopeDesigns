@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,8 +9,10 @@
   <title>Skope Designs | Portfolio by Sege Peter | Creative Web & Brand Designer in Kenya</title>
 
   <!-- SEO Meta -->
-  <meta name="description" content="Explore the professional portfolio of Sege Peter at Skope Designs — where creativity meets technology. Specializing in branding, responsive web design, and modern full-stack development using Tailwind CSS, Java, Python, and MySQL.">
-  <meta name="keywords" content="Skope Designs, Sege Peter, Portfolio, Branding, Web Developer, UI/UX Design, Tailwind CSS, Python, Java, MySQL, Kenya, Graphic Design, Digital Agency">
+  <meta name="description"
+    content="Explore the professional portfolio of Sege Peter at Skope Designs — where creativity meets technology. Specializing in branding, responsive web design, and modern full-stack development using Tailwind CSS, Java, Python, and MySQL.">
+  <meta name="keywords"
+    content="Skope Designs, Sege Peter, Portfolio, Branding, Web Developer, UI/UX Design, Tailwind CSS, Python, Java, MySQL, Kenya, Graphic Design, Digital Agency">
   <meta name="author" content="Sege Peter" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.skopedesigns.co.ke/" />
@@ -17,14 +20,18 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.skopedesigns.co.ke/" />
-  <meta property="og:title" content="Skope Designs | Portfolio by Sege Peter | Creative Web & Brand Designer in Kenya" />
-  <meta property="og:description" content="See creative works by Sege Peter — the founder of Skope Designs — delivering top-tier branding, web design, and software solutions." />
+  <meta property="og:title"
+    content="Skope Designs | Portfolio by Sege Peter | Creative Web & Brand Designer in Kenya" />
+  <meta property="og:description"
+    content="See creative works by Sege Peter — the founder of Skope Designs — delivering top-tier branding, web design, and software solutions." />
   <meta property="og:image" content="ceo sege.png" />
 
   <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Skope Designs | Portfolio by Sege Peter | Creative Web & Brand Designer in Kenya" />
-  <meta name="twitter:description" content="See creative works by Sege Peter — the founder of Skope Designs — delivering top-tier branding, web design, and software solutions." />
+  <meta name="twitter:title"
+    content="Skope Designs | Portfolio by Sege Peter | Creative Web & Brand Designer in Kenya" />
+  <meta name="twitter:description"
+    content="See creative works by Sege Peter — the founder of Skope Designs — delivering top-tier branding, web design, and software solutions." />
   <meta name="twitter:image" content="ceo sege.png" />
 
   <!-- Favicon -->
@@ -36,7 +43,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
+    crossorigin="anonymous"></script>
 
   <!-- Tailwind Config -->
   <script>
@@ -57,367 +65,701 @@
   </script>
 
   <style>
-    .hero-slide { background-size: cover; background-position: center; transition: background-image 1s ease-in-out; }
-    .hamburger, .menu-items { transition: all 0.3s ease; }
-    .menu-items { transform: translateX(100%); }
-    .menu-items.open { transform: translateX(0); }
-    .static-header { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #0f9d58; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; transition: all .3s; }
-    .static-header.scrolled { padding: .5rem 2rem; background-color: rgba(15,157,88,.95); backdrop-filter: blur(5px); }
-    .logo-img { height: 50px; transition: transform .3s; border-radius: 50px; border: 1.7px solid #f57c00; }
-    .logo-img:hover { transform: rotate(10deg); }
-    .hamburger-menu { position: relative; width: 30px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
-    .hamburger-menu span { display: block; height: 3px; width: 100%; background: white; border-radius: 3px; transition: all 0.3s; }
-    .hamburger-menu.open span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .hamburger-menu.open span:nth-child(2) { opacity: 0; }
-    .hamburger-menu.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
-    .menu-items li { opacity: 0; transform: translateX(20px); transition: all .4s ease; }
-    .menu-items.open li { opacity: 1; transform: translateX(0); }
-    .menu-items a { display: block; padding: .6rem 1rem; color: white; text-decoration: none; border-radius: 6px; position: relative; margin-bottom: .5rem; }
-    .menu-items a:hover { background-color: rgba(255,255,255,0.1); transform: translateX(5px); }
-    .menu-items a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: rgba(245,123,0,0.22); transition: width .3s; }
-    .menu-items a:hover::before { width: 100%; }
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: pulse-whatsapp 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    }
+
+    /* Sidebar Menu Animations */
+    .sidebar-menu {
+      transform: translateX(100%);
+      /* Start hidden to the right */
+      transition: transform 0.3s ease-in-out;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-menu.open {
+      transform: translateX(0);
+    }
+
+    .overlay-bg {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .overlay-bg.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Hamburger Animation */
+    .hamburger-line {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menu-open .line-1 {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .menu-open .line-2 {
+      opacity: 0;
+    }
+
+    .menu-open .line-3 {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
 
     /* Hide scrollbar */
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
     /* Responsive scroll */
     @media (max-width: 767px) {
-      #projectContainer { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-      #projectContainer > div { scroll-snap-align: start; }
+      #projectContainer {
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      #projectContainer>div {
+        scroll-snap-align: start;
+      }
     }
+
     @media (min-width: 768px) {
-      #projectContainer > div { height: 100%; display: flex; flex-direction: column; }
+      #projectContainer>div {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    /* Filter buttons */
+    .filter-btn {
+      background: #f97316;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .filter-btn:hover {
+      background: #ea580c;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    }
+
+    .filter-btn.active {
+      background: #06b6d4;
+      border-color: #06b6d4;
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+      transform: scale(1.05);
+    }
+
+    /* Portfolio items */
+    .portfolio-item {
+      width: 100%;
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05) translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .portfolio-item.hidden {
+      display: none;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      animation: zoomIn 0.3s ease;
+      border-radius: 8px;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      z-index: 10000;
+      transition: transform 0.3s;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.2);
+    }
+
+    /* Lightbox Navigation */
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-prev {
+      left: 20px;
+    }
+
+    .lightbox-next {
+      right: 20px;
+    }
+
+    /* Lightbox Counter */
+    .lightbox-counter {
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    /* Lightbox Share */
+    .lightbox-share {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .share-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 640px) {
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .lightbox-prev {
+        left: 10px;
+      }
+
+      .lightbox-next {
+        right: 10px;
+      }
+
+      .lightbox img {
+        max-height: 60vh;
+      }
     }
   </style>
 </head>
 
-
 <body class="bg-dark text-white font-sans overflow-x-hidden">
 
   <!-- HEADER -->
-  <header id="header" class="static-header bg-primary text-white px-6 py-4 flex items-center justify-between">
+  <header id="header"
+    class="fixed w-full top-0 z-50 transition-all duration-300 px-6 py-4 flex items-center justify-between bg-primary text-white">
     <div class="flex items-center gap-3">
-      <img src="logo.png" alt="Skope Logo" class="logo-img" />
+      <img src="logo.png" alt="Skope Logo"
+        class="h-12 w-12 rounded-full border-2 border-secondary hover:rotate-12 transition-transform duration-300" />
       <div>
-        <span class="font-bold text-lg">SKOPE DESIGNS</span>
-        <span class="block text-xs italic">Design Beyond Boundaries</span>
+        <span class="font-bold text-lg tracking-wide">SKOPE DESIGNS</span>
+        <span class="block text-[10px] italic opacity-90">Design Beyond Boundaries</span>
       </div>
     </div>
-    <nav class="hidden md:flex gap-8">
-      <a href="index.html" class="hover:text-secondary">Home</a>
-      <a href="about.html" class="hover:text-secondary">About</a>
-      <a href="service.html" class="hover:text-secondary">Services</a>
-      <a href="portfolio.html" class="hover:text-secondary">Portfolio</a>
-      <a href="resources.html" class="hover:text-secondary">Resources</a>
-      <a href="shop.html" class="hover:text-secondary">Shop</a>
-      <a href="contact.html" class="hover:text-secondary">Contact</a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex gap-8 font-medium">
+      <a href="index.html" class="hover:text-secondary transition-colors relative group">Home<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="about.html" class="hover:text-secondary transition-colors relative group">About<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="service.html" class="hover:text-secondary transition-colors relative group">Services<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="portfolio.html" class="hover:text-secondary transition-colors relative group">Portfolio<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="resources.html" class="hover:text-secondary transition-colors relative group">Resources<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="shop.html" class="hover:text-secondary transition-colors relative group">Shop<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="contact.html" class="hover:text-secondary transition-colors relative group">Contact<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
     </nav>
-    <div id="menu-btn" class="md:hidden hamburger-menu">
-      <span></span><span></span><span></span>
-    </div>
+
+    <!-- Hamburger Button -->
+    <button id="menu-btn" class="md:hidden z-[60] relative w-8 h-6 flex flex-col justify-between focus:outline-none">
+      <span class="w-full h-0.5 bg-white hamburger-line line-1 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-2 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-3 rounded-full"></span>
+    </button>
   </header>
 
-  <!-- MOBILE MENU -->
-  <ul id="mobile-menu" class="menu-items fixed top-[70px] right-0 w-56 h-[calc(100%-70px)] bg-secondary bg-opacity-90 backdrop-blur-lg z-40 p-6 flex flex-col list-none">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="service.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="resources.html">Resources</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
- <br>
- <br>
- <!-- Portfolio Section -->
-<section id="portfolio" class="bg-gray-50 py-16 px-4 md:px-20 text-center font-sans">
-  <h2 class="text-4xl font-bold text-orange-600 mb-4 animate__animated animate__fadeInDown">Our Creative Portfolio</h2>
-  <p class="text-gray-600 mb-10 text-lg">Explore a collection of our work — from designs to full websites and campaigns.</p>
-<!-- Recent Projects Section -->
-<section class="bg-white py-16 px-6 md:px-20" id="recent-projects">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-4xl md:text-5xl font-bold text-orange-600 text-center mb-12" data-aos="fade-down">
-      🌐 Our Recent Web Projects
-    </h2>
+  <!-- SIDEBAR NAVIGATION DRAWER -->
+  <!-- Overlay Backdrop -->
+  <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[45] overlay-bg backdrop-blur-sm" onclick="toggleMenu()">
+  </div>
 
-    <div id="projectContainer" class="flex overflow-x-auto pb-6 md:overflow-visible md:grid md:grid-cols-4 md:gap-8 scrollbar-hide">
-      <!-- Projects will be inserted here by JavaScript -->
+  <!-- Sidebar Container -->
+  <aside id="sidebar-menu"
+    class="fixed top-0 right-0 h-full w-64 bg-white z-[60] sidebar-menu flex flex-col shadow-2xl overflow-y-auto">
+
+    <!-- Sidebar Header -->
+    <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="h-8 w-8 rounded-full border border-gray-200">
+        <span class="font-bold text-gray-800 text-base">Menu</span>
+      </div>
+      <button onclick="toggleMenu()" class="text-gray-400 hover:text-red-500 transition-colors">
+        <i class="fas fa-times text-lg"></i>
+      </button>
     </div>
-    
-    <!-- Scroll indicator for mobile -->
-    <div class="md:hidden text-center mt-4 text-gray-500 animate-bounce">
-      <i class="fas fa-arrow-left"></i> Scroll to view more <i class="fas fa-arrow-right"></i>
+
+    <!-- Navigation List -->
+    <nav class="flex-1 py-2">
+      <ul class="flex flex-col">
+        <!-- Home -->
+        <li>
+          <a href="index.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-home"></i>
+            </span>
+            <span class="font-medium text-sm">Home</span>
+          </a>
+        </li>
+
+        <!-- About -->
+        <li>
+          <a href="about.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="font-medium text-sm">About</span>
+          </a>
+        </li>
+
+        <!-- Services -->
+        <li>
+          <a href="service.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-list-ul"></i>
+            </span>
+            <span class="font-medium text-sm">Services</span>
+          </a>
+        </li>
+
+        <!-- Portfolio -->
+        <li>
+          <a href="portfolio.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-briefcase"></i>
+            </span>
+            <span class="font-medium text-sm">Portfolio</span>
+          </a>
+        </li>
+
+        <!-- Resources -->
+        <li>
+          <a href="resources.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-green-50 text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-book-reader"></i>
+            </span>
+            <span class="font-medium text-sm">Resources</span>
+          </a>
+        </li>
+
+        <!-- Shop -->
+        <li>
+          <a href="shop.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-pink-50 text-pink-600 group-hover:bg-pink-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-shopping-bag"></i>
+            </span>
+            <span class="font-medium text-sm">Shop</span>
+          </a>
+        </li>
+
+        <!-- Contact -->
+        <li>
+          <a href="contact.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-gray-100 text-gray-600 group-hover:bg-gray-800 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="font-medium text-sm">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="p-6 bg-gray-50 border-t border-gray-200">
+      <p class="text-xs text-center text-gray-400 mb-4">Follow us</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://web.facebook.com/engskope" target="_blank"
+          class="text-gray-400 hover:text-blue-600 transition-colors"><i class="fab fa-facebook-f text-lg"></i></a>
+        <a href="https://x.com/sege_peter79144" target="_blank"
+          class="text-gray-400 hover:text-black transition-colors"><i class="fab fa-twitter text-lg"></i></a>
+        <a href="https://www.instagram.com/segepeter71/" target="_blank"
+          class="text-gray-400 hover:text-pink-600 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <br><br>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="bg-gray-50 py-16 px-4 md:px-20 text-center font-sans">
+    <h2 class="text-4xl font-bold text-orange-600 mb-4" data-aos="fade-down">Our Creative Portfolio</h2>
+    <p class="text-gray-600 mb-10 text-lg">Explore a collection of our work — from designs to full websites and
+      campaigns.</p>
+
+    <!-- Recent Projects Section -->
+    <section class="bg-white py-16 px-6 md:px-20" id="recent-projects">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-orange-600 text-center mb-12" data-aos="fade-down">
+          🌐 Our Recent Web Projects
+        </h2>
+
+        <div id="projectContainer"
+          class="flex overflow-x-auto pb-6 md:overflow-visible md:grid md:grid-cols-4 md:gap-8 scrollbar-hide">
+          <!-- Projects will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Scroll indicator for mobile -->
+        <div class="md:hidden text-center mt-4 text-gray-500 animate-bounce">
+          <i class="fas fa-arrow-left"></i> Scroll to view more <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="mb-8 max-w-md mx-auto">
+      <div class="relative">
+        <input type="text" id="search-input" placeholder="Search portfolio items..."
+          class="w-full px-6 py-3 pl-12 rounded-full border-2 border-gray-300 focus:border-primary focus:outline-none text-gray-800 transition-all" />
+        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        <button id="clear-search"
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 hidden">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <p id="search-results" class="text-center text-gray-600 mt-2 text-sm hidden"></p>
+    </div>
+
+    <!-- Filter Menu -->
+    <div class="mb-12 flex flex-wrap justify-center gap-4">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="mockups">Mockups</button>
+      <button class="filter-btn" data-filter="posters">Posters</button>
+      <button class="filter-btn" data-filter="certificates">Certificates</button>
+      <button class="filter-btn" data-filter="events">Events</button>
+      <button class="filter-btn" data-filter="logos">Logos</button>
+      <button class="filter-btn" data-filter="holidays">National Holidays</button>
+      <button class="filter-btn" data-filter="magazines">Magazines</button>
+      <button class="filter-btn" data-filter="tickets">Tickets</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 portfolio-items">
+
+      <!-- 🔥 FEATURED MOCKUPS (added first) -->
+      <img src="Free Office Room Mockup.png" alt="Free Office Room Mockup" class="portfolio-item mockups"
+        loading="lazy">
+      <img src="HAMASTA T-Shirt & Tag Mockup.png" alt="HAMASTA T-Shirt & Tag Mockup" class="portfolio-item mockups"
+        loading="lazy">
+
+      <!-- Mockups -->
+      <img src="mockup1.png" alt="Mockup 1" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup2.png" alt="Mockup 2" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (3).png" alt="Mockup 3" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (14).png" alt="Mockup 4" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (5).png" alt="Mockup 5" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup6.png" alt="Mockup 6" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup7.png" alt="Mockup 7" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup8.png" alt="Mockup 8" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup9.png" alt="Mockup 9" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup10.png" alt="Mockup 10" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (10).png" alt="Mockup 11" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup12.png" alt="Mockup 12" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP13.jpg" alt="Mockup 13" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (14).png" alt="Mockup 14" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (15).png" alt="Mockup 15" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (16).png" alt="Mockup 16" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (17).png" alt="Mockup 17" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (18).png" alt="Mockup 18" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (19).png" alt="Mockup 19" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (20).png" alt="Mockup 20" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (21).png" alt="Mockup 21" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (22).png" alt="Mockup 22" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (23).png" alt="Mockup 23" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (24).png" alt="Mockup 24" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (25).png" alt="Mockup 25" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (26).png" alt="Mockup 26" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (27).png" alt="Mockup 27" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (28).png" alt="Mockup 28" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (29).png" alt="Mockup 29" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (30).png" alt="Mockup 30" class="portfolio-item mockups" loading="lazy">
+      <img src="mockup (31).png" alt="Mockup 31" class="portfolio-item mockups" loading="lazy">
+
+      <!-- 🔥 FEATURED POSTERS -->
+      <img src="HOT SEAT SCI.png" alt="HOT SEAT SCI Poster" class="portfolio-item posters" loading="lazy">
+      <img src="CAJ.png" alt="CAJ Poster" class="portfolio-item posters" loading="lazy">
+      <img src="MUKURU SHUJAA_FACEBOOK COVER.png" alt="Mukuru Shujaa Facebook Cover" class="portfolio-item posters"
+        loading="lazy">
+
+      <!-- Posters -->
+      <img src="POSTER (2).png" alt="Poster 2" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (3).png" alt="Poster 3" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (4).png" alt="Poster 4" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (5).png" alt="Poster 5" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (6).png" alt="Poster 6" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (7).png" alt="Poster 7" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (8).png" alt="Poster 8" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (9).png" alt="Poster 9" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (10).png" alt="Poster 10" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (11).png" alt="Poster 11" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (12).png" alt="Poster 12" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (13).png" alt="Poster 13" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (14).png" alt="Poster 14" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (15).png" alt="Poster 15" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (16).png" alt="Poster 16" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (17).png" alt="Poster 17" class="portfolio-item posters" loading="lazy">
+
+      <!-- Certificates -->
+      <img src="cert1.png" alt="Certificate 1" class="portfolio-item certificates" loading="lazy">
+      <img src="cert.jpg" alt="Certificate 2" class="portfolio-item certificates" loading="lazy">
+
+      <!-- Events -->
+      <img src="event1.png" alt="Event 1" class="portfolio-item events" loading="lazy">
+      <img src="event2.png" alt="Event 2" class="portfolio-item events" loading="lazy">
+      <img src="event3.png" alt="Event 3" class="portfolio-item events" loading="lazy">
+      <img src="event4.png" alt="Event 4" class="portfolio-item events" loading="lazy">
+      <img src="event5.png" alt="Event 5" class="portfolio-item events" loading="lazy">
+      <img src="event6.png" alt="Event 6" class="portfolio-item events" loading="lazy">
+      <img src="event7.png" alt="Event 7" class="portfolio-item events" loading="lazy">
+      <img src="event8.png" alt="Event 8" class="portfolio-item events" loading="lazy">
+      <img src="event(2).png" alt="Event (1)" class="portfolio-item events" loading="lazy">
+      <img src="event(2).jpg" alt="Event (2)" class="portfolio-item events" loading="lazy">
+      <img src="event(3).jpg" alt="Event (3)" class="portfolio-item events" loading="lazy">
+      <img src="event(4).jpg" alt="Event (4)" class="portfolio-item events" loading="lazy">
+      <img src="event(5).png" alt="Event (5)" class="portfolio-item events" loading="lazy">
+
+      <!-- Logos -->
+      <img src="logo (2).jpg" alt="Logo 2" class="portfolio-item logos" loading="lazy">
+      <img src="logo.png" alt="Logo" class="portfolio-item logos" loading="lazy">
+      <img src="logo (3).png" alt="Logo 3" class="portfolio-item logos" loading="lazy">
+      <img src="logo (4).png" alt="Logo 4" class="portfolio-item logos" loading="lazy">
+      <img src="logo (5).png" alt="Logo 5" class="portfolio-item logos" loading="lazy">
+      <img src="logo (6).png" alt="Logo 6" class="portfolio-item logos" loading="lazy">
+      <img src="logo (7).png" alt="Logo 7" class="portfolio-item logos" loading="lazy">
+      <img src="logo (8).png" alt="Logo 8" class="portfolio-item logos" loading="lazy">
+      <img src="logo (9).png" alt="Logo 9" class="portfolio-item logos" loading="lazy">
+      <img src="logo (10).png" alt="Logo 10" class="portfolio-item logos" loading="lazy">
+      <img src="logo (11).png" alt="Logo 11" class="portfolio-item logos" loading="lazy">
+      <img src="logo (12).png" alt="Logo 12" class="portfolio-item logos" loading="lazy">
+      <img src="logo (13).png" alt="Logo 13" class="portfolio-item logos" loading="lazy">
+      <img src="logo (14).png" alt="Logo 14" class="portfolio-item logos" loading="lazy">
+      <img src="logo (15).png" alt="Logo 15" class="portfolio-item logos" loading="lazy">
+      <img src="logo (16).png" alt="Logo 16" class="portfolio-item logos" loading="lazy">
+
+      <!-- Holidays -->
+      <img src="jamuhuri.png" alt="Jamuhuri Day" class="portfolio-item holidays" loading="lazy">
+      <img src="madaraka.png" alt="Madaraka Day" class="portfolio-item holidays" loading="lazy">
+      <img src="mashujaa.png" alt="Mashujaa Day" class="portfolio-item holidays" loading="lazy">
+      <img src="XMASS.png" alt="Xmass " class="portfolio-item holidays" loading="lazy">
+      <img src="XMASS (2).png" alt="Xmass 2" class="portfolio-item holidays" loading="lazy">
+      <img src="XMASS (3).png" alt="Xmass 3" class="portfolio-item holidays" loading="lazy">
+      <img src="XMASS (4).png" alt="Xmass 4" class="portfolio-item holidays" loading="lazy">
+
+      <!-- New Month Posters -->
+      <img src="nm (7).png" alt="New Month Poster 1" class="portfolio-item posters" loading="lazy">
+      <img src="nm (2).png" alt="New Month Poster 2" class="portfolio-item posters" loading="lazy">
+      <img src="nm (3).png" alt="New Month Poster 3" class="portfolio-item posters" loading="lazy">
+      <img src="nm (4).png" alt="New Month Poster 4" class="portfolio-item posters" loading="lazy">
+      <img src="nm (5).png" alt="New Month Poster 5" class="portfolio-item posters" loading="lazy">
+      <img src="nm (6).png" alt="New Month Poster 6" class="portfolio-item posters" loading="lazy">
+
+      <!-- Magazine -->
+      <img src="wm pg 7.png" alt="Magazine Page 1" class="portfolio-item magazines" loading="lazy">
+      <img src="wm pg 2.png" alt="Magazine Page 2" class="portfolio-item magazines" loading="lazy">
+      <img src="wm pg 3.png" alt="Magazine Page 3" class="portfolio-item magazines" loading="lazy">
+      <img src="wm pg 4.png" alt="Magazine Page 4" class="portfolio-item magazines" loading="lazy">
+      <img src="wm pg 5.png" alt="Magazine Page 5" class="portfolio-item magazines" loading="lazy">
+      <img src="wm pg 6.png" alt="Magazine Page 6" class="portfolio-item magazines" loading="lazy">
+
+      <!-- Tickets -->
+      <img src="ticket.jpeg" alt="Event Ticket" class="portfolio-item tickets" loading="lazy">
+
+    </div>
+  </section>
+
+  <!-- Enhanced Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+
+    <!-- Navigation Arrows -->
+    <button id="lightbox-prev" class="lightbox-nav lightbox-prev">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button id="lightbox-next" class="lightbox-nav lightbox-next">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <!-- Image Container -->
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Lightbox Image">
+
+      <!-- Image Counter -->
+      <div class="lightbox-counter" id="lightbox-counter">1 / 1</div>
+
+      <!-- Share Buttons -->
+      <div class="lightbox-share">
+        <p class="text-sm text-gray-300 mb-3">Share this image:</p>
+        <div class="flex gap-3 justify-center">
+          <button id="share-whatsapp" class="share-btn bg-green-500 hover:bg-green-600" title="Share on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </button>
+          <button id="share-facebook" class="share-btn bg-blue-600 hover:bg-blue-700" title="Share on Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </button>
+          <button id="share-twitter" class="share-btn bg-sky-500 hover:bg-sky-600" title="Share on Twitter">
+            <i class="fab fa-twitter"></i>
+          </button>
+          <button id="share-copy" class="share-btn bg-gray-600 hover:bg-gray-700" title="Copy Link">
+            <i class="fas fa-link"></i>
+          </button>
+        </div>
+        <p id="copy-feedback" class="text-xs text-green-400 mt-2 hidden">Link copied to clipboard!</p>
+      </div>
     </div>
   </div>
-</section>
-
-<!-- AOS and Dynamic Script -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-
-const projects = [
-  {
-    name: "Hope Rekindled Initiative",
-    description: "A youth-led mental health and empowerment platform with a clean, responsive design.",
-    image: "hri.png",
-    link: "https://hoperekindledinitiative.org"
-  },
-  {
-    name: "Vincent Makori – Portfolio",
-    description: "A modern personal portfolio showcasing projects, testimonials, and creative works.",
-    image: "vm.png",
-    link: "https://vincentmakori.co.ke"
-  },
-  {
-    name: "Judes CBO",
-    description: "A community platform supporting social outreach, empowerment, and impact reporting.",
-    image: "judes.jpeg",
-    link: "https://judescbo.org"
-  },
-  {
-    name: "Community-Led Solutions CBO",
-    description: "A responsive CBO website promoting transparency, youth empowerment, and local action.",
-    image: "clscbo.jpeg",
-    link: "https://clscbo.netlify.app/"
-  },
-  {
-    name: "Fortitude Transform CBO",
-    description: "An engaging community site focused on empowerment, resilience, and sustainable growth.",
-    image: "fortitude.jpeg",
-    link: "https://fortitudetransformcbo.org"
-  },
-  {
-    name: "Skope Designs",
-    description: "Our official website featuring creative services, live portfolio, and client stories.",
-    image: "sd.png",
-    link: "https://skopedesigns.co.ke"
-  },
-  {
-    name: "Light and Nature Foundation",
-    description: "An eco-conscious site dedicated to environmental awareness and community education.",
-    image: "lna.png",
-    link: "https://light-and-nature-foundation.netlify.app/"
-  }
-];
-
-
-  const container = document.getElementById('projectContainer');
-
-  projects.forEach((project, index) => {
-    const card = document.createElement('div');
-    card.className = "min-w-[300px] md:min-w-0 bg-gray-100 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 p-6 flex flex-col mx-2 md:mx-0";
-    card.setAttribute("data-aos", "fade-up");
-    card.setAttribute("data-aos-delay", `${index * 100}`);
-
-    card.innerHTML = `
-      <img src="${project.image}" alt="${project.name}" class="w-full h-48 object-cover rounded-xl mb-4 shadow-inner" />
-      <div class="flex-grow">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-2">${project.name}</h3>
-        <p class="text-gray-600 mb-4">${project.description}</p>
-      </div>
-      <a href="${project.link}" target="_blank" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300 text-center">
-        🚀 View Site
-      </a>
-    `;
-
-    container.appendChild(card);
-  });
-</script>
-
-
- <!-- Filter Menu -->
-<div class="mb-12 flex flex-wrap justify-center gap-4">
-  <button class="filter-btn" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="mockups">Mockups</button>
-  <button class="filter-btn" data-filter="posters">Posters</button>
-  <button class="filter-btn" data-filter="certificates">Certificates</button>
-  <button class="filter-btn" data-filter="events">Events</button>
-  <button class="filter-btn" data-filter="logos">Logos</button>
-  <button class="filter-btn" data-filter="holidays">National Holidays</button>
-  <button class="filter-btn" data-filter="magazines">Magazines</button>
-  <button class="filter-btn" data-filter="tickets">Tickets</button>
-</div>
-
-<!-- Gallery Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 portfolio-items">
-
-  <!-- 🔥 FEATURED MOCKUPS (added first) -->
-  <img src="Free Office Room Mockup.png" alt="Free Office Room Mockup" class="portfolio-item mockups">
-  <img src="HAMASTA T-Shirt & Tag Mockup.png" alt="HAMASTA T-Shirt & Tag Mockup" class="portfolio-item mockups">
-  
-  <!-- Mockups -->
-  <img src="mockup1.png" alt="Mockup 1" class="portfolio-item mockups">
-  <img src="mockup2.png" alt="Mockup 2" class="portfolio-item mockups">
-  <img src="MOCKUP (3).png" alt="Mockup 3" class="portfolio-item mockups">
-  <img src="MOCKUP (14).png" alt="Mockup 4" class="portfolio-item mockups">
-  <img src="MOCKUP (5).png" alt="Mockup 5" class="portfolio-item mockups">
-  <img src="mockup6.png" alt="Mockup 6" class="portfolio-item mockups">
-  <img src="mockup7.png" alt="Mockup 7" class="portfolio-item mockups">
-  <img src="mockup8.png" alt="Mockup 8" class="portfolio-item mockups">
-  <img src="mockup9.png" alt="Mockup 9" class="portfolio-item mockups">
-  <img src="mockup10.png" alt="Mockup 10" class="portfolio-item mockups">
-  <img src="MOCKUP (10).png" alt="Mockup 11" class="portfolio-item mockups">
-  <img src="mockup12.png" alt="Mockup 12" class="portfolio-item mockups">
-  <img src="MOCKUP13.jpg" alt="Mockup 13" class="portfolio-item mockups">
-  <img src="mockup (14).png" alt="Mockup 14" class="portfolio-item mockups">
-  <img src="mockup (15).png" alt="Mockup 15" class="portfolio-item mockups">
-  <img src="mockup (16).png" alt="Mockup 16" class="portfolio-item mockups">
-  <img src="mockup (17).png" alt="Mockup 17" class="portfolio-item mockups">
-  <img src="mockup (18).png" alt="Mockup 18" class="portfolio-item mockups">
-  <img src="mockup (19).png" alt="Mockup 19" class="portfolio-item mockups">
-  <img src="mockup (20).png" alt="Mockup 20" class="portfolio-item mockups">
-  <img src="mockup (21).png" alt="Mockup 21" class="portfolio-item mockups">
-  <img src="mockup (22).png" alt="Mockup 22" class="portfolio-item mockups">
-  <img src="mockup (23).png" alt="Mockup 23" class="portfolio-item mockups">
-  <img src="mockup (24).png" alt="Mockup 24" class="portfolio-item mockups">
-  <img src="mockup (25).png" alt="Mockup 25" class="portfolio-item mockups">
-  <img src="mockup (26).png" alt="Mockup 26" class="portfolio-item mockups">
-  <img src="mockup (27).png" alt="Mockup 27" class="portfolio-item mockups">
-  <img src="mockup (28).png" alt="Mockup 28" class="portfolio-item mockups">
-  <img src="mockup (29).png" alt="Mockup 29" class="portfolio-item mockups">
-  <img src="mockup (30).png" alt="Mockup 30" class="portfolio-item mockups">
-  <img src="mockup (31).png" alt="Mockup 31" class="portfolio-item mockups">
-
-  <!-- 🔥 FEATURED POSTERS -->
-  <img src="HOT SEAT SCI.png" alt="HOT SEAT SCI Poster" class="portfolio-item posters">
-  <img src="CAJ.png" alt="CAJ Poster" class="portfolio-item posters">
-  <img src="MUKURU SHUJAA_FACEBOOK COVER.png" alt="Mukuru Shujaa Facebook Cover" class="portfolio-item posters">
-
-  <!-- Posters -->
-  <img src="POSTER (2).png" alt="Poster 2" class="portfolio-item posters">
-  <img src="POSTER (3).png" alt="Poster 3" class="portfolio-item posters">
-  <img src="POSTER (4).png" alt="Poster 4" class="portfolio-item posters">
-  <img src="POSTER (5).png" alt="Poster 5" class="portfolio-item posters">
-  <img src="POSTER (6).png" alt="Poster 6" class="portfolio-item posters">
-  <img src="POSTER (7).png" alt="Poster 7" class="portfolio-item posters">
-  <img src="POSTER (8).png" alt="Poster 8" class="portfolio-item posters">
-  <img src="POSTER (9).png" alt="Poster 9" class="portfolio-item posters">
-  <img src="POSTER (10).png" alt="Poster 10" class="portfolio-item posters">
-  <img src="POSTER (11).png" alt="Poster 11" class="portfolio-item posters">
-  <img src="POSTER (12).png" alt="Poster 12" class="portfolio-item posters">
-  <img src="POSTER (13).png" alt="Poster 13" class="portfolio-item posters">
-  <img src="POSTER (14).png" alt="Poster 14" class="portfolio-item posters">
-  <img src="POSTER (15).png" alt="Poster 15" class="portfolio-item posters">
-  <img src="POSTER (16).png" alt="Poster 16" class="portfolio-item posters">
-  <img src="POSTER (17).png" alt="Poster 17" class="portfolio-item posters">
-
-  <!-- Certificates -->
-  <img src="cert1.png" alt="Certificate 1" class="portfolio-item certificates">
-  <img src="cert.jpg" alt="Certificate 2" class="portfolio-item certificates">
-
-  <!-- Events -->
-  <img src="event1.png" alt="Event 1" class="portfolio-item events">
-  <img src="event2.png" alt="Event 2" class="portfolio-item events">
-  <img src="event3.png" alt="Event 3" class="portfolio-item events">
-  <img src="event4.png" alt="Event 4" class="portfolio-item events">
-  <img src="event5.png" alt="Event 5" class="portfolio-item events">
-  <img src="event6.png" alt="Event 6" class="portfolio-item events">
-  <img src="event7.png" alt="Event 7" class="portfolio-item events">
-  <img src="event8.png" alt="Event 8" class="portfolio-item events">
-  <img src="event(2).png" alt="Event (1)" class="portfolio-item events">
-  <img src="event(2).jpg" alt="Event (2)" class="portfolio-item events">
-  <img src="event(3).jpg" alt="Event (3)" class="portfolio-item events">
-  <img src="event(4).jpg" alt="Event (4)" class="portfolio-item events">
-  <img src="event(5).png" alt="Event (5)" class="portfolio-item events">
-
-  <!-- Logos -->
-  <img src="logo (2).jpg" alt="Logo 2" class="portfolio-item logos">
-  <img src="logo.png" alt="Logo" class="portfolio-item logos">
-  <img src="logo (3).png" alt="Logo 3" class="portfolio-item logos">
-  <img src="logo (4).png" alt="Logo 4" class="portfolio-item logos">
-  <img src="logo (5).png" alt="Logo 5" class="portfolio-item logos">
-  <img src="logo (6).png" alt="Logo 6" class="portfolio-item logos">
-  <img src="logo (7).png" alt="Logo 7" class="portfolio-item logos">
-  <img src="logo (8).png" alt="Logo 8" class="portfolio-item logos">
-  <img src="logo (9).png" alt="Logo 9" class="portfolio-item logos">
-  <img src="logo (10).png" alt="Logo 10" class="portfolio-item logos">
-  <img src="logo (11).png" alt="Logo 11" class="portfolio-item logos">
-  <img src="logo (12).png" alt="Logo 12" class="portfolio-item logos">
-  <img src="logo (13).png" alt="Logo 13" class="portfolio-item logos">
-  <img src="logo (14).png" alt="Logo 14" class="portfolio-item logos">
-  <img src="logo (15).png" alt="Logo 15" class="portfolio-item logos">
-  <img src="logo (16).png" alt="Logo 16" class="portfolio-item logos">
-
-  <!-- Holidays -->
-  <img src="jamuhuri.png" alt="Jamuhuri Day" class="portfolio-item holidays">
-  <img src="madaraka.png" alt="Madaraka Day" class="portfolio-item holidays">
-  <img src="mashujaa.png" alt="Mashujaa Day" class="portfolio-item holidays">
-  <img src="XMASS.png" alt="Xmass " class="portfolio-item holidays">
-  <img src="XMASS (2).png" alt="Xmass 2" class="portfolio-item holidays">
-  <img src="XMASS (3).png" alt="Xmass 3" class="portfolio-item holidays">
-  <img src="XMASS (4).png" alt="Xmass 4" class="portfolio-item holidays">
-
-  <!-- New Month Posters -->
-  <img src="nm (7).png" alt="New Month Poster 1" class="portfolio-item posters">
-  <img src="nm (2).png" alt="New Month Poster 2" class="portfolio-item posters">
-  <img src="nm (3).png" alt="New Month Poster 3" class="portfolio-item posters">
-  <img src="nm (4).png" alt="New Month Poster 4" class="portfolio-item posters">
-  <img src="nm (5).png" alt="New Month Poster 5" class="portfolio-item posters">
-  <img src="nm (6).png" alt="New Month Poster 6" class="portfolio-item posters">
-
-  <!-- Magazine -->
-  <img src="wm pg 7.png" alt="Magazine Page 1" class="portfolio-item magazines">
-  <img src="wm pg 2.png" alt="Magazine Page 2" class="portfolio-item magazines">
-  <img src="wm pg 3.png" alt="Magazine Page 3" class="portfolio-item magazines">
-  <img src="wm pg 4.png" alt="Magazine Page 4" class="portfolio-item magazines">
-  <img src="wm pg 5.png" alt="Magazine Page 5" class="portfolio-item magazines">
-  <img src="wm pg 6.png" alt="Magazine Page 6" class="portfolio-item magazines">
-
-  <!-- Tickets -->
-  <img src="ticket.jpeg" alt="Event Ticket" class="portfolio-item tickets">
-
-</div>
-
-</section>
-
-
-
-
-
-<!-- JavaScript for Filtering -->
-<script>
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const items = document.querySelectorAll('.portfolio-item');
-
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
-      items.forEach(item => {
-        if (filter === 'all' || item.classList.contains(filter)) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-</script>
-
-<style>
-  .filter-btn {
-    background: #f97316;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 9999px;
-    font-weight: 600;
-    transition: background 0.3s;
-  }
-  .filter-btn:hover {
-    background: #ea580c;
-  }
-  .portfolio-item {
-    width: 100%;
-    border-radius: 12px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  .portfolio-item:hover {
-    transform: scale(1.05);
-    opacity: 0.95;
-  }
-</style>
-
 
   <!-- FOOTER -->
   <footer class="bg-primary py-8 px-6">
@@ -430,176 +772,378 @@ const projects = [
         </div>
       </div>
       <div class="flex gap-6 text-xl text-white">
-        <a href="https://web.facebook.com/engskope/" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://web.facebook.com/engskope" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
         <a href="https://x.com/sege_peter79144" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
-        <a href="instagram.com" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i class="fab fa-pinterest"></i></a>
-        <a href="https://www.youtube.com/@engskope" class="hover:text-secondary" target="_blank" rel="noopener">
-  <i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/segepeter71/" class="hover:text-secondary"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i
+            class="fab fa-pinterest"></i></a>
+        <a href="https://www.youtube.com/@engskope" class="hover:text-secondary" target="_blank" rel="noopener"><i
+            class="fab fa-youtube"></i></a>
       </div>
       <div class="text-sm">&copy; <span id="year"></span> Skope Designs. All rights reserved.</div>
     </div>
   </footer>
 
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <!-- SCRIPTS -->
-   <script>
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const portfolioItems = document.querySelectorAll(".portfolio-item");
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const category = btn.dataset.filter;
-      portfolioItems.forEach(item => {
-        if (category === "all" || item.classList.contains(category)) {
-          item.classList.remove("hidden");
-        } else {
-          item.classList.add("hidden");
-        }
-      });
-    });
-  });
-</script>
-
-   <script>
-  const btn = document.getElementById('menu-btn');
-  const mobile = document.getElementById('mobile-menu');
-
-  btn.addEventListener('click', () => {
-    mobile.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-  });
-
-  // Animate header on scroll
-  window.addEventListener('scroll', () => {
-    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-  });
-
-  // Hero BG Slider
-  const hero = document.getElementById('hero');
-  const images = ['img/cover1.png','img/cover2.png','img/sege-profile.png'];
-  let idx = 0;
-
-  function changeBg() {
-    idx = (idx + 1) % images.length;
-    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-  }
-
-  hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
-  setInterval(changeBg, 6000);
-
-  // Set year
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
   <script>
-    const hero = document.getElementById('hero');
-    const images = ['cover1.png','cover2.png','sege-profile.png'];
-    let idx = 0;
-    function changeBg() {
-      idx = (idx + 1) % images.length;
-      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-    }
-    hero.style.backgroundImage = `url(${images[0]})`;
-    setInterval(changeBg,6000);
-
-    const btn = document.getElementById('menu-btn');
-    const mobile = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-      mobile.classList.toggle('open');
-      btn.classList.toggle('open');
-      document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true
     });
 
-    document.getElementById('year').innerText = new Date().getFullYear();
+    // Projects data
+    const projects = [
+      {
+        name: "Hope Rekindled Initiative",
+        description: "A youth-led mental health and empowerment platform with a clean, responsive design.",
+        image: "hri.png",
+        link: "https://hoperekindledinitiative.org"
+      },
+      {
+        name: "Vincent Makori – Portfolio",
+        description: "A modern personal portfolio showcasing projects, testimonials, and creative works.",
+        image: "vm.png",
+        link: "https://vincentmakori.co.ke"
+      },
+      {
+        name: "Judes CBO",
+        description: "A community platform supporting social outreach, empowerment, and impact reporting.",
+        image: "judes.jpeg",
+        link: "https://judescbo.org"
+      },
+      {
+        name: "Community-Led Solutions CBO",
+        description: "A responsive CBO website promoting transparency, youth empowerment, and local action.",
+        image: "clscbo.jpeg",
+        link: "https://clscbo.netlify.app/"
+      },
+      {
+        name: "Fortitude Transform CBO",
+        description: "An engaging community site focused on empowerment, resilience, and sustainable growth.",
+        image: "fortitude.jpeg",
+        link: "https://fortitudetransformcbo.org"
+      },
+      {
+        name: "Skope Designs",
+        description: "Our official website featuring creative services, live portfolio, and client stories.",
+        image: "sd.png",
+        link: "https://skopedesigns.co.ke"
+      },
+      {
+        name: "Light and Nature Foundation",
+        description: "An eco-conscious site dedicated to environmental awareness and community education.",
+        image: "lna.png",
+        link: "https://light-and-nature-foundation.netlify.app/"
+      }
+    ];
 
-    window.addEventListener('scroll', () => {
-      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+    // Render projects
+    const container = document.getElementById('projectContainer');
+    projects.forEach((project, index) => {
+      const card = document.createElement('div');
+      card.className = "min-w-[300px] md:min-w-0 bg-gray-100 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 p-6 flex flex-col mx-2 md:mx-0";
+      card.setAttribute("data-aos", "fade-up");
+      card.setAttribute("data-aos-delay", `${index * 100}`);
+
+      card.innerHTML = `
+        <img src="${project.image}" alt="${project.name}" class="w-full h-48 object-cover rounded-xl mb-4 shadow-inner" />
+        <div class="flex-grow">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-2">${project.name}</h3>
+          <p class="text-gray-600 mb-4">${project.description}</p>
+        </div>
+        <a href="${project.link}" target="_blank" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300 text-center">
+          🚀 View Site
+        </a>
+      `;
+
+      container.appendChild(card);
     });
- /*SkopeAI*/
-<!--  -->
-<script>
-  const hero = document.getElementById('hero');
-  const images = ['img/cover1.png','img/cover2.png','img/sege-profile.png']; // Updated paths
-  let idx = 0;
-  
-  function changeBg() {
-    idx = (idx + 1) % images.length;
-    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-  }
-  
-  // Set initial background with same style
-  hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
-  setInterval(changeBg, 6000);
 
-  // Mobile menu toggle
-  const btn = document.getElementById('menu-btn');
-  const mobile = document.getElementById('mobile-menu');
-  
-  btn.addEventListener('click', () => {
-    mobile.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-    
-    // Animate menu items with staggered delay
-    const items = mobile.querySelectorAll('li');
-    if (mobile.classList.contains('open')) {
-      items.forEach((item, index) => {
-        item.style.transitionDelay = `${index * 0.1}s`;
+    // Filter functionality with active states
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update active state
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter items
+        portfolioItems.forEach(item => {
+          if (filter === 'all' || item.classList.contains(filter)) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        // Update search results if search is active
+        updateSearchResults();
       });
-    } else {
-      items.forEach(item => {
-        item.style.transitionDelay = '0s';
-      });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search');
+    const searchResults = document.getElementById('search-results');
+
+    function updateSearchResults() {
+      const visibleItems = Array.from(portfolioItems).filter(item => !item.classList.contains('hidden'));
+      const totalItems = portfolioItems.length;
+
+      if (searchInput.value.trim() !== '') {
+        searchResults.textContent = `Showing ${visibleItems.length} of ${totalItems} items`;
+        searchResults.classList.remove('hidden');
+      } else {
+        searchResults.classList.add('hidden');
+      }
     }
-  });
 
-  // Set copyright year
-  document.getElementById('year').innerText = new Date().getFullYear();
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
 
-  // Scroll effect for header
-  window.addEventListener('scroll', () => {
-    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-  });
-</script>
+      // Show/hide clear button
+      if (searchTerm) {
+        clearSearchBtn.classList.remove('hidden');
+      } else {
+        clearSearchBtn.classList.add('hidden');
+      }
 
-<!-- SkopeAI script - properly closed -->
-<script>
-  (function() {
-    if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-      window.chatbase = (...arguments) => {
-        if (!window.chatbase.q) { window.chatbase.q = [] }
-        window.chatbase.q.push(arguments)
-      };
-      window.chatbase = new Proxy(window.chatbase, {
-        get(target, prop) {
-          if (prop === "q") return target.q;
-          return (...args) => target(prop, ...args);
+      // Filter items by search term
+      portfolioItems.forEach(item => {
+        const alt = item.getAttribute('alt').toLowerCase();
+        const classes = item.className.toLowerCase();
+
+        if (alt.includes(searchTerm) || classes.includes(searchTerm)) {
+          // Only show if it matches current filter
+          const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+          if (activeFilter === 'all' || item.classList.contains(activeFilter)) {
+            item.classList.remove('hidden');
+          }
+        } else {
+          item.classList.add('hidden');
         }
       });
+
+      updateSearchResults();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearSearchBtn.classList.add('hidden');
+      searchResults.classList.add('hidden');
+
+      // Reset to current filter
+      const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+      portfolioItems.forEach(item => {
+        if (activeFilter === 'all' || item.classList.contains(activeFilter)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+
+    // Enhanced Lightbox functionality with navigation
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+
+    let currentImageIndex = 0;
+    let visibleImages = [];
+
+    function updateVisibleImages() {
+      visibleImages = Array.from(portfolioItems).filter(item => !item.classList.contains('hidden'));
     }
-    const onLoad = function() {
-      const script = document.createElement("script");
-      script.src = "https://www.chatbase.co/embed.min.js";
-      script.id = "YCDDERnlEOB4ItW9207d_";
-      script.domain = "www.chatbase.co";
-      document.body.appendChild(script);
+
+    function openLightbox(index) {
+      updateVisibleImages();
+      currentImageIndex = index;
+      lightboxImg.src = visibleImages[currentImageIndex].src;
+      lightboxCounter.textContent = `${currentImageIndex + 1} / ${visibleImages.length}`;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function showPrevImage() {
+      currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+      lightboxImg.src = visibleImages[currentImageIndex].src;
+      lightboxCounter.textContent = `${currentImageIndex + 1} / ${visibleImages.length}`;
+    }
+
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+      lightboxImg.src = visibleImages[currentImageIndex].src;
+      lightboxCounter.textContent = `${currentImageIndex + 1} / ${visibleImages.length}`;
+    }
+
+    portfolioItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        updateVisibleImages();
+        const visibleIndex = visibleImages.indexOf(item);
+        if (visibleIndex !== -1) {
+          openLightbox(visibleIndex);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPrevImage);
+    lightboxNext.addEventListener('click', showNextImage);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          showPrevImage();
+        } else if (e.key === 'ArrowRight') {
+          showNextImage();
+        }
+      }
+    });
+
+    // Share functionality
+    const shareWhatsApp = document.getElementById('share-whatsapp');
+    const shareFacebook = document.getElementById('share-facebook');
+    const shareTwitter = document.getElementById('share-twitter');
+    const shareCopy = document.getElementById('share-copy');
+    const copyFeedback = document.getElementById('copy-feedback');
+
+    shareWhatsApp.addEventListener('click', () => {
+      const imageUrl = lightboxImg.src;
+      const text = `Check out this amazing design from Skope Designs!`;
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + imageUrl)}`;
+      window.open(whatsappUrl, '_blank');
+    });
+
+    shareFacebook.addEventListener('click', () => {
+      const imageUrl = lightboxImg.src;
+      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(imageUrl)}`;
+      window.open(facebookUrl, '_blank', 'width=600,height=400');
+    });
+
+    shareTwitter.addEventListener('click', () => {
+      const imageUrl = lightboxImg.src;
+      const text = `Check out this amazing design from Skope Designs!`;
+      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(imageUrl)}`;
+      window.open(twitterUrl, '_blank', 'width=600,height=400');
+    });
+
+    shareCopy.addEventListener('click', async () => {
+      const imageUrl = lightboxImg.src;
+      try {
+        await navigator.clipboard.writeText(imageUrl);
+        copyFeedback.classList.remove('hidden');
+        setTimeout(() => {
+          copyFeedback.classList.add('hidden');
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+    });
+
+    // Mobile menu toggle
+    // Sidebar Menu Logic with Icons
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('menu-overlay');
+
+    window.toggleMenu = function () {
+      const isOpen = sidebar.classList.contains('open');
+
+      if (isOpen) {
+        // Close
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        if (menuBtn) menuBtn.classList.remove('menu-open');
+      } else {
+        // Open
+        sidebar.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (menuBtn) menuBtn.classList.add('menu-open');
+      }
     };
-    if (document.readyState === "complete") {
-      onLoad();
-    } else {
-      window.addEventListener("load", onLoad);
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
     }
-  })();
-</script>
+
+    // Animate header on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (header) {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+      }
+    });
+
+    // Set year
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
   </script>
+
+  <!-- SkopeAI Chatbot -->
+  <script>
+    (function () {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => {
+          if (!window.chatbase.q) { window.chatbase.q = [] }
+          window.chatbase.q.push(arguments)
+        };
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") return target.q;
+            return (...args) => target(prop, ...args);
+          }
+        });
+      }
+      const onLoad = function () {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "YCDDERnlEOB4ItW9207d_";
+        script.domain = "www.chatbase.co";
+        document.body.appendChild(script);
+      };
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    })();
+  </script>
+
 </body>
+
 </html>
-
-
-
-
-
-
-

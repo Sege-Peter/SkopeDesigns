@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,15 @@
         content="Skope Sana offers the best laptops and accessories in Kenya. Order via WhatsApp (0742380183). HP, Dell, Lenovo laptops at great prices.">
     <meta name="keywords"
         content="laptops Kenya, refurbished laptops, Maseno, Kisumu, HP laptops, Dell, Lenovo, computer accessories, laptop repair Kenya">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://skopedesigns.co.ke/shop.html">
     <meta property="og:title" content="Skope Sana | ShopSana - Best Laptops in Kenya">
     <meta property="og:description"
         content="Quality laptops and accessories in Kenya. Order via WhatsApp (0742380183).">
-    <meta property="og:image" content="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <meta property="og:image"
+        content="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -23,7 +25,8 @@
     <meta property="twitter:title" content="Skope Sana | ShopSana - Best Laptops in Kenya">
     <meta property="twitter:description"
         content="Quality laptops and accessories in Kenya. Order via WhatsApp (0742380183).">
-    <meta property="twitter:image" content="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <meta property="twitter:image"
+        content="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 
     <!-- Favicon -->
     <link rel="icon"
@@ -33,7 +36,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         :root {
@@ -177,34 +181,46 @@
             background: #218838;
         }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
+        /* Sidebar Menu Animations */
+        .sidebar-menu {
+            transform: translateX(100%);
+            /* Start hidden to the right */
+            transition: transform 0.3s ease-in-out;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .hamburger span {
-            height: 3px;
-            background: var(--dark);
-            border-radius: 3px;
-            display: block;
-            width: 100%;
-            transition: all 0.3s;
+        .sidebar-menu.open {
+            transform: translateX(0);
         }
 
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+        .overlay-bg {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
         }
 
-        .hamburger.active span:nth-child(2) {
+        .overlay-bg.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Hamburger Animation */
+        .hamburger-line {
+            transition: all 0.3s ease-in-out;
+            background-color: #333;
+            /* Dark color for visibility on white header */
+        }
+
+        .menu-open .line-1 {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .menu-open .line-2 {
             opacity: 0;
         }
 
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
+        .menu-open .line-3 {
+            transform: rotate(-45deg) translate(5px, -6px);
         }
 
         .img-fallback {
@@ -235,7 +251,7 @@
         }
 
         .hero-title {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: bold;
             margin-bottom: 16px;
         }
@@ -260,7 +276,7 @@
         .hero-cta:hover {
             background: #e68a00;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Value Propositions */
@@ -285,7 +301,7 @@
 
         .value-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .value-item i {
@@ -313,7 +329,7 @@
             margin: 20px 0;
             text-align: center;
             color: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .special-offer h3 {
@@ -368,6 +384,13 @@
             overflow-x: auto;
             gap: 15px;
             padding: 10px 5px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            /* Hide for cleaner look on some browsers */
+        }
+
+        .sales-items::-webkit-scrollbar {
+            display: none;
         }
 
         .sales-item {
@@ -379,6 +402,7 @@
             transition: transform 0.3s;
             position: relative;
             cursor: pointer;
+            scroll-snap-align: start;
         }
 
         .sales-item:hover {
@@ -471,7 +495,7 @@
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .filters-grid {
@@ -480,24 +504,30 @@
             gap: 20px;
         }
 
-        .filter-category, .filter-price, .filter-brand {
+        .filter-category,
+        .filter-price,
+        .filter-brand {
             margin-bottom: 15px;
         }
 
-        .filter-category h4, .filter-price h4, .filter-brand h4 {
+        .filter-category h4,
+        .filter-price h4,
+        .filter-brand h4 {
             margin-bottom: 10px;
             color: var(--dark);
             font-size: 1rem;
         }
 
-        .filter-category label, .filter-brand label {
+        .filter-category label,
+        .filter-brand label {
             display: block;
             margin-bottom: 8px;
             cursor: pointer;
             font-size: 0.9rem;
         }
 
-        .filter-category input, .filter-brand input {
+        .filter-category input,
+        .filter-brand input {
             margin-right: 8px;
         }
 
@@ -520,7 +550,7 @@
         .section-title {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
             font-weight: 700;
             color: var(--dark);
             position: relative;
@@ -608,6 +638,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .product-card {
@@ -815,7 +851,8 @@
             font-size: 0.9rem;
         }
 
-        .specs-table th, .specs-table td {
+        .specs-table th,
+        .specs-table td {
             padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid #eee;
@@ -912,7 +949,7 @@
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .review-header {
@@ -947,7 +984,7 @@
             border-radius: 8px;
             margin-bottom: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .faq-question {
@@ -1052,7 +1089,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
@@ -1099,81 +1136,7 @@
             border-top: 1px solid rgba(255, 255, 255, .06);
         }
 
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -320px;
-            width: 300px;
-            height: 100vh;
-            background: #fff;
-            padding: 80px 18px;
-            transition: right .25s;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, .08);
-            z-index: 1001;
-            overflow-y: auto;
-        }
 
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        #close-menu {
-            position: absolute;
-            top: 14px;
-            right: 18px;
-            font-size: 22px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        .mobile-nav {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .mobile-nav-item {
-            margin-bottom: 12px;
-        }
-
-        .mobile-nav-link {
-            display: block;
-            padding: 8px 0;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .mobile-nav-link:hover {
-            color: var(--primary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 8px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: var(--gray);
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-        }
-
-        .social-links a i {
-            color: #fff;
-        }
 
         /* Popup Styling */
         .popup {
@@ -1238,7 +1201,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1003;
         }
 
@@ -1250,6 +1213,7 @@
             max-width: 1200px;
             max-height: 80vh;
             overflow-y: auto;
+            overflow-x: auto;
             border-radius: 8px;
         }
 
@@ -1258,7 +1222,8 @@
             border-collapse: collapse;
         }
 
-        .comparison-table th, .comparison-table td {
+        .comparison-table th,
+        .comparison-table td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: center;
@@ -1298,14 +1263,16 @@
             display: inline-block;
             width: 20px;
             height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
+            border: 3px solid rgba(255, 255, 255, .3);
             border-radius: 50%;
             border-top-color: #fff;
             animation: spin 1s ease-in-out infinite;
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Notification */
@@ -1317,19 +1284,33 @@
             color: white;
             padding: 15px 20px;
             border-radius: 6px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             z-index: 10000;
             animation: slideIn 0.3s ease;
         }
 
         @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
         }
 
         /* Responsive */
@@ -1404,7 +1385,7 @@
             }
 
             .hero-title {
-                font-size: 1.8rem;
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
             }
 
             .counter-item {
@@ -1449,13 +1430,20 @@
         }
 
         /* Focus styles for accessibility */
-        a:focus, button:focus, input:focus, select:focus {
+        a:focus,
+        button:focus,
+        input:focus,
+        select:focus {
             outline: 2px solid var(--primary);
             outline-offset: 2px;
         }
     </style>
 </head>
+
 <body>
+    <!-- Menu Overlay -->
+
+
     <!-- Header -->
     <header>
         <div class="header-top">
@@ -1480,39 +1468,168 @@
                 </ul>
 
                 <div class="header-actions">
-                    <a class="sell-btn" href="mailto:segepeter71@gmail.com?subject=Seller Application">Sell here</a>
-                    <a class="whatsapp-btn" href="https://wa.me/254742380183" target="_blank" rel="noopener noreferrer"><i
-                        class="fab fa-whatsapp"></i>Order via WhatsApp</a>
-                    <button id="hamburger" class="hamburger" aria-label="Open menu" type="button"><span></span><span></span><span></span>
+                    <a href="https://wa.me/254742380183" class="sell-btn">
+                        <i class="fas fa-tags"></i> Sell
+                    </a>
+                    <a href="https://wa.me/254742380183" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Order
+                    </a>
+                    <!-- Standardized Hamburger Button -->
+                    <button id="menu-btn"
+                        class="md:hidden z-[60] relative w-8 h-6 flex flex-col justify-between focus:outline-none ml-4">
+                        <span class="w-full h-0.5 bg-gray-800 hamburger-line line-1 rounded-full"></span>
+                        <span class="w-full h-0.5 bg-gray-800 hamburger-line line-2 rounded-full"></span>
+                        <span class="w-full h-0.5 bg-gray-800 hamburger-line line-3 rounded-full"></span>
                     </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
-        <button id="close-menu" aria-label="Close menu" type="button">&times;</button>
-        <ul class="mobile-nav">
-            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#home">Home</a></li>
-            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#products">Laptops</a></li>
-            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#accessories">Accessories</a></li>
-            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#marketplace">Marketplace</a></li>
-            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#services">Services</a></li>
-            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#blog">Blog</a></li>
-        </ul>
-        <div class="social-links">
-            <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com/" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <!-- SIDEBAR NAVIGATION DRAWER -->
+    <!-- Overlay Backdrop -->
+    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[45] overlay-bg backdrop-blur-sm" onclick="toggleMenu()">
+    </div>
+
+    <!-- Sidebar Container -->
+    <aside id="sidebar-menu"
+        class="fixed top-0 right-0 h-full w-64 bg-white z-[60] sidebar-menu flex flex-col shadow-2xl overflow-y-auto"
+        style="position: fixed; top: 0; right: 0; height: 100%; width: 260px; background-color: white; z-index: 1000; display: flex; flex-direction: column; box-shadow: -2px 0 10px rgba(0,0,0,0.1);">
+
+        <!-- Sidebar Header -->
+        <div class="p-5 border-b border-gray-100 flex items-center justify-between"
+            style="padding: 20px; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; justify-content: space-between;">
+            <div class="flex items-center gap-3" style="display: flex; align-items: center; gap: 12px;">
+                <img src="logo.png" alt="Logo" class="h-8 w-8 rounded-full border border-gray-200"
+                    style="height: 32px; width: 32px; border-radius: 50%; border: 1px solid #e5e7eb;">
+                <span class="font-bold text-gray-800 text-base"
+                    style="font-weight: 700; color: #1f2937; font-size: 1rem;">Menu</span>
+            </div>
+            <button onclick="toggleMenu()" class="text-gray-400 hover:text-red-500 transition-colors"
+                style="color: #9ca3af; transition: color 0.3s;">
+                <i class="fas fa-times text-lg"></i>
+            </button>
         </div>
-    </nav>
+
+        <!-- Navigation List -->
+        <nav class="flex-1 py-2" style="flex: 1; padding-top: 8px; padding-bottom: 8px;">
+            <ul class="flex flex-col"
+                style="display: flex; flex-direction: column; list-style: none; padding: 0; margin: 0;">
+                <!-- Home -->
+                <li>
+                    <a href="#home"
+                        class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: #374151; border-bottom: 1px solid #f9fafb; transition: all 0.3s;">
+                        <span
+                            class="w-7 h-7 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all text-sm"
+                            style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background-color: #eff6ff; color: #2563eb; font-size: 0.875rem;">
+                            <i class="fas fa-home"></i>
+                        </span>
+                        <span class="font-medium text-sm" style="font-weight: 500; font-size: 0.875rem;">Home</span>
+                    </a>
+                </li>
+
+                <!-- Laptops -->
+                <li>
+                    <a href="#products"
+                        class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: #374151; border-bottom: 1px solid #f9fafb; transition: all 0.3s;">
+                        <span
+                            class="w-7 h-7 flex items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-all text-sm"
+                            style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background-color: #ecfeff; color: #0891b2; font-size: 0.875rem;">
+                            <i class="fas fa-laptop"></i>
+                        </span>
+                        <span class="font-medium text-sm" style="font-weight: 500; font-size: 0.875rem;">Laptops</span>
+                    </a>
+                </li>
+
+                <!-- Accessories -->
+                <li>
+                    <a href="#accessories"
+                        class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: #374151; border-bottom: 1px solid #f9fafb; transition: all 0.3s;">
+                        <span
+                            class="w-7 h-7 flex items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all text-sm"
+                            style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background-color: #fff7ed; color: #ea580c; font-size: 0.875rem;">
+                            <i class="fas fa-headphones"></i>
+                        </span>
+                        <span class="font-medium text-sm"
+                            style="font-weight: 500; font-size: 0.875rem;">Accessories</span>
+                    </a>
+                </li>
+
+                <!-- Marketplace -->
+                <li>
+                    <a href="#marketplace"
+                        class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: #374151; border-bottom: 1px solid #f9fafb; transition: all 0.3s;">
+                        <span
+                            class="w-7 h-7 flex items-center justify-center rounded-lg bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-all text-sm"
+                            style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background-color: #faf5ff; color: #9333ea; font-size: 0.875rem;">
+                            <i class="fas fa-store"></i>
+                        </span>
+                        <span class="font-medium text-sm"
+                            style="font-weight: 500; font-size: 0.875rem;">Marketplace</span>
+                    </a>
+                </li>
+
+                <!-- Services -->
+                <li>
+                    <a href="#services"
+                        class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: #374151; border-bottom: 1px solid #f9fafb; transition: all 0.3s;">
+                        <span
+                            class="w-7 h-7 flex items-center justify-center rounded-lg bg-green-50 text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all text-sm"
+                            style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background-color: #f0fdf4; color: #16a34a; font-size: 0.875rem;">
+                            <i class="fas fa-concierge-bell"></i>
+                        </span>
+                        <span class="font-medium text-sm" style="font-weight: 500; font-size: 0.875rem;">Services</span>
+                    </a>
+                </li>
+
+                <!-- Blog -->
+                <li>
+                    <a href="#blog"
+                        class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: #374151; border-bottom: 1px solid #f9fafb; transition: all 0.3s;">
+                        <span
+                            class="w-7 h-7 flex items-center justify-center rounded-lg bg-pink-50 text-pink-600 group-hover:bg-pink-600 group-hover:text-white transition-all text-sm"
+                            style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background-color: #fdf2f8; color: #db2777; font-size: 0.875rem;">
+                            <i class="fas fa-blog"></i>
+                        </span>
+                        <span class="font-medium text-sm" style="font-weight: 500; font-size: 0.875rem;">Blog</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="p-6 bg-gray-50 border-t border-gray-200"
+            style="padding: 24px; background-color: #f9fafb; border-top: 1px solid #e5e7eb;">
+            <p class="text-xs text-center text-gray-400 mb-4"
+                style="font-size: 0.75rem; text-align: center; color: #9ca3af; margin-bottom: 16px;">Follow us</p>
+            <div class="flex justify-center gap-4" style="display: flex; justify-content: center; gap: 16px;">
+                <a href="https://web.facebook.com/engskope" target="_blank"
+                    class="text-gray-400 hover:text-blue-600 transition-colors"
+                    style="color: #9ca3af; font-size: 1.125rem;"><i class="fab fa-facebook-f text-lg"></i></a>
+                <a href="https://x.com/sege_peter79144" target="_blank"
+                    class="text-gray-400 hover:text-black transition-colors"
+                    style="color: #9ca3af; font-size: 1.125rem;"><i class="fab fa-twitter text-lg"></i></a>
+                <a href="https://www.instagram.com/segepeter71/" target="_blank"
+                    class="text-gray-400 hover:text-pink-600 transition-colors"
+                    style="color: #9ca3af; font-size: 1.125rem;"><i class="fab fa-instagram text-lg"></i></a>
+            </div>
+        </div>
+    </aside>
+
+
 
     <!-- Hero -->
     <section id="home" class="hero" role="banner">
         <div class="container">
             <h1 class="hero-title">Top-Quality Laptops and Accessories at Unbeatable Prices</h1>
-            <p class="hero-subtitle">Shop the best laptops and accessories in Kenya. Order via WhatsApp and enjoy fast delivery to your doorstep.</p>
+            <p class="hero-subtitle">Shop the best laptops and accessories in Kenya. Order via WhatsApp and enjoy fast
+                delivery to your doorstep.</p>
             <a class="hero-cta" href="#products">Shop Now</a>
         </div>
     </section>
@@ -1565,10 +1682,13 @@
 
             <div class="sales-items" aria-label="Flash sale items">
                 <div class="sales-item" onclick="showProductDetails(1)">
-                    <div class="sales-image"><img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80" alt="HP 830 G5"></div>
+                    <div class="sales-image"><img
+                            src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80"
+                            alt="HP 830 G5"></div>
                     <div class="sales-info">
                         <div class="sales-product-name">HP 830 G5 i5 8th Gen</div>
-                        <div class="sales-price"><span class="sales-current">Ksh 25,500</span><span class="sales-original">Ksh 28,500</span></div>
+                        <div class="sales-price"><span class="sales-current">Ksh 25,500</span><span
+                                class="sales-original">Ksh 28,500</span></div>
                     </div>
                 </div>
                 <div class="sales-item" onclick="showProductDetails(2)">
@@ -1578,7 +1698,7 @@
                     <div class="sales-info">
                         <div class="sales-product-name">HP 840 G5 i5 8th Gen</div>
                         <div class="sales-price"><span class="sales-current">Ksh 26,000</span><span
-                            class="sales-original">Ksh 29,000</span></div>
+                                class="sales-original">Ksh 29,000</span></div>
                     </div>
                 </div>
                 <div class="sales-item" onclick="showProductDetails(3)">
@@ -1588,7 +1708,7 @@
                     <div class="sales-info">
                         <div class="sales-product-name">HP 840 G1 i5 4th Gen</div>
                         <div class="sales-price"><span class="sales-current">Ksh 17,500</span><span
-                            class="sales-original">Ksh 20,500</span></div>
+                                class="sales-original">Ksh 20,500</span></div>
                     </div>
                 </div>
                 <div class="sales-item" onclick="showProductDetails(4)">
@@ -1598,7 +1718,7 @@
                     <div class="sales-info">
                         <div class="sales-product-name">Dell 7280 i7 6th Gen</div>
                         <div class="sales-price"><span class="sales-current">Ksh 21,000</span><span
-                            class="sales-original">Ksh 24,000</span></div>
+                                class="sales-original">Ksh 24,000</span></div>
                     </div>
                 </div>
                 <div class="sales-item" onclick="showProductDetails(5)">
@@ -1608,7 +1728,7 @@
                     <div class="sales-info">
                         <div class="sales-product-name">Lenovo T460s i5 6th Gen</div>
                         <div class="sales-price"><span class="sales-current">Ksh 19,500</span><span
-                            class="sales-original">Ksh 22,500</span></div>
+                                class="sales-original">Ksh 22,500</span></div>
                     </div>
                 </div>
             </div>
@@ -1680,7 +1800,8 @@
             <div class="products-header">
                 <div class="search-box">
                     <i class="fas fa-search search-icon"></i>
-                    <input id="search-input" class="search-input" type="search" placeholder="Search laptops..." aria-label="Search laptops">
+                    <input id="search-input" class="search-input" type="search" placeholder="Search laptops..."
+                        aria-label="Search laptops">
                 </div>
 
                 <div class="sort-filter">
@@ -1726,11 +1847,13 @@
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-item">
             <div class="faq-question">Do you offer delivery outside Kisumu? <i class="fas fa-chevron-down"></i></div>
-            <div class="faq-answer">Yes, we deliver nationwide via courier services. Delivery costs vary by location.</div>
+            <div class="faq-answer">Yes, we deliver nationwide via courier services. Delivery costs vary by location.
+            </div>
         </div>
         <div class="faq-item">
             <div class="faq-question">What is your return policy? <i class="fas fa-chevron-down"></i></div>
-            <div class="faq-answer">We offer a 7-day return policy for manufacturing defects. Contact us within 7 days of delivery.</div>
+            <div class="faq-answer">We offer a 7-day return policy for manufacturing defects. Contact us within 7 days
+                of delivery.</div>
         </div>
         <div class="faq-item">
             <div class="faq-question">Do you offer installment payments? <i class="fas fa-chevron-down"></i></div>
@@ -1759,7 +1882,8 @@
                 <div class="review-rating">★★★★★</div>
                 <div class="review-date">1 month ago</div>
             </div>
-            <p>"Best prices I found online. The laptop arrived well-packaged and in perfect condition. Will buy again!"</p>
+            <p>"Best prices I found online. The laptop arrived well-packaged and in perfect condition. Will buy again!"
+            </p>
         </div>
         <div class="review">
             <div class="review-header">
@@ -1787,11 +1911,14 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Skope Sana</h3>
-                    <p>Your trusted partner for quality laptops and accessories in Kenya. We offer the best prices and reliable service.</p>
+                    <p>Your trusted partner for quality laptops and accessories in Kenya. We offer the best prices and
+                        reliable service.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://web.facebook.com/engskope" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
                         <a href="https://twitter.com/" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/segepeter71/" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -1809,9 +1936,11 @@
                     <h3>Contact Info</h3>
                     <ul class="footer-links">
                         <li><i class="fas fa-phone"></i> <a href="tel:+254742380183">+254 742 380 183</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:segepeter71@gmail.com">segepeter71@gmail.com</a></li>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:info.skopedesigns@gmail.com">info.skopedesigns@gmail.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Maseno, Kisumu, Kenya</li>
-                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/254742380183" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/254742380183" target="_blank"
+                                rel="noopener">WhatsApp</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1824,7 +1953,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Skope Sana | ShopSana. All rights reserved. | Designed by Sege Peter</p>
+                <p>&copy; <span id="current-year"></span> Skope Sana | ShopSana. All rights reserved. | Designed by Sege
+                    Peter</p>
             </div>
         </div>
     </footer>
@@ -1848,7 +1978,8 @@
             <div id="comparison-content">
                 <p>Select 2-3 products to compare</p>
             </div>
-            <button onclick="closeComparison()" style="margin-top: 20px; padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 6px;">Close</button>
+            <button onclick="closeComparison()"
+                style="margin-top: 20px; padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 6px;">Close</button>
         </div>
     </div>
 
@@ -2505,7 +2636,7 @@
         let comparisonItems = JSON.parse(localStorage.getItem('comparisonItems')) || [];
 
         // Initialize on DOM Load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateGreeting();
             setupMobileMenu();
             setupSalesTimer();
@@ -2521,10 +2652,16 @@
             setupComparison();
             renderRecentlyViewed();
             setupDeliveryCalculator();
-            
+
             updateCartCount();
             updateWishlistCount();
             updateComparisonCount();
+
+            // Set current year
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
         });
 
         // Update greeting in East Africa Time
@@ -2556,11 +2693,13 @@
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
             const closeBtn = document.getElementById('close-menu');
-            if (!hamburger || !mobileMenu) return;
+            const overlay = document.getElementById('menu-overlay');
+            if (!hamburger || !mobileMenu || !overlay) return;
 
             function openMenu() {
                 mobileMenu.classList.add('active');
                 hamburger.classList.add('active');
+                overlay.classList.add('active');
                 mobileMenu.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
                 closeBtn && closeBtn.focus();
@@ -2568,6 +2707,7 @@
             function closeMenu() {
                 mobileMenu.classList.remove('active');
                 hamburger.classList.remove('active');
+                overlay.classList.remove('active');
                 mobileMenu.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
                 hamburger.focus();
@@ -2575,11 +2715,12 @@
 
             hamburger.addEventListener('click', openMenu);
             if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
 
             document.addEventListener('click', (e) => {
                 if (!mobileMenu.classList.contains('active')) return;
                 const target = e.target;
-                if (!mobileMenu.contains(target) && !hamburger.contains(target)) closeMenu();
+                if (!mobileMenu.contains(target) && !hamburger.contains(target) && !overlay.contains(target)) closeMenu();
             });
 
             document.addEventListener('keydown', (e) => {
@@ -2600,10 +2741,12 @@
                         if (mobileMenu && mobileMenu.classList.contains('active')) {
                             mobileMenu.classList.remove('active');
                             hamburger.classList.remove('active');
+                            const overlay = document.getElementById('menu-overlay');
+                            if (overlay) overlay.classList.remove('active');
                             mobileMenu.setAttribute('aria-hidden', 'true');
                             document.body.style.overflow = '';
                         }
-                        
+
                         target.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
@@ -2631,7 +2774,7 @@
                     </div>
                 `;
                 document.getElementById('popup-link').href = `https://wa.me/254742380183?text=I%20want%20to%20order%20${encodeURIComponent(product.name)}%20(Ksh%20${product.price})`;
-                
+
                 popup.classList.add('active');
             }
 
@@ -2661,8 +2804,8 @@
                 const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
                 timerElement.textContent =
-                    `${days.toString().padStart(2,'0')}:${hours.toString().padStart(2,'0')}:` +
-                    `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+                    `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:` +
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             }
             updateTimer();
             setInterval(updateTimer, 1000);
@@ -2700,7 +2843,7 @@
             if (!grid) return;
 
             grid.innerHTML = laptopProducts.map(product => `
-                <article class="product-card" data-id="${product.id}" data-category="${product.category}" data-price="${product.price}" data-rating="${product.rating}" data-date="${product.date}" data-name="${product.name.toLowerCase()}" data-brand="${product.brand}" data-sealed="${product.sealed}" data-stock="${product.stock}">
+                <article class="product-card" data-id="${product.id}" data-category="${product.category}" data-price="${product.price}" data-rating="${product.rating}" data-date="${product.date}" data-name="${product.name.toLowerCase()}" data-brand="${product.brand}" data-sealed="${product.sealed}" data-stock="${product.stock}" onclick="showProductDetails(${product.id})" style="cursor: pointer;">
                     <div class="stock-status ${product.stock}">
                         <i class="fas ${product.stock === 'in-stock' ? 'fa-check-circle' : product.stock === 'low-stock' ? 'fa-exclamation-triangle' : 'fa-times-circle'}"></i>
                         ${product.stock === 'in-stock' ? 'In Stock' : product.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock'}
@@ -2725,10 +2868,9 @@
                             <span class="rating-count">(${Math.floor(Math.random() * 50) + 10})</span>
                         </div>
                         
-                        <div class="product-actions">
-                            <button type="button" class="preview-btn" onclick="showProductDetails(${product.id})">Preview</button>
-                            <button class="add-to-cart" onclick="addToCart(${product.id})" ${product.stock === 'out-of-stock' ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : ''}>
-                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                        <div class="product-actions" onclick="event.stopPropagation()">
+                            <button type="button" class="order-btn" style="flex: 1; justify-content: center; background: #25D366;" onclick="orderViaWhatsApp(${product.id})">
+                                <i class="fab fa-whatsapp"></i> Order NOW
                             </button>
                             <button class="add-to-wishlist ${wishlist.includes(product.id) ? 'active' : ''}" onclick="toggleWishlist(${product.id})">
                                 <i class="${wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart"></i>
@@ -2736,7 +2878,7 @@
                         </div>
                         
                         <!-- Comparison checkbox -->
-                        <div style="margin-top: 10px; font-size: 0.85rem;">
+                        <div style="margin-top: 10px; font-size: 0.85rem;" onclick="event.stopPropagation()">
                             <label>
                                 <input type="checkbox" class="compare-checkbox" data-id="${product.id}" ${comparisonItems.includes(product.id) ? 'checked' : ''}>
                                 Add to comparison
@@ -2748,7 +2890,7 @@
 
             // Attach event listeners to compare checkboxes
             document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
+                checkbox.addEventListener('change', function () {
                     const productId = parseInt(this.dataset.id);
                     toggleComparison(productId);
                 });
@@ -2765,7 +2907,7 @@
             const sortSelect = document.getElementById('sort-select');
 
             if (priceSlider) {
-                priceSlider.addEventListener('input', function() {
+                priceSlider.addEventListener('input', function () {
                     const price = parseInt(this.value);
                     maxPriceDisplay.textContent = price.toLocaleString();
                     filterAndSortProducts();
@@ -2812,7 +2954,7 @@
                 }
 
                 // Search filter
-                if (searchQuery && !product.name.toLowerCase().includes(searchQuery) && 
+                if (searchQuery && !product.name.toLowerCase().includes(searchQuery) &&
                     !product.specs.toLowerCase().includes(searchQuery)) {
                     return false;
                 }
@@ -2821,7 +2963,7 @@
             });
 
             // Sort products
-            switch(sortValue) {
+            switch (sortValue) {
                 case 'name':
                     filtered.sort((a, b) => a.name.localeCompare(b.name));
                     break;
@@ -2847,7 +2989,7 @@
             if (!grid) return;
 
             grid.innerHTML = filtered.map(product => `
-                <article class="product-card" data-id="${product.id}" data-category="${product.category}" data-price="${product.price}" data-rating="${product.rating}" data-date="${product.date}" data-name="${product.name.toLowerCase()}" data-brand="${product.brand}" data-sealed="${product.sealed}" data-stock="${product.stock}">
+                <article class="product-card" data-id="${product.id}" data-category="${product.category}" data-price="${product.price}" data-rating="${product.rating}" data-date="${product.date}" data-name="${product.name.toLowerCase()}" data-brand="${product.brand}" data-sealed="${product.sealed}" data-stock="${product.stock}" onclick="showProductDetails(${product.id})" style="cursor: pointer;">
                     <div class="stock-status ${product.stock}">
                         <i class="fas ${product.stock === 'in-stock' ? 'fa-check-circle' : product.stock === 'low-stock' ? 'fa-exclamation-triangle' : 'fa-times-circle'}"></i>
                         ${product.stock === 'in-stock' ? 'In Stock' : product.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock'}
@@ -2872,17 +3014,16 @@
                             <span class="rating-count">(${Math.floor(Math.random() * 50) + 10})</span>
                         </div>
                         
-                        <div class="product-actions">
-                            <button type="button" class="preview-btn" onclick="showProductDetails(${product.id})">Preview</button>
-                            <button class="add-to-cart" onclick="addToCart(${product.id})" ${product.stock === 'out-of-stock' ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : ''}>
-                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                        <div class="product-actions" onclick="event.stopPropagation()">
+                            <button type="button" class="order-btn" style="flex: 1; justify-content: center; background: #25D366;" onclick="orderViaWhatsApp(${product.id})">
+                                <i class="fab fa-whatsapp"></i> Order NOW
                             </button>
                             <button class="add-to-wishlist ${wishlist.includes(product.id) ? 'active' : ''}" onclick="toggleWishlist(${product.id})">
                                 <i class="${wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart"></i>
                             </button>
                         </div>
                         
-                        <div style="margin-top: 10px; font-size: 0.85rem;">
+                        <div style="margin-top: 10px; font-size: 0.85rem;" onclick="event.stopPropagation()">
                             <label>
                                 <input type="checkbox" class="compare-checkbox" data-id="${product.id}" ${comparisonItems.includes(product.id) ? 'checked' : ''}>
                                 Add to comparison
@@ -2894,7 +3035,7 @@
 
             // Re-attach event listeners
             document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
+                checkbox.addEventListener('change', function () {
                     const productId = parseInt(this.dataset.id);
                     toggleComparison(productId);
                 });
@@ -2920,11 +3061,11 @@
             }
 
             window.addEventListener('scroll', toggleBackToTop);
-            
+
             backToTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-            
+
             toggleBackToTop();
         }
 
@@ -2941,7 +3082,7 @@
                         const duration = 2000;
                         const step = target / (duration / 16);
                         let current = 0;
-                        
+
                         const timer = setInterval(() => {
                             current += step;
                             if (current >= target) {
@@ -2951,7 +3092,7 @@
                                 counter.textContent = Math.floor(current);
                             }
                         }, 16);
-                        
+
                         observer.unobserve(counter);
                     }
                 });
@@ -2960,8 +3101,8 @@
             counters.forEach(counter => observer.observe(counter));
         }
 
-        // Shopping Cart Functions
-        function addToCart(productId) {
+        // WhatsApp Ordering Functions
+        function orderViaWhatsApp(productId) {
             const product = laptopProducts.find(p => p.id === productId);
             if (!product) return;
 
@@ -2970,28 +3111,19 @@
                 return;
             }
 
-            const existingItem = cart.find(item => item.id === productId);
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    quantity: 1,
-                    image: product.image
-                });
-            }
+            const message = `Hello Skope Sana! I want to order:
+*Product:* ${product.name}
+*Price:* Ksh ${product.price.toLocaleString()}
+*Specs:* ${product.specs}
 
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            showNotification(`Added ${product.name} to cart!`);
+Is it still available?`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/254742380183?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
         }
 
-        function updateCartCount() {
-            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            // Update cart count display in header if needed
-        }
+        // Removed addToCart function
 
         // Wishlist Functions
         function toggleWishlist(productId) {
@@ -3003,7 +3135,7 @@
                 wishlist.splice(index, 1);
                 showNotification('Removed from wishlist');
             }
-            
+
             localStorage.setItem('wishlist', JSON.stringify(wishlist));
             updateWishlistCount();
             filterAndSortProducts(); // Re-render to update heart icons
@@ -3033,7 +3165,7 @@
             } else {
                 comparisonItems.splice(index, 1);
             }
-            
+
             localStorage.setItem('comparisonItems', JSON.stringify(comparisonItems));
             updateComparisonCount();
         }
@@ -3053,11 +3185,11 @@
 
             const modal = document.getElementById('comparison-modal');
             const content = document.getElementById('comparison-content');
-            
+
             if (!modal || !content) return;
 
             const productsToCompare = laptopProducts.filter(p => comparisonItems.includes(p.id));
-            
+
             let html = '<table class="comparison-table"><thead><tr><th>Feature</th>';
             productsToCompare.forEach(product => {
                 html += `<th>${product.name}</th>`;
@@ -3091,8 +3223,8 @@
             // Add stock status
             html += '<tr><td>Availability</td>';
             productsToCompare.forEach(product => {
-                const statusText = product.stock === 'in-stock' ? 'In Stock' : 
-                                 product.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock';
+                const statusText = product.stock === 'in-stock' ? 'In Stock' :
+                    product.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock';
                 html += `<td>${statusText}</td>`;
             });
             html += '</tr>';
@@ -3150,17 +3282,17 @@
         // FAQ Section
         function setupFAQ() {
             document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function() {
+                question.addEventListener('click', function () {
                     const item = this.parentElement;
                     const isActive = item.classList.contains('active');
-                    
+
                     // Close all other FAQs
                     document.querySelectorAll('.faq-item').forEach(faq => {
                         faq.classList.remove('active');
                         const icon = faq.querySelector('.faq-question i');
                         if (icon) icon.style.transform = 'rotate(0deg)';
                     });
-                    
+
                     // Toggle current if wasn't active
                     if (!isActive) {
                         item.classList.add('active');
@@ -3175,16 +3307,16 @@
         function setupNewsletter() {
             const form = document.getElementById('newsletter-form');
             if (form) {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', function (e) {
                     e.preventDefault();
                     const email = this.querySelector('input[type="email"]').value;
-                    
+
                     // Simple validation
                     if (!email || !email.includes('@')) {
                         showNotification('Please enter a valid email address');
                         return;
                     }
-                    
+
                     // In a real application, you would send this to your server
                     showNotification('Thank you for subscribing to our newsletter!');
                     this.reset();
@@ -3196,7 +3328,7 @@
         function setupBulkInquiry() {
             const btn = document.getElementById('bulk-inquiry');
             if (btn) {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     window.open('https://wa.me/254742380183?text=I%20am%20interested%20in%20bulk%20purchase%20of%20laptops%20for%20my%20business.%20Please%20send%20me%20a%20quote.', '_blank');
                 });
             }
@@ -3212,7 +3344,7 @@
         function showNotification(message) {
             // Remove existing notifications
             document.querySelectorAll('.notification').forEach(n => n.remove());
-            
+
             // Create notification element
             const notification = document.createElement('div');
             notification.className = 'notification';
@@ -3228,11 +3360,11 @@
 
         // Add loading state to buttons
         document.querySelectorAll('a.order-btn, a.hero-cta').forEach(btn => {
-            btn.addEventListener('click', function(e) {
+            btn.addEventListener('click', function (e) {
                 if (this.href && this.href.startsWith('https://wa.me')) {
                     const originalText = this.innerHTML;
                     this.innerHTML = '<span class="loading"></span> Loading...';
-                    
+
                     setTimeout(() => {
                         this.innerHTML = originalText;
                     }, 3000);
@@ -3240,14 +3372,39 @@
             });
         });
 
-        // Initialize counters
-        updateCartCount();
-        updateWishlistCount();
-        updateComparisonCount();
+        // Sidebar Menu Logic with Icons
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar-menu');
+        const overlay = document.getElementById('menu-overlay');
 
-        // Show all laptops initially
-        renderAllLaptops();
+        window.toggleMenu = function () {
+            const isOpen = sidebar.classList.contains('open');
+            const overlayContainer = document.getElementById('menu-overlay');
+
+            if (isOpen) {
+                // Close
+                sidebar.classList.remove('open');
+                overlayContainer.classList.remove('open');
+                document.body.style.overflow = '';
+                if (menuBtn) menuBtn.classList.remove('menu-open');
+            } else {
+                // Open
+                sidebar.classList.add('open');
+                overlayContainer.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                if (menuBtn) menuBtn.classList.add('menu-open');
+            }
+        };
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMenu();
+            });
+        }
+
+        // All initialization handled in DOMContentLoaded
     </script>
 </body>
-</html>
 
+</html>

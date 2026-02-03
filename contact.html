@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Skope Designs | Sege Peter | Designing Brands. Building Code. Beyond Boundaries.</title>
 
   <!-- SEO Meta -->
-  <meta name="description" content="Skope Designs—led by Sege Peter—crafts compelling digital experiences. Specializing in branding, responsive web design, and modern development with Tailwind, Java, Python, MySQL.">
-  <meta name="keywords" content="Skope Designs, Sege Peter, Branding, Web Developer, Tailwind CSS, UI/UX Design, Python Developer, Java Developer, MySQL">
+  <meta name="description"
+    content="Skope Designs—led by Sege Peter—crafts compelling digital experiences. Specializing in branding, responsive web design, and modern development with Tailwind, Java, Python, MySQL.">
+  <meta name="keywords"
+    content="Skope Designs, Sege Peter, Branding, Web Developer, Tailwind CSS, UI/UX Design, Python Developer, Java Developer, MySQL">
   <meta name="author" content="Sege Peter" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.skopedesigns.com/" />
-<script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
@@ -25,12 +27,17 @@
   <meta name="twitter:description" content="Explore Skope Designs—where design, development, and innovation meet." />
   <meta name="twitter:image" content="https://www.skopedesigns.com/fav.ico" />
 
-  
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
-     crossorigin="anonymous"></script>
-  
+    crossorigin="anonymous"></script>
+
   <link rel="icon" href="fav.ico" type="image/x-icon" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Mapbox GL JS for 3D Maps -->
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -50,67 +57,122 @@
   </script>
 
   <style>
-    .hero-slide { background-size: cover; background-position: center; transition: background-image 1s ease-in-out; }
-    .hamburger, .menu-items { transition: all 0.3s ease; }
-    .menu-items { transform: translateX(100%); }
-    .menu-items.open { transform: translateX(0); }
-    .static-header { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #0f9d58; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; transition: all .3s; }
-    .static-header.scrolled { padding: .5rem 2rem; background-color: rgba(15,157,88,.95); backdrop-filter: blur(5px); }
-    .logo-img { height: 50px; transition: transform .3s; border-radius: 50px; border: 1.7px solid #f57c00; }
-    .logo-img:hover { transform: rotate(10deg); }
-    .hamburger-menu { position: relative; width: 30px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
-    .hamburger-menu span { display: block; height: 3px; width: 100%; background: white; border-radius: 3px; }
-    .hamburger-menu.open span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .hamburger-menu.open span:nth-child(2) { opacity: 0; }
-    .hamburger-menu.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
-    .menu-items li { opacity: 0; transform: translateX(20px); transition: all .4s ease; }
-    .menu-items.open li { opacity: 1; transform: translateX(0); }
-    .menu-items a { display: block; padding: .6rem 1rem; color: white; text-decoration: none; border-radius: 6px; position: relative; margin-bottom: .5rem; }
-    .menu-items a:hover { background-color: rgba(255,255,255,0.1); transform: translateX(5px); }
-    .menu-items a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: rgba(245,123,0,0.22); transition: width .3s; }
-    .menu-items a:hover::before { width: 100%; }
-    .menu-items {
-  transition: transform 0.3s ease-in-out;
-}
-.menu-items.open {
-  transform: translateX(0);
-}
-.hamburger-menu span {
-  transition: all 0.3s;
-}
-.hamburger-menu.open span:nth-child(1) {
-  transform: translateY(11px) rotate(45deg);
-}
-.hamburger-menu.open span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger-menu.open span:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
-}
- /* CONTACT PAGE SPECIFIC STYLES */
-    .contact-hero {
-      background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
-                  url('img/contact-bg.jpg') center/cover;
+    .hero-slide {
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
     }
-    
+
+    .hamburger,
+    .menu-items {
+      transition: all 0.3s ease;
+    }
+
+    .menu-items {
+      transform: translateX(100%);
+    }
+
+    .menu-items.open {
+      transform: translateX(0);
+    }
+
+    .static-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: #0f9d58;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all .3s;
+    }
+
+    .static-header.scrolled {
+      padding: .5rem 2rem;
+      background-color: rgba(15, 157, 88, .95);
+      backdrop-filter: blur(5px);
+    }
+
+    .logo-img {
+      height: 50px;
+      transition: transform .3s;
+      border-radius: 50px;
+      border: 1.7px solid #f57c00;
+    }
+
+    .logo-img:hover {
+      transform: rotate(10deg);
+    }
+
+    /* Sidebar Menu Animations */
+    .sidebar-menu {
+      transform: translateX(100%);
+      /* Start hidden to the right */
+      transition: transform 0.3s ease-in-out;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-menu.open {
+      transform: translateX(0);
+    }
+
+    .overlay-bg {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .overlay-bg.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Hamburger Animation */
+    .hamburger-line {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menu-open .line-1 {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .menu-open .line-2 {
+      opacity: 0;
+    }
+
+    .menu-open .line-3 {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+
+
+    /* CONTACT PAGE SPECIFIC STYLES */
+    .contact-hero {
+      background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+        url('img/contact-bg.jpg') center/cover;
+    }
+
     .contact-card {
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
     }
-    
+
     .contact-card:hover {
       transform: translateY(-5px);
       border-color: rgba(6, 182, 212, 0.5);
       box-shadow: 0 10px 25px rgba(6, 182, 212, 0.1);
     }
-    
+
     .input-group {
       position: relative;
       margin-bottom: 2rem;
     }
-    
+
     .form-input {
       width: 100%;
       padding: 1rem 0;
@@ -122,7 +184,7 @@
       outline: none;
       transition: all 0.3s;
     }
-    
+
     .form-label {
       position: absolute;
       top: 1rem;
@@ -131,410 +193,681 @@
       pointer-events: none;
       transition: all 0.3s;
     }
-    
-    .form-input:focus ~ .form-label,
-    .form-input:valid ~ .form-label {
+
+    .form-input:focus~.form-label,
+    .form-input:valid~.form-label {
       top: -1.2rem;
       font-size: 0.8rem;
       color: #06b6d4;
     }
-    
+
     .form-input:focus,
     .form-input:valid {
       border-color: #06b6d4;
     }
-    
+
     .social-hover {
       transition: all 0.3s;
     }
-    
+
     .social-hover:hover {
       transform: scale(1.1);
       filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.5));
     }
-    
+
     .map-container {
       height: 100%;
       min-height: 300px;
       border-radius: 0.5rem;
       overflow: hidden;
     }
-    
+
     @media (max-width: 768px) {
       .contact-grid {
         grid-template-columns: 1fr;
       }
     }
   </style>
- 
+
   <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 </head>
 
 <body class="bg-dark text-white font-sans overflow-x-hidden">
 
   <!-- HEADER -->
-  <header id="header" class="static-header bg-primary text-white px-6 py-4 flex items-center justify-between">
+  <header id="header"
+    class="fixed w-full top-0 z-50 transition-all duration-300 px-6 py-4 flex items-center justify-between bg-primary text-white">
     <div class="flex items-center gap-3">
-      <img src="logo.png" alt="Skope Logo" class="logo-img" />
+      <img src="logo.png" alt="Skope Logo"
+        class="h-12 w-12 rounded-full border-2 border-secondary hover:rotate-12 transition-transform duration-300" />
       <div>
-        <span class="font-bold text-lg">SKOPE DESIGNS</span>
-        <span class="block text-xs italic">Design Beyond Boundaries</span>
+        <span class="font-bold text-lg tracking-wide">SKOPE DESIGNS</span>
+        <span class="block text-[10px] italic opacity-90">Design Beyond Boundaries</span>
       </div>
     </div>
-    <nav class="hidden md:flex gap-8">
-      <a href="index.html" class="hover:text-secondary">Home</a>
-      <a href="about.html" class="hover:text-secondary">About</a>
-      <a href="service.html" class="hover:text-secondary">Services</a>
-      <a href="portfolio.html" class="hover:text-secondary">Portfolio</a>
-      <a href="resources.html" class="hover:text-secondary">Resources</a>
-      <a href="shop.html" class="hover:text-secondary">Shop</a>
-      <a href="contact.html" class="hover:text-secondary">Contact</a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex gap-8 font-medium">
+      <a href="index.html" class="hover:text-secondary transition-colors relative group">Home<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="about.html" class="hover:text-secondary transition-colors relative group">About<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="service.html" class="hover:text-secondary transition-colors relative group">Services<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="portfolio.html" class="hover:text-secondary transition-colors relative group">Portfolio<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="resources.html" class="hover:text-secondary transition-colors relative group">Resources<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="shop.html" class="hover:text-secondary transition-colors relative group">Shop<span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+      <a href="contact.html" class="text-secondary transition-colors relative group">Contact<span
+          class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary transition-all"></span></a>
     </nav>
-    <div id="menu-btn" class="md:hidden hamburger-menu">
-      <span></span><span></span><span></span>
-    </div>
+
+    <!-- Hamburger Button -->
+    <button id="menu-btn" class="md:hidden z-[60] relative w-8 h-6 flex flex-col justify-between focus:outline-none">
+      <span class="w-full h-0.5 bg-white hamburger-line line-1 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-2 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-3 rounded-full"></span>
+    </button>
   </header>
 
-  <!-- MOBILE MENU -->
-  <ul id="mobile-menu" class="menu-items fixed top-[70px] right-0 w-56 h-[calc(100%-70px)] bg-secondary bg-opacity-90 backdrop-blur-lg z-40 p-6 flex flex-col list-none">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="service.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="resources.html">Resources</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-
-
-<!-- Contact Hero Section -->
-<section class="contact-hero min-h-[60vh] flex items-center pt-24 pb-16 px-6 bg-gradient-to-r from-slate-900 to-slate-800">
-  <div class="max-w-6xl mx-auto text-center">
-    <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Let's Create <span class="text-orange-600">Together</span></h1>
-    <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-slate-300">
-      Ready to elevate your brand? Reach out for design inquiries, project quotes, or collaboration opportunities.
-    </p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="#contact-form" class="bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full font-medium text-white transition-colors">
-        Send a Message
-      </a>
-      <a href="tel:+254742380183" class="bg-white text-slate-900 hover:bg-gray-200 px-8 py-3 rounded-full font-medium transition-colors">
-        Call Now
-      </a>
-    </div>
+  <!-- SIDEBAR NAVIGATION DRAWER -->
+  <!-- Overlay Backdrop -->
+  <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[45] overlay-bg backdrop-blur-sm" onclick="toggleMenu()">
   </div>
-</section>
 
-<!-- Contact + Newsletter Section -->
-<section id="contact" class="bg-slate-950 text-white py-16 px-6">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-    
-    <!-- Left: Contact Info & Form -->
-    <div>
-      <h2 class="text-4xl font-bold mb-4 text-cyan-400 animate-fade-in">Get in Touch</h2>
-      <p class="mb-6 text-slate-300">Have a project in mind? Let’s bring your ideas to life. Reach out today.</p>
+  <!-- Sidebar Container -->
+  <aside id="sidebar-menu"
+    class="fixed top-0 right-0 h-full w-64 bg-white z-[60] sidebar-menu flex flex-col shadow-2xl overflow-y-auto">
 
-      <!-- Contact Form -->
-      <form action="https://formspree.io/f/meozqvwk" method="POST" class="space-y-5 bg-slate-900 p-6 rounded-xl shadow-lg">
-        <div>
-          <label class="block mb-1 text-sm font-semibold">Full Name</label>
-          <input type="text" name="name" required class="w-full px-4 py-2 bg-slate-800 rounded-md border border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white" placeholder="Your Name">
-        </div>
-        <div>
-          <label class="block mb-1 text-sm font-semibold">Email</label>
-          <input type="email" name="email" required class="w-full px-4 py-2 bg-slate-800 rounded-md border border-slate-700 focus:outline-none focus:ring-2 focus:ring-orange-400 text-white" placeholder="Your Email">
-        </div>
-        <div>
-          <label class="block mb-1 text-sm font-semibold">Message</label>
-          <textarea name="message" rows="4" required class="w-full px-4 py-2 bg-slate-800 rounded-md border border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white" placeholder="Your message here..."></textarea>
-        </div>
-        <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-cyan-500 py-3 rounded-md font-semibold text-black hover:scale-105 transition-all duration-300">
-          Send Message
-        </button>
-      </form>
+    <!-- Sidebar Header -->
+    <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="h-8 w-8 rounded-full border border-gray-200">
+        <span class="font-bold text-gray-800 text-base">Menu</span>
+      </div>
+      <button onclick="toggleMenu()" class="text-gray-400 hover:text-red-500 transition-colors">
+        <i class="fas fa-times text-lg"></i>
+      </button>
     </div>
 
-    <!-- Right: Newsletter, Socials, Map -->
-    <div class="space-y-8">
-      <div>
-        <h3 class="text-2xl font-semibold mb-3 text-orange-400">Subscribe to our Newsletter</h3>
-        <p class="mb-4 text-slate-300">Stay updated with our latest designs, tips, and exclusive offers!</p>
+    <!-- Navigation List -->
+    <nav class="flex-1 py-2">
+      <ul class="flex flex-col">
+        <!-- Home -->
+        <li>
+          <a href="index.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-home"></i>
+            </span>
+            <span class="font-medium text-sm">Home</span>
+          </a>
+        </li>
 
-        <!-- Newsletter Form -->
-        <form action="https://formspree.io/f/meozqvwk" method="POST" class="flex items-center bg-slate-900 p-2 rounded-lg border border-slate-700 shadow-inner">
-          <input type="email" name="email" required placeholder="Enter your email" class="flex-grow px-4 py-2 bg-transparent text-white placeholder-gray-400 focus:outline-none">
-          <button type="submit" class="bg-orange-500 text-black px-4 py-2 rounded-md hover:bg-orange-400 transition duration-300 font-semibold">
-            Subscribe
+        <!-- About -->
+        <li>
+          <a href="about.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="font-medium text-sm">About</span>
+          </a>
+        </li>
+
+        <!-- Services -->
+        <li>
+          <a href="service.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-list-ul"></i>
+            </span>
+            <span class="font-medium text-sm">Services</span>
+          </a>
+        </li>
+
+        <!-- Portfolio -->
+        <li>
+          <a href="portfolio.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-briefcase"></i>
+            </span>
+            <span class="font-medium text-sm">Portfolio</span>
+          </a>
+        </li>
+
+        <!-- Resources -->
+        <li>
+          <a href="resources.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-green-50 text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-book-reader"></i>
+            </span>
+            <span class="font-medium text-sm">Resources</span>
+          </a>
+        </li>
+
+        <!-- Shop -->
+        <li>
+          <a href="shop.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-pink-50 text-pink-600 group-hover:bg-pink-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-shopping-bag"></i>
+            </span>
+            <span class="font-medium text-sm">Shop</span>
+          </a>
+        </li>
+
+        <!-- Contact -->
+        <li>
+          <a href="contact.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-gray-100 text-gray-600 group-hover:bg-gray-800 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="font-medium text-sm">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="p-6 bg-gray-50 border-t border-gray-200">
+      <p class="text-xs text-center text-gray-400 mb-4">Follow us</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://web.facebook.com/engskope" target="_blank"
+          class="text-gray-400 hover:text-blue-600 transition-colors"><i class="fab fa-facebook-f text-lg"></i></a>
+        <a href="https://x.com/sege_peter79144" target="_blank"
+          class="text-gray-400 hover:text-black transition-colors"><i class="fab fa-twitter text-lg"></i></a>
+        <a href="https://www.instagram.com/segepeter71/" target="_blank"
+          class="text-gray-400 hover:text-pink-600 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+      </div>
+    </div>
+  </aside>
+
+
+  <!-- Contact Hero Section -->
+  <section
+    class="contact-hero min-h-[60vh] flex items-center pt-24 pb-16 px-6 bg-gradient-to-r from-slate-900 to-slate-800">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Let's Create <span
+          class="text-orange-600">Together</span></h1>
+      <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-slate-300">
+        Ready to elevate your brand? Reach out for design inquiries, project quotes, or collaboration opportunities.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#contact-form"
+          class="bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full font-medium text-white transition-colors">
+          Send a Message
+        </a>
+        <a href="tel:+254742380183"
+          class="bg-white text-slate-900 hover:bg-gray-200 px-8 py-3 rounded-full font-medium transition-colors">
+          Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact + Newsletter Section -->
+  <section id="contact" class="bg-slate-950 text-white py-16 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+
+      <!-- Left: Contact Info & Form -->
+      <div>
+        <h2 class="text-4xl font-bold mb-4 text-cyan-400 animate-fade-in">Get in Touch</h2>
+        <p class="mb-6 text-slate-300">Have a project in mind? Let’s bring your ideas to life. Reach out today.</p>
+
+        <!-- Contact Form -->
+        <form action="https://formspree.io/f/meozqvwk" method="POST"
+          class="space-y-5 bg-slate-900 p-6 rounded-xl shadow-lg" id="skope-contact-form">
+          <div>
+            <label class="block mb-1 text-sm font-semibold">Full Name</label>
+            <input type="text" name="name" required
+              class="w-full px-4 py-2 bg-slate-800 rounded-md border border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white"
+              placeholder="Your Name">
+          </div>
+          <div>
+            <label class="block mb-1 text-sm font-semibold">Email</label>
+            <input type="email" name="email" required
+              class="w-full px-4 py-2 bg-slate-800 rounded-md border border-slate-700 focus:outline-none focus:ring-2 focus:ring-orange-400 text-white"
+              placeholder="Your Email">
+          </div>
+          <div>
+            <label class="block mb-1 text-sm font-semibold">Message</label>
+            <textarea name="message" rows="4" required
+              class="w-full px-4 py-2 bg-slate-800 rounded-md border border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white"
+              placeholder="Your message here..."></textarea>
+          </div>
+          <button type="submit"
+            class="w-full bg-gradient-to-r from-orange-500 to-cyan-500 py-3 rounded-md font-semibold text-black hover:scale-105 transition-all duration-300">
+            Send Message
           </button>
         </form>
       </div>
 
-      <!-- Contact Info -->
+      <!-- Right: Newsletter, Socials, Map -->
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-semibold mb-3 text-orange-400">Subscribe to our Newsletter</h3>
+          <p class="mb-4 text-slate-300">Stay updated with our latest designs, tips, and exclusive offers!</p>
+
+          <!-- Newsletter Form -->
+          <form action="https://formspree.io/f/meozqvwk" method="POST"
+            class="flex items-center bg-slate-900 p-2 rounded-lg border border-slate-700 shadow-inner">
+            <input type="email" name="email" required placeholder="Enter your email"
+              class="flex-grow px-4 py-2 bg-transparent text-white placeholder-gray-400 focus:outline-none">
+            <button type="submit"
+              class="bg-orange-500 text-black px-4 py-2 rounded-md hover:bg-orange-400 transition duration-300 font-semibold">
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-3 text-orange-400">Contact Info</h3>
+          <p class="text-slate-300"><i class="fas fa-envelope text-cyan-400 mr-2"></i> info.skopedesigns@gmail.com</p>
+          <p class="text-slate-300"><i class="fas fa-phone text-cyan-400 mr-2"></i> +254 742 380 183</p>
+          <p class="text-slate-300"><i class="fas fa-map-marker-alt text-cyan-400 mr-2"></i> Maseno University, Kenya
+          </p>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex gap-4 text-2xl text-slate-300 mt-4">
+          <a href="https://web.facebook.com/engskope" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+
+          <a href="https://x.com/sege_peter79144" target="_blank" rel="noopener" class="hover:text-orange-400"><i
+              class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/segepeter71/" target="_blank" rel="noopener"
+            class="hover:text-orange-400"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com/in/peter-sege-221831303" target="_blank" rel="noopener"
+            class="hover:text-orange-400"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@engskope" target="_blank" rel="noopener" class="hover:text-secondary"><i
+              class="fab fa-youtube"></i></a>
+
+        </div>
+
+
+        <!-- Map Toggle & Container -->
+        <div class="w-full">
+          <!-- Map Toggle Button -->
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-semibold text-cyan-400">📍 Find Us</h3>
+            <button id="map-toggle"
+              class="bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-2">
+              <i class="fas fa-sync-alt"></i>
+              <span id="toggle-text">Switch to Google Maps</span>
+            </button>
+          </div>
+
+          <!-- 3D Interactive Map (Mapbox) -->
+          <div id="mapbox-container"
+            class="w-full h-96 rounded-xl overflow-hidden border-2 border-slate-800 shadow-md relative transition-opacity duration-500">
+            <div id="map" class="w-full h-full"></div>
+            <div class="absolute top-4 left-4 bg-slate-900 bg-opacity-90 px-4 py-2 rounded-lg text-sm">
+              <p class="font-semibold text-cyan-400">📍 Maseno University</p>
+              <p class="text-slate-300">Kenya</p>
+              <p class="text-xs text-slate-400 mt-1">3D Interactive Map</p>
+            </div>
+          </div>
+
+          <!-- Google Maps (Traditional) -->
+          <div id="google-container"
+            class="w-full h-96 rounded-xl overflow-hidden border-2 border-slate-800 shadow-md relative hidden transition-opacity duration-500">
+            <iframe src="https://www.google.com/maps?q=Maseno+University,+Kenya&output=embed" width="100%" height="100%"
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div
+              class="absolute top-4 left-4 bg-slate-900 bg-opacity-90 px-4 py-2 rounded-lg text-sm pointer-events-none">
+              <p class="font-semibold text-cyan-400">📍 Maseno University</p>
+              <p class="text-slate-300">Kenya</p>
+              <p class="text-xs text-slate-400 mt-1">Google Maps</p>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          // Map Toggle Functionality
+          let currentMap = 'mapbox';
+          const toggleBtn = document.getElementById('map-toggle');
+          const toggleText = document.getElementById('toggle-text');
+          const mapboxContainer = document.getElementById('mapbox-container');
+          const googleContainer = document.getElementById('google-container');
+
+          toggleBtn.addEventListener('click', () => {
+            if (currentMap === 'mapbox') {
+              mapboxContainer.classList.add('hidden');
+              googleContainer.classList.remove('hidden');
+              toggleText.textContent = 'Switch to 3D Map';
+              currentMap = 'google';
+              toggleBtn.querySelector('i').style.transform = 'rotate(180deg)';
+            } else {
+              googleContainer.classList.add('hidden');
+              mapboxContainer.classList.remove('hidden');
+              toggleText.textContent = 'Switch to Google Maps';
+              currentMap = 'mapbox';
+              toggleBtn.querySelector('i').style.transform = 'rotate(0deg)';
+            }
+          });
+
+          toggleBtn.querySelector('i').style.transition = 'transform 0.3s ease';
+
+          // Initialize Mapbox 3D Map
+          mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+          const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v11',
+            center: [34.6009, -0.0023],
+            zoom: 15,
+            pitch: 60,
+            bearing: -17.6,
+            antialias: true
+          });
+
+          map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+          map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
+
+          map.on('load', () => {
+            map.addSource('mapbox-dem', {
+              'type': 'raster-dem',
+              'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+              'tileSize': 512,
+              'maxzoom': 14
+            });
+            map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+
+            const layers = map.getStyle().layers;
+            const labelLayerId = layers.find(
+              (layer) => layer.type === 'symbol' && layer.layout['text-field']
+            ).id;
+
+            map.addLayer({
+              'id': 'add-3d-buildings',
+              'source': 'composite',
+              'source-layer': 'building',
+              'filter': ['==', 'extrude', 'true'],
+              'type': 'fill-extrusion',
+              'minzoom': 15,
+              'paint': {
+                'fill-extrusion-color': '#06b6d4',
+                'fill-extrusion-height': ['interpolate', ['linear'], ['zoom'], 15, 0, 15.05, ['get', 'height']],
+                'fill-extrusion-base': ['interpolate', ['linear'], ['zoom'], 15, 0, 15.05, ['get', 'min_height']],
+                'fill-extrusion-opacity': 0.8
+              }
+            }, labelLayerId);
+
+            const pulseMarker = document.createElement('div');
+            pulseMarker.style.width = '20px';
+            pulseMarker.style.height = '20px';
+            pulseMarker.style.borderRadius = '50%';
+            pulseMarker.style.background = '#f97316';
+            pulseMarker.style.boxShadow = '0 0 0 0 rgba(249, 115, 22, 1)';
+            pulseMarker.style.animation = 'pulse 2s infinite';
+
+            const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+              '<div style="padding: 10px;"><h3 style="font-weight: bold; color: #06b6d4; margin-bottom: 5px;">Skope Designs</h3><p style="color: #64748b;">Maseno University, Kenya</p><p style="margin-top: 8px;"><a href="https://www.google.com/maps/dir/?api=1&destination=-0.0023,34.6009" target="_blank" style="color: #f97316; text-decoration: underline;">Get Directions →</a></p></div>'
+            );
+
+            new mapboxgl.Marker(pulseMarker)
+              .setLngLat([34.6009, -0.0023])
+              .setPopup(popup)
+              .addTo(map);
+
+            let rotating = true;
+            function rotateCamera(timestamp) {
+              if (rotating && currentMap === 'mapbox') {
+                map.rotateTo((timestamp / 100) % 360, { duration: 0 });
+                requestAnimationFrame(rotateCamera);
+              }
+            }
+
+            map.on('mousedown', () => { rotating = false; });
+            map.on('touchstart', () => { rotating = false; });
+
+            let timeout;
+            map.on('mouseup', () => {
+              clearTimeout(timeout);
+              timeout = setTimeout(() => { rotating = true; rotateCamera(0); }, 5000);
+            });
+          });
+
+          const style = document.createElement('style');
+          style.textContent = `
+            @keyframes pulse {
+              0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+              70% { box-shadow: 0 0 0 20px rgba(249, 115, 22, 0); }
+              100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+            }
+          `;
+          document.head.appendChild(style);
+        </script>
+
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <!-- Success Alert -->
+  <div id="success-alert" class="fixed top-5 right-5 z-50 hidden">
+    <div class="bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center animate-fade-in">
+      <i class="fas fa-check-circle mr-3 text-xl"></i>
       <div>
-        <h3 class="text-2xl font-semibold mb-3 text-orange-400">Contact Info</h3>
-        <p class="text-slate-300"><i class="fas fa-envelope text-cyan-400 mr-2"></i> segepeter71@gmail.com</p>
-        <p class="text-slate-300"><i class="fas fa-phone text-cyan-400 mr-2"></i> +254 742 380 183</p>
-        <p class="text-slate-300"><i class="fas fa-map-marker-alt text-cyan-400 mr-2"></i> Maseno University, Kenya</p>
+        <h4 class="font-bold">Message Sent Successfully!</h4>
+        <p class="text-sm">Thank you for contacting us. We'll get back to you soon.</p>
       </div>
-
-      <!-- Social Icons -->
-      <div class="flex gap-4 text-2xl text-slate-300 mt-4">
-        <a href="https://web.facebook.com/engskope/" target="_blank" class="hover:text-orange-400"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://x.com/sege_peter79144" target="_blank" class="hover:text-orange-400"><i class="fab fa-twitter"></i></a>
-        <a href="https://instagram.com" target="_blank" class="hover:text-orange-400"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/in/peter-sege-221831303" target="_blank" class="hover:text-orange-400"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://www.youtube.com/@engskope" class="hover:text-secondary" target="_blank" rel="noopener">
-  <i class="fab fa-youtube"></i></a>
-
-      </div>
-
-      <!-- Embedded Map -->
-      <div class="w-full h-64 rounded-xl overflow-hidden border-2 border-slate-800 shadow-md">
-        <iframe src="https://www.google.com/maps?q=Maseno+University,+Kenya&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
+      <button type="button" id="close-alert" class="ml-6 text-white hover:text-green-200">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
   </div>
 
-</section>
-
-
-
-<!-- Success Alert -->
-<div id="success-alert" class="fixed top-5 right-5 z-50 hidden">
-  <div class="bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center animate-fade-in">
-    <i class="fas fa-check-circle mr-3 text-xl"></i>
-    <div>
-      <h4 class="font-bold">Message Sent Successfully!</h4>
-      <p class="text-sm">Thank you for contacting us. We'll get back to you soon.</p>
+  <!-- Error Alert -->
+  <div id="error-alert" class="fixed top-5 right-5 z-50 hidden">
+    <div class="bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center animate-fade-in">
+      <i class="fas fa-exclamation-circle mr-3 text-xl"></i>
+      <div>
+        <h4 class="font-bold">Error Sending Message</h4>
+        <p class="text-sm">Please try again or contact us directly.</p>
+      </div>
+      <button type="button" id="close-error-alert" class="ml-6 text-white hover:text-red-200">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
-    <button id="close-alert" class="ml-6 text-white hover:text-green-200">
-      <i class="fas fa-times"></i>
-    </button>
   </div>
-</div>
 
-<!-- Error Alert -->
-<div id="error-alert" class="fixed top-5 right-5 z-50 hidden">
-  <div class="bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center animate-fade-in">
-    <i class="fas fa-exclamation-circle mr-3 text-xl"></i>
-    <div>
-      <h4 class="font-bold">Error Sending Message</h4>
-      <p class="text-sm">Please try again or contact us directly.</p>
-    </div>
-    <button id="close-error-alert" class="ml-6 text-white hover:text-red-200">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('skope-contact-form');
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const btnText = document.getElementById('btn-text');
-    const btnSpinner = document.getElementById('btn-spinner');
-    const btnSuccess = document.getElementById('btn-success');
-    const successAlert = document.getElementById('success-alert');
-    const errorAlert = document.getElementById('error-alert');
-    const closeAlert = document.getElementById('close-alert');
-    const closeErrorAlert = document.getElementById('close-error-alert');
-
-    // Form submission handler
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // Show loading state
-      submitBtn.disabled = true;
-      btnText.textContent = 'Sending...';
-      btnSpinner.classList.remove('hidden');
-      
-      try {
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-        
-        if (response.ok) {
-          // Show success state
-          btnSpinner.classList.add('hidden');
-          btnSuccess.classList.remove('hidden');
-          btnText.textContent = 'Sent!';
-          
-          // Show success alert
-          successAlert.classList.remove('hidden');
-          
-          // Hide success alert after 5 seconds
-          setTimeout(() => {
-            successAlert.classList.add('hidden');
-          }, 5000);
-          
-          // Reset form after delay
-          setTimeout(() => {
-            form.reset();
-            submitBtn.disabled = false;
-            btnSuccess.classList.add('hidden');
-            btnText.textContent = 'Send Message';
-          }, 3000);
-        } else {
-          throw new Error('Form submission failed');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        // Show error state
-        btnSpinner.classList.add('hidden');
-        submitBtn.disabled = false;
-        btnText.textContent = 'Send Message';
-        
-        // Show error alert
-        errorAlert.classList.remove('hidden');
-        
-        // Hide error alert after 5 seconds
-        setTimeout(() => {
-          errorAlert.classList.add('hidden');
-        }, 5000);
-      }
-    });
-
-    // Close alert handlers
-    closeAlert.addEventListener('click', () => successAlert.classList.add('hidden'));
-    closeErrorAlert.addEventListener('click', () => errorAlert.classList.add('hidden'));
-
-    // Floating label animation
-    const inputGroups = document.querySelectorAll('.input-group');
-    inputGroups.forEach(group => {
-      const input = group.querySelector('input, textarea, select');
-      const label = group.querySelector('label');
-      
-      input.addEventListener('focus', () => {
-        label.classList.add('transform', '-translate-y-6', 'scale-90', 'text-blue-400');
-      });
-      
-      input.addEventListener('blur', () => {
-        if (!input.value) {
-          label.classList.remove('transform', '-translate-y-6', 'scale-90', 'text-blue-400');
-        }
-      });
-      
-      // Initialize for pre-filled values
-      if (input.value) {
-        label.classList.add('transform', '-translate-y-6', 'scale-90', 'text-blue-400');
-      }
-    });
-  });
-</script>
-
-<style>
-  /* Floating label animation */
-  .input-group label {
-    transition: all 0.2s ease-out;
-  }
-  
-  /* Form input focus styles */
-  .input-group input:focus,
-  .input-group textarea:focus,
-  .input-group select:focus {
-    border-color: #60a5fa;
-  }
-  
-  /* Alert animations */
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in {
-    animation: fade-in 0.3s ease-out forwards;
-  }
-  
-  /* Map styling */
-  .map-container iframe {
-    filter: grayscale(50%) contrast(1.2) brightness(0.9);
-    transition: filter 0.3s;
-  }
-  .map-container:hover iframe {
-    filter: grayscale(0%) contrast(1) brightness(1);
-  }
-  
-  /* Social icon hover effects */
-  .social-hover div {
-    transition: all 0.3s ease;
-  }
-</style>
-
-  
-  <!-- Footer (Same as other pages) -->
-  <footer class="bg-primary py-8 px-6">
-    <!-- Your existing footer content -->
-  </footer>
-
-  <!-- Contact Page JavaScript -->
   <script>
-    // Form Validation
-    const contactForm = document.getElementById('skope-contact-form');
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      // Get form values
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData);
-      
-      // Simple validation
-      if (!data.name || !data.email || !data.message) {
-        alert('Please fill in all required fields');
-        return;
+    // Sidebar Menu Logic (Standardized & Global)
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('menu-overlay');
+
+    window.toggleMenu = function () {
+      const isOpen = sidebar && sidebar.classList.contains('open');
+      if (isOpen) {
+        if (sidebar) sidebar.classList.remove('open');
+        if (overlay) overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        if (menuBtn) menuBtn.classList.remove('menu-open');
+      } else {
+        if (sidebar) sidebar.classList.add('open');
+        if (overlay) overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (menuBtn) menuBtn.classList.add('menu-open');
       }
-      
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', data);
-      
-      // Show success message
-      alert('Thank you! Your message has been sent. We will respond within 24 hours.');
-      contactForm.reset();
-    });
-    
-    // FAQ Accordion
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const faqItem = button.closest('.faq-item');
-        const answer = faqItem.querySelector('.faq-answer');
-        const icon = button.querySelector('i');
-        
-        // Close all other FAQs
-        document.querySelectorAll('.faq-item').forEach(item => {
-          if (item !== faqItem) {
-            item.querySelector('.faq-answer').style.maxHeight = '0';
-            item.querySelector('i').classList.remove('rotate-180');
+    };
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Contact Form Logic
+      const form = document.getElementById('skope-contact-form');
+      if (form) {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const btnText = document.getElementById('btn-text');
+        const btnSpinner = document.getElementById('btn-spinner');
+        const btnSuccess = document.getElementById('btn-success');
+        const successAlert = document.getElementById('success-alert');
+        const errorAlert = document.getElementById('error-alert');
+        const closeAlert = document.getElementById('close-alert');
+        const closeErrorAlert = document.getElementById('close-error-alert');
+
+        // Form submission handler
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+
+          // Show loading state
+          submitBtn.disabled = true;
+          btnText.textContent = 'Sending...';
+          btnSpinner.classList.remove('hidden');
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              // Show success state
+              btnSpinner.classList.add('hidden');
+              btnSuccess.classList.remove('hidden');
+              btnText.textContent = 'Sent!';
+
+              // Show success alert
+              successAlert.classList.remove('hidden');
+
+              // Hide success alert after 5 seconds
+              setTimeout(() => {
+                successAlert.classList.add('hidden');
+              }, 5000);
+
+              // Reset form after delay
+              setTimeout(() => {
+                form.reset();
+                submitBtn.disabled = false;
+                btnSuccess.classList.add('hidden');
+                btnText.textContent = 'Send Message';
+              }, 3000);
+            } else {
+              throw new Error('Form submission failed');
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            // Show error state
+            btnSpinner.classList.add('hidden');
+            submitBtn.disabled = false;
+            btnText.textContent = 'Send Message';
+
+            // Show error alert
+            errorAlert.classList.remove('hidden');
+
+            // Hide error alert after 5 seconds
+            setTimeout(() => {
+              errorAlert.classList.add('hidden');
+            }, 5000);
           }
         });
-        
-        // Toggle current FAQ
-        if (answer.style.maxHeight) {
-          answer.style.maxHeight = null;
-          icon.classList.remove('rotate-180');
-        } else {
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          icon.classList.add('rotate-180');
-        }
-      });
-    });
-    
-    // Animate form inputs on load
-    document.querySelectorAll('.input-group').forEach((group, index) => {
-      setTimeout(() => {
-        group.style.opacity = '1';
-        group.style.transform = 'translateY(0)';
-      }, 100 * index);
+
+        // Close alert handlers
+        closeAlert.addEventListener('click', () => successAlert.classList.add('hidden'));
+        closeErrorAlert.addEventListener('click', () => errorAlert.classList.add('hidden'));
+
+        // Floating label animation
+        const inputGroups = document.querySelectorAll('.input-group');
+        inputGroups.forEach(group => {
+          const input = group.querySelector('input, textarea, select');
+          const label = group.querySelector('label');
+
+          input.addEventListener('focus', () => {
+            label.classList.add('transform', '-translate-y-6', 'scale-90', 'text-blue-400');
+          });
+
+          input.addEventListener('blur', () => {
+            if (!input.value) {
+              label.classList.remove('transform', '-translate-y-6', 'scale-90', 'text-blue-400');
+            }
+          });
+
+          // Initialize for pre-filled values
+          if (input.value) {
+            label.classList.add('transform', '-translate-y-6', 'scale-90', 'text-blue-400');
+          }
+        });
+      }
     });
   </script>
-</body>
+
+  <style>
+    /* Floating label animation */
+    .input-group label {
+      transition: all 0.2s ease-out;
+    }
+
+    /* Form input focus styles */
+    .input-group input:focus,
+    .input-group textarea:focus,
+    .input-group select:focus {
+      border-color: #60a5fa;
+    }
+
+    /* Alert animations */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.3s ease-out forwards;
+    }
+
+    /* Map styling */
+    .map-container iframe {
+      filter: grayscale(50%) contrast(1.2) brightness(0.9);
+      transition: filter 0.3s;
+    }
+
+    .map-container:hover iframe {
+      filter: grayscale(0%) contrast(1) brightness(1);
+    }
+
+    /* Social icon hover effects */
+    .social-hover div {
+      transition: all 0.3s ease;
+    }
+  </style>
 
 
-  <!-- FOOTER -->
+  <!--FOOTER -->
   <footer class="bg-primary py-8 px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="flex items-center gap-3">
@@ -545,153 +878,130 @@
         </div>
       </div>
       <div class="flex gap-6 text-xl text-white">
-        <a href="https://facebook.com/Skope" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://web.facebook.com/engskope" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
         <a href="https://x.com/sege_peter79144" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
-        <a href="instagram.com" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i class="fab fa-pinterest"></i></a>
+        <a href="https://www.instagram.com/segepeter71/" class="hover:text-secondary"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i
+            class="fab fa-pinterest"></i></a>
         <a href="https://www.youtube.com/@engskope" class="hover:text-secondary" target="_blank" rel="noopener">
-  <i class="fab fa-youtube"></i></a>      
+          <i class="fab fa-youtube"></i></a>
       </div>
       <div class="text-sm">&copy; <span id="year"></span> Skope Designs. All rights reserved.</div>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
-   <script>
-  const btn = document.getElementById('menu-btn');
-  const mobile = document.getElementById('mobile-menu');
-
-  btn.addEventListener('click', () => {
-    mobile.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-  });
-
-  // Animate header on scroll
-  window.addEventListener('scroll', () => {
-    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-  });
-
-  // Hero BG Slider
-  const hero = document.getElementById('hero');
-  const images = ['img/cover1.png','img/cover2.png','img/sege-profile.png'];
-  let idx = 0;
-
-  function changeBg() {
-    idx = (idx + 1) % images.length;
-    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-  }
-
-  hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
-  setInterval(changeBg, 6000);
-
-  // Set year
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
+  <!-- GLOBAL SCRIPTS -->
   <script>
-    const hero = document.getElementById('hero');
-    const images = ['cover1.png','cover2.png','sege-profile.png'];
-    let idx = 0;
-    function changeBg() {
-      idx = (idx + 1) % images.length;
-      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-    }
-    hero.style.backgroundImage = `url(${images[0]})`;
-    setInterval(changeBg,6000);
+    document.addEventListener('DOMContentLoaded', function () {
 
-    const btn = document.getElementById('menu-btn');
-    const mobile = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-      mobile.classList.toggle('open');
-      btn.classList.toggle('open');
-      document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-    });
+      // Animate header on scroll
+      const header = document.getElementById('header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          header.classList.toggle('scrolled', window.scrollY > 10);
+        });
+      }
 
-    document.getElementById('year').innerText = new Date().getFullYear();
+      // Hero BG Slider
+      const hero = document.getElementById('hero');
+      if (hero) {
+        const images = ['img/cover1.png', 'img/cover2.png', 'img/sege-profile.png'];
+        let idx = 0;
 
-    window.addEventListener('scroll', () => {
-      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-    });
- /*SkopeAI*/
-<!-- Fix the script section -->
-<script>
-  const hero = document.getElementById('hero');
-  const images = ['img/cover1.png','img/cover2.png','img/sege-profile.png']; // Updated paths
-  let idx = 0;
-  
-  function changeBg() {
-    idx = (idx + 1) % images.length;
-    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-  }
-  
-  // Set initial background with same style
-  hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
-  setInterval(changeBg, 6000);
-
-  // Mobile menu toggle
-  const btn = document.getElementById('menu-btn');
-  const mobile = document.getElementById('mobile-menu');
-  
-  btn.addEventListener('click', () => {
-    mobile.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-    
-    // Animate menu items with staggered delay
-    const items = mobile.querySelectorAll('li');
-    if (mobile.classList.contains('open')) {
-      items.forEach((item, index) => {
-        item.style.transitionDelay = `${index * 0.1}s`;
-      });
-    } else {
-      items.forEach(item => {
-        item.style.transitionDelay = '0s';
-      });
-    }
-  });
-
-  // Set copyright year
-  document.getElementById('year').innerText = new Date().getFullYear();
-
-  // Scroll effect for header
-  window.addEventListener('scroll', () => {
-    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-  });
-</script>
-
-<!-- SkopeAI script - properly closed -->
-<script>
-  (function() {
-    if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-      window.chatbase = (...arguments) => {
-        if (!window.chatbase.q) { window.chatbase.q = [] }
-        window.chatbase.q.push(arguments)
-      };
-      window.chatbase = new Proxy(window.chatbase, {
-        get(target, prop) {
-          if (prop === "q") return target.q;
-          return (...args) => target(prop, ...args);
+        function changeBg() {
+          idx = (idx + 1) % images.length;
+          hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
         }
+
+        // Set initial background
+        hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
+        setInterval(changeBg, 6000);
+      }
+
+      // Set year
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      // Contact Form Validation
+      const contactForm = document.getElementById('skope-contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          // This is handled by the other script block for validation/submission, 
+          // but if we want simple validation here we can leave it.
+          // The other block handles the submission logic.
+        });
+      }
+
+      // FAQ Accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          const faqItem = button.closest('.faq-item');
+          const answer = faqItem.querySelector('.faq-answer');
+          const icon = button.querySelector('i');
+
+          // Close all other FAQs
+          document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem) {
+              item.querySelector('.faq-answer').style.maxHeight = '0';
+              item.querySelector('i').classList.remove('rotate-180');
+            }
+          });
+
+          // Toggle current FAQ
+          if (answer.style.maxHeight) {
+            answer.style.maxHeight = null;
+            icon.classList.remove('rotate-180');
+          } else {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon.classList.add('rotate-180');
+          }
+        });
       });
-    }
-    const onLoad = function() {
-      const script = document.createElement("script");
-      script.src = "https://www.chatbase.co/embed.min.js";
-      script.id = "YCDDERnlEOB4ItW9207d_";
-      script.domain = "www.chatbase.co";
-      document.body.appendChild(script);
-    };
-    if (document.readyState === "complete") {
-      onLoad();
-    } else {
-      window.addEventListener("load", onLoad);
-    }
-  })();
-</script>
+
+      // Animate form inputs on load
+      document.querySelectorAll('.input-group').forEach((group, index) => {
+        setTimeout(() => {
+          group.style.opacity = '1';
+          group.style.transform = 'translateY(0)';
+        }, 100 * index);
+      });
+    });
+  </script>
+
+  <!-- SkopeAI Chatbot -->
+  <script>
+    (function () {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => {
+          if (!window.chatbase.q) { window.chatbase.q = [] }
+          window.chatbase.q.push(arguments)
+        };
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") return target.q;
+            return (...args) => target(prop, ...args);
+          }
+        });
+      }
+      const onLoad = function () {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "YCDDERnlEOB4ItW9207d_";
+        script.domain = "www.chatbase.co";
+        document.body.appendChild(script);
+      };
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    })();
   </script>
 </body>
+
 </html>
-
-

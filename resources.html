@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Primary SEO Meta Tags -->
   <title>Skope Designs Resources Hub | Free & Premium Design & Development Tools</title>
-  <meta name="description" content="Free resource hub by Skope Designs. Access 150+ design tools, development software, AI tools, templates, and premium resources for designers and developers. Download Adobe Creative Suite, Figma, and more.">
-  <meta name="keywords" content="free design resources, Adobe Creative Suite download, Figma, UI/UX tools, web development tools, graphic design software, SEO tools, AI tools for designers, Canva alternatives, free mockups, stock photos, fonts, templates">
+  <meta name="description"
+    content="Free resource hub by Skope Designs. Access 150+ design tools, development software, AI tools, templates, and premium resources for designers and developers. Download Adobe Creative Suite, Figma, and more.">
+  <meta name="keywords"
+    content="free design resources, Adobe Creative Suite download, Figma, UI/UX tools, web development tools, graphic design software, SEO tools, AI tools for designers, Canva alternatives, free mockups, stock photos, fonts, templates">
   <meta name="author" content="Sege Peter, Skope Designs">
-  
+
   <!-- SEO Canonical & Robots -->
   <link rel="canonical" href="https://www.skopedesigns.co.ke/resources">
   <meta name="robots" content="index, follow, max-snippet:150, max-image-preview:large, max-video-preview:-1">
-  
+
   <!-- Open Graph / Social Media SEO -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.skopedesigns.co.ke/resources">
   <meta property="og:title" content="Skope Designs Resources Hub | 150+ Design & Development Tools">
-  <meta property="og:description" content="Access free design resources, premium software, AI tools, and development resources curated by Skope Designs. Updated weekly.">
-  <meta property="og:image" content="https://i.pinimg.com/1200x/f5/09/0b/f5090b3fc794a744cb375798fe9a2926.jpg">
+  <meta property="og:description"
+    content="Access free design resources, premium software, AI tools, and development resources curated by Skope Designs. Updated weekly.">
+  <meta property="og:image" content="https://img.icons8.com/color/480/000000/design.png">
   <meta property="og:site_name" content="Skope Designs">
-  
+
   <!-- Twitter Card SEO -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@sege_peter79144">
   <meta name="twitter:creator" content="@sege_peter79144">
   <meta name="twitter:title" content="Skope Designs Resources Hub | Free Design Tools">
-  <meta name="twitter:description" content="Curated collection of 150+ design, development, and AI tools. Free downloads and premium resources.">
+  <meta name="twitter:description"
+    content="Curated collection of 150+ design, development, and AI tools. Free downloads and premium resources.">
   <meta name="twitter:image" content="https://img.icons8.com/color/480/000000/design.png">
-  
+
   <!-- Structured Data / JSON-LD Schema -->
   <script type="application/ld+json">
   {
@@ -52,11 +57,11 @@
     }
   }
   </script>
-  
+
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Tailwind Config -->
   <script>
     tailwind.config = {
@@ -120,14 +125,14 @@
       --secondary: #f97316;
       --dark: #0f172a;
     }
-    
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--dark);
       color: white;
       overflow-x: hidden;
     }
-    
+
     /* Header Styles (Maintaining your exact design) */
     .static-header {
       position: fixed;
@@ -143,14 +148,14 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
-    
+
     .static-header.scrolled {
       padding: 0.5rem 2rem;
       background-color: rgba(6, 182, 212, 0.98);
       backdrop-filter: blur(15px);
       box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
     }
-    
+
     .logo-img {
       height: 50px;
       transition: all 0.3s ease;
@@ -158,80 +163,67 @@
       border: 1.7px solid #f57c00;
       animation: wave 3s ease-in-out infinite;
     }
-    
+
     .logo-img:hover {
       transform: rotate(10deg) scale(1.05);
       animation: none;
     }
-    
-    /* Mobile Menu (Your design) */
-    .hamburger-menu {
-      position: relative;
-      width: 30px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      cursor: pointer;
-      z-index: 1100;
-    }
-    
-    .hamburger-menu span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background: white;
-      border-radius: 3px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      transform-origin: center;
-    }
-    
-    .hamburger-menu.open span:nth-child(1) {
-      transform: translateY(11px) rotate(45deg);
-    }
-    
-    .hamburger-menu.open span:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-    
-    .hamburger-menu.open span:nth-child(3) {
-      transform: translateY(-11px) rotate(-45deg);
-    }
-    
-    .menu-items {
-      position: fixed;
-      top: 70px;
-      right: 0;
-      width: 280px;
-      height: calc(100vh - 70px);
-      background: linear-gradient(135deg, rgba(249, 115, 22, 0.95) 0%, rgba(234, 88, 12, 0.95) 100%);
-      backdrop-filter: blur(20px);
-      z-index: 999;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+
+    /* Sidebar Menu Animations */
+    .sidebar-menu {
       transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+      /* Start hidden to the right */
+      transition: transform 0.3s ease-in-out;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     }
-    
+
+    .sidebar-menu.open {
+      transform: translateX(0);
+    }
+
+    .overlay-bg {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .overlay-bg.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Hamburger Animation */
+    .hamburger-line {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menu-open .line-1 {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .menu-open .line-2 {
+      opacity: 0;
+    }
+
+    .menu-open .line-3 {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
     .menu-items.open {
       transform: translateX(0);
     }
-    
+
     .menu-items li {
       opacity: 0;
       transform: translateX(20px);
       transition: all 0.4s ease;
     }
-    
+
     .menu-items.open li {
       opacity: 1;
       transform: translateX(0);
     }
-    
+
     .menu-items a {
       display: block;
       padding: 0.8rem 1rem;
@@ -243,13 +235,13 @@
       transition: all 0.3s ease;
       font-weight: 500;
     }
-    
+
     .menu-items a:hover {
       background-color: rgba(255, 255, 255, 0.15);
       transform: translateX(10px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-    
+
     .menu-items a::before {
       content: '';
       position: absolute;
@@ -260,30 +252,50 @@
       background: linear-gradient(90deg, transparent, white, transparent);
       transition: width 0.3s ease;
     }
-    
+
     .menu-items a:hover::before {
       width: 100%;
     }
-    
+
     /* Stagger animation delay for menu items */
-    .menu-items.open li:nth-child(1) { transition-delay: 0.1s; }
-    .menu-items.open li:nth-child(2) { transition-delay: 0.15s; }
-    .menu-items.open li:nth-child(3) { transition-delay: 0.2s; }
-    .menu-items.open li:nth-child(4) { transition-delay: 0.25s; }
-    .menu-items.open li:nth-child(5) { transition-delay: 0.3s; }
-    .menu-items.open li:nth-child(6) { transition-delay: 0.35s; }
-    .menu-items.open li:nth-child(7) { transition-delay: 0.4s; }
-    
+    .menu-items.open li:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    .menu-items.open li:nth-child(2) {
+      transition-delay: 0.15s;
+    }
+
+    .menu-items.open li:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+
+    .menu-items.open li:nth-child(4) {
+      transition-delay: 0.25s;
+    }
+
+    .menu-items.open li:nth-child(5) {
+      transition-delay: 0.3s;
+    }
+
+    .menu-items.open li:nth-child(6) {
+      transition-delay: 0.35s;
+    }
+
+    .menu-items.open li:nth-child(7) {
+      transition-delay: 0.4s;
+    }
+
     /* Hero Section with Advanced Animations */
     .hero-gradient {
-      background: linear-gradient(135deg, 
-        rgba(6, 182, 212, 0.1) 0%, 
-        rgba(139, 92, 246, 0.1) 50%, 
-        rgba(249, 115, 22, 0.1) 100%);
+      background: linear-gradient(135deg,
+          rgba(6, 182, 212, 0.1) 0%,
+          rgba(139, 92, 246, 0.1) 50%,
+          rgba(249, 115, 22, 0.1) 100%);
       position: relative;
       overflow: hidden;
     }
-    
+
     .hero-gradient::before {
       content: '';
       position: absolute;
@@ -295,7 +307,7 @@
       opacity: 0.3;
       animation: float 20s linear infinite;
     }
-    
+
     /* Floating Elements */
     .floating-element {
       position: absolute;
@@ -305,7 +317,7 @@
       opacity: 0.1;
       animation: float 15s ease-in-out infinite;
     }
-    
+
     .floating-element:nth-child(1) {
       width: 300px;
       height: 300px;
@@ -313,7 +325,7 @@
       left: 5%;
       animation-delay: 0s;
     }
-    
+
     .floating-element:nth-child(2) {
       width: 200px;
       height: 200px;
@@ -322,7 +334,7 @@
       animation-delay: 2s;
       background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
     }
-    
+
     .floating-element:nth-child(3) {
       width: 150px;
       height: 150px;
@@ -331,7 +343,7 @@
       animation-delay: 4s;
       background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
     }
-    
+
     /* Resource Cards with Advanced Animations */
     .resource-card {
       background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
@@ -343,7 +355,7 @@
       overflow: hidden;
       backdrop-filter: blur(10px);
     }
-    
+
     .resource-card::before {
       content: '';
       position: absolute;
@@ -354,20 +366,20 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
       transition: left 0.7s ease;
     }
-    
+
     .resource-card:hover::before {
       left: 100%;
     }
-    
+
     .resource-card:hover {
       transform: translateY(-10px) scale(1.02);
       border-color: var(--primary);
-      box-shadow: 
+      box-shadow:
         0 20px 40px rgba(6, 182, 212, 0.2),
         0 0 0 1px rgba(6, 182, 212, 0.1),
         inset 0 0 20px rgba(6, 182, 212, 0.05);
     }
-    
+
     /* Category Badges */
     .category-badge {
       position: absolute;
@@ -384,7 +396,7 @@
       box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
       animation: pulse-glow 2s infinite;
     }
-    
+
     /* Type Badge */
     .type-badge {
       display: inline-block;
@@ -394,17 +406,17 @@
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-    
+
     .type-free {
       background: linear-gradient(135deg, #10b981, #059669);
       color: white;
     }
-    
+
     .type-paid {
       background: linear-gradient(135deg, #8b5cf6, #7c3aed);
       color: white;
     }
-    
+
     /* Stats Cards */
     .stat-card {
       background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.1));
@@ -417,7 +429,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .stat-card::before {
       content: '';
       position: absolute;
@@ -428,17 +440,17 @@
       background: conic-gradient(transparent, var(--primary), transparent 30%);
       animation: spin 4s linear infinite;
     }
-    
+
     .stat-card:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
     }
-    
-    .stat-card > * {
+
+    .stat-card>* {
       position: relative;
       z-index: 1;
     }
-    
+
     /* Filters */
     .filter-select {
       background: rgba(30, 41, 59, 0.7);
@@ -455,14 +467,14 @@
       background-position: right 1rem center;
       background-size: 1.5em;
     }
-    
+
     .filter-select:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
       background-color: rgba(15, 23, 42, 0.9);
     }
-    
+
     /* Search Input */
     .search-input {
       background: rgba(30, 41, 59, 0.7);
@@ -479,14 +491,14 @@
       background-position: left 1rem center;
       background-size: 1.2em;
     }
-    
+
     .search-input:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
       background-color: rgba(15, 23, 42, 0.9);
     }
-    
+
     /* Buttons */
     .btn-glow {
       background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -504,7 +516,7 @@
       border: none;
       cursor: pointer;
     }
-    
+
     .btn-glow::before {
       content: '';
       position: absolute;
@@ -515,27 +527,27 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transition: left 0.7s ease;
     }
-    
+
     .btn-glow:hover::before {
       left: 100%;
     }
-    
+
     .btn-glow:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
     }
-    
+
     .btn-secondary {
       background: rgba(255, 255, 255, 0.1);
       border: 2px solid rgba(255, 255, 255, 0.2);
       color: white;
     }
-    
+
     .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.2);
       border-color: var(--primary);
     }
-    
+
     /* Loading Animation */
     .loading-spinner {
       width: 50px;
@@ -545,11 +557,13 @@
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
-    
+
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
-    
+
     /* Animated Background Pattern */
     .animated-grid {
       position: absolute;
@@ -557,19 +571,24 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: 
+      background-image:
         linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
       background-size: 50px 50px;
       animation: slide 20s linear infinite;
       z-index: -1;
     }
-    
+
     @keyframes slide {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(50px, 50px); }
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(50px, 50px);
+      }
     }
-    
+
     /* Parallax Scroll Effect */
     .parallax-bg {
       background-attachment: fixed;
@@ -577,7 +596,7 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
-    
+
     /* Scroll Progress Bar */
     .scroll-progress {
       position: fixed;
@@ -589,77 +608,79 @@
       z-index: 1001;
       transition: width 0.1s ease;
     }
-    
+
     /* Page Load Animation */
     .page-load {
       animation: fade-in 0.8s ease-out;
     }
-    
+
     /* Card Stagger Animation */
     .resource-card {
       animation: slide-up 0.5s ease-out;
       animation-fill-mode: both;
     }
-    
+
     /* Hover Effect for Links */
     .hover-lift {
       transition: transform 0.3s ease;
     }
-    
+
     .hover-lift:hover {
       transform: translateY(-2px);
     }
-    
+
     /* Footer Enhancements */
     .footer-gradient {
       background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(15, 23, 42, 1));
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .social-icon {
       transition: all 0.3s ease;
     }
-    
+
     .social-icon:hover {
       transform: translateY(-5px) scale(1.1);
       filter: drop-shadow(0 5px 15px rgba(6, 182, 212, 0.4));
     }
-    
+
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       .static-header {
         padding: 0.8rem 1rem;
       }
-      
+
       .logo-img {
         height: 40px;
       }
-      
+
       .hero h1 {
         font-size: 2.5rem;
       }
-      
+
       .stat-card {
         padding: 1.5rem;
       }
-      
+
       .resource-card {
         padding: 1.2rem;
       }
     }
-    
+
     @media (max-width: 480px) {
       .hero h1 {
         font-size: 2rem;
       }
-      
-      .filter-select, .search-input {
+
+      .filter-select,
+      .search-input {
         width: 100%;
         margin-bottom: 0.5rem;
       }
     }
   </style>
 </head>
+
 <body class="bg-dark text-white overflow-x-hidden">
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -667,7 +688,8 @@
   <!-- HEADER (Your exact design) -->
   <header id="header" class="static-header">
     <div class="flex items-center gap-3">
-      <img src="logo.png" alt="Skope Logo" class="logo-img" onerror="this.src='https://img.icons8.com/color/96/000000/design.png'" />
+      <img src="logo.png" alt="Skope Logo" class="logo-img"
+        onerror="this.src='https://img.icons8.com/color/96/000000/design.png'" />
       <div>
         <span class="font-bold text-lg">SKOPE DESIGNS</span>
         <span class="block text-xs italic">Design Beyond Boundaries</span>
@@ -682,21 +704,136 @@
       <a href="shop.html" class="hover:text-secondary hover-lift">Shop</a>
       <a href="contact.html" class="hover:text-secondary hover-lift">Contact</a>
     </nav>
-    <div id="menu-btn" class="md:hidden hamburger-menu">
-      <span></span><span></span><span></span>
-    </div>
+    <!-- Hamburger Button -->
+    <button id="menu-btn" class="md:hidden z-[60] relative w-8 h-6 flex flex-col justify-between focus:outline-none">
+      <span class="w-full h-0.5 bg-white hamburger-line line-1 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-2 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-3 rounded-full"></span>
+    </button>
   </header>
 
-  <!-- Mobile Menu -->
-  <ul id="mobile-menu" class="menu-items">
-    <li><a href="index.html" class="hover:text-secondary">Home</a></li>
-    <li><a href="about.html" class="hover:text-secondary">About</a></li>
-    <li><a href="service.html" class="hover:text-secondary">Services</a></li>
-    <li><a href="portfolio.html" class="hover:text-secondary">Portfolio</a></li>
-    <li><a href="resources.html" class="hover:text-secondary">Resources</a></li>
-    <li><a href="shop.html" class="hover:text-secondary">Shop</a></li>
-    <li><a href="contact.html" class="hover:text-secondary">Contact</a></li>
-  </ul>
+  <!-- SIDEBAR NAVIGATION DRAWER -->
+  <!-- Overlay Backdrop -->
+  <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[45] overlay-bg backdrop-blur-sm" onclick="toggleMenu()">
+  </div>
+
+  <!-- Sidebar Container -->
+  <aside id="sidebar-menu"
+    class="fixed top-0 right-0 h-full w-64 bg-white z-[60] sidebar-menu flex flex-col shadow-2xl overflow-y-auto">
+
+    <!-- Sidebar Header -->
+    <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="h-8 w-8 rounded-full border border-gray-200">
+        <span class="font-bold text-gray-800 text-base">Menu</span>
+      </div>
+      <button onclick="toggleMenu()" class="text-gray-400 hover:text-red-500 transition-colors">
+        <i class="fas fa-times text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Navigation List -->
+    <nav class="flex-1 py-2">
+      <ul class="flex flex-col">
+        <!-- Home -->
+        <li>
+          <a href="index.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-home"></i>
+            </span>
+            <span class="font-medium text-sm">Home</span>
+          </a>
+        </li>
+
+        <!-- About -->
+        <li>
+          <a href="about.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="font-medium text-sm">About</span>
+          </a>
+        </li>
+
+        <!-- Services -->
+        <li>
+          <a href="service.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-list-ul"></i>
+            </span>
+            <span class="font-medium text-sm">Services</span>
+          </a>
+        </li>
+
+        <!-- Portfolio -->
+        <li>
+          <a href="portfolio.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-briefcase"></i>
+            </span>
+            <span class="font-medium text-sm">Portfolio</span>
+          </a>
+        </li>
+
+        <!-- Resources -->
+        <li>
+          <a href="resources.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-green-50 text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-book-reader"></i>
+            </span>
+            <span class="font-medium text-sm">Resources</span>
+          </a>
+        </li>
+
+        <!-- Shop -->
+        <li>
+          <a href="shop.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-pink-50 text-pink-600 group-hover:bg-pink-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-shopping-bag"></i>
+            </span>
+            <span class="font-medium text-sm">Shop</span>
+          </a>
+        </li>
+
+        <!-- Contact -->
+        <li>
+          <a href="contact.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-gray-100 text-gray-600 group-hover:bg-gray-800 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="font-medium text-sm">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="p-6 bg-gray-50 border-t border-gray-200">
+      <p class="text-xs text-center text-gray-400 mb-4">Follow us</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://web.facebook.com/engskope" target="_blank"
+          class="text-gray-400 hover:text-blue-600 transition-colors"><i class="fab fa-facebook-f text-lg"></i></a>
+        <a href="https://x.com/sege_peter79144" target="_blank"
+          class="text-gray-400 hover:text-black transition-colors"><i class="fab fa-twitter text-lg"></i></a>
+        <a href="https://www.instagram.com/segepeter71/" target="_blank"
+          class="text-gray-400 hover:text-pink-600 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+      </div>
+    </div>
+  </aside>
 
   <!-- Hero Section with Animations -->
   <section class="hero-gradient min-h-[80vh] flex items-center relative overflow-hidden">
@@ -704,7 +841,7 @@
     <div class="floating-element"></div>
     <div class="floating-element"></div>
     <div class="floating-element"></div>
-    
+
     <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
@@ -713,7 +850,8 @@
           </span>
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up" style="animation-delay: 0.2s;">
-          Curated collection of <span class="text-primary font-bold">150+ tools</span>, software, and resources for designers, developers, and creatives
+          Curated collection of <span class="text-primary font-bold">150+ tools</span>, software, and resources for
+          designers, developers, and creatives
         </p>
         <div class="flex flex-wrap justify-center gap-4 animate-slide-up" style="animation-delay: 0.4s;">
           <a href="#resources" class="btn-glow">
@@ -774,7 +912,7 @@
           <option value="Business">Business Tools</option>
           <option value="Hosting">Hosting & Domains</option>
         </select>
-        
+
         <select id="typeFilter" class="filter-select">
           <option value="all">All Types</option>
           <option value="Free">Free Only</option>
@@ -782,9 +920,9 @@
           <option value="Download">Downloadable</option>
           <option value="Web">Web Tools</option>
         </select>
-        
+
         <input type="text" id="searchInput" class="search-input" placeholder="Search resources...">
-        
+
         <button id="resetFilters" class="btn-secondary px-6 py-3 rounded-xl font-semibold">
           <i class="fas fa-redo"></i> Reset
         </button>
@@ -798,13 +936,13 @@
       <div id="resourcesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Resources will be loaded here by JavaScript -->
       </div>
-      
+
       <div id="noResults" class="hidden text-center py-12">
         <div class="text-6xl mb-4">🔍</div>
         <h3 class="text-2xl font-bold mb-2">No resources found</h3>
         <p class="text-gray-400">Try adjusting your filters or search term</p>
       </div>
-      
+
       <div id="loading" class="flex justify-center py-12">
         <div class="loading-spinner"></div>
       </div>
@@ -815,46 +953,51 @@
   <footer class="footer-gradient py-8 px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="flex items-center gap-3">
-        <img src="fav.ico" alt="Logo" class="h-14 w-14 rounded-full border-2 border-secondary" 
-             onerror="this.src='https://img.icons8.com/color/96/000000/design.png'" />
+        <img src="fav.ico" alt="Logo" class="h-14 w-14 rounded-full border-2 border-secondary"
+          onerror="this.src='https://img.icons8.com/color/96/000000/design.png'" />
         <div>
           <span class="font-bold text-lg">SKOPE DESIGNS</span>
           <span class="block text-xs">Design Beyond Boundaries</span>
         </div>
       </div>
       <div class="flex gap-6 text-xl text-white">
-        <a href="https://facebook.com/Skope" class="social-icon hover:text-secondary" title="Facebook">
+        <a href="https://web.facebook.com/engskope" class="social-icon hover:text-secondary" title="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
         <a href="https://x.com/sege_peter79144" class="social-icon hover:text-secondary" title="Twitter">
           <i class="fab fa-twitter"></i>
         </a>
-        <a href="instagram.com" class="social-icon hover:text-secondary" title="Instagram">
+        <a href="https://www.instagram.com/segepeter71/" class="social-icon hover:text-secondary" title="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://linkedin.com/in/peter-sege-221831303" class="social-icon hover:text-secondary" title="LinkedIn">
+        <a href="https://linkedin.com/in/peter-sege-221831303" class="social-icon hover:text-secondary"
+          title="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
         <a href="https://www.pinterest.com/skopedesign91/" class="social-icon hover:text-secondary" title="Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
         <a href="https://www.youtube.com/@engskope" class="hover:text-secondary" target="_blank" rel="noopener">
-  <i class="fab fa-youtube"></i></a>
+          <i class="fab fa-youtube"></i></a>
         </a>
       </div>
       <div class="text-sm text-gray-300">&copy; <span id="year"></span> Skope Designs. All rights reserved.</div>
     </div>
-    
+
     <!-- Quick Links -->
     <div class="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-800">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div>
           <h4 class="font-bold mb-4">Categories</h4>
           <div class="space-y-2">
-            <a href="#resources" onclick="filterByCategory('Graphic Design')" class="block text-gray-400 hover:text-primary transition">Graphic Design</a>
-            <a href="#resources" onclick="filterByCategory('UI/UX')" class="block text-gray-400 hover:text-primary transition">UI/UX Tools</a>
-            <a href="#resources" onclick="filterByCategory('Development')" class="block text-gray-400 hover:text-primary transition">Development</a>
-            <a href="#resources" onclick="filterByCategory('AI')" class="block text-gray-400 hover:text-primary transition">AI Tools</a>
+            <a href="#resources" onclick="filterByCategory('Graphic Design')"
+              class="block text-gray-400 hover:text-primary transition">Graphic Design</a>
+            <a href="#resources" onclick="filterByCategory('UI/UX')"
+              class="block text-gray-400 hover:text-primary transition">UI/UX Tools</a>
+            <a href="#resources" onclick="filterByCategory('Development')"
+              class="block text-gray-400 hover:text-primary transition">Development</a>
+            <a href="#resources" onclick="filterByCategory('AI')"
+              class="block text-gray-400 hover:text-primary transition">AI Tools</a>
           </div>
         </div>
         <div>
@@ -869,10 +1012,14 @@
         <div>
           <h4 class="font-bold mb-4">Resources</h4>
           <div class="space-y-2">
-            <a href="#resources" onclick="filterByType('Free')" class="block text-gray-400 hover:text-primary transition">Free Tools</a>
-            <a href="#resources" onclick="filterByType('Paid')" class="block text-gray-400 hover:text-primary transition">Premium Tools</a>
-            <a href="#resources" onclick="filterByCategory('Assets')" class="block text-gray-400 hover:text-primary transition">Free Assets</a>
-            <a href="#resources" onclick="filterByCategory('SEO')" class="block text-gray-400 hover:text-primary transition">SEO Tools</a>
+            <a href="#resources" onclick="filterByType('Free')"
+              class="block text-gray-400 hover:text-primary transition">Free Tools</a>
+            <a href="#resources" onclick="filterByType('Paid')"
+              class="block text-gray-400 hover:text-primary transition">Premium Tools</a>
+            <a href="#resources" onclick="filterByCategory('Assets')"
+              class="block text-gray-400 hover:text-primary transition">Free Assets</a>
+            <a href="#resources" onclick="filterByCategory('SEO')"
+              class="block text-gray-400 hover:text-primary transition">SEO Tools</a>
           </div>
         </div>
         <div>
@@ -889,1475 +1036,1476 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-secondary transition transform hover:scale-110 hidden">
+  <button id="backToTop"
+    class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-secondary transition transform hover:scale-110 hidden">
     <i class="fas fa-arrow-up"></i>
   </button>
 
   <script>
-   // Complete Resources Data (150+ items)
-const resources = [
-  // Graphic Design Tools (25 items)
-  {
-    name: "Adobe Photoshop",
-    description: "Professional photo editing and compositing software",
-    link: "https://gettintopc.net/softwares/photo-editing/adobe-photoshop-2021/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/adobe-photoshop.png"
-  },
-  {
-    name: "Adobe Illustrator",
-    description: "Vector graphics editor for logo and illustration design",
-    link: "https://gettintopc.net/softwares/graphics-design/adobe-illustrator-2021-for-pc/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/adobe-illustrator.png"
-  },
-  {
-    name: "Adobe InDesign",
-    description: "Desktop publishing software for print and digital media",
-    link: "https://gettintopc.net/softwares/graphics-design/adobe-indesign-2025/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/adobe-indesign.png"
-  },
-  {
-    name: "CorelDRAW",
-    description: "Vector graphics editor for branding and print design",
-    link: "https://gettintopc.net/softwares/graphics-design/coreldraw-graphics-suite/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/coreldraw.png"
-  },
-  {
-    name: "Canva",
-    description: "Online design tool for social media, marketing, and presentations",
-    link: "https://www.canva.com/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/canva.png"
-  },
-  {
-    name: "Affinity Designer",
-    description: "Professional vector graphic design software",
-    link: "https://affinity.serif.com/en-us/designer/",
-    type: "Paid",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://www.affinity.studio/cdn-cgi/image/width=900,fit=scale-down,format=auto/https://content-management-files.canva.com/b916d6a5-3b78-490b-a56a-673b7dc606d0/affinity_symbol_white_min.svg"
-  },
-  {
-    name: "GIMP",
-    description: "Free and open-source image editor",
-    link: "https://www.gimp.org/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/gimp.png"
-  },
-  {
-    name: "Inkscape",
-    description: "Free vector graphics editor",
-    link: "https://inkscape.org/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/inkscape.png"
-  },
-  {
-    name: "Adobe Lightroom",
-    description: "Photo editing and organization software",
-    link: "https://gettintopc.net/softwares/photo-editing/adobe-photoshop-lightroom/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/adobe-lightroom.png"
-  },
-  {
-    name: "SketchUp",
-    description: "3D modeling software for designers",
-    link: "https://www.sketchup.com/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/sketchup.png"
-  },
-  {
-    name: "Procreate",
-    description: "Digital painting app for iPad",
-    link: "https://procreate.com/",
-    type: "Paid",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/procreate.png"
-  },
-  {
-    name: "Krita",
-    description: "Free painting program for digital artists",
-    link: "https://krita.org/en/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/krita.png"
-  },
-  {
-    name: "Vectornator",
-    description: "Free vector design app",
-    link: "https://www.vectornator.io/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/vector.png"
-  },
-  {
-    name: "Gravit Designer",
-    description: "Full-featured vector design app",
-    link: "https://www.designer.io/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/design.png"
-  },
-  {
-    name: "Figma",
-    description: "Collaborative interface design tool with prototyping",
-    link: "https://www.figma.com/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/figma--v1.png"
-  },
-  {
-    name: "Adobe XD",
-    description: "UI/UX design and prototyping tool",
-    link: "https://gettintopc.net/softwares/development/adobe-xd-cc/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/adobe-xd.png"
-  },
-  {
-    name: "Sketch",
-    description: "Digital design toolkit for Mac users",
-    link: "https://www.sketch.com/",
-    type: "Paid",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/sketch.png"
-  },
-  {
-    name: "InVision",
-    description: "Digital product design platform",
-    link: "https://www.invisionapp.com/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/invision.png"
-  },
-  {
-    name: "Marvel",
-    description: "Simple design, prototyping and collaboration",
-    link: "https://marvelapp.com/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/marvel-app.png"
-  },
-  {
-    name: "Zeplin",
-    description: "Design handoff and collaboration tool",
-    link: "https://zeplin.io/",
-    type: "Paid",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/zeplin.png"
-  },
-  {
-    name: "Proto.io",
-    description: "Prototyping platform for web and mobile apps",
-    link: "https://proto.io/",
-    type: "Paid",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/prototype.png"
-  },
-  {
-    name: "Balsamiq",
-    description: "Rapid wireframing tool",
-    link: "https://balsamiq.com/",
-    type: "Paid",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/balsamiq.png"
-  },
-  {
-    name: "Adobe Fresco",
-    description: "Digital painting app",
-    link: "https://www.adobe.com/products/fresco.html",
-    type: "Paid",
-    category: "Graphic Design",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/adobe-fresco.png"
-  },
-  {
-    name: "Clip Studio Paint",
-    description: "Comic and manga creation software",
-    link: "https://www.clipstudio.net/en/",
-    type: "Paid",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/clip-studio-paint.png"
-  },
-  {
-    name: "Paint.NET",
-    description: "Image and photo editing software",
-    link: "https://www.getpaint.net/",
-    type: "Free",
-    category: "Graphic Design",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/paint-net.png"
-  },
+    // Complete Resources Data (150+ items)
+    const resources = [
+      // Graphic Design Tools (25 items)
+      {
+        name: "Adobe Photoshop",
+        description: "Professional photo editing and compositing software",
+        link: "https://gettintopc.net/softwares/photo-editing/adobe-photoshop-2021/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/adobe-photoshop.png"
+      },
+      {
+        name: "Adobe Illustrator",
+        description: "Vector graphics editor for logo and illustration design",
+        link: "https://gettintopc.net/softwares/graphics-design/adobe-illustrator-2021-for-pc/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/adobe-illustrator.png"
+      },
+      {
+        name: "Adobe InDesign",
+        description: "Desktop publishing software for print and digital media",
+        link: "https://gettintopc.net/softwares/graphics-design/adobe-indesign-2025/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/adobe-indesign.png"
+      },
+      {
+        name: "CorelDRAW",
+        description: "Vector graphics editor for branding and print design",
+        link: "https://gettintopc.net/softwares/graphics-design/coreldraw-graphics-suite/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/coreldraw.png"
+      },
+      {
+        name: "Canva",
+        description: "Online design tool for social media, marketing, and presentations",
+        link: "https://www.canva.com/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/canva.png"
+      },
+      {
+        name: "Affinity Designer",
+        description: "Professional vector graphic design software",
+        link: "https://affinity.serif.com/en-us/designer/",
+        type: "Paid",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://www.affinity.studio/cdn-cgi/image/width=900,fit=scale-down,format=auto/https://content-management-files.canva.com/b916d6a5-3b78-490b-a56a-673b7dc606d0/affinity_symbol_white_min.svg"
+      },
+      {
+        name: "GIMP",
+        description: "Free and open-source image editor",
+        link: "https://www.gimp.org/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/gimp.png"
+      },
+      {
+        name: "Inkscape",
+        description: "Free vector graphics editor",
+        link: "https://inkscape.org/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/inkscape.png"
+      },
+      {
+        name: "Adobe Lightroom",
+        description: "Photo editing and organization software",
+        link: "https://gettintopc.net/softwares/photo-editing/adobe-photoshop-lightroom/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/adobe-lightroom.png"
+      },
+      {
+        name: "SketchUp",
+        description: "3D modeling software for designers",
+        link: "https://www.sketchup.com/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/sketchup.png"
+      },
+      {
+        name: "Procreate",
+        description: "Digital painting app for iPad",
+        link: "https://procreate.com/",
+        type: "Paid",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/procreate.png"
+      },
+      {
+        name: "Krita",
+        description: "Free painting program for digital artists",
+        link: "https://krita.org/en/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/krita.png"
+      },
+      {
+        name: "Vectornator",
+        description: "Free vector design app",
+        link: "https://www.vectornator.io/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/vector.png"
+      },
+      {
+        name: "Gravit Designer",
+        description: "Full-featured vector design app",
+        link: "https://www.designer.io/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/design.png"
+      },
+      {
+        name: "Figma",
+        description: "Collaborative interface design tool with prototyping",
+        link: "https://www.figma.com/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/figma--v1.png"
+      },
+      {
+        name: "Adobe XD",
+        description: "UI/UX design and prototyping tool",
+        link: "https://gettintopc.net/softwares/development/adobe-xd-cc/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/adobe-xd.png"
+      },
+      {
+        name: "Sketch",
+        description: "Digital design toolkit for Mac users",
+        link: "https://www.sketch.com/",
+        type: "Paid",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/sketch.png"
+      },
+      {
+        name: "InVision",
+        description: "Digital product design platform",
+        link: "https://www.invisionapp.com/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/invision.png"
+      },
+      {
+        name: "Marvel",
+        description: "Simple design, prototyping and collaboration",
+        link: "https://marvelapp.com/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/marvel-app.png"
+      },
+      {
+        name: "Zeplin",
+        description: "Design handoff and collaboration tool",
+        link: "https://zeplin.io/",
+        type: "Paid",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/zeplin.png"
+      },
+      {
+        name: "Proto.io",
+        description: "Prototyping platform for web and mobile apps",
+        link: "https://proto.io/",
+        type: "Paid",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/prototype.png"
+      },
+      {
+        name: "Balsamiq",
+        description: "Rapid wireframing tool",
+        link: "https://balsamiq.com/",
+        type: "Paid",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/balsamiq.png"
+      },
+      {
+        name: "Adobe Fresco",
+        description: "Digital painting app",
+        link: "https://www.adobe.com/products/fresco.html",
+        type: "Paid",
+        category: "Graphic Design",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/adobe-fresco.png"
+      },
+      {
+        name: "Clip Studio Paint",
+        description: "Comic and manga creation software",
+        link: "https://www.clipstudio.net/en/",
+        type: "Paid",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/clip-studio-paint.png"
+      },
+      {
+        name: "Paint.NET",
+        description: "Image and photo editing software",
+        link: "https://www.getpaint.net/",
+        type: "Free",
+        category: "Graphic Design",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/paint-net.png"
+      },
 
-  // Development Tools (25 items)
-  {
-    name: "Visual Studio Code",
-    description: "Free source-code editor by Microsoft",
-    link: "https://code.visualstudio.com/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/visual-studio-code-2019.png"
-  },
-  {
-    name: "Git",
-    description: "Distributed version control system",
-    link: "https://git-scm.com/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/git.png"
-  },
-  {
-    name: "GitHub",
-    description: "Platform for version control and collaboration",
-    link: "https://github.com/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/github.png"
-  },
-  {
-    name: "Node.js",
-    description: "JavaScript runtime built on Chrome's V8 engine",
-    link: "https://nodejs.org/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/nodejs.png"
-  },
-  {
-    name: "XAMPP",
-    description: "Apache distribution with MySQL, PHP, and Perl",
-    link: "https://www.apachefriends.org/index.html",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/xampp.png"
-  },
-  {
-    name: "Postman",
-    description: "API platform for building and using APIs",
-    link: "https://www.postman.com/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/external-tal-revivo-color-tal-revivo/96/external-postman-is-the-only-complete-api-development-environment-logo-color-tal-revivo.png"
-  },
-  {
-    name: "Sublime Text",
-    description: "Sophisticated text editor for code",
-    link: "https://www.sublimetext.com/",
-    type: "Paid",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/sublime-text.png"
-  },
-  {
-    name: "Atom",
-    description: "Hackable text editor for the 21st Century",
-    link: "https://atom.io/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/atom-editor.png"
-  },
-  {
-    name: "Notepad++",
-    description: "Source code editor and Notepad replacement",
-    link: "https://notepad-plus-plus.org/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/notepad-plus-plus.png"
-  },
-  {
-    name: "PHPStorm",
-    description: "PHP IDE by JetBrains",
-    link: "https://www.jetbrains.com/phpstorm/",
-    type: "Paid",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/phpstorm.png"
-  },
-  {
-    name: "WebStorm",
-    description: "JavaScript IDE by JetBrains",
-    link: "https://www.jetbrains.com/webstorm/",
-    type: "Paid",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/webstorm.png"
-  },
-  {
-    name: "Android Studio",
-    description: "Official IDE for Android development",
-    link: "https://developer.android.com/studio",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/android-studio.png"
-  },
-  {
-    name: "PyCharm",
-    description: "Python IDE by JetBrains",
-    link: "https://www.jetbrains.com/pycharm/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/pycharm.png"
-  },
-  {
-    name: "IntelliJ IDEA",
-    description: "Java IDE by JetBrains",
-    link: "https://www.jetbrains.com/idea/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/intellij-idea.png"
-  },
-  {
-    name: "Eclipse",
-    description: "Open-source integrated development environment",
-    link: "https://www.eclipse.org/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/eclipse.png"
-  },
-  {
-    name: "NetBeans",
-    description: "IDE for Java, PHP, and other languages",
-    link: "https://netbeans.apache.org/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/netbeans.png"
-  },
-  {
-    name: "Visual Studio",
-    description: "Full-featured IDE for Windows and Mac",
-    link: "https://visualstudio.microsoft.com/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/visual-studio.png"
-  },
-  {
-    name: "Code::Blocks",
-    description: "Free C, C++ and Fortran IDE",
-    link: "http://www.codeblocks.org/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/code.png"
-  },
-  {
-    name: "Brackets",
-    description: "Modern text editor for web design",
-    link: "http://brackets.io/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/brackets.png"
-  },
-  {
-    name: "Vim",
-    description: "Highly configurable text editor",
-    link: "https://www.vim.org/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/vim.png"
-  },
-  {
-    name: "Emacs",
-    description: "Extensible, customizable text editor",
-    link: "https://www.gnu.org/software/emacs/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/emacs.png"
-  },
-  {
-    name: "Docker",
-    description: "Platform for developing, shipping, and running applications",
-    link: "https://www.docker.com/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/docker.png"
-  },
-  {
-    name: "Kubernetes",
-    description: "Container orchestration platform",
-    link: "https://kubernetes.io/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/kubernetes.png"
-  },
-  {
-    name: "WSL",
-    description: "Windows Subsystem for Linux",
-    link: "https://docs.microsoft.com/en-us/windows/wsl/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/linux.png"
-  },
-  {
-    name: "Homebrew",
-    description: "Package manager for macOS",
-    link: "https://brew.sh/",
-    type: "Free",
-    category: "Development",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/homebrew.png"
-  },
+      // Development Tools (25 items)
+      {
+        name: "Visual Studio Code",
+        description: "Free source-code editor by Microsoft",
+        link: "https://code.visualstudio.com/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/visual-studio-code-2019.png"
+      },
+      {
+        name: "Git",
+        description: "Distributed version control system",
+        link: "https://git-scm.com/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/git.png"
+      },
+      {
+        name: "GitHub",
+        description: "Platform for version control and collaboration",
+        link: "https://github.com/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/github.png"
+      },
+      {
+        name: "Node.js",
+        description: "JavaScript runtime built on Chrome's V8 engine",
+        link: "https://nodejs.org/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/nodejs.png"
+      },
+      {
+        name: "XAMPP",
+        description: "Apache distribution with MySQL, PHP, and Perl",
+        link: "https://www.apachefriends.org/index.html",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/xampp.png"
+      },
+      {
+        name: "Postman",
+        description: "API platform for building and using APIs",
+        link: "https://www.postman.com/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/external-tal-revivo-color-tal-revivo/96/external-postman-is-the-only-complete-api-development-environment-logo-color-tal-revivo.png"
+      },
+      {
+        name: "Sublime Text",
+        description: "Sophisticated text editor for code",
+        link: "https://www.sublimetext.com/",
+        type: "Paid",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/sublime-text.png"
+      },
+      {
+        name: "Atom",
+        description: "Hackable text editor for the 21st Century",
+        link: "https://atom.io/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/atom-editor.png"
+      },
+      {
+        name: "Notepad++",
+        description: "Source code editor and Notepad replacement",
+        link: "https://notepad-plus-plus.org/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/notepad-plus-plus.png"
+      },
+      {
+        name: "PHPStorm",
+        description: "PHP IDE by JetBrains",
+        link: "https://www.jetbrains.com/phpstorm/",
+        type: "Paid",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/phpstorm.png"
+      },
+      {
+        name: "WebStorm",
+        description: "JavaScript IDE by JetBrains",
+        link: "https://www.jetbrains.com/webstorm/",
+        type: "Paid",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/webstorm.png"
+      },
+      {
+        name: "Android Studio",
+        description: "Official IDE for Android development",
+        link: "https://developer.android.com/studio",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/android-studio.png"
+      },
+      {
+        name: "PyCharm",
+        description: "Python IDE by JetBrains",
+        link: "https://www.jetbrains.com/pycharm/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/pycharm.png"
+      },
+      {
+        name: "IntelliJ IDEA",
+        description: "Java IDE by JetBrains",
+        link: "https://www.jetbrains.com/idea/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/intellij-idea.png"
+      },
+      {
+        name: "Eclipse",
+        description: "Open-source integrated development environment",
+        link: "https://www.eclipse.org/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/eclipse.png"
+      },
+      {
+        name: "NetBeans",
+        description: "IDE for Java, PHP, and other languages",
+        link: "https://netbeans.apache.org/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/netbeans.png"
+      },
+      {
+        name: "Visual Studio",
+        description: "Full-featured IDE for Windows and Mac",
+        link: "https://visualstudio.microsoft.com/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/visual-studio.png"
+      },
+      {
+        name: "Code::Blocks",
+        description: "Free C, C++ and Fortran IDE",
+        link: "http://www.codeblocks.org/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/code.png"
+      },
+      {
+        name: "Brackets",
+        description: "Modern text editor for web design",
+        link: "http://brackets.io/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/brackets.png"
+      },
+      {
+        name: "Vim",
+        description: "Highly configurable text editor",
+        link: "https://www.vim.org/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/vim.png"
+      },
+      {
+        name: "Emacs",
+        description: "Extensible, customizable text editor",
+        link: "https://www.gnu.org/software/emacs/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/emacs.png"
+      },
+      {
+        name: "Docker",
+        description: "Platform for developing, shipping, and running applications",
+        link: "https://www.docker.com/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/docker.png"
+      },
+      {
+        name: "Kubernetes",
+        description: "Container orchestration platform",
+        link: "https://kubernetes.io/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/kubernetes.png"
+      },
+      {
+        name: "WSL",
+        description: "Windows Subsystem for Linux",
+        link: "https://docs.microsoft.com/en-us/windows/wsl/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/linux.png"
+      },
+      {
+        name: "Homebrew",
+        description: "Package manager for macOS",
+        link: "https://brew.sh/",
+        type: "Free",
+        category: "Development",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/homebrew.png"
+      },
 
-  // Video Editing (15 items)
-  {
-    name: "CapCut",
-    description: "Free video editing software with pro features",
-    link: "https://gettintopc.net/softwares/video-editors/capcut-pro/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/capcut.png"
-  },
-  {
-    name: "InShot",
-    description: "Video editor and photo editor for social media",
-    link: "https://inshot.com/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/inshot.png"
-  },
-  {
-    name: "DaVinci Resolve",
-    description: "Professional video editing and color correction",
-    link: "https://www.blackmagicdesign.com/products/davinciresolve/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/davinci-resolve.png"
-  },
-  {
-    name: "Premiere Pro",
-    description: "Professional video editing software",
-    link: "https://gettintopc.net/softwares/video-editors/adobe-premiere-pro-2022/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/adobe-premiere-pro.png"
-  },
-  {
-    name: "After Effects",
-    description: "Motion graphics and visual effects software",
-    link: "https://gettintopc.net/softwares/video-editors/adobe-after-effects-2022/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/after-effects.png"
-  },
-  {
-    name: "Filmora",
-    description: "Easy-to-use video editing software",
-    link: "https://filmora.wondershare.com/",
-    type: "Paid",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/filmora.png"
-  },
-  {
-    name: "Final Cut Pro",
-    description: "Professional video editing for Mac",
-    link: "https://www.apple.com/final-cut-pro/",
-    type: "Paid",
-    category: "Video",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/final-cut-pro-x.png"
-  },
-  {
-    name: "iMovie",
-    description: "Video editing software for macOS and iOS",
-    link: "https://www.apple.com/imovie/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/imovie.png"
-  },
-  {
-    name: "HitFilm Express",
-    description: "Free video editing and visual effects software",
-    link: "https://fxhome.com/product/hitfilm-express",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/video-editing.png"
-  },
-  {
-    name: "Lightworks",
-    description: "Professional video editing software",
-    link: "https://www.lwks.com/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/lightworks.png"
-  },
-  {
-    name: "Shotcut",
-    description: "Free, open-source video editor",
-    link: "https://shotcut.org/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/shotcut.png"
-  },
-  {
-    name: "OpenShot",
-    description: "Free, open-source video editor",
-    link: "https://www.openshot.org/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/openshot.png"
-  },
-  {
-    name: "Kdenlive",
-    description: "Free and open-source video editor",
-    link: "https://kdenlive.org/en/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/kdenlive.png"
-  },
-  {
-    name: "Blender",
-    description: "Free 3D creation suite (includes video editor)",
-    link: "https://www.blender.org/",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/blender-3d.png"
-  },
-  {
-    name: "Adobe Premiere Rush",
-    description: "Video editing for social media creators",
-    link: "https://www.adobe.com/products/premiere-rush.html",
-    type: "Free",
-    category: "Video",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/adobe-premiere-rush.png"
-  },
+      // Video Editing (15 items)
+      {
+        name: "CapCut",
+        description: "Free video editing software with pro features",
+        link: "https://gettintopc.net/softwares/video-editors/capcut-pro/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/capcut.png"
+      },
+      {
+        name: "InShot",
+        description: "Video editor and photo editor for social media",
+        link: "https://inshot.com/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/inshot.png"
+      },
+      {
+        name: "DaVinci Resolve",
+        description: "Professional video editing and color correction",
+        link: "https://www.blackmagicdesign.com/products/davinciresolve/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/davinci-resolve.png"
+      },
+      {
+        name: "Premiere Pro",
+        description: "Professional video editing software",
+        link: "https://gettintopc.net/softwares/video-editors/adobe-premiere-pro-2022/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/adobe-premiere-pro.png"
+      },
+      {
+        name: "After Effects",
+        description: "Motion graphics and visual effects software",
+        link: "https://gettintopc.net/softwares/video-editors/adobe-after-effects-2022/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/after-effects.png"
+      },
+      {
+        name: "Filmora",
+        description: "Easy-to-use video editing software",
+        link: "https://filmora.wondershare.com/",
+        type: "Paid",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/filmora.png"
+      },
+      {
+        name: "Final Cut Pro",
+        description: "Professional video editing for Mac",
+        link: "https://www.apple.com/final-cut-pro/",
+        type: "Paid",
+        category: "Video",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/final-cut-pro-x.png"
+      },
+      {
+        name: "iMovie",
+        description: "Video editing software for macOS and iOS",
+        link: "https://www.apple.com/imovie/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/imovie.png"
+      },
+      {
+        name: "HitFilm Express",
+        description: "Free video editing and visual effects software",
+        link: "https://fxhome.com/product/hitfilm-express",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/video-editing.png"
+      },
+      {
+        name: "Lightworks",
+        description: "Professional video editing software",
+        link: "https://www.lwks.com/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/lightworks.png"
+      },
+      {
+        name: "Shotcut",
+        description: "Free, open-source video editor",
+        link: "https://shotcut.org/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/shotcut.png"
+      },
+      {
+        name: "OpenShot",
+        description: "Free, open-source video editor",
+        link: "https://www.openshot.org/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/openshot.png"
+      },
+      {
+        name: "Kdenlive",
+        description: "Free and open-source video editor",
+        link: "https://kdenlive.org/en/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/kdenlive.png"
+      },
+      {
+        name: "Blender",
+        description: "Free 3D creation suite (includes video editor)",
+        link: "https://www.blender.org/",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/blender-3d.png"
+      },
+      {
+        name: "Adobe Premiere Rush",
+        description: "Video editing for social media creators",
+        link: "https://www.adobe.com/products/premiere-rush.html",
+        type: "Free",
+        category: "Video",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/adobe-premiere-rush.png"
+      },
 
-  // AI Tools (15 items)
-  {
-    name: "ChatGPT",
-    description: "AI-powered conversational assistant by OpenAI",
-    link: "https://chat.openai.com/",
-    type: "Free",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/chatgpt.png"
-  },
-  {
-    name: "Midjourney",
-    description: "AI image generation through Discord",
-    link: "https://www.midjourney.com/",
-    type: "Paid",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/artificial-intelligence.png"
-  },
-  {
-    name: "GitHub Copilot",
-    description: "AI pair programmer that suggests code",
-    link: "https://github.com/features/copilot",
-    type: "Paid",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/github-copilot.png"
-  },
-  {
-    name: "DALL-E 2",
-    description: "AI system that creates images from text",
-    link: "https://openai.com/dall-e-2",
-    type: "Paid",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/dalle.png"
-  },
-  {
-    name: "Stable Diffusion",
-    description: "Open-source AI image generation",
-    link: "https://stability.ai/",
-    type: "Free",
-    category: "AI",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/stable-diffusion.png"
-  },
-  {
-    name: "Jasper AI",
-    description: "AI content creation platform",
-    link: "https://www.jasper.ai/",
-    type: "Paid",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/jasper.png"
-  },
-  {
-    name: "Copy.ai",
-    description: "AI-powered copywriting tool",
-    link: "https://www.copy.ai/",
-    type: "Free",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/copywriting.png"
-  },
-  {
-    name: "Grammarly",
-    description: "AI writing assistant",
-    link: "https://www.grammarly.com/",
-    type: "Free",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/grammarly.png"
-  },
-  {
-    name: "QuillBot",
-    description: "AI paraphrasing and summarization tool",
-    link: "https://quillbot.com/",
-    type: "Free",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/quillbot.png"
-  },
-  {
-    name: "Runway ML",
-    description: "AI-powered creative tools",
-    link: "https://runwayml.com/",
-    type: "Free",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/runway-ml.png"
-  },
-  {
-    name: "Leonardo AI",
-    description: "AI-powered image generation platform",
-    link: "https://leonardo.ai/",
-    type: "Free",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/leonardo-ai.png"
-  },
-  {
-    name: "DeepL",
-    description: "AI-powered translation tool",
-    link: "https://www.deepl.com/translator",
-    type: "Free",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/deepl.png"
-  },
-  {
-    name: "Notion AI",
-    description: "AI assistant within Notion workspace",
-    link: "https://www.notion.so/product/ai",
-    type: "Paid",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/notion.png"
-  },
-  {
-    name: "Fireflies.ai",
-    description: "AI meeting assistant",
-    link: "https://fireflies.ai/",
-    type: "Free",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/fireflies.png"
-  },
-  {
-    name: "Otter.ai",
-    description: "AI meeting transcription service",
-    link: "https://otter.ai/",
-    type: "Free",
-    category: "AI",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/otter.png"
-  },
+      // AI Tools (15 items)
+      {
+        name: "ChatGPT",
+        description: "AI-powered conversational assistant by OpenAI",
+        link: "https://chat.openai.com/",
+        type: "Free",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/chatgpt.png"
+      },
+      {
+        name: "Midjourney",
+        description: "AI image generation through Discord",
+        link: "https://www.midjourney.com/",
+        type: "Paid",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/artificial-intelligence.png"
+      },
+      {
+        name: "GitHub Copilot",
+        description: "AI pair programmer that suggests code",
+        link: "https://github.com/features/copilot",
+        type: "Paid",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/github-copilot.png"
+      },
+      {
+        name: "DALL-E 2",
+        description: "AI system that creates images from text",
+        link: "https://openai.com/dall-e-2",
+        type: "Paid",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/dalle.png"
+      },
+      {
+        name: "Stable Diffusion",
+        description: "Open-source AI image generation",
+        link: "https://stability.ai/",
+        type: "Free",
+        category: "AI",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/stable-diffusion.png"
+      },
+      {
+        name: "Jasper AI",
+        description: "AI content creation platform",
+        link: "https://www.jasper.ai/",
+        type: "Paid",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/jasper.png"
+      },
+      {
+        name: "Copy.ai",
+        description: "AI-powered copywriting tool",
+        link: "https://www.copy.ai/",
+        type: "Free",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/copywriting.png"
+      },
+      {
+        name: "Grammarly",
+        description: "AI writing assistant",
+        link: "https://www.grammarly.com/",
+        type: "Free",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/grammarly.png"
+      },
+      {
+        name: "QuillBot",
+        description: "AI paraphrasing and summarization tool",
+        link: "https://quillbot.com/",
+        type: "Free",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/quillbot.png"
+      },
+      {
+        name: "Runway ML",
+        description: "AI-powered creative tools",
+        link: "https://runwayml.com/",
+        type: "Free",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/runway-ml.png"
+      },
+      {
+        name: "Leonardo AI",
+        description: "AI-powered image generation platform",
+        link: "https://leonardo.ai/",
+        type: "Free",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/leonardo-ai.png"
+      },
+      {
+        name: "DeepL",
+        description: "AI-powered translation tool",
+        link: "https://www.deepl.com/translator",
+        type: "Free",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/deepl.png"
+      },
+      {
+        name: "Notion AI",
+        description: "AI assistant within Notion workspace",
+        link: "https://www.notion.so/product/ai",
+        type: "Paid",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/notion.png"
+      },
+      {
+        name: "Fireflies.ai",
+        description: "AI meeting assistant",
+        link: "https://fireflies.ai/",
+        type: "Free",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/fireflies.png"
+      },
+      {
+        name: "Otter.ai",
+        description: "AI meeting transcription service",
+        link: "https://otter.ai/",
+        type: "Free",
+        category: "AI",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/otter.png"
+      },
 
-  // SEO & Marketing (15 items)
-  {
-    name: "Google Analytics",
-    description: "Web analytics service by Google",
-    link: "https://analytics.google.com/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/google-analytics.png"
-  },
-  {
-    name: "Google Search Console",
-    description: "Monitor your site's presence in Google Search",
-    link: "https://search.google.com/search-console",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/google-search-console.png"
-  },
-  {
-    name: "Ahrefs",
-    description: "SEO toolset for backlink analysis and keyword research",
-    link: "https://ahrefs.com/",
-    type: "Paid",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/seo.png"
-  },
-  {
-    name: "SEMrush",
-    description: "All-in-one marketing toolkit for SEO, PPC, and content",
-    link: "https://www.semrush.com/",
-    type: "Paid",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/semrush.png"
-  },
-  {
-    name: "Moz Pro",
-    description: "SEO software for keyword research and link building",
-    link: "https://moz.com/products/pro",
-    type: "Paid",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/moz.png"
-  },
-  {
-    name: "Ubersuggest",
-    description: "Free keyword research tool by Neil Patel",
-    link: "https://neilpatel.com/ubersuggest/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/ubersuggest.png"
-  },
-  {
-    name: "Yoast SEO",
-    description: "WordPress SEO plugin",
-    link: "https://yoast.com/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/yoast.png"
-  },
-  {
-    name: "Rank Math",
-    description: "SEO plugin for WordPress",
-    link: "https://rankmath.com/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/rank-math.png"
-  },
-  {
-    name: "Google Trends",
-    description: "Explore trending search topics",
-    link: "https://trends.google.com/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/google-trends.png"
-  },
-  {
-    name: "Google Keyword Planner",
-    description: "Keyword research tool for Google Ads",
-    link: "https://ads.google.com/home/tools/keyword-planner/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/google-keyword-planner.png"
-  },
-  {
-    name: "BuzzSumo",
-    description: "Content research and influencer marketing tool",
-    link: "https://buzzsumo.com/",
-    type: "Paid",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/buzzsumo.png"
-  },
-  {
-    name: "AnswerThePublic",
-    description: "Content ideas from search queries",
-    link: "https://answerthepublic.com/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/answer-the-public.png"
-  },
-  {
-    name: "Screaming Frog",
-    description: "SEO spider tool for website crawling",
-    link: "https://www.screamingfrog.co.uk/seo-spider/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/screaming-frog.png"
-  },
-  {
-    name: "GTmetrix",
-    description: "Website speed and performance optimization",
-    link: "https://gtmetrix.com/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/gtmetrix.png"
-  },
-  {
-    name: "Google PageSpeed Insights",
-    description: "Analyze website performance",
-    link: "https://pagespeed.web.dev/",
-    type: "Free",
-    category: "SEO",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/pagespeed-insights.png"
-  },
+      // SEO & Marketing (15 items)
+      {
+        name: "Google Analytics",
+        description: "Web analytics service by Google",
+        link: "https://analytics.google.com/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/google-analytics.png"
+      },
+      {
+        name: "Google Search Console",
+        description: "Monitor your site's presence in Google Search",
+        link: "https://search.google.com/search-console",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/google-search-console.png"
+      },
+      {
+        name: "Ahrefs",
+        description: "SEO toolset for backlink analysis and keyword research",
+        link: "https://ahrefs.com/",
+        type: "Paid",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/seo.png"
+      },
+      {
+        name: "SEMrush",
+        description: "All-in-one marketing toolkit for SEO, PPC, and content",
+        link: "https://www.semrush.com/",
+        type: "Paid",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/semrush.png"
+      },
+      {
+        name: "Moz Pro",
+        description: "SEO software for keyword research and link building",
+        link: "https://moz.com/products/pro",
+        type: "Paid",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/moz.png"
+      },
+      {
+        name: "Ubersuggest",
+        description: "Free keyword research tool by Neil Patel",
+        link: "https://neilpatel.com/ubersuggest/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/ubersuggest.png"
+      },
+      {
+        name: "Yoast SEO",
+        description: "WordPress SEO plugin",
+        link: "https://yoast.com/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/yoast.png"
+      },
+      {
+        name: "Rank Math",
+        description: "SEO plugin for WordPress",
+        link: "https://rankmath.com/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/rank-math.png"
+      },
+      {
+        name: "Google Trends",
+        description: "Explore trending search topics",
+        link: "https://trends.google.com/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/google-trends.png"
+      },
+      {
+        name: "Google Keyword Planner",
+        description: "Keyword research tool for Google Ads",
+        link: "https://ads.google.com/home/tools/keyword-planner/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/google-keyword-planner.png"
+      },
+      {
+        name: "BuzzSumo",
+        description: "Content research and influencer marketing tool",
+        link: "https://buzzsumo.com/",
+        type: "Paid",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/buzzsumo.png"
+      },
+      {
+        name: "AnswerThePublic",
+        description: "Content ideas from search queries",
+        link: "https://answerthepublic.com/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/answer-the-public.png"
+      },
+      {
+        name: "Screaming Frog",
+        description: "SEO spider tool for website crawling",
+        link: "https://www.screamingfrog.co.uk/seo-spider/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/screaming-frog.png"
+      },
+      {
+        name: "GTmetrix",
+        description: "Website speed and performance optimization",
+        link: "https://gtmetrix.com/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/gtmetrix.png"
+      },
+      {
+        name: "Google PageSpeed Insights",
+        description: "Analyze website performance",
+        link: "https://pagespeed.web.dev/",
+        type: "Free",
+        category: "SEO",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/pagespeed-insights.png"
+      },
 
-  // Free Assets (15 items)
-  {
-    name: "Unsplash",
-    description: "Free high-quality stock photos",
-    link: "https://unsplash.com",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/unsplash.png"
-  },
-  {
-    name: "Pexels",
-    description: "Free stock photos and videos",
-    link: "https://www.pexels.com/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/pexels.png"
-  },
-  {
-    name: "Pixabay",
-    description: "Free images, videos, and music",
-    link: "https://pixabay.com/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/pixabay.png"
-  },
-  {
-    name: "Freepik",
-    description: "Free vectors, stock photos, and PSD",
-    link: "https://www.freepik.com/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/freepik.png"
-  },
-  {
-    name: "Flaticon",
-    description: "Free vector icons in SVG, PSD, PNG, EPS formats",
-    link: "https://www.flaticon.com/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/flaticon.png"
-  },
-  {
-    name: "unDraw",
-    description: "Open-source illustrations for every project",
-    link: "https://undraw.co/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/illustration.png"
-  },
-  {
-    name: "Storyset",
-    description: "Free customizable illustrations",
-    link: "https://storyset.com/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/storyset.png"
-  },
-  {
-    name: "Mixkit",
-    description: "Free stock videos, music, and sound effects",
-    link: "https://mixkit.co/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/mixkit.png"
-  },
-  {
-    name: "Coverr",
-    description: "Beautiful free stock video footage",
-    link: "https://coverr.co/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/coverr.png"
-  },
-  {
-    name: "Videvo",
-    description: "Free stock videos and motion graphics",
-    link: "https://www.videvo.net/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/videvo.png"
-  },
-  {
-    name: "Freesound",
-    description: "Collaborative database of sounds",
-    link: "https://freesound.org/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/freesound.png"
-  },
-  {
-    name: "Humaaans",
-    description: "Mix-and-match illustrations of people",
-    link: "https://www.humaaans.com/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/humaaans.png"
-  },
-  {
-    name: "Blush",
-    description: "Customizable illustrations",
-    link: "https://blush.design/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/blush.png"
-  },
-  {
-    name: "Icons8",
-    description: "Free icons, photos, and design tools",
-    link: "https://icons8.com/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/icons8.png"
-  },
-  {
-    name: "Font Awesome",
-    description: "Free icons and social logos",
-    link: "https://fontawesome.com/",
-    type: "Free",
-    category: "Assets",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/font-awesome.png"
-  },
+      // Free Assets (15 items)
+      {
+        name: "Unsplash",
+        description: "Free high-quality stock photos",
+        link: "https://unsplash.com",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/unsplash.png"
+      },
+      {
+        name: "Pexels",
+        description: "Free stock photos and videos",
+        link: "https://www.pexels.com/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/pexels.png"
+      },
+      {
+        name: "Pixabay",
+        description: "Free images, videos, and music",
+        link: "https://pixabay.com/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/pixabay.png"
+      },
+      {
+        name: "Freepik",
+        description: "Free vectors, stock photos, and PSD",
+        link: "https://www.freepik.com/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/freepik.png"
+      },
+      {
+        name: "Flaticon",
+        description: "Free vector icons in SVG, PSD, PNG, EPS formats",
+        link: "https://www.flaticon.com/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/flaticon.png"
+      },
+      {
+        name: "unDraw",
+        description: "Open-source illustrations for every project",
+        link: "https://undraw.co/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/illustration.png"
+      },
+      {
+        name: "Storyset",
+        description: "Free customizable illustrations",
+        link: "https://storyset.com/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/storyset.png"
+      },
+      {
+        name: "Mixkit",
+        description: "Free stock videos, music, and sound effects",
+        link: "https://mixkit.co/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/mixkit.png"
+      },
+      {
+        name: "Coverr",
+        description: "Beautiful free stock video footage",
+        link: "https://coverr.co/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/coverr.png"
+      },
+      {
+        name: "Videvo",
+        description: "Free stock videos and motion graphics",
+        link: "https://www.videvo.net/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/videvo.png"
+      },
+      {
+        name: "Freesound",
+        description: "Collaborative database of sounds",
+        link: "https://freesound.org/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/freesound.png"
+      },
+      {
+        name: "Humaaans",
+        description: "Mix-and-match illustrations of people",
+        link: "https://www.humaaans.com/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/humaaans.png"
+      },
+      {
+        name: "Blush",
+        description: "Customizable illustrations",
+        link: "https://blush.design/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/blush.png"
+      },
+      {
+        name: "Icons8",
+        description: "Free icons, photos, and design tools",
+        link: "https://icons8.com/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/icons8.png"
+      },
+      {
+        name: "Font Awesome",
+        description: "Free icons and social logos",
+        link: "https://fontawesome.com/",
+        type: "Free",
+        category: "Assets",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/font-awesome.png"
+      },
 
-  // Fonts (10 items)
-  {
-    name: "Google Fonts",
-    description: "Free licensed font families",
-    link: "https://fonts.google.com/",
-    type: "Free",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/google-fonts.png"
-  },
-  {
-    name: "DaFont",
-    description: "Archive of freely downloadable fonts",
-    link: "https://www.dafont.com/",
-    type: "Free",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/font.png"
-  },
-  {
-    name: "Font Squirrel",
-    description: "Free fonts for commercial use",
-    link: "https://www.fontsquirrel.com/",
-    type: "Free",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/font-squirrel.png"
-  },
-  {
-    name: "1001 Fonts",
-    description: "Free fonts for personal and commercial use",
-    link: "https://www.1001fonts.com/",
-    type: "Free",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/1001-fonts.png"
-  },
-  {
-    name: "FontSpace",
-    description: "Free fonts and dingbats",
-    link: "https://www.fontspace.com/",
-    type: "Free",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/fontspace.png"
-  },
-  {
-    name: "Adobe Fonts",
-    description: "Thousands of fonts from type foundries",
-    link: "https://fonts.adobe.com/",
-    type: "Paid",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/adobe-fonts.png"
-  },
-  {
-    name: "Fontshare",
-    description: "Free fonts for personal and commercial use",
-    link: "https://www.fontshare.com/",
-    type: "Free",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/fontshare.png"
-  },
-  {
-    name: "Befonts",
-    description: "Free fonts for designers",
-    link: "https://befonts.com/",
-    type: "Free",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/befonts.png"
-  },
-  {
-    name: "Fontfabric",
-    description: "Free and premium fonts",
-    link: "https://www.fontfabric.com/free-fonts/",
-    type: "Free",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/fontfabric.png"
-  },
-  {
-    name: "UrbanFonts",
-    description: "Free fonts and dingbats",
-    link: "https://www.urbanfonts.com/",
-    type: "Free",
-    category: "Fonts",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/urban-fonts.png"
-  },
+      // Fonts (10 items)
+      {
+        name: "Google Fonts",
+        description: "Free licensed font families",
+        link: "https://fonts.google.com/",
+        type: "Free",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/google-fonts.png"
+      },
+      {
+        name: "DaFont",
+        description: "Archive of freely downloadable fonts",
+        link: "https://www.dafont.com/",
+        type: "Free",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/font.png"
+      },
+      {
+        name: "Font Squirrel",
+        description: "Free fonts for commercial use",
+        link: "https://www.fontsquirrel.com/",
+        type: "Free",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/font-squirrel.png"
+      },
+      {
+        name: "1001 Fonts",
+        description: "Free fonts for personal and commercial use",
+        link: "https://www.1001fonts.com/",
+        type: "Free",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/1001-fonts.png"
+      },
+      {
+        name: "FontSpace",
+        description: "Free fonts and dingbats",
+        link: "https://www.fontspace.com/",
+        type: "Free",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/fontspace.png"
+      },
+      {
+        name: "Adobe Fonts",
+        description: "Thousands of fonts from type foundries",
+        link: "https://fonts.adobe.com/",
+        type: "Paid",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/adobe-fonts.png"
+      },
+      {
+        name: "Fontshare",
+        description: "Free fonts for personal and commercial use",
+        link: "https://www.fontshare.com/",
+        type: "Free",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/fontshare.png"
+      },
+      {
+        name: "Befonts",
+        description: "Free fonts for designers",
+        link: "https://befonts.com/",
+        type: "Free",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/befonts.png"
+      },
+      {
+        name: "Fontfabric",
+        description: "Free and premium fonts",
+        link: "https://www.fontfabric.com/free-fonts/",
+        type: "Free",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/fontfabric.png"
+      },
+      {
+        name: "UrbanFonts",
+        description: "Free fonts and dingbats",
+        link: "https://www.urbanfonts.com/",
+        type: "Free",
+        category: "Fonts",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/urban-fonts.png"
+      },
 
-  // CMS & Builders (10 items)
-  {
-    name: "WordPress",
-    description: "Open-source content management system",
-    link: "https://wordpress.org/",
-    type: "Free",
-    category: "CMS",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/wordpress.png"
-  },
-  {
-    name: "Webflow",
-    description: "No-code website builder with CMS",
-    link: "https://webflow.com/",
-    type: "Paid",
-    category: "CMS",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/webflow.png"
-  },
-  {
-    name: "Wix",
-    description: "Cloud-based web development platform",
-    link: "https://www.wix.com/",
-    type: "Free",
-    category: "CMS",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/wix.png"
-  },
-  {
-    name: "Squarespace",
-    description: "Website building and hosting service",
-    link: "https://www.squarespace.com/",
-    type: "Paid",
-    category: "CMS",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/squarespace.png"
-  },
-  {
-    name: "Shopify",
-    description: "E-commerce platform for online stores",
-    link: "https://www.shopify.com/",
-    type: "Paid",
-    category: "CMS",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/shopify.png"
-  },
-  {
-    name: "Joomla",
-    description: "Open-source content management system",
-    link: "https://www.joomla.org/",
-    type: "Free",
-    category: "CMS",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/joomla.png"
-  },
-  {
-    name: "Drupal",
-    description: "Open-source content management framework",
-    link: "https://www.drupal.org/",
-    type: "Free",
-    category: "CMS",
-    buttonType: "Download",
-    icon: "https://img.icons8.com/color/96/000000/drupal.png"
-  },
-  {
-    name: "Ghost",
-    description: "Professional publishing platform",
-    link: "https://ghost.org/",
-    type: "Paid",
-    category: "CMS",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/ghost.png"
-  },
-  {
-    name: "Elementor",
-    description: "WordPress page builder plugin",
-    link: "https://elementor.com/",
-    type: "Free",
-    category: "CMS",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/elementor.png"
-  },
-  {
-    name: "Brizy",
-    description: "Visual website builder for WordPress",
-    link: "https://www.brizy.io/",
-    type: "Free",
-    category: "CMS",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/brizy.png"
-  },
+      // CMS & Builders (10 items)
+      {
+        name: "WordPress",
+        description: "Open-source content management system",
+        link: "https://wordpress.org/",
+        type: "Free",
+        category: "CMS",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/wordpress.png"
+      },
+      {
+        name: "Webflow",
+        description: "No-code website builder with CMS",
+        link: "https://webflow.com/",
+        type: "Paid",
+        category: "CMS",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/webflow.png"
+      },
+      {
+        name: "Wix",
+        description: "Cloud-based web development platform",
+        link: "https://www.wix.com/",
+        type: "Free",
+        category: "CMS",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/wix.png"
+      },
+      {
+        name: "Squarespace",
+        description: "Website building and hosting service",
+        link: "https://www.squarespace.com/",
+        type: "Paid",
+        category: "CMS",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/squarespace.png"
+      },
+      {
+        name: "Shopify",
+        description: "E-commerce platform for online stores",
+        link: "https://www.shopify.com/",
+        type: "Paid",
+        category: "CMS",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/shopify.png"
+      },
+      {
+        name: "Joomla",
+        description: "Open-source content management system",
+        link: "https://www.joomla.org/",
+        type: "Free",
+        category: "CMS",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/joomla.png"
+      },
+      {
+        name: "Drupal",
+        description: "Open-source content management framework",
+        link: "https://www.drupal.org/",
+        type: "Free",
+        category: "CMS",
+        buttonType: "Download",
+        icon: "https://img.icons8.com/color/96/000000/drupal.png"
+      },
+      {
+        name: "Ghost",
+        description: "Professional publishing platform",
+        link: "https://ghost.org/",
+        type: "Paid",
+        category: "CMS",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/ghost.png"
+      },
+      {
+        name: "Elementor",
+        description: "WordPress page builder plugin",
+        link: "https://elementor.com/",
+        type: "Free",
+        category: "CMS",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/elementor.png"
+      },
+      {
+        name: "Brizy",
+        description: "Visual website builder for WordPress",
+        link: "https://www.brizy.io/",
+        type: "Free",
+        category: "CMS",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/brizy.png"
+      },
 
-  // Hosting & Domain (10 items)
-  {
-    name: "HostPinnacle",
-    description: "Affordable web hosting with great support",
-    link: "https://www.hostpinnacle.co.ke/clients/aff.php?aff=3286",
-    type: "Paid",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/hosting.png"
-  },
-  {
-    name: "Truehost",
-    description: "Reliable hosting solutions for Africa",
-    link: "https://www.truehost.co.ke/",
-    type: "Paid",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/cloud-hosting.png"
-  },
-  {
-    name: "Hostinger",
-    description: "Web hosting and domain registration",
-    link: "https://www.hostinger.com/",
-    type: "Paid",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/hostinger.png"
-  },
-  {
-    name: "Bluehost",
-    description: "WordPress recommended hosting",
-    link: "https://www.bluehost.com/",
-    type: "Paid",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/bluehost.png"
-  },
-  {
-    name: "Namecheap",
-    description: "Domain registration and web hosting",
-    link: "https://www.namecheap.com/",
-    type: "Paid",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/namecheap.png"
-  },
-  {
-    name: "GoDaddy",
-    description: "Domain registrar and web hosting company",
-    link: "https://www.godaddy.com/",
-    type: "Paid",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/godaddy.png"
-  },
-  {
-    name: "Cloudways",
-    description: "Managed cloud hosting platform",
-    link: "https://www.cloudways.com/",
-    type: "Paid",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/cloudways.png"
-  },
-  {
-    name: "Vercel",
-    description: "Platform for frontend frameworks",
-    link: "https://vercel.com/",
-    type: "Free",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/vercel.png"
-  },
-  {
-    name: "Netlify",
-    description: "Platform for modern web projects",
-    link: "https://www.netlify.com/",
-    type: "Free",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/netlify.png"
-  },
-  {
-    name: "GitHub Pages",
-    description: "Free static site hosting from GitHub",
-    link: "https://pages.github.com/",
-    type: "Free",
-    category: "Hosting",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/github-pages.png"
-  },
+      // Hosting & Domain (10 items)
+      {
+        name: "HostPinnacle",
+        description: "Affordable web hosting with great support",
+        link: "https://www.hostpinnacle.co.ke/clients/aff.php?aff=3286",
+        type: "Paid",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/hosting.png"
+      },
+      {
+        name: "Truehost",
+        description: "Reliable hosting solutions for Africa",
+        link: "https://www.truehost.co.ke/",
+        type: "Paid",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/cloud-hosting.png"
+      },
+      {
+        name: "Hostinger",
+        description: "Web hosting and domain registration",
+        link: "https://www.hostinger.com/",
+        type: "Paid",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/hostinger.png"
+      },
+      {
+        name: "Bluehost",
+        description: "WordPress recommended hosting",
+        link: "https://www.bluehost.com/",
+        type: "Paid",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/bluehost.png"
+      },
+      {
+        name: "Namecheap",
+        description: "Domain registration and web hosting",
+        link: "https://www.namecheap.com/",
+        type: "Paid",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/namecheap.png"
+      },
+      {
+        name: "GoDaddy",
+        description: "Domain registrar and web hosting company",
+        link: "https://www.godaddy.com/",
+        type: "Paid",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/godaddy.png"
+      },
+      {
+        name: "Cloudways",
+        description: "Managed cloud hosting platform",
+        link: "https://www.cloudways.com/",
+        type: "Paid",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/cloudways.png"
+      },
+      {
+        name: "Vercel",
+        description: "Platform for frontend frameworks",
+        link: "https://vercel.com/",
+        type: "Free",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/vercel.png"
+      },
+      {
+        name: "Netlify",
+        description: "Platform for modern web projects",
+        link: "https://www.netlify.com/",
+        type: "Free",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/netlify.png"
+      },
+      {
+        name: "GitHub Pages",
+        description: "Free static site hosting from GitHub",
+        link: "https://pages.github.com/",
+        type: "Free",
+        category: "Hosting",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/github-pages.png"
+      },
 
-  // Business & Productivity (10 items)
-  {
-    name: "Notion",
-    description: "All-in-one workspace for notes, tasks, and wikis",
-    link: "https://www.notion.so/",
-    type: "Free",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/notion.png"
-  },
-  {
-    name: "Trello",
-    description: "Visual project management tool",
-    link: "https://trello.com/",
-    type: "Free",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/trello.png"
-  },
-  {
-    name: "Asana",
-    description: "Work management platform for teams",
-    link: "https://asana.com/",
-    type: "Free",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/asana.png"
-  },
-  {
-    name: "Slack",
-    description: "Business communication platform",
-    link: "https://slack.com/",
-    type: "Free",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/slack.png"
-  },
-  {
-    name: "Zoom",
-    description: "Video conferencing and meeting platform",
-    link: "https://zoom.us/",
-    type: "Free",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/zoom.png"
-  },
-  {
-    name: "Google Workspace",
-    description: "Collaboration and productivity apps",
-    link: "https://workspace.google.com/",
-    type: "Paid",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/google-workspace.png"
-  },
-  {
-    name: "Microsoft 365",
-    description: "Productivity and collaboration suite",
-    link: "https://www.microsoft.com/en-us/microsoft-365",
-    type: "Paid",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/microsoft-office-2019.png"
-  },
-  {
-    name: "Canva for Teams",
-    description: "Design collaboration for teams",
-    link: "https://www.canva.com/teams/",
-    type: "Paid",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/canva-teams.png"
-  },
-  {
-    name: "Figma for Teams",
-    description: "Design collaboration platform",
-    link: "https://www.figma.com/teams/",
-    type: "Paid",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/figma-teams.png"
-  },
-  {
-    name: "Clockify",
-    description: "Free time tracking and timesheet app",
-    link: "https://clockify.me/",
-    type: "Free",
-    category: "Business",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/clockify.png"
-  },
+      // Business & Productivity (10 items)
+      {
+        name: "Notion",
+        description: "All-in-one workspace for notes, tasks, and wikis",
+        link: "https://www.notion.so/",
+        type: "Free",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/notion.png"
+      },
+      {
+        name: "Trello",
+        description: "Visual project management tool",
+        link: "https://trello.com/",
+        type: "Free",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/trello.png"
+      },
+      {
+        name: "Asana",
+        description: "Work management platform for teams",
+        link: "https://asana.com/",
+        type: "Free",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/asana.png"
+      },
+      {
+        name: "Slack",
+        description: "Business communication platform",
+        link: "https://slack.com/",
+        type: "Free",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/slack.png"
+      },
+      {
+        name: "Zoom",
+        description: "Video conferencing and meeting platform",
+        link: "https://zoom.us/",
+        type: "Free",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/zoom.png"
+      },
+      {
+        name: "Google Workspace",
+        description: "Collaboration and productivity apps",
+        link: "https://workspace.google.com/",
+        type: "Paid",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/google-workspace.png"
+      },
+      {
+        name: "Microsoft 365",
+        description: "Productivity and collaboration suite",
+        link: "https://www.microsoft.com/en-us/microsoft-365",
+        type: "Paid",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/microsoft-office-2019.png"
+      },
+      {
+        name: "Canva for Teams",
+        description: "Design collaboration for teams",
+        link: "https://www.canva.com/teams/",
+        type: "Paid",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/canva-teams.png"
+      },
+      {
+        name: "Figma for Teams",
+        description: "Design collaboration platform",
+        link: "https://www.figma.com/teams/",
+        type: "Paid",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/figma-teams.png"
+      },
+      {
+        name: "Clockify",
+        description: "Free time tracking and timesheet app",
+        link: "https://clockify.me/",
+        type: "Free",
+        category: "Business",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/clockify.png"
+      },
 
-  // Learning & Education (10 items)
-  {
-    name: "freeCodeCamp",
-    description: "Learn to code for free",
-    link: "https://www.freecodecamp.org/",
-    type: "Free",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/learning.png"
-  },
-  {
-    name: "Udemy",
-    description: "Online learning platform with courses",
-    link: "https://www.udemy.com/",
-    type: "Paid",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/udemy.png"
-  },
-  {
-    name: "Coursera",
-    description: "Online courses from top universities",
-    link: "https://www.coursera.org/",
-    type: "Free",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/coursera.png"
-  },
-  {
-    name: "edX",
-    description: "Online courses from top institutions",
-    link: "https://www.edx.org/",
-    type: "Free",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/edx.png"
-  },
-  {
-    name: "Khan Academy",
-    description: "Free online courses, lessons & practice",
-    link: "https://www.khanacademy.org/",
-    type: "Free",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/khan-academy.png"
-  },
-  {
-    name: "Codecademy",
-    description: "Interactive coding platform",
-    link: "https://www.codecademy.com/",
-    type: "Free",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/codecademy.png"
-  },
-  {
-    name: "LinkedIn Learning",
-    description: "Online video courses",
-    link: "https://www.linkedin.com/learning/",
-    type: "Paid",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/linkedin-learning.png"
-  },
-  {
-    name: "Skillshare",
-    description: "Online learning community",
-    link: "https://www.skillshare.com/",
-    type: "Paid",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/skillshare.png"
-  },
-  {
-    name: "Pluralsight",
-    description: "Technology skills platform",
-    link: "https://www.pluralsight.com/",
-    type: "Paid",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/pluralsight.png"
-  },
-  {
-    name: "MDN Web Docs",
-    description: "Resources for developers by developers",
-    link: "https://developer.mozilla.org/",
-    type: "Free",
-    category: "Learning",
-    buttonType: "Visit",
-    icon: "https://img.icons8.com/color/96/000000/mdn-web-docs.png"
-  }
-];
+      // Learning & Education (10 items)
+      {
+        name: "freeCodeCamp",
+        description: "Learn to code for free",
+        link: "https://www.freecodecamp.org/",
+        type: "Free",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/learning.png"
+      },
+      {
+        name: "Udemy",
+        description: "Online learning platform with courses",
+        link: "https://www.udemy.com/",
+        type: "Paid",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/udemy.png"
+      },
+      {
+        name: "Coursera",
+        description: "Online courses from top universities",
+        link: "https://www.coursera.org/",
+        type: "Free",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/coursera.png"
+      },
+      {
+        name: "edX",
+        description: "Online courses from top institutions",
+        link: "https://www.edx.org/",
+        type: "Free",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/edx.png"
+      },
+      {
+        name: "Khan Academy",
+        description: "Free online courses, lessons & practice",
+        link: "https://www.khanacademy.org/",
+        type: "Free",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/khan-academy.png"
+      },
+      {
+        name: "Codecademy",
+        description: "Interactive coding platform",
+        link: "https://www.codecademy.com/",
+        type: "Free",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/codecademy.png"
+      },
+      {
+        name: "LinkedIn Learning",
+        description: "Online video courses",
+        link: "https://www.linkedin.com/learning/",
+        type: "Paid",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/linkedin-learning.png"
+      },
+      {
+        name: "Skillshare",
+        description: "Online learning community",
+        link: "https://www.skillshare.com/",
+        type: "Paid",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/skillshare.png"
+      },
+      {
+        name: "Pluralsight",
+        description: "Technology skills platform",
+        link: "https://www.pluralsight.com/",
+        type: "Paid",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/pluralsight.png"
+      },
+      {
+        name: "MDN Web Docs",
+        description: "Resources for developers by developers",
+        link: "https://developer.mozilla.org/",
+        type: "Free",
+        category: "Learning",
+        buttonType: "Visit",
+        icon: "https://img.icons8.com/color/96/000000/mdn-web-docs.png"
+      }
+    ];
 
 
     // DOM Elements
@@ -2371,35 +2519,46 @@ const resources = [
     const backToTopBtn = document.getElementById('backToTop');
     const scrollProgress = document.getElementById('scrollProgress');
     const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('menu-overlay');
     const header = document.getElementById('header');
 
-    // Mobile Menu Toggle
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      menuBtn.classList.toggle('open');
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-    });
+    // Sidebar Menu Logic with Icons
+    window.toggleMenu = function () {
+      const isOpen = sidebar.classList.contains('open');
 
-    // Close mobile menu when clicking links
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        menuBtn.classList.remove('open');
+      if (isOpen) {
+        // Close
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
         document.body.style.overflow = '';
+        if (menuBtn) menuBtn.classList.remove('menu-open');
+      } else {
+        // Open
+        sidebar.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (menuBtn) menuBtn.classList.add('menu-open');
+      }
+    };
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
       });
-    });
+    }
 
     // Header scroll effect
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 10);
-      
+
       // Scroll progress
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
       scrollProgress.style.width = scrolled + "%";
-      
+
       // Back to top button
       backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
@@ -2415,19 +2574,19 @@ const resources = [
     // Function to render resource cards
     function renderResources(filteredResources) {
       resourcesContainer.innerHTML = '';
-      
+
       if (filteredResources.length === 0) {
         noResultsElement.classList.remove('hidden');
         return;
       }
-      
+
       noResultsElement.classList.add('hidden');
-      
+
       filteredResources.forEach((resource, index) => {
         const card = document.createElement('div');
         card.className = 'resource-card';
         card.style.animationDelay = `${index * 0.05}s`;
-        
+
         card.innerHTML = `
           <span class="category-badge">${resource.category}</span>
           <div class="flex items-start justify-between mb-4">
@@ -2463,11 +2622,11 @@ const resources = [
       const categoryValue = categoryFilter.value;
       const typeValue = typeFilter.value;
       const searchValue = searchInput.value.toLowerCase().trim();
-      
+
       let filtered = resources.filter(resource => {
         // Category filter
         if (categoryValue !== 'all' && resource.category !== categoryValue) return false;
-        
+
         // Type filter
         if (typeValue !== 'all') {
           if (typeValue === 'Download' && resource.buttonType !== 'Download') return false;
@@ -2475,30 +2634,30 @@ const resources = [
           if (typeValue === 'Free' && resource.type !== 'Free') return false;
           if (typeValue === 'Paid' && resource.type !== 'Paid') return false;
         }
-        
+
         // Search filter
-        if (searchValue && 
-            !resource.name.toLowerCase().includes(searchValue) && 
-            !resource.description.toLowerCase().includes(searchValue) &&
-            !resource.category.toLowerCase().includes(searchValue)) {
+        if (searchValue &&
+          !resource.name.toLowerCase().includes(searchValue) &&
+          !resource.description.toLowerCase().includes(searchValue) &&
+          !resource.category.toLowerCase().includes(searchValue)) {
           return false;
         }
-        
+
         return true;
       });
-      
+
       return filtered;
     }
 
     // Function to update display
     function updateDisplay() {
       loadingElement.classList.remove('hidden');
-      
+
       setTimeout(() => {
         const filteredResources = filterAndSortResources();
         renderResources(filteredResources);
         loadingElement.classList.add('hidden');
-        
+
         // Update URL hash for bookmarking filters
         updateURLHash();
       }, 500);
@@ -2510,7 +2669,7 @@ const resources = [
       if (categoryFilter.value !== 'all') params.set('category', categoryFilter.value);
       if (typeFilter.value !== 'all') params.set('type', typeFilter.value);
       if (searchInput.value) params.set('search', searchInput.value);
-      
+
       const hash = params.toString() ? `#${params.toString()}` : '';
       window.history.replaceState(null, '', `${window.location.pathname}${hash}`);
     }
@@ -2518,7 +2677,7 @@ const resources = [
     // Function to load filters from URL
     function loadFiltersFromURL() {
       const params = new URLSearchParams(window.location.hash.substring(1));
-      
+
       if (params.has('category')) {
         categoryFilter.value = params.get('category');
       }
@@ -2528,7 +2687,7 @@ const resources = [
       if (params.has('search')) {
         searchInput.value = params.get('search');
       }
-      
+
       updateDisplay();
     }
 
@@ -2563,19 +2722,19 @@ const resources = [
     document.addEventListener('DOMContentLoaded', () => {
       // Set current year
       document.getElementById('year').textContent = new Date().getFullYear();
-      
+
       // Load filters from URL if present
       loadFiltersFromURL();
-      
+
       // Initial render
       updateDisplay();
-      
+
       // Add scroll animation to cards
       const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
       };
-      
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -2584,7 +2743,7 @@ const resources = [
           }
         });
       }, observerOptions);
-      
+
       // Observe all resource cards
       setTimeout(() => {
         document.querySelectorAll('.resource-card').forEach(card => {
@@ -2600,19 +2759,20 @@ const resources = [
         e.preventDefault();
         searchInput.focus();
       }
-      
+
       // Escape to reset filters
       if (e.key === 'Escape') {
         resetFilters();
       }
-      
+
       // Escape to close mobile menu
-      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
-        mobileMenu.classList.remove('open');
-        menuBtn.classList.remove('open');
-        document.body.style.overflow = '';
+      const sidebar = document.getElementById('sidebar-menu');
+      if (e.key === 'Escape' && sidebar && sidebar.classList.contains('open')) {
+        toggleMenu();
       }
     });
+
+
   </script>
 </body>
 

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Skope Designs | Sege Peter | Designing Brands. Building Code. Beyond Boundaries.</title>
-  <meta name="description" content="Skope Designs is your creative partner for stunning graphic design, web development, and branding services in Kenya. Elevate your brand with our innovative visuals.">
-  <meta name="keywords" content="Skope Designs, graphic design Kenya, web design Kenya, branding, logo design, website development, social media design, Kenya designers">
+  <meta name="description"
+    content="Skope Designs is your creative partner for stunning graphic design, web development, and branding services in Kenya. Elevate your brand with our innovative visuals.">
+  <meta name="keywords"
+    content="Skope Designs, graphic design Kenya, web design Kenya, branding, logo design, website development, social media design, Kenya designers">
   <meta name="author" content="Skope Designs">
 
   <!-- Open Graph (Facebook & LinkedIn) -->
   <meta property="og:title" content="Skope Designs | Graphic & Web Design in Kenya">
-  <meta property="og:description" content="Elevate your brand with creative graphic design, professional websites, and branding solutions from Skope Designs, Kenya.">
+  <meta property="og:description"
+    content="Elevate your brand with creative graphic design, professional websites, and branding solutions from Skope Designs, Kenya.">
   <meta property="og:image" content="https://skopedesigns.co.ke/ceo sege.png">
   <meta property="og:url" content="https://skopedesigns.co.ke/">
   <meta property="og:type" content="website">
@@ -19,7 +23,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Skope Designs | Graphic & Web Design in Kenya">
-  <meta name="twitter:description" content="Skope Designs offers creative graphic design, website development, and branding services in Kenya.">
+  <meta name="twitter:description"
+    content="Skope Designs offers creative graphic design, website development, and branding services in Kenya.">
   <meta name="twitter:image" content="https://skopedesigns.co.ke/images/twitter-card.jpg">
 
   <!-- Favicon -->
@@ -27,8 +32,10 @@
 
 
   <!-- SEO Meta -->
-  <meta name="description" content="Skope Designs—led by Sege Peter—crafts compelling digital experiences. Specializing in branding, responsive web design, and modern development with Tailwind, Java, Python, MySQL.">
-  <meta name="keywords" content="Skope Designs, Sege Peter, Branding, Web Developer, Tailwind CSS, UI/UX Design, Python Developer, Java Developer, MySQL">
+  <meta name="description"
+    content="Skope Designs—led by Sege Peter—crafts compelling digital experiences. Specializing in branding, responsive web design, and modern development with Tailwind, Java, Python, MySQL.">
+  <meta name="keywords"
+    content="Skope Designs, Sege Peter, Branding, Web Developer, Tailwind CSS, UI/UX Design, Python Developer, Java Developer, MySQL">
   <meta name="author" content="Sege Peter" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.skopedesigns.co.ke/" />
@@ -44,10 +51,10 @@
   <meta name="twitter:description" content="Explore Skope Designs—where design, development, and innovation meet." />
   <meta name="twitter:image" content="https://www.skopedesigns.com/fav.ico" />
 
-  
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
-     crossorigin="anonymous"></script>
-  
+    crossorigin="anonymous"></script>
+
   <link rel="icon" href="fav.ico" type="image/x-icon" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -69,54 +76,94 @@
   </script>
 
   <style>
-    .hero-slide { background-size: cover; background-position: center; transition: background-image 1s ease-in-out; }
-    .hamburger, .menu-items { transition: all 0.3s ease; }
-    .menu-items { transform: translateX(100%); }
-    .menu-items.open { transform: translateX(0); }
-    .static-header { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #0f9d58; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; transition: all .3s; }
-    .static-header.scrolled { padding: .5rem 2rem; background-color: rgba(15,157,88,.95); backdrop-filter: blur(5px); }
-    .logo-img { height: 50px; transition: transform .3s; border-radius: 50px; border: 1.7px solid #f57c00; }
-    .logo-img:hover { transform: rotate(10deg); }
-    .hamburger-menu { position: relative; width: 30px; height: 25px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
-    .hamburger-menu span { display: block; height: 3px; width: 100%; background: white; border-radius: 3px; }
-    .hamburger-menu.open span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .hamburger-menu.open span:nth-child(2) { opacity: 0; }
-    .hamburger-menu.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
-    .menu-items li { opacity: 0; transform: translateX(20px); transition: all .4s ease; }
-    .menu-items.open li { opacity: 1; transform: translateX(0); }
-    .menu-items a { display: block; padding: .6rem 1rem; color: white; text-decoration: none; border-radius: 6px; position: relative; margin-bottom: .5rem; }
-    .menu-items a:hover { background-color: rgba(255,255,255,0.1); transform: translateX(5px); }
-    .menu-items a::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: rgba(245,123,0,0.22); transition: width .3s; }
-    .menu-items a:hover::before { width: 100%; }
+    .hero-slide {
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+    }
+
+    .hamburger,
     .menu-items {
-  transition: transform 0.3s ease-in-out;
-}
-.menu-items.open {
-  transform: translateX(0);
-}
-.hamburger-menu span {
-  transition: all 0.3s;
-}
-.hamburger-menu.open span:nth-child(1) {
-  transform: translateY(11px) rotate(45deg);
-}
-.hamburger-menu.open span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger-menu.open span:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
-}
+      transition: all 0.3s ease;
+    }
 
-/* Removed Christmas Offer Badge Styles */
-.christmas-offer {
-  display: none;
-}
+    .menu-items {
+      transform: translateX(100%);
+    }
 
-.service-card {
-  position: relative;
-  overflow: hidden;
-}
+    .menu-items.open {
+      transform: translateX(0);
+    }
 
+    .static-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: #0f9d58;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all .3s;
+    }
+
+    .static-header.scrolled {
+      padding: .5rem 2rem;
+      background-color: rgba(15, 157, 88, .95);
+      backdrop-filter: blur(5px);
+    }
+
+    .logo-img {
+      height: 50px;
+      transition: transform .3s;
+      border-radius: 50px;
+      border: 1.7px solid #f57c00;
+    }
+
+    .logo-img:hover {
+      transform: rotate(10deg);
+    }
+
+    /* Sidebar Menu Animations */
+    .sidebar-menu {
+      transform: translateX(100%);
+      /* Start hidden to the right */
+      transition: transform 0.3s ease-in-out;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-menu.open {
+      transform: translateX(0);
+    }
+
+    .overlay-bg {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .overlay-bg.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Hamburger Animation */
+    .hamburger-line {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menu-open .line-1 {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .menu-open .line-2 {
+      opacity: 0;
+    }
+
+    .menu-open .line-3 {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
   </style>
 </head>
 
@@ -140,152 +187,480 @@
       <a href="shop.html" class="hover:text-secondary">Shop</a>
       <a href="contact.html" class="hover:text-secondary">Contact</a>
     </nav>
-    <div id="menu-btn" class="md:hidden hamburger-menu">
-      <span></span><span></span><span></span>
-    </div>
+    <!-- Hamburger Button -->
+    <button id="menu-btn" class="md:hidden z-[60] relative w-8 h-6 flex flex-col justify-between focus:outline-none">
+      <span class="w-full h-0.5 bg-white hamburger-line line-1 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-2 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-3 rounded-full"></span>
+    </button>
   </header>
 
-  <!-- MOBILE MENU -->
-  <ul id="mobile-menu" class="menu-items fixed top-[70px] right-0 w-56 h-[calc(100%-70px)] bg-secondary bg-opacity-90 backdrop-blur-lg z-40 p-6 flex flex-col list-none">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="service.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="Resources.html">Resources</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-
-  <br>
-<section id="services" class="bg-white py-20 px-6 md:px-20">
-  <div class="text-center mb-16">
-    <h2 class="text-4xl font-extrabold text-orange-600 mb-4 animate__animated animate__fadeInDown">Our Services</h2>
-    <p class="text-gray-600 text-lg animate__animated animate__fadeInUp">Empowering your brand with smart design, digital solutions, and creative storytelling.</p>
+  <!-- SIDEBAR NAVIGATION DRAWER -->
+  <!-- Overlay Backdrop -->
+  <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[45] overlay-bg backdrop-blur-sm" onclick="toggleMenu()">
   </div>
 
-  <div class="grid gap-10 md:grid-cols-3 lg:grid-cols-3">
-    <!-- Service Card -->
-    <div class="service-card bg-gradient-to-br from-cyan-100 to-blue-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500 relative" data-aos="fade-up">
-      <div class="text-5xl text-blue-700 mb-4"><i class="fas fa-pencil-ruler"></i></div>
-      <h3 class="text-xl font-bold mb-2 text-gray-800">Graphic Design</h3>
-      <p class="text-gray-600 mb-4">From logo design to social media creatives and branding materials — we craft visuals that connect.</p>
-      <a href="https://wa.me/254742380183?text=Hello%2C%20I%27m%20interested%20in%20your%20Graphic%20Design%20services.
-" class="inline-block bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 text-sm">Hire Us</a>
+  <!-- Sidebar Container -->
+  <aside id="sidebar-menu"
+    class="fixed top-0 right-0 h-full w-64 bg-white z-[60] sidebar-menu flex flex-col shadow-2xl overflow-y-auto">
+
+    <!-- Sidebar Header -->
+    <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="h-8 w-8 rounded-full border border-gray-200">
+        <span class="font-bold text-gray-800 text-base">Menu</span>
+      </div>
+      <button onclick="toggleMenu()" class="text-gray-400 hover:text-red-500 transition-colors">
+        <i class="fas fa-times text-lg"></i>
+      </button>
     </div>
 
-    <div class="service-card bg-gradient-to-br from-orange-100 to-yellow-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500 relative" data-aos="fade-up" data-aos-delay="100">
-      <div class="text-5xl text-yellow-600 mb-4"><i class="fas fa-code"></i></div>
-      <h3 class="text-xl font-bold mb-2 text-gray-800">Web Design & Development</h3>
-      <p class="text-gray-600 mb-4">Responsive websites, blogs, portfolios, and systems — all SEO-ready and beautifully built.</p>
-      <a href="portfolio.html" class="inline-block bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 text-sm">View Projects</a>
+    <!-- Navigation List -->
+    <nav class="flex-1 py-2">
+      <ul class="flex flex-col">
+        <!-- Home -->
+        <li>
+          <a href="index.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-home"></i>
+            </span>
+            <span class="font-medium text-sm">Home</span>
+          </a>
+        </li>
+
+        <!-- About -->
+        <li>
+          <a href="about.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="font-medium text-sm">About</span>
+          </a>
+        </li>
+
+        <!-- Services -->
+        <li>
+          <a href="service.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-list-ul"></i>
+            </span>
+            <span class="font-medium text-sm">Services</span>
+          </a>
+        </li>
+
+        <!-- Portfolio -->
+        <li>
+          <a href="portfolio.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-briefcase"></i>
+            </span>
+            <span class="font-medium text-sm">Portfolio</span>
+          </a>
+        </li>
+
+        <!-- Resources -->
+        <li>
+          <a href="resources.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-green-50 text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-book-reader"></i>
+            </span>
+            <span class="font-medium text-sm">Resources</span>
+          </a>
+        </li>
+
+        <!-- Shop -->
+        <li>
+          <a href="shop.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-pink-50 text-pink-600 group-hover:bg-pink-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-shopping-bag"></i>
+            </span>
+            <span class="font-medium text-sm">Shop</span>
+          </a>
+        </li>
+
+        <!-- Contact -->
+        <li>
+          <a href="contact.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-gray-100 text-gray-600 group-hover:bg-gray-800 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="font-medium text-sm">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="p-6 bg-gray-50 border-t border-gray-200">
+      <p class="text-xs text-center text-gray-400 mb-4">Follow us</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://web.facebook.com/engskope" target="_blank"
+          class="text-gray-400 hover:text-blue-600 transition-colors"><i class="fab fa-facebook-f text-lg"></i></a>
+        <a href="https://x.com/sege_peter79144" target="_blank"
+          class="text-gray-400 hover:text-black transition-colors"><i class="fab fa-twitter text-lg"></i></a>
+        <a href="https://www.instagram.com/segepeter71/" target="_blank"
+          class="text-gray-400 hover:text-pink-600 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+      </div>
     </div>
+  </aside>
 
-    <div class="service-card bg-gradient-to-br from-green-100 to-lime-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500 relative" data-aos="fade-up" data-aos-delay="200">
-      <div class="text-5xl text-green-600 mb-4"><i class="fas fa-bullhorn"></i></div>
-      <h3 class="text-xl font-bold mb-2 text-gray-800">Social Media Marketing</h3>
-      <p class="text-gray-600 mb-4">We strategize and manage your digital presence — content plans, captions, engagement, and ads.</p>
-      <a href="https://wa.me/254742380183?text=Hello%2C%20I%27m%20interested%20in%20your%20Social%20Media%20Marketing%20services.
-" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 text-sm">Boost My Brand</a>
+  <!-- HERO SECTION (Content) -->
+  <section class="relative pt-32 pb-20 px-6 overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+      <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary rounded-full blur-[120px]"></div>
     </div>
-
-    <div class="service-card bg-gradient-to-br from-pink-100 to-purple-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500 relative" data-aos="fade-up">
-      <div class="text-5xl text-pink-600 mb-4"><i class="fas fa-lightbulb"></i></div>
-      <h3 class="text-xl font-bold mb-2 text-gray-800">Content Creation</h3>
-      <p class="text-gray-600 mb-4">Posters, reels, carousels, intros, digital flyers — content that sparks attention and conversions.</p>
-      <a href="portfolio.html" class="inline-block bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 text-sm">See Samples</a>
+    <div class="container mx-auto text-center relative z-10">
+      <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">
+        Elevate Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Digital
+          Presence</span>
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        From stunning brands to high-performance code, we build digital experiences that drive growth and inspire
+        action.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#services-grid"
+          class="bg-primary hover:bg-cyan-500 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20">Explore
+          Services</a>
+        <a href="portfolio.html"
+          class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold py-4 px-8 rounded-full border border-white/20 transition-all hover:scale-105">View
+          Our Work</a>
+      </div>
     </div>
+  </section>
 
-    <div class="service-card bg-gradient-to-br from-red-100 to-pink-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500 relative" data-aos="fade-up" data-aos-delay="100">
-      <div class="text-5xl text-red-600 mb-4"><i class="fas fa-camera-retro"></i></div>
-      <h3 class="text-xl font-bold mb-2 text-gray-800">Photography</h3>
-      <p class="text-gray-600 mb-4">Event coverage, portraits, product photography and editing for digital & print display.</p>
-      <a href="https://youtu.be/MPG--QQWuL4?si=7cBx37RUBD7TZb-G" class="inline-block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm">View Gallery</a>
-    </div>
-
-    <div class="service-card bg-gradient-to-br from-indigo-100 to-blue-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500 relative" data-aos="fade-up" data-aos-delay="200">
-      <div class="text-5xl text-indigo-600 mb-4"><i class="fas fa-video"></i></div>
-      <h3 class="text-xl font-bold mb-2 text-gray-800">Videography</h3>
-      <p class="text-gray-600 mb-4">Professional filming, editing, reels, YouTube intros, promo clips, and motion graphics.</p>
-      <a href="https://wa.me/254742380183?text=Hello%2C%20I%27m%20requesting%20for%20your%20Videography%20services.
-" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 text-sm">Request Shoot</a>
-    </div>
-
-    <div class="service-card bg-gradient-to-br from-yellow-100 to-orange-50 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500 relative" data-aos="fade-up">
-      <div class="text-5xl text-orange-600 mb-4"><i class="fas fa-chart-line"></i></div>
-      <h3 class="text-xl font-bold mb-2 text-gray-800">SEO & Analytics</h3>
-      <p class="text-gray-600 mb-4">We help you rank, track performance, and use data-driven insights to grow online visibility.</p>
-      <a href="https://wa.me/254742380183?text=Hello%2C%20I%27m%20interested%20in%20your%20SEO%20and%20Analytics%20services.
-" class="inline-block bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 text-sm">Optimize Site</a>
-    </div>
-
-    <div class="service-card bg-gradient-to-br from-gray-100 to-slate-200 p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500 relative" data-aos="fade-up" data-aos-delay="100">
-      <div class="text-5xl text-gray-700 mb-4"><i class="fas fa-id-badge"></i></div>
-      <h3 class="text-xl font-bold mb-2 text-gray-800">Branding & Identity</h3>
-      <p class="text-gray-600 mb-4">We build brands from the ground up — visuals, messaging, mockups, colors, and brand books.</p>
-      <a href="#about" class="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 text-sm">Build My Brand</a>
-    </div>
-
-    <div class="service-card bg-gradient-to-br from-blue-100 to-white p-6 rounded-xl shadow-xl hover:scale-105 transform transition duration-500 relative" data-aos="fade-up" data-aos-delay="200">
-      <div class="text-5xl text-blue-500 mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
-      <h3 class="text-xl font-bold mb-2 text-gray-800">Training & Mentorship</h3>
-      <p class="text-gray-600 mb-4">Join our Free Design Learning Hub to grow your digital and creative skills with mentorship and real projects.</p>
-      <a href="https://chat.whatsapp.com/HBc25gQBosqD91ebi69REn" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">Join Free Training</a>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials Section -->
-<section class="bg-gray-100 py-12">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center text-orange-700 mb-8">What Our Clients Say</h2>
-
-    <!-- Wrapper -->
-    <div id="testimonialWrapper" class="flex space-x-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6 md:space-x-0 no-scrollbar transition-all duration-500">
-      
-      <!-- Testimonial Card -->
-      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
-        <p class="text-gray-700 mb-4">"Working with Skope Designs on our website was transformative. Their attention to detail and modern design approach brought our vision to life."</p>
-        <h4 class="text-green-700 font-semibold">Hope Rekindled Initiative</h4>
-        <span class="text-yellow-500">★★★★★</span>
+  <!-- SERVICES GRID -->
+  <section id="services-grid" class="py-24 bg-dark/50 relative">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div class="max-w-xl">
+          <h2 class="text-4xl font-bold mb-4">Core Expertise</h2>
+          <p class="text-gray-400">Comprehensive creative and technical solutions tailored to your unique business
+            needs.</p>
+        </div>
+        <div class="hidden md:block">
+          <span class="text-sm font-mono text-secondary tracking-widest uppercase">/ Precision & Creativity</span>
+        </div>
       </div>
 
-      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
-        <p class="text-gray-700 mb-4">"Skope Designs gave our brand identity a complete makeover. From the logo to the brand guidelines, everything was crisp, creative, and meaningful."</p>
-        <h4 class="text-green-700 font-semibold">vincentmakori.co.ke</h4>
-        <span class="text-yellow-500">★★★★★</span>
-      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Graphic Design -->
+        <div
+          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 relative overflow-hidden">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/40 transition-all">
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-3xl mb-8 group-hover:scale-110 transition-transform">
+            <i class="fas fa-bezier-curve"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Graphic Design</h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">Crafting iconic visual identities that resonate with your
+            audience and build lasting brand equity.</p>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-2 text-cyan-400"><i class="fas fa-check-circle text-xs"></i> Logo & Visual
+              Identity</li>
+            <li class="flex items-center gap-2 text-cyan-400"><i class="fas fa-check-circle text-xs"></i> Brand Style
+              Guides</li>
+            <li class="flex items-center gap-2 text-cyan-400"><i class="fas fa-check-circle text-xs"></i> Marketing
+              Collateral</li>
+          </ul>
+          <a href="https://wa.me/254742380183?text=I'm interested in Graphic Design services"
+            class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
+            Start a project <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
 
-      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
-        <p class="text-gray-700 mb-4">"Their ability to combine storytelling with elegant visuals gave our NGO site the credibility and charm we needed to connect with donors."</p>
-        <h4 class="text-green-700 font-semibold">Light & Nature Foundation</h4>
-        <span class="text-yellow-500">★★★★★</span>
-      </div>
+        <!-- Web Dev -->
+        <div
+          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-secondary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/10 relative overflow-hidden">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-secondary/20 rounded-full blur-3xl group-hover:bg-secondary/40 transition-all">
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary text-3xl mb-8 group-hover:scale-110 transition-transform">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Web Development</h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">Building lightning-fast, responsive websites and applications
+            using cutting-edge technologies.</p>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-2 text-orange-400"><i class="fas fa-check-circle text-xs"></i> Responsive
+              UI/UX Design</li>
+            <li class="flex items-center gap-2 text-orange-400"><i class="fas fa-check-circle text-xs"></i> Dynamic Web
+              Apps</li>
+            <li class="flex items-center gap-2 text-orange-400"><i class="fas fa-check-circle text-xs"></i> E-commerce
+              Solutions</li>
+          </ul>
+          <a href="https://wa.me/254742380183?text=I'm interested in Web Development services"
+            class="text-secondary font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
+            Launch your site <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
 
-      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
-        <p class="text-gray-700 mb-4">"The brand kit they created for our startup gave us a confident launch. Skope Designs delivers with excellence and creativity."</p>
-        <h4 class="text-green-700 font-semibold">Mama Bear</h4>
-        <span class="text-yellow-500">★★★★★</span>
-      </div>
+        <!-- Marketing -->
+        <div
+          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-green-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/10 relative overflow-hidden">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-green-500/20 rounded-full blur-3xl group-hover:bg-green-500/40 transition-all">
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-400 text-3xl mb-8 group-hover:scale-110 transition-transform">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Digital Marketing</h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">Strategically positioning your brand across digital channels to
+            maximize reach and conversion.</p>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-2 text-green-400"><i class="fas fa-check-circle text-xs"></i> SEO
+              Optimization</li>
+            <li class="flex items-center gap-2 text-green-400"><i class="fas fa-check-circle text-xs"></i> Content
+              Strategy</li>
+            <li class="flex items-center gap-2 text-green-400"><i class="fas fa-check-circle text-xs"></i> Social Media
+              Growth</li>
+          </ul>
+          <a href="https://wa.me/254742380183?text=I'm interested in Digital Marketing services"
+            class="text-green-400 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
+            Grow your brand <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
 
-      <div class="flex-shrink-0 w-80 md:w-auto bg-white rounded-lg shadow-md p-6">
-        <p class="text-gray-700 mb-4">"From logo animation to social media templates, they gave us everything we needed to stand out online."</p>
-        <h4 class="text-green-700 font-semibold">We Can Feed Us</h4>
-        <span class="text-yellow-500">★★★★★</span>
+        <!-- Content Creation -->
+        <div
+          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-pink-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/10 relative overflow-hidden">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-pink-500/20 rounded-full blur-3xl group-hover:bg-pink-500/40 transition-all">
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-400 text-3xl mb-8 group-hover:scale-110 transition-transform">
+            <i class="fas fa-icons"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Content Creation</h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">Producing high-impact reels, posters, and animations that
+            capture attention in a split second.</p>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-2 text-pink-400"><i class="fas fa-check-circle text-xs"></i> Motion
+              Graphics</li>
+            <li class="flex items-center gap-2 text-pink-400"><i class="fas fa-check-circle text-xs"></i> Video
+              Post-Production</li>
+            <li class="flex items-center gap-2 text-pink-400"><i class="fas fa-check-circle text-xs"></i> Social
+              Creatives</li>
+          </ul>
+          <a href="portfolio.html"
+            class="text-pink-400 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
+            View Samples <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Photography -->
+        <div
+          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-red-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/10 relative overflow-hidden">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-red-500/20 rounded-full blur-3xl group-hover:bg-red-500/40 transition-all">
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 text-3xl mb-8 group-hover:scale-110 transition-transform">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Photography</h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">Capturing professional imagery that tells your story with
+            clarity and emotional impact.</p>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-2 text-red-400"><i class="fas fa-check-circle text-xs"></i> Commercial
+              Shoots</li>
+            <li class="flex items-center gap-2 text-red-400"><i class="fas fa-check-circle text-xs"></i> Event
+              Photography</li>
+            <li class="flex items-center gap-2 text-red-400"><i class="fas fa-check-circle text-xs"></i> Product Editing
+            </li>
+          </ul>
+          <a href="https://wa.me/254742380183?text=I'm interested in Photography services"
+            class="text-red-500 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
+            Book a session <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Training -->
+        <div
+          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-blue-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-400/10 relative overflow-hidden">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-blue-400/20 rounded-full blur-3xl group-hover:bg-blue-400/40 transition-all">
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl bg-blue-400/10 flex items-center justify-center text-blue-400 text-3xl mb-8 group-hover:scale-110 transition-transform">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Training</h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">Empowering the next generation of designers and developers
+            through expert-led mentorship.</p>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-2 text-blue-300"><i class="fas fa-check-circle text-xs"></i> Design
+              Learning Hub</li>
+            <li class="flex items-center gap-2 text-blue-300"><i class="fas fa-check-circle text-xs"></i> Technical
+              Mentorship</li>
+            <li class="flex items-center gap-2 text-blue-300"><i class="fas fa-check-circle text-xs"></i> Skills
+              Workshops</li>
+          </ul>
+          <a href="https://chat.whatsapp.com/HBc25gQBosqD91ebi69REn"
+            class="text-blue-400 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
+            Join the Hub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Hide Scrollbar -->
-<style>
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>
+  <!-- THE PROCESS SECTION -->
+  <section class="py-24 overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl font-bold mb-4">Our Creative Journey</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">A transparent, collaborative process designed to bring your vision to
+          life efficiently.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+        <!-- Connecting Line (Desktop) -->
+        <div
+          class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-y-1/2">
+        </div>
+
+        <!-- Step 1 -->
+        <div class="relative z-10 text-center p-8">
+          <div
+            class="w-12 h-12 rounded-full bg-primary text-white font-bold flex items-center justify-center mx-auto mb-6 shadow-xl shadow-primary/30">
+            1</div>
+          <h4 class="text-lg font-bold mb-2">Discovery</h4>
+          <p class="text-sm text-gray-500">We dive deep into your brand, goals, and audience to set a solid foundation.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative z-10 text-center p-8">
+          <div
+            class="w-12 h-12 rounded-full bg-secondary text-white font-bold flex items-center justify-center mx-auto mb-6 shadow-xl shadow-secondary/30">
+            2</div>
+          <h4 class="text-lg font-bold mb-2">Strategy</h4>
+          <p class="text-sm text-gray-500">Developing a comprehensive roadmap tailored to achieve your specific
+            objectives.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative z-10 text-center p-8">
+          <div
+            class="w-12 h-12 rounded-full bg-cyan-500 text-white font-bold flex items-center justify-center mx-auto mb-6 shadow-xl shadow-cyan-500/30">
+            3</div>
+          <h4 class="text-lg font-bold mb-2">Creation</h4>
+          <p class="text-sm text-gray-500">Our team executes with precision, blending creativity with technical
+            excellence.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative z-10 text-center p-8">
+          <div
+            class="w-12 h-12 rounded-full bg-orange-600 text-white font-bold flex items-center justify-center mx-auto mb-6 shadow-xl shadow-orange-600/30">
+            4</div>
+          <h4 class="text-lg font-bold mb-2">Delivery</h4>
+          <p class="text-sm text-gray-500">Final launch and ongoing support to ensure your long-term digital success.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-24 bg-white/5">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Client Echoes</h2>
+        <p class="text-gray-400">What brands we've worked with are saying about their journey with us.</p>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-8 no-scrollbar overflow-x-auto pb-8">
+        <!-- Testimonial 1 -->
+        <div class="flex-shrink-0 w-full md:w-[400px] p-8 rounded-3xl bg-dark border border-white/5 relative">
+          <div class="text-4xl text-primary/20 absolute top-6 right-8"><i class="fas fa-quote-right"></i></div>
+          <p class="text-gray-300 italic mb-8 leading-relaxed">"Working with Skope Designs on our website was
+            transformative. Their attention to detail and modern design approach brought our vision to life."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">HR
+            </div>
+            <div>
+              <h5 class="font-bold text-white">Hope Rekindled Initiative</h5>
+              <div class="flex text-xs text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="flex-shrink-0 w-full md:w-[400px] p-8 rounded-3xl bg-dark border border-white/5 relative">
+          <div class="text-4xl text-secondary/20 absolute top-6 right-8"><i class="fas fa-quote-right"></i></div>
+          <p class="text-gray-300 italic mb-8 leading-relaxed">"Skope Designs gave our brand identity a complete
+            makeover. From the logo to the brand guidelines, everything was crisp and meaningful."</p>
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold">
+              VM</div>
+            <div>
+              <h5 class="font-bold text-white">vincentmakori.co.ke</h5>
+              <div class="flex text-xs text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="flex-shrink-0 w-full md:w-[400px] p-8 rounded-3xl bg-dark border border-white/5 relative">
+          <div class="text-4xl text-cyan-400/20 absolute top-6 right-8"><i class="fas fa-quote-right"></i></div>
+          <p class="text-gray-300 italic mb-8 leading-relaxed">"Their ability to combine storytelling with elegant
+            visuals gave our NGO site the credibility and charm we needed to connect with donors."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">
+              LN</div>
+            <div>
+              <h5 class="font-bold text-white">Light & Nature Foundation</h5>
+              <div class="flex text-xs text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-30"></div>
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl font-bold mb-8">Ready to transform your brand?</h2>
+      <p class="text-xl text-gray-400 max-w-xl mx-auto mb-12">Let's collaborate to build something exceptional that sets
+        you apart from the competition.</p>
+      <a href="contact.html"
+        class="inline-block bg-white text-dark font-black py-5 px-12 rounded-full hover:bg-gray-200 transition-all hover:scale-105 shadow-2xl">Start
+        Your Journey Today</a>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="bg-primary py-8 px-6">
@@ -298,140 +673,98 @@
         </div>
       </div>
       <div class="flex gap-6 text-xl text-white">
-        <a href="https://web.facebook.com/engskope/" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://web.facebook.com/engskope" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
         <a href="https://x.com/sege_peter79144" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
-        <a href="instagram.com" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i class="fab fa-pinterest"></i></a>
+        <a href="https://www.instagram.com/segepeter71/" class="hover:text-secondary"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i
+            class="fab fa-pinterest"></i></a>
         <a href="https://www.youtube.com/@engskope" class="hover:text-secondary" target="_blank" rel="noopener">
-  <i class="fab fa-youtube"></i></a>
+          <i class="fab fa-youtube"></i></a>
       </div>
       <div class="text-sm">&copy; <span id="year"></span> Skope Designs. All rights reserved.</div>
     </div>
   </footer>
 
   <!-- SCRIPTS -->
-   <script>
-  const btn = document.getElementById('menu-btn');
-  const mobile = document.getElementById('mobile-menu');
-
-  btn.addEventListener('click', () => {
-    mobile.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-  });
-
-  // Animate header on scroll
-  window.addEventListener('scroll', () => {
-    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-  });
-
-
-
-  // Set year
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
   <script>
-    const hero = document.getElementById('hero');
-    const images = ['cover1.png','cover2.png','sege-profile.png'];
-    let idx = 0;
-    function changeBg() {
-      idx = (idx + 1) % images.length;
-      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-    }
-    hero.style.backgroundImage = `url(${images[0]})`;
-    setInterval(changeBg,6000);
+    // Mobile menu toggle
+    // Sidebar Menu Logic with Icons
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('menu-overlay');
 
-    const btn = document.getElementById('menu-btn');
-    const mobile = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-      mobile.classList.toggle('open');
-      btn.classList.toggle('open');
-      document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-    });
+    window.toggleMenu = function () {
+      const isOpen = sidebar.classList.contains('open');
 
-    document.getElementById('year').innerText = new Date().getFullYear();
-
-    window.addEventListener('scroll', () => {
-      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-    });
- /*SkopeAI*/
-<!-- Fix the script section -->
-<script>
-  const hero = document.getElementById('hero');
-  const images = ['img/cover1.png','img/cover2.png','img/sege-profile.png']; // Updated paths
-  let idx = 0;
-  
-  function changeBg() {
-    idx = (idx + 1) % images.length;
-    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[idx]})`;
-  }
-  
-  // Set initial background with same style
-  hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(${images[0]})`;
-  setInterval(changeBg, 6000);
-
-  // Mobile menu toggle
-  const btn = document.getElementById('menu-btn');
-  const mobile = document.getElementById('mobile-menu');
-  
-  btn.addEventListener('click', () => {
-    mobile.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = mobile.classList.contains('open') ? 'hidden' : '';
-    
-    // Animate menu items with staggered delay
-    const items = mobile.querySelectorAll('li');
-    if (mobile.classList.contains('open')) {
-      items.forEach((item, index) => {
-        item.style.transitionDelay = `${index * 0.1}s`;
-      });
-    } else {
-      items.forEach(item => {
-        item.style.transitionDelay = '0s';
-      });
-    }
-  });
-
-  // Set copyright year
-  document.getElementById('year').innerText = new Date().getFullYear();
-
-  // Scroll effect for header
-  window.addEventListener('scroll', () => {
-    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-  });
-</script>
-
-<!-- SkopeAI script - properly closed -->
-<script>
-  (function() {
-    if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-      window.chatbase = (...arguments) => {
-        if (!window.chatbase.q) { window.chatbase.q = [] }
-        window.chatbase.q.push(arguments)
-      };
-      window.chatbase = new Proxy(window.chatbase, {
-        get(target, prop) {
-          if (prop === "q") return target.q;
-          return (...args) => target(prop, ...args);
-        }
-      });
-    }
-    const onLoad = function() {
-      const script = document.createElement("script");
-      script.src = "https://www.chatbase.co/embed.min.js";
-      script.id = "YCDDERnlEOB4ItW9207d_";
-      script.domain = "www.chatbase.co";
-      document.body.appendChild(script);
+      if (isOpen) {
+        // Close
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        if (menuBtn) menuBtn.classList.remove('menu-open');
+      } else {
+        // Open
+        sidebar.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (menuBtn) menuBtn.classList.add('menu-open');
+      }
     };
-    if (document.readyState === "complete") {
-      onLoad();
-    } else {
-      window.addEventListener("load", onLoad);
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
     }
-  })();
-</script>
+
+    // Animate header on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (header) {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+      }
+    });
+
+    // Set year
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+  </script>
+
+  <!-- SkopeAI Chatbot -->
+  <script>
+    (function () {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => {
+          if (!window.chatbase.q) { window.chatbase.q = [] }
+          window.chatbase.q.push(arguments)
+        };
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") return target.q;
+            return (...args) => target(prop, ...args);
+          }
+        });
+      }
+      const onLoad = function () {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "YCDDERnlEOB4ItW9207d_";
+        script.domain = "www.chatbase.co";
+        document.body.appendChild(script);
+      };
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    })();
   </script>
 </body>
+
 </html>
