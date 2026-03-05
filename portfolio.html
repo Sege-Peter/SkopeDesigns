@@ -366,6 +366,109 @@
         max-height: 60vh;
       }
     }
+
+    .header-animate {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes border-beam {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 200% 50%;
+      }
+    }
+
+    #header {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 2px solid transparent;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: fixed;
+    }
+
+    #header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #06b6d4, #f97316, #06b6d4);
+      background-size: 200% 100%;
+      animation: border-beam 3s linear infinite;
+    }
+
+    #header.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-link-modern {
+      position: relative;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      transition: all 0.3s ease;
+    }
+
+    .nav-link-modern:hover {
+      color: #06b6d4;
+    }
+
+    .nav-link-modern::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f97316;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link-modern:hover::after {
+      width: 100%;
+    }
+
+    .nav-link-modern.active {
+      color: #fff;
+    }
+
+    .nav-link-modern.active::after {
+      width: 100%;
+      background: #06b6d4;
+    }
+
+    .header-btn {
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+    }
+
+    .header-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+    }
+
+    .logo-img {
+      height: 48px;
+      width: 48px;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #header.scrolled .logo-img {
+      height: 38px;
+      width: 38px;
+    }
   </style>
 </head>
 
@@ -373,10 +476,10 @@
 
   <!-- HEADER -->
   <header id="header"
-    class="fixed w-full top-0 z-50 transition-all duration-300 px-6 py-4 flex items-center justify-between bg-primary text-white">
+    class="fixed w-full top-0 z-50 transition-all duration-300 px-6 py-4 flex items-center justify-between text-white">
     <div class="flex items-center gap-3">
       <img src="logo.png" alt="Skope Logo"
-        class="h-12 w-12 rounded-full border-2 border-secondary hover:rotate-12 transition-transform duration-300" />
+        class="logo-img rounded-full border-2 border-secondary hover:rotate-12 transition-transform duration-300" />
       <div>
         <span class="font-bold text-lg tracking-wide">SKOPE DESIGNS</span>
         <span class="block text-[10px] italic opacity-90">Design Beyond Boundaries</span>
@@ -384,21 +487,15 @@
     </div>
 
     <!-- Desktop Nav -->
-    <nav class="hidden md:flex gap-8 font-medium">
-      <a href="index.html" class="hover:text-secondary transition-colors relative group">Home<span
-          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
-      <a href="about.html" class="hover:text-secondary transition-colors relative group">About<span
-          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
-      <a href="service.html" class="hover:text-secondary transition-colors relative group">Services<span
-          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
-      <a href="portfolio.html" class="hover:text-secondary transition-colors relative group">Portfolio<span
-          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
-      <a href="resources.html" class="hover:text-secondary transition-colors relative group">Resources<span
-          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
-      <a href="shop.html" class="hover:text-secondary transition-colors relative group">Shop<span
-          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
-      <a href="contact.html" class="hover:text-secondary transition-colors relative group">Contact<span
-          class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span></a>
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="index.html" class="nav-link-modern">Home</a>
+      <a href="about.html" class="nav-link-modern">About</a>
+      <a href="service.html" class="nav-link-modern">Services</a>
+      <a href="portfolio.html" class="nav-link-modern active">Portfolio</a>
+      <a href="resources.html" class="nav-link-modern">Resources</a>
+      <a href="shop.html" class="nav-link-modern">Shop</a>
+      <a href="careers.html" class="nav-link-modern">Careers</a>
+      <a href="contact.html" class="header-btn ml-4">Start Project</a>
     </nav>
 
     <!-- Hamburger Button -->
@@ -504,6 +601,18 @@
           </a>
         </li>
 
+        <!-- Careers -->
+        <li>
+          <a href="careers.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-user-tie"></i>
+            </span>
+            <span class="font-medium text-sm">Careers</span>
+          </a>
+        </li>
+
         <!-- Contact -->
         <li>
           <a href="contact.html"
@@ -594,13 +703,27 @@
         loading="lazy">
       <img src="HAMASTA T-Shirt & Tag Mockup.png" alt="HAMASTA T-Shirt & Tag Mockup" class="portfolio-item mockups"
         loading="lazy">
+      <img src="Free T-Shirt & Tag Mockup (3).png" alt="Free T-Shirt & Tag Mockup 3" class="portfolio-item mockups"
+        loading="lazy">
+      <img src="Free T-Shirt & Tag Mockup (4).png" alt="Free T-Shirt & Tag Mockup 4" class="portfolio-item mockups"
+        loading="lazy">
+      <img src="Free T-Shirt & Tag Mockup (5).png" alt="Free T-Shirt & Tag Mockup 5" class="portfolio-item mockups"
+        loading="lazy">
+      <img src="Gemini_Generated_Image_nbc7qtnbc7qtnbc7.png" alt="AI Generated Design Mockup"
+        class="portfolio-item mockups" loading="lazy">
 
       <!-- Mockups -->
       <img src="mockup1.png" alt="Mockup 1" class="portfolio-item mockups" loading="lazy">
       <img src="mockup2.png" alt="Mockup 2" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (1).png" alt="Mockup 1" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (2).png" alt="Mockup 2" class="portfolio-item mockups" loading="lazy">
       <img src="MOCKUP (3).png" alt="Mockup 3" class="portfolio-item mockups" loading="lazy">
-      <img src="MOCKUP (14).png" alt="Mockup 4" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (4).png" alt="Mockup 4" class="portfolio-item mockups" loading="lazy">
       <img src="MOCKUP (5).png" alt="Mockup 5" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (11).png" alt="Mockup 11" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (12).png" alt="Mockup 12" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (13).png" alt="Mockup 13" class="portfolio-item mockups" loading="lazy">
+      <img src="MOCKUP (14).png" alt="Mockup 14" class="portfolio-item mockups" loading="lazy">
       <img src="mockup6.png" alt="Mockup 6" class="portfolio-item mockups" loading="lazy">
       <img src="mockup7.png" alt="Mockup 7" class="portfolio-item mockups" loading="lazy">
       <img src="mockup8.png" alt="Mockup 8" class="portfolio-item mockups" loading="lazy">
@@ -631,10 +754,38 @@
       <!-- 🔥 FEATURED POSTERS -->
       <img src="HOT SEAT SCI.png" alt="HOT SEAT SCI Poster" class="portfolio-item posters" loading="lazy">
       <img src="CAJ.png" alt="CAJ Poster" class="portfolio-item posters" loading="lazy">
-      <img src="MUKURU SHUJAA_FACEBOOK COVER.png" alt="Mukuru Shujaa Facebook Cover" class="portfolio-item posters"
+      <img src="MUKURU SHUJAA _FACEBOOK COVER.png" alt="Mukuru Shujaa Facebook Cover" class="portfolio-item posters"
         loading="lazy">
+      <img src="SAM OGUTU MP 2027 (2).png" alt="SAM OGUTU MP 2027 Campaign Poster" class="portfolio-item posters"
+        loading="lazy">
+      <img src="Modern Breaking News Instagram Post  (3).png" alt="Modern Breaking News Instagram Post"
+        class="portfolio-item posters" loading="lazy">
+      <img src="Anti-corruption Campaign poster (1).png" alt="Anti-corruption Campaign poster 1"
+        class="portfolio-item posters" loading="lazy">
+      <img src="Anti-corruption Campaign poster (2).png" alt="Anti-corruption Campaign poster 2"
+        class="portfolio-item posters" loading="lazy">
+      <img src="Anti-corruption Campaign poster (3).png" alt="Anti-corruption Campaign poster 3"
+        class="portfolio-item posters" loading="lazy">
+      <img src="Anti-corruption Campaign poster (4).png" alt="Anti-corruption Campaign poster 4"
+        class="portfolio-item posters" loading="lazy">
+      <img src="Anti-corruption Campaign poster (5).png" alt="Anti-corruption Campaign poster 5"
+        class="portfolio-item posters" loading="lazy">
+      <img src="Anti-corruption Campaign poster (6).png" alt="Anti-corruption Campaign poster 6"
+        class="portfolio-item posters" loading="lazy">
+      <img src="political tour- ODM.png" alt="Political Tour ODM Poster" class="portfolio-item posters" loading="lazy">
+      <img src="The future of Homa Bay County .png" alt="The Future of Homa Bay County" class="portfolio-item posters"
+        loading="lazy">
+      <img src="SOMU POSTERS (2).png" alt="SOMU POSTER 2" class="portfolio-item posters" loading="lazy">
+      <img src="SOMU POSTERS (3).png" alt="SOMU POSTER 3" class="portfolio-item posters" loading="lazy">
 
       <!-- Posters -->
+      <img src="SAM OGUTU MP 2027.png" alt="SAM OGUTU MP 2027 Poster" class="portfolio-item posters" loading="lazy">
+      <img src="EXPLORE UIUX DESIGN (1).png" alt="UIUX Design Poster" class="portfolio-item posters" loading="lazy">
+      <img src="HAPPY NEW MONTH-sege.png" alt="Happy New Month Poster" class="portfolio-item posters" loading="lazy">
+      <img src="LOGO DESIGN PACKAGES.png" alt="Logo Design Packages" class="portfolio-item posters" loading="lazy">
+      <img src="WECARE MASHUJAA.png" alt="Wecare Mashujaa Poster" class="portfolio-item posters" loading="lazy">
+      <img src="hri mashujaa poster.png" alt="HRI Mashujaa Poster" class="portfolio-item posters" loading="lazy">
+      <img src="POSTER (1).jpg" alt="Poster 1" class="portfolio-item posters" loading="lazy">
       <img src="POSTER (2).png" alt="Poster 2" class="portfolio-item posters" loading="lazy">
       <img src="POSTER (3).png" alt="Poster 3" class="portfolio-item posters" loading="lazy">
       <img src="POSTER (4).png" alt="Poster 4" class="portfolio-item posters" loading="lazy">
@@ -670,6 +821,10 @@
       <img src="event(3).jpg" alt="Event (3)" class="portfolio-item events" loading="lazy">
       <img src="event(4).jpg" alt="Event (4)" class="portfolio-item events" loading="lazy">
       <img src="event(5).png" alt="Event (5)" class="portfolio-item events" loading="lazy">
+      <img src="YALA TOURNAMENT.png" alt="Yala Tournament Poster" class="portfolio-item events" loading="lazy">
+      <img src="YALA TOURNAMENT (1).png" alt="Yala Tournament Highlights" class="portfolio-item events" loading="lazy">
+      <img src="INTER FACULTY SOCCER TOURNAMENT (1).png" alt="Inter Faculty Soccer Tournament"
+        class="portfolio-item events" loading="lazy">
 
       <!-- Logos -->
       <img src="logo (2).jpg" alt="Logo 2" class="portfolio-item logos" loading="lazy">
@@ -685,6 +840,23 @@
       <img src="logo (11).png" alt="Logo 11" class="portfolio-item logos" loading="lazy">
       <img src="logo (12).png" alt="Logo 12" class="portfolio-item logos" loading="lazy">
       <img src="logo (13).png" alt="Logo 13" class="portfolio-item logos" loading="lazy">
+
+      <!-- Hardware & Gadgets -->
+      <img src="HP 830 G5 ELITEBOOK.jpg" alt="HP Elitebook" class="portfolio-item others" loading="lazy">
+      <img src="(Refurbished) DELL LATITUDE 7490 Core i7.jpeg" alt="Dell Latitude" class="portfolio-item others"
+        loading="lazy">
+      <img src="Slim 40 Touch with pen available.jpg" alt="Slim 40 Touch" class="portfolio-item others" loading="lazy">
+
+      <!-- Business Identity -->
+      <img src="BUSINESS CARD SKOPE DESIGNS.png" alt="Business Card" class="portfolio-item identity" loading="lazy">
+      <img src="CERT (2).jpg" alt="Certificate Design" class="portfolio-item identity" loading="lazy">
+      <img src="BUSINESS AUTOMATION.png" alt="Business Automation" class="portfolio-item identity" loading="lazy">
+
+      <!-- Birthdays & Celebrations -->
+      <img src="BIRTHDAY (1).png" alt="Birthday Poster 1" class="portfolio-item posters" loading="lazy">
+      <img src="BIRTHDAY (2).png" alt="Birthday Poster 2" class="portfolio-item posters" loading="lazy">
+      <img src="BIRTHDAY (3).png" alt="Birthday Poster 3" class="portfolio-item posters" loading="lazy">
+      <img src="celebration (2).jpg" alt="Celebration Design" class="portfolio-item posters" loading="lazy">
       <img src="logo (14).png" alt="Logo 14" class="portfolio-item logos" loading="lazy">
       <img src="logo (15).png" alt="Logo 15" class="portfolio-item logos" loading="lazy">
       <img src="logo (16).png" alt="Logo 16" class="portfolio-item logos" loading="lazy">
@@ -697,6 +869,35 @@
       <img src="XMASS (2).png" alt="Xmass 2" class="portfolio-item holidays" loading="lazy">
       <img src="XMASS (3).png" alt="Xmass 3" class="portfolio-item holidays" loading="lazy">
       <img src="XMASS (4).png" alt="Xmass 4" class="portfolio-item holidays" loading="lazy">
+      <img src="Festive-December Poster (1).png" alt="Festive December Poster 1" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (2).png" alt="Festive December Poster 2" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (3).png" alt="Festive December Poster 3" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (4).png" alt="Festive December Poster 4" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (5).png" alt="Festive December Poster 5" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (6).png" alt="Festive December Poster 6" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (7).png" alt="Festive December Poster 7" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (8).png" alt="Festive December Poster 8" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (9).png" alt="Festive December Poster 9" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (10).png" alt="Festive December Poster 10" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="Festive-December Poster (11).png" alt="Festive December Poster 11" class="portfolio-item holidays"
+        loading="lazy">
+      <img src="jamhuriday-poster (1).png" alt="Jamhuri Day Poster 1" class="portfolio-item holidays" loading="lazy">
+      <img src="jamhuriday-poster (2).png" alt="Jamhuri Day Poster 2" class="portfolio-item holidays" loading="lazy">
+      <img src="jamhuriday-poster (3).png" alt="Jamhuri Day Poster 3" class="portfolio-item holidays" loading="lazy">
+      <img src="jamhuriday-poster (4).png" alt="Jamhuri Day Poster 4" class="portfolio-item holidays" loading="lazy">
+      <img src="jamhuriday-poster (5).png" alt="Jamhuri Day Poster 5" class="portfolio-item holidays" loading="lazy">
+      <img src="jamhuri day (1).png" alt="Jamhuri Day Celebration 1" class="portfolio-item holidays" loading="lazy">
+      <img src="jamhuri day (2).png" alt="Jamhuri Day Celebration 2" class="portfolio-item holidays" loading="lazy">
 
       <!-- New Month Posters -->
       <img src="nm (7).png" alt="New Month Poster 1" class="portfolio-item posters" loading="lazy">
@@ -761,29 +962,111 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-primary py-8 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-3">
-        <img src="fav.ico" alt="Logo" class="h-14 w-14" />
+  <!-- MODERN FOOTER -->
+  <footer class="relative bg-slate-950 pt-20 pb-10 overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent">
+    </div>
+    <div class="absolute -top-24 -left-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <img src="logo.png" alt="Skope Logo" class="h-12 w-12 rounded-full border border-cyan-500/30 p-1" />
+            <div>
+              <span class="block font-bold text-xl tracking-wider text-white">SKOPE DESIGNS</span>
+              <span class="block text-[10px] uppercase tracking-[0.2em] text-cyan-400 font-medium">Design Beyond
+                Boundaries</span>
+            </div>
+          </div>
+          <p class="text-slate-400 leading-relaxed">Crafting high-performing digital experiences through innovative web
+            design, branding, and full-stack development.</p>
+          <div class="flex gap-4">
+            <a href="https://web.facebook.com/engskope" target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300"><i
+                class="fab fa-facebook-f text-sm"></i></a>
+            <a href="https://x.com/sege_peter79144" target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-orange-500/50 hover:bg-orange-500/10 transition-all duration-300"><i
+                class="fab fa-x-twitter text-sm"></i></a>
+            <a href="https://www.instagram.com/segepeter71/" target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-pink-500/50 hover:bg-pink-500/10 transition-all duration-300"><i
+                class="fab fa-instagram text-sm"></i></a>
+            <a href="https://linkedin.com/in/peter-sege-221831303" target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300"><i
+                class="fab fa-linkedin-in text-sm"></i></a>
+          </div>
+        </div>
         <div>
-          <span class="font-bold text-lg">SKOPE DESIGNS</span>
-          <span class="block text-xs">Design Beyond Boundaries</span>
+          <h4 class="text-white font-bold text-lg mb-6 relative inline-block">Our Services<span
+              class="absolute -bottom-2 left-0 w-8 h-1 bg-cyan-500 rounded-full"></span></h4>
+          <ul class="space-y-4">
+            <li><a href="service.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Web
+                Design</a></li>
+            <li><a href="service.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Full-Stack Dev</a></li>
+            <li><a href="service.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Brand
+                Identity</a></li>
+            <li><a href="shop.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Digital
+                Products</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-lg mb-6 relative inline-block">Quick Links<span
+              class="absolute -bottom-2 left-0 w-8 h-1 bg-orange-500 rounded-full"></span></h4>
+          <ul class="space-y-4">
+            <li><a href="about.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> About
+                Us</a></li>
+            <li><a href="portfolio.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Portfolio</a></li>
+            <li><a href="careers.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Careers</a></li>
+            <li><a href="resources.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-lg mb-6 relative inline-block">Newsletter<span
+              class="absolute -bottom-2 left-0 w-8 h-1 bg-cyan-500 rounded-full"></span></h4>
+          <p class="text-slate-400 mb-6 font-medium">Get the latest design insights and tech updates.</p>
+          <form class="space-y-3">
+            <div class="relative group">
+              <input type="email" placeholder="Email Address"
+                class="w-full bg-slate-900 border border-slate-800 rounded-xl px-5 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 transition-all">
+              <button
+                class="absolute right-2 top-2 bottom-2 bg-cyan-500 hover:bg-cyan-600 text-white px-4 rounded-lg transition-all flex items-center justify-center"><i
+                  class="fas fa-paper-plane"></i></button>
+            </div>
+            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our Privacy Policy.</p>
+          </form>
         </div>
       </div>
-      <div class="flex gap-6 text-xl text-white">
-        <a href="https://web.facebook.com/engskope" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://x.com/sege_peter79144" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/segepeter71/" class="hover:text-secondary"><i
-            class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i
-            class="fab fa-linkedin"></i></a>
-        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i
-            class="fab fa-pinterest"></i></a>
-        <a href="https://www.youtube.com/@engskope" class="hover:text-secondary" target="_blank" rel="noopener"><i
-            class="fab fa-youtube"></i></a>
+      <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-800 to-transparent mb-10"></div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-slate-500 text-sm">&copy; <span id="footer-year"></span> <span
+            class="text-white font-semibold">Skope Designs</span>. Made with <i
+            class="fas fa-heart text-red-500 animate-pulse"></i> by Sege Peter.</p>
+        <div class="flex gap-8">
+          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
+          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
+          <a href="contact.html" class="text-slate-500 hover:text-white text-xs transition-colors">Contact</a>
+        </div>
       </div>
-      <div class="text-sm">&copy; <span id="year"></span> Skope Designs. All rights reserved.</div>
     </div>
   </footer>
 
@@ -800,6 +1083,12 @@
 
     // Projects data
     const projects = [
+      {
+        name: "Victoria Agrotech Ltd",
+        description: "A social enterprise engineering circular agribusiness solutions for soil regeneration, clean energy, and waste management.",
+        image: "victoriaagrotechltd.png",
+        link: "https://victoriaagrotechltd.com/"
+      },
       {
         name: "Hope Rekindled Initiative",
         description: "A youth-led mental health and empowerment platform with a clean, responsive design.",
@@ -1109,9 +1398,9 @@
 
     // Set year
     const yearElement = document.getElementById('year');
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
+    if (yearElement) yearElement.textContent = new Date().getFullYear();
+    const footerYearEl = document.getElementById('footer-year');
+    if (footerYearEl) footerYearEl.textContent = new Date().getFullYear();
   </script>
 
   <!-- SkopeAI Chatbot -->

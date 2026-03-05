@@ -95,34 +95,106 @@
       transform: translateX(0);
     }
 
+    @keyframes border-beam {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 200% 50%;
+      }
+    }
+
     .static-header {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      background-color: #0f9d58;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: all .3s;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 2px solid transparent;
+    }
+
+    .static-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #06b6d4, #f97316, #06b6d4);
+      background-size: 200% 100%;
+      animation: border-beam 3s linear infinite;
     }
 
     .static-header.scrolled {
-      padding: .5rem 2rem;
-      background-color: rgba(15, 157, 88, .95);
-      backdrop-filter: blur(5px);
+      padding: 0.6rem 2rem;
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-link-modern {
+      position: relative;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      transition: all 0.3s ease;
+    }
+
+    .nav-link-modern:hover {
+      color: #06b6d4;
+    }
+
+    .nav-link-modern::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f97316;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link-modern:hover::after {
+      width: 100%;
+    }
+
+    .nav-link-modern.active {
+      color: #fff;
+    }
+
+    .nav-link-modern.active::after {
+      width: 100%;
+      background: #06b6d4;
+    }
+
+    .header-btn {
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
     }
 
     .logo-img {
-      height: 50px;
-      transition: transform .3s;
-      border-radius: 50px;
-      border: 1.7px solid #f57c00;
+      height: 48px;
+      width: 48px;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50%;
+      border: 2px solid #f97316;
     }
 
-    .logo-img:hover {
-      transform: rotate(10deg);
+    .static-header.scrolled .logo-img {
+      height: 38px;
+      width: 38px;
     }
 
     /* Sidebar Menu Animations */
@@ -170,22 +242,25 @@
 <body class="bg-dark text-white font-sans overflow-x-hidden">
 
   <!-- HEADER -->
-  <header id="header" class="static-header bg-primary text-white px-6 py-4 flex items-center justify-between">
+  <header id="header" class="static-header px-6 py-4 flex items-center justify-between text-white">
     <div class="flex items-center gap-3">
-      <img src="logo.png" alt="Skope Logo" class="logo-img" />
+      <img src="logo.png" alt="Skope Logo"
+        class="logo-img rounded-full border-2 border-secondary hover:rotate-12 transition-transform duration-300" />
       <div>
-        <span class="font-bold text-lg">SKOPE DESIGNS</span>
-        <span class="block text-xs italic">Design Beyond Boundaries</span>
+        <span class="font-bold text-lg tracking-wide uppercase">SKOPE DESIGNS</span>
+        <span class="block text-[10px] italic opacity-90">Design Beyond Boundaries</span>
       </div>
     </div>
-    <nav class="hidden md:flex gap-8">
-      <a href="index.html" class="hover:text-secondary">Home</a>
-      <a href="about.html" class="hover:text-secondary">About</a>
-      <a href="service.html" class="hover:text-secondary">Services</a>
-      <a href="portfolio.html" class="hover:text-secondary">Portfolio</a>
-      <a href="resources.html" class="hover:text-secondary">Resources</a>
-      <a href="shop.html" class="hover:text-secondary">Shop</a>
-      <a href="contact.html" class="hover:text-secondary">Contact</a>
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="index.html" class="nav-link-modern">Home</a>
+      <a href="about.html" class="nav-link-modern">About</a>
+      <a href="service.html" class="nav-link-modern active">Services</a>
+      <a href="portfolio.html" class="nav-link-modern">Portfolio</a>
+      <a href="resources.html" class="nav-link-modern">Resources</a>
+      <a href="shop.html" class="nav-link-modern">Shop</a>
+      <a href="careers.html" class="nav-link-modern">Careers</a>
+      <a href="contact.html" class="header-btn ml-4">Start Project</a>
     </nav>
     <!-- Hamburger Button -->
     <button id="menu-btn" class="md:hidden z-[60] relative w-8 h-6 flex flex-col justify-between focus:outline-none">
@@ -290,6 +365,18 @@
           </a>
         </li>
 
+        <!-- Careers -->
+        <li>
+          <a href="careers.html"
+            class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-50 transition-all group">
+            <span
+              class="w-7 h-7 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all text-sm">
+              <i class="fas fa-user-tie"></i>
+            </span>
+            <span class="font-medium text-sm">Careers</span>
+          </a>
+        </li>
+
         <!-- Contact -->
         <li>
           <a href="contact.html"
@@ -380,7 +467,7 @@
             <li class="flex items-center gap-2 text-cyan-400"><i class="fas fa-check-circle text-xs"></i> Marketing
               Collateral</li>
           </ul>
-          <a href="https://wa.me/254742380183?text=I'm interested in Graphic Design services"
+          <a href="https://wa.me/254742380183?text=Hello%20Skope%20Designs,%20I%20am%20interested%20in%20your%20Graphic%20Design%20and%20Branding%20services.%20Could%20you%20share%20more%20details%20on%20available%20packages?"
             class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
             Start a project <i class="fas fa-arrow-right"></i>
           </a>
@@ -407,7 +494,7 @@
             <li class="flex items-center gap-2 text-orange-400"><i class="fas fa-check-circle text-xs"></i> E-commerce
               Solutions</li>
           </ul>
-          <a href="https://wa.me/254742380183?text=I'm interested in Web Development services"
+          <a href="https://wa.me/254742380183?text=Hello%20Skope%20Designs,%20I'm%20looking%20to%20build%20a%20new%20website/web%20app.%20Could%20you%20provide%20a%20quote%20based%20on%20my%20requirements?"
             class="text-secondary font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
             Launch your site <i class="fas fa-arrow-right"></i>
           </a>
@@ -434,7 +521,7 @@
             <li class="flex items-center gap-2 text-green-400"><i class="fas fa-check-circle text-xs"></i> Social Media
               Growth</li>
           </ul>
-          <a href="https://wa.me/254742380183?text=I'm interested in Digital Marketing services"
+          <a href="https://wa.me/254742380183?text=Hello%20Skope%20Designs,%20I%20want%20to%20grow%20my%20brand%20with%20Digital%20Marketing.%20What%20strategies%20do%20you%20recommend%20for%20a%20start?"
             class="text-green-400 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
             Grow your brand <i class="fas fa-arrow-right"></i>
           </a>
@@ -488,7 +575,7 @@
             <li class="flex items-center gap-2 text-red-400"><i class="fas fa-check-circle text-xs"></i> Product Editing
             </li>
           </ul>
-          <a href="https://wa.me/254742380183?text=I'm interested in Photography services"
+          <a href="https://wa.me/254742380183?text=Hello%20Skope%20Designs,%20I'm%20interested%20in%20Photograpy%20and%20Editing%20services.%20I'd%20like%20to%20book%20a%20session/discuss%20a%20shoot."
             class="text-red-500 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
             Book a session <i class="fas fa-arrow-right"></i>
           </a>
@@ -518,6 +605,87 @@
           <a href="https://chat.whatsapp.com/HBc25gQBosqD91ebi69REn"
             class="text-blue-400 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
             Join the Hub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Software Development -->
+        <div
+          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/10 relative overflow-hidden">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/20 rounded-full blur-3xl group-hover:bg-indigo-500/40 transition-all">
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 text-3xl mb-8 group-hover:scale-110 transition-transform">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Software & Customized Solutions</h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">Developing tailored software systems and automated workflows
+            that streamline your operations.</p>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-2 text-indigo-400"><i class="fas fa-check-circle text-xs"></i> Custom
+              ERP/CRM Systems</li>
+            <li class="flex items-center gap-2 text-indigo-400"><i class="fas fa-check-circle text-xs"></i> Process
+              Automation</li>
+            <li class="flex items-center gap-2 text-indigo-400"><i class="fas fa-check-circle text-xs"></i> API
+              Integrations</li>
+          </ul>
+          <a href="https://wa.me/254742380183?text=Hello%20Skope%20Designs,%20I%20am%20interested%20in%20Software%20Development%20and%20Customized%20Solutions.%20Could%20we%20discuss%20a%20tailored%20system%20for%20my%20business?"
+            class="text-indigo-400 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
+            Build my system <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- AI & Intelligent Solutions -->
+        <div
+          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-cyan-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-400/10 relative overflow-hidden">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl group-hover:bg-cyan-400/40 transition-all">
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl bg-cyan-400/10 flex items-center justify-center text-cyan-400 text-3xl mb-8 group-hover:scale-110 transition-transform">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">AI & Intelligent Solutions</h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">Integrating Artificial Intelligence and Machine Learning to make
+            your products smarter and data-driven.</p>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-2 text-cyan-400"><i class="fas fa-check-circle text-xs"></i> AI Chatbot
+              Integration</li>
+            <li class="flex items-center gap-2 text-cyan-400"><i class="fas fa-check-circle text-xs"></i> Predictive
+              Analytics</li>
+            <li class="flex items-center gap-2 text-cyan-400"><i class="fas fa-check-circle text-xs"></i> Smart
+              Automations</li>
+          </ul>
+          <a href="https://wa.me/254742380183?text=Hello%20Skope%20Designs,%20I'd%20like%20to%20learn%20more%20about%20your%20AI%20and%20Intelligent%20Solutions.%20How%20can%20you%20help%20integrate%20AI%20into%20my%20workflow?"
+            class="text-cyan-400 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
+            Start AI Project <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- IT Consultation -->
+        <div
+          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-amber-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 relative overflow-hidden">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/20 rounded-full blur-3xl group-hover:bg-amber-500/40 transition-all">
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 text-3xl mb-8 group-hover:scale-110 transition-transform">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">IT Consultation</h3>
+          <p class="text-gray-400 mb-6 leading-relaxed">Providing strategic technology advice to help you navigate
+            complex digital transformations.</p>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-2 text-amber-400"><i class="fas fa-check-circle text-xs"></i> Tech Stack
+              Advisory</li>
+            <li class="flex items-center gap-2 text-amber-400"><i class="fas fa-check-circle text-xs"></i> Digital
+              Transformation</li>
+            <li class="flex items-center gap-2 text-amber-400"><i class="fas fa-check-circle text-xs"></i> Cybersecurity
+              Basic</li>
+          </ul>
+          <a href="https://wa.me/254742380183?text=Hello%20Skope%20Designs,%20I%20am%20seeking%20IT%20Consultation.%20I'd%20love%20to%20get%20expert%20advice%20on%20my%20current%20technology%20setup."
+            class="text-amber-500 font-bold flex items-center gap-2 group-hover:gap-4 transition-all uppercase tracking-wider text-xs">
+            Get Expert Advice <i class="fas fa-arrow-right"></i>
           </a>
         </div>
       </div>
@@ -662,34 +830,146 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-primary py-8 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-3">
-        <img src="fav.ico" alt="Logo" class="h-14 w-14" />
+  <!-- MODERN FOOTER -->
+  <footer class="relative bg-slate-950 pt-20 pb-10 overflow-hidden">
+    <!-- Background Accents -->
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent">
+    </div>
+    <div class="absolute -top-24 -left-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Brand Column -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <img src="logo.png" alt="Skope Logo" class="h-12 w-12 rounded-full border border-cyan-500/30 p-1" />
+            <div>
+              <span class="block font-bold text-xl tracking-wider text-white">SKOPE DESIGNS</span>
+              <span class="block text-[10px] uppercase tracking-[0.2em] text-cyan-400 font-medium">Design Beyond
+                Boundaries</span>
+            </div>
+          </div>
+          <p class="text-slate-400 leading-relaxed">
+            Crafting high-performing digital experiences through innovative web design, branding, and full-stack
+            development.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://web.facebook.com/engskope" target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300">
+              <i class="fab fa-facebook-f text-sm"></i>
+            </a>
+            <a href="https://x.com/sege_peter79144" target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-orange-500/50 hover:bg-orange-500/10 transition-all duration-300">
+              <i class="fab fa-x-twitter text-sm"></i>
+            </a>
+            <a href="https://www.instagram.com/segepeter71/" target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-pink-500/50 hover:bg-pink-500/10 transition-all duration-300">
+              <i class="fab fa-instagram text-sm"></i>
+            </a>
+            <a href="https://linkedin.com/in/peter-sege-221831303" target="_blank"
+              class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300">
+              <i class="fab fa-linkedin-in text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services Column -->
         <div>
-          <span class="font-bold text-lg">SKOPE DESIGNS</span>
-          <span class="block text-xs">Design Beyond Boundaries</span>
+          <h4 class="text-white font-bold text-lg mb-6 relative inline-block">
+            Our Services
+            <span class="absolute -bottom-2 left-0 w-8 h-1 bg-cyan-500 rounded-full"></span>
+          </h4>
+          <ul class="space-y-4">
+            <li><a href="service.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Web
+                Design</a></li>
+            <li><a href="service.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Full-Stack Dev</a></li>
+            <li><a href="service.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Brand
+                Identity</a></li>
+            <li><a href="shop.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Digital
+                Products</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-6 relative inline-block">
+            Quick Links
+            <span class="absolute -bottom-2 left-0 w-8 h-1 bg-orange-500 rounded-full"></span>
+          </h4>
+          <ul class="space-y-4">
+            <li><a href="about.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> About
+                Us</a></li>
+            <li><a href="portfolio.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Portfolio</a></li>
+            <li><a href="careers.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Careers</a></li>
+            <li><a href="resources.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Resources</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-6 relative inline-block">
+            Newsletter
+            <span class="absolute -bottom-2 left-0 w-8 h-1 bg-cyan-500 rounded-full"></span>
+          </h4>
+          <p class="text-slate-400 mb-6 font-medium">Get the latest design insights and tech updates.</p>
+          <form class="space-y-3">
+            <div class="relative group">
+              <input type="email" placeholder="Email Address"
+                class="w-full bg-slate-900 border border-slate-800 rounded-xl px-5 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 transition-all">
+              <button
+                class="absolute right-2 top-2 bottom-2 bg-cyan-500 hover:bg-cyan-600 text-white px-4 rounded-lg transition-all flex items-center justify-center">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our Privacy Policy.</p>
+          </form>
         </div>
       </div>
-      <div class="flex gap-6 text-xl text-white">
-        <a href="https://web.facebook.com/engskope" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://x.com/sege_peter79144" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/segepeter71/" class="hover:text-secondary"><i
-            class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/in/peter-sege-221831303" class="hover:text-secondary"><i
-            class="fab fa-linkedin"></i></a>
-        <a href="https://www.pinterest.com/skopedesign91/" class="hover:text-secondary"><i
-            class="fab fa-pinterest"></i></a>
-        <a href="https://www.youtube.com/@engskope" class="hover:text-secondary" target="_blank" rel="noopener">
-          <i class="fab fa-youtube"></i></a>
+
+      <!-- Divider -->
+      <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-800 to-transparent mb-10"></div>
+
+      <!-- Footer Bottom -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-slate-500 text-sm">
+          &copy; <span id="footer-year"></span> <span class="text-white font-semibold">Skope Designs</span>. Made with
+          <i class="fas fa-heart text-red-500 animate-pulse"></i> by Sege Peter.
+        </p>
+        <div class="flex gap-8">
+          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
+          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
+          <a href="contact.html" class="text-slate-500 hover:text-white text-xs transition-colors">Contact</a>
+        </div>
       </div>
-      <div class="text-sm">&copy; <span id="year"></span> Skope Designs. All rights reserved.</div>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
+    // Set current year
+    const currentYear = new Date().getFullYear();
+    if (document.getElementById('year')) document.getElementById('year').textContent = currentYear;
+    if (document.getElementById('footer-year')) document.getElementById('footer-year').textContent = currentYear;
     // Mobile menu toggle
     // Sidebar Menu Logic with Icons
     const menuBtn = document.getElementById('menu-btn');
