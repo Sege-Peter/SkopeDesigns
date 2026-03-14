@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,7 +28,7 @@
   <meta name="twitter:image" content="https://www.skopedesigns.com/fav.ico" />
 
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
+  <script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
     crossorigin="anonymous"></script>
 
   <link rel="icon" href="fav.ico" type="image/x-icon" />
@@ -306,7 +306,16 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+  
+    /* Global Responsiveness & Speed Fixes */
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (max-width: 768px) {
+        .mobile-p-0 { padding: 0 !important; }
+        .mobile-m-0 { margin: 0 !important; }
+        .text-responsive { font-size: calc(1rem + 1vw); }
+    }
+</style>
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -1083,7 +1092,16 @@
     .social-hover div {
       transition: all 0.3s ease;
     }
-  </style>
+  
+    /* Global Responsiveness & Speed Fixes */
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (max-width: 768px) {
+        .mobile-p-0 { padding: 0 !important; }
+        .mobile-m-0 { margin: 0 !important; }
+        .text-responsive { font-size: calc(1rem + 1vw); }
+    }
+</style>
 
 
   <!-- MODERN FOOTER -->
@@ -1176,7 +1194,7 @@
                 class="absolute right-2 top-2 bottom-2 bg-cyan-500 hover:bg-cyan-600 text-white px-4 rounded-lg transition-all flex items-center justify-center"><i
                   class="fas fa-paper-plane"></i></button>
             </div>
-            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our Privacy Policy.</p>
+            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our <a href="privacy-policy.html" class="hover:text-cyan-400 underline">Privacy Policy</a>.</p>
           </form>
         </div>
       </div>
@@ -1186,8 +1204,8 @@
             class="text-white font-semibold">Skope Designs</span>. Made with <i
             class="fas fa-heart text-red-500 animate-pulse"></i> by Sege Peter.</p>
         <div class="flex gap-8">
-          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
-          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
+          <a href="privacy-policy.html" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
+          <a href="terms-of-service.html" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
           <a href="contact.html" class="text-slate-500 hover:text-white text-xs transition-colors">Contact</a>
         </div>
       </div>
@@ -1303,6 +1321,15 @@
       }
     })();
   </script>
+
+
+
 </body>
 
 </html>
+
+
+
+
+
+

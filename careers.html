@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -362,7 +362,16 @@
                 transform: rotate(360deg);
             }
         }
-    </style>
+    
+    /* Global Responsiveness & Speed Fixes */
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (max-width: 768px) {
+        .mobile-p-0 { padding: 0 !important; }
+        .mobile-m-0 { margin: 0 !important; }
+        .text-responsive { font-size: calc(1rem + 1vw); }
+    }
+</style>
 </head>
 
 <body class="bg-dark text-white font-sans overflow-x-hidden">
@@ -548,18 +557,18 @@
             <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-slide-down">
                 <span class="bg-gradient-to-r from-cyan-400 via-white to-orange-400 
                      bg-clip-text text-transparent bg-size-200 animate-gradient">
-                    Join Our Creative
+                    Are You Passionate?
                 </span>
                 <br />
-                <span class="text-white">Team</span>
+                <span class="text-white">Join Our Team.</span>
             </h1>
 
             <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 animate-slide-up">
-                Build amazing digital experiences with us. We're looking for passionate
-                <span class="text-cyan-400 font-semibold">developers</span>,
-                <span class="text-orange-400 font-semibold">designers</span>,
-                <span class="text-cyan-400 font-semibold">marketers</span>, and
-                <span class="text-orange-400 font-semibold">innovators</span> to join our journey.
+                You don't need to be perfect — you need to be driven. We
+                <span class="text-cyan-400 font-semibold">train together</span>,
+                <span class="text-orange-400 font-semibold">grow together</span>,
+                and build amazing digital experiences as
+                <span class="text-cyan-400 font-semibold">one team</span>. If you have the passion, we have the path.
             </p>
 
             <!-- CTA Buttons -->
@@ -613,12 +622,12 @@
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">
                     <span class="bg-gradient-to-r from-cyan-400 to-orange-400 
                        bg-clip-text text-transparent">
-                        Why Join Skope Designs?
+                        Grow With Us at Skope Designs
                     </span>
                 </h2>
                 <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    We're not just building websites - we're building careers, fostering creativity,
-                    and pushing boundaries every day.
+                    We believe in people over credentials. We train you, walk with you, and celebrate every win together.
+                    This is more than a job — it's a launchpad.
                 </p>
             </div>
 
@@ -660,11 +669,10 @@
                     hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
                     <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 
                       flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-chart-line text-3xl text-cyan-400"></i>
+                        <i class="fas fa-graduation-cap text-3xl text-cyan-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Growth Opportunities</h3>
-                    <p class="text-slate-400">Clear career paths, mentorship programs, and opportunities to work on
-                        cutting-edge tech.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Learn Together</h3>
+                    <p class="text-slate-400">We share knowledge daily. From code reviews to design critiques, our team grows smarter as one unit.</p>
                 </div>
 
                 <!-- Benefit Card 4 -->
@@ -674,10 +682,10 @@
                     hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]">
                     <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500/20 to-orange-600/20 
                       flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-clock text-3xl text-orange-400"></i>
+                        <i class="fas fa-chalkboard-teacher text-3xl text-orange-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Flexible Hours</h3>
-                    <p class="text-slate-400">Work when you're most productive. Focus on results, not hours logged.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">We Train You</h3>
+                    <p class="text-slate-400">New to something? No problem. We provide hands-on mentorship, real project exposure, and structured onboarding so you hit the ground running.</p>
                 </div>
 
                 <!-- Benefit Card 5 -->
@@ -687,11 +695,10 @@
                     hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
                     <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 
                       flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-users text-3xl text-cyan-400"></i>
+                        <i class="fas fa-seedling text-3xl text-cyan-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Great Culture</h3>
-                    <p class="text-slate-400">Regular team events, hackathons, and a supportive, inclusive environment.
-                    </p>
+                    <h3 class="text-xl font-bold text-white mb-3">Grow With Us</h3>
+                    <p class="text-slate-400">Your career evolves as Skope evolves. Juniors become leads, ideas become products. Your growth is our priority.</p>
                 </div>
 
                 <!-- Benefit Card 6 -->
@@ -701,10 +708,10 @@
                     hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]">
                     <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500/20 to-orange-600/20 
                       flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-rocket text-3xl text-orange-400"></i>
+                        <i class="fas fa-fire-alt text-3xl text-orange-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Impactful Work</h3>
-                    <p class="text-slate-400">Work on projects that matter - from startups to enterprise solutions.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Are You Passionate?</h3>
+                    <p class="text-slate-400">That's all we ask. Bring your drive, curiosity, and energy — we'll provide the tools, team, and direction to make great things happen.</p>
                 </div>
             </div>
         </div>
@@ -777,7 +784,7 @@
 
                         <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 
                        transition-colors">
-                            Senior Frontend Developer
+                            Frontend Developer
                         </h3>
 
                         <p class="text-slate-400 mb-4">
@@ -787,7 +794,7 @@
                         <!-- Experience Badge -->
                         <div class="mb-4">
                             <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs font-medium">
-                                <i class="fas fa-clock mr-1"></i> Min. 2 years experience
+                                <i class="fas fa-clock mr-1"></i> Min. 1 year experience
                             </span>
                         </div>
 
@@ -848,7 +855,7 @@
 
                     <div class="mb-4">
                         <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-xs font-medium">
-                            <i class="fas fa-clock mr-1"></i> Min. 2 years experience
+                            <i class="fas fa-clock mr-1"></i> Min. 1 year experience
                         </span>
                     </div>
 
@@ -971,7 +978,7 @@
 
                     <div class="mb-4">
                         <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-xs font-medium">
-                            <i class="fas fa-clock mr-1"></i> Min. 2 years experience
+                            <i class="fas fa-clock mr-1"></i> Min. 1 year experience
                         </span>
                     </div>
 
@@ -1087,7 +1094,7 @@
 
                     <div class="mb-4">
                         <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-xs font-medium">
-                            <i class="fas fa-clock mr-1"></i> Min. 2 years experience
+                            <i class="fas fa-clock mr-1"></i> Min. 1 year experience
                         </span>
                     </div>
 
@@ -1407,7 +1414,7 @@
                             <input type="checkbox" name="terms" id="terms" required class="w-5 h-5 rounded border-slate-600 bg-slate-800 
                             text-cyan-400 focus:ring-cyan-400">
                             <label for="terms" class="text-sm text-slate-300">
-                                I confirm that the information provided is true and accurate.
+                                I confirm that the information provided is true and accurate, and I agree to the <a href="terms-of-service.html" class="text-orange-400 hover:text-orange-300 underline">Terms of Service</a> and <a href="privacy-policy.html" class="text-cyan-400 hover:text-cyan-300 underline">Privacy Policy</a>.
                                 <span class="text-orange-400">*</span>
                             </label>
                         </div>
@@ -1737,7 +1744,7 @@
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </div>
-                        <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our Privacy Policy.</p>
+                        <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our <a href="privacy-policy.html" class="hover:text-cyan-400 underline">Privacy Policy</a>.</p>
                     </form>
                 </div>
             </div>
@@ -1752,8 +1759,8 @@
                     Made with <i class="fas fa-heart text-red-500 animate-pulse"></i> by Sege Peter.
                 </p>
                 <div class="flex gap-8">
-                    <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
+                    <a href="privacy-policy.html" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
                     <a href="contact.html" class="text-slate-500 hover:text-white text-xs transition-colors">Contact</a>
                 </div>
             </div>
@@ -2415,3 +2422,9 @@
 </body>
 
 </html>
+
+
+
+
+
+

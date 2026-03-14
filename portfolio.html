@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,7 +43,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
+  <script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
     crossorigin="anonymous"></script>
 
   <!-- Tailwind Config -->
@@ -144,18 +144,98 @@
 
     /* Responsive scroll */
     @media (max-width: 767px) {
-      #projectContainer {
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
+      /* Portfolio header on mobile */
+      #portfolio {
+        padding-top: 80px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
       }
 
-      #projectContainer>div {
-        scroll-snap-align: start;
+      /* Recent projects section padding */
+      #recent-projects {
+        padding: 36px 0 56px !important;
+      }
+
+      /* Stats bar: stack full-width on mobile */
+      #recent-projects .stats-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+        margin-bottom: 32px !important;
+      }
+
+      #recent-projects .stats-row {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      /* Hero card: single column stacked on mobile */
+      #featured-project {
+        margin-bottom: 20px !important;
+      }
+
+      #featured-project .hero-screenshot {
+        height: 200px !important;
+      }
+
+      #featured-project .hero-info {
+        padding: 20px 18px !important;
+      }
+
+      #featured-project .hero-info h3 {
+        font-size: 20px !important;
+      }
+
+      #featured-project .hero-info p {
+        font-size: 13px !important;
+      }
+
+      /* Project grid: 1 column on mobile */
+      #projectContainer {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+
+      /* Search bar full width */
+      .search-wrap {
+        padding: 0 16px;
+      }
+
+      /* Gallery grid on mobile */
+      .portfolio-gallery {
+        padding: 0 12px !important;
+      }
+
+      /* Filter buttons wrap tighter on mobile */
+      .filter-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+    }
+
+    @media (min-width: 480px) and (max-width: 767px) {
+      /* 2-column project grid on large phones */
+      #projectContainer {
+        grid-template-columns: repeat(2, 1fr) !important;
       }
     }
 
     @media (min-width: 768px) {
-      #projectContainer>div {
+      /* Hero card: side-by-side layout */
+      #featured-project .hero-body {
+        grid-template-columns: 3fr 2fr !important;
+      }
+
+      #featured-project .hero-screenshot {
+        height: 340px !important;
+      }
+
+      /* Project grid: 3 cols on desktop */
+      #projectContainer {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+
+      #projectContainer > div {
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -641,32 +721,119 @@
     </div>
   </aside>
 
-  <br><br>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="bg-gray-50 py-16 px-4 md:px-20 text-center font-sans">
-    <h2 class="text-4xl font-bold text-orange-600 mb-4" data-aos="fade-down">Our Creative Portfolio</h2>
-    <p class="text-gray-600 mb-10 text-lg">Explore a collection of our work — from designs to full websites and
-      campaigns.</p>
+  <!-- Portfolio Section Header -->
+  <section id="portfolio" style="background:linear-gradient(180deg,#0f172a 0%,#0f172a 100%);" class="pt-16 pb-0 px-4 md:px-20 text-center">
+    <span class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-orange-400 mb-3 bg-orange-400/10 px-4 py-1.5 rounded-full border border-orange-400/20" data-aos="fade-down">Skope Designs</span>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 mt-3" data-aos="fade-down" data-aos-delay="80">
+      Our Creative <span style="background:linear-gradient(90deg,#f97316,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Portfolio</span>
+    </h1>
+    <p class="text-slate-400 mb-0 text-lg max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="120">From brand designs to full-stack websites — every pixel crafted with purpose.</p>
+  </section>
 
-    <!-- Recent Projects Section -->
-    <section class="bg-white py-16 px-6 md:px-20" id="recent-projects">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-bold text-orange-600 text-center mb-12" data-aos="fade-down">
-          🌐 Our Recent Web Projects
-        </h2>
+  <!-- Recent Projects Section -->
+  <section id="recent-projects" style="background:linear-gradient(135deg,#0f172a 0%,#0d1829 50%,#0f172a 100%); padding: 60px 0 80px;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
 
-        <div id="projectContainer"
-          class="flex overflow-x-auto pb-6 md:overflow-visible md:grid md:grid-cols-4 md:gap-8 scrollbar-hide">
-          <!-- Projects will be inserted here by JavaScript -->
+      <!-- Section label + stats bar -->
+      <div class="stats-bar" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:48px;" data-aos="fade-up">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 10px #22c55e;animation:livePulse 1.8s ease-in-out infinite;"></span>
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;">Live Projects</span>
+          </div>
+          <h2 style="font-size:clamp(22px,4vw,42px);font-weight:900;color:#f1f5f9;margin:0;line-height:1.1;">Recent <span style="background:linear-gradient(90deg,#f97316,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Web Projects</span></h2>
         </div>
-
-        <!-- Scroll indicator for mobile -->
-        <div class="md:hidden text-center mt-4 text-gray-500 animate-bounce">
-          <i class="fas fa-arrow-left"></i> Scroll to view more <i class="fas fa-arrow-right"></i>
+        <div class="stats-row" style="display:flex;gap:20px;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <div style="font-size:clamp(20px,3vw,28px);font-weight:900;color:#06b6d4;line-height:1;">8+</div>
+            <div style="font-size:11px;color:#64748b;margin-top:3px;font-weight:600;">Sites Launched</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:clamp(20px,3vw,28px);font-weight:900;color:#f97316;line-height:1;">100%</div>
+            <div style="font-size:11px;color:#64748b;margin-top:3px;font-weight:600;">Client Satisfaction</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:clamp(20px,3vw,28px);font-weight:900;color:#a78bfa;line-height:1;">Full</div>
+            <div style="font-size:11px;color:#64748b;margin-top:3px;font-weight:600;">Stack Built</div>
+          </div>
         </div>
       </div>
-    </section>
+
+      <!-- Hero featured card: Hamasta Media (full width) -->
+      <div id="featured-project" data-aos="fade-up" style="border-radius:20px;overflow:hidden;background:#111827;border:1px solid rgba(6,182,212,0.2);box-shadow:0 0 60px rgba(6,182,212,0.08);margin-bottom:28px;transition:box-shadow 0.4s ease;"
+        onmouseenter="this.style.boxShadow='0 0 80px rgba(6,182,212,0.22)'" onmouseleave="this.style.boxShadow='0 0 60px rgba(6,182,212,0.08)'">
+        <!-- Browser bar -->
+        <div style="background:#0a1120;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);overflow:hidden;">
+          <span style="width:11px;height:11px;border-radius:50%;background:#ef4444;display:inline-block;flex-shrink:0;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#f59e0b;display:inline-block;flex-shrink:0;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#22c55e;display:inline-block;flex-shrink:0;"></span>
+          <div style="flex:1;min-width:0;background:#1e293b;border-radius:6px;padding:4px 10px;margin-left:8px;display:flex;align-items:center;gap:6px;overflow:hidden;">
+            <i class="fas fa-lock" style="font-size:9px;color:#22c55e;flex-shrink:0;"></i>
+            <span style="font-size:10px;color:#94a3b8;font-family:monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">hamastamedia.com</span>
+          </div>
+          <span style="margin-left:6px;flex-shrink:0;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;font-size:9px;font-weight:800;letter-spacing:0.12em;padding:3px 8px;border-radius:999px;text-transform:uppercase;box-shadow:0 0 12px rgba(249,115,22,0.5);">✦ New</span>
+        </div>
+        <!-- Screenshot + info: stacked on mobile, side-by-side on desktop -->
+        <div class="hero-body grid grid-cols-1 md:grid-cols-5 bg-[#111827]">
+          <div class="hero-screenshot md:col-span-2 relative overflow-hidden h-[220px] md:h-auto border-b md:border-b-0 md:border-r border-white/5">
+            <img src="hamasta coverr.png" alt="Hamasta Media" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+          </div>
+          <!-- Info panel -->
+          <div class="hero-info md:col-span-3 p-6 md:p-8 flex flex-col justify-center">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-cyan-500/10 text-cyan-400 text-[10px] font-bold px-3 py-1 rounded-full border border-cyan-500/20">Media Platform</span>
+              <span class="bg-orange-500/10 text-orange-400 text-[10px] font-bold px-3 py-1 rounded-full border border-orange-500/20">Full-Stack</span>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-black text-white mb-3">Hamasta Media</h3>
+            <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-6">A high-performance media ecosystem delivering lightning-fast news through a custom PHP/MySQL architecture and mobile-first design.</p>
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span class="text-[11px] font-mono text-cyan-400 bg-cyan-950/30 px-3 py-1 rounded-md border border-cyan-500/20">PHP 8.x</span>
+              <span class="text-[11px] font-mono text-cyan-400 bg-cyan-950/30 px-3 py-1 rounded-md border border-cyan-500/20">MySQL</span>
+              <span class="text-[11px] font-mono text-cyan-400 bg-cyan-950/30 px-3 py-1 rounded-md border border-cyan-500/20">Tailwind</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <a href="https://hamastamedia.com" target="_blank"
+                class="bg-cyan-500 hover:bg-cyan-600 text-dark px-6 py-3 rounded-full font-bold text-sm transition-all transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20">
+                View Live Project
+              </a>
+              <span class="text-slate-500 text-xs font-medium"><i class="fas fa-bolt text-orange-400 mr-1"></i> Fast Loading</span>
+            </div>
+          </div>
+        </div>
+      </div><!-- end #featured-project -->
+
+      <!-- Remaining projects grid -->
+      <div id="projectContainer"
+        style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+        <!-- JS-rendered cards below -->
+      </div>
+
+      <!-- Scroll indicator for mobile -->
+      <div class="md:hidden text-center mt-6 text-slate-500 text-sm animate-bounce">
+        <i class="fas fa-arrow-left"></i>&nbsp; Swipe to explore &nbsp;<i class="fas fa-arrow-right"></i>
+      </div>
+
+      <!-- View all CTA -->
+      <div style="text-align:center;margin-top:48px;" data-aos="fade-up">
+        <a href="portfolio.html#recent-projects"
+          style="display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(6,182,212,0.35);color:#06b6d4;padding:13px 36px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.3s;"
+          onmouseenter="this.style.background='rgba(6,182,212,0.1)';this.style.borderColor='rgba(6,182,212,0.7)';this.style.boxShadow='0 0 30px rgba(6,182,212,0.2)'" onmouseleave="this.style.background='transparent';this.style.borderColor='rgba(6,182,212,0.35)';this.style.boxShadow='none'">
+          See All Web Projects &nbsp;<i class="fas fa-arrow-right" style="font-size:12px;"></i>
+        </a>
+      </div>
+    </div>
+
+    <style>
+      @keyframes livePulse {
+        0%,100% { box-shadow: 0 0 6px #22c55e; opacity:1; }
+        50%      { box-shadow: 0 0 20px #22c55e; opacity:0.6; }
+      }
+    </style>
+  </section>
 
     <!-- Search Bar -->
     <div class="mb-8 max-w-md mx-auto">
@@ -828,7 +995,7 @@
 
       <!-- Logos -->
       <img src="logo (2).jpg" alt="Logo 2" class="portfolio-item logos" loading="lazy">
-      <img src="logo.png" alt="Logo" class="portfolio-item logos" loading="lazy">
+      <img src="logo.png" alt="Logo" class="portfolio-item logos">
       <img src="logo (3).png" alt="Logo 3" class="portfolio-item logos" loading="lazy">
       <img src="logo (4).png" alt="Logo 4" class="portfolio-item logos" loading="lazy">
       <img src="logo (5).png" alt="Logo 5" class="portfolio-item logos" loading="lazy">
@@ -935,7 +1102,7 @@
 
     <!-- Image Container -->
     <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="Lightbox Image">
+      <img id="lightbox-img" src="" alt="Lightbox Image" loading="lazy">
 
       <!-- Image Counter -->
       <div class="lightbox-counter" id="lightbox-counter">1 / 1</div>
@@ -1052,7 +1219,7 @@
                 class="absolute right-2 top-2 bottom-2 bg-cyan-500 hover:bg-cyan-600 text-white px-4 rounded-lg transition-all flex items-center justify-center"><i
                   class="fas fa-paper-plane"></i></button>
             </div>
-            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our Privacy Policy.</p>
+            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our <a href="privacy-policy.html" class="hover:text-cyan-400 underline">Privacy Policy</a>.</p>
           </form>
         </div>
       </div>
@@ -1062,8 +1229,8 @@
             class="text-white font-semibold">Skope Designs</span>. Made with <i
             class="fas fa-heart text-red-500 animate-pulse"></i> by Sege Peter.</p>
         <div class="flex gap-8">
-          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
-          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
+          <a href="privacy-policy.html" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
+          <a href="terms-of-service.html" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
           <a href="contact.html" class="text-slate-500 hover:text-white text-xs transition-colors">Contact</a>
         </div>
       </div>
@@ -1084,73 +1251,146 @@
     // Projects data
     const projects = [
       {
+        name: "Hamasta Media",
+        description: "A modern media and news platform delivering fast, smart, and engaging content — built with a sleek dark theme.",
+        image: "hamasta coverr.png",
+        link: "https://hamastamedia.com",
+        tag: "Media Platform",
+        isNew: true
+      },
+      {
         name: "Victoria Agrotech Ltd",
         description: "A social enterprise engineering circular agribusiness solutions for soil regeneration, clean energy, and waste management.",
-        image: "victoriaagrotechltd.png",
-        link: "https://victoriaagrotechltd.com/"
+        image: "victoria agrotech cover.png",
+        link: "https://victoriaagrotechltd.com/",
+        tag: "Agriculture"
       },
       {
         name: "Hope Rekindled Initiative",
         description: "A youth-led mental health and empowerment platform with a clean, responsive design.",
         image: "hri.png",
-        link: "https://hoperekindledinitiative.org"
+        link: "https://hoperekindledinitiative.org",
+        tag: "NGO"
       },
       {
         name: "Vincent Makori – Portfolio",
         description: "A modern personal portfolio showcasing projects, testimonials, and creative works.",
         image: "vm.png",
-        link: "https://vincentmakori.co.ke"
+        link: "https://vincentmakori.co.ke",
+        tag: "Portfolio"
       },
       {
         name: "Judes CBO",
         description: "A community platform supporting social outreach, empowerment, and impact reporting.",
         image: "judes.jpeg",
-        link: "https://judescbo.org"
+        link: "https://judescbo.org",
+        tag: "Community"
       },
       {
         name: "Community-Led Solutions CBO",
         description: "A responsive CBO website promoting transparency, youth empowerment, and local action.",
         image: "clscbo.jpeg",
-        link: "https://clscbo.netlify.app/"
+        link: "https://clscbo.netlify.app/",
+        tag: "Community"
       },
       {
         name: "Fortitude Transform CBO",
         description: "An engaging community site focused on empowerment, resilience, and sustainable growth.",
         image: "fortitude.jpeg",
-        link: "https://fortitudetransformcbo.org"
+        link: "https://fortitudetransformcbo.org",
+        tag: "NGO"
       },
       {
         name: "Skope Designs",
         description: "Our official website featuring creative services, live portfolio, and client stories.",
         image: "sd.png",
-        link: "https://skopedesigns.co.ke"
-      },
-      {
-        name: "Light and Nature Foundation",
-        description: "An eco-conscious site dedicated to environmental awareness and community education.",
-        image: "lna.png",
-        link: "https://light-and-nature-foundation.netlify.app/"
+        link: "https://skopedesigns.co.ke",
+        tag: "Agency"
       }
     ];
 
-    // Render projects
+    // Render projects — premium browser-mockup cards (skip index 0 = Hamasta, already rendered as hero)
     const container = document.getElementById('projectContainer');
-    projects.forEach((project, index) => {
+    projects.slice(1).forEach((project, index) => {
       const card = document.createElement('div');
-      card.className = "min-w-[300px] md:min-w-0 bg-gray-100 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 p-6 flex flex-col mx-2 md:mx-0";
       card.setAttribute("data-aos", "fade-up");
-      card.setAttribute("data-aos-delay", `${index * 100}`);
+      card.setAttribute("data-aos-delay", `${index * 70}`);
+      card.style.cssText = `
+        border-radius:16px;
+        overflow:hidden;
+        background:#111827;
+        border:1px solid rgba(255,255,255,0.07);
+        box-shadow:0 4px 24px rgba(0,0,0,0.4);
+        transition:transform 0.4s cubic-bezier(0.4,0,0.2,1),box-shadow 0.4s ease,border-color 0.3s;
+        cursor:pointer;
+      `;
+      card.onmouseenter = () => {
+        card.style.transform = 'translateY(-8px) scale(1.01)';
+        card.style.boxShadow = '0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(6,182,212,0.25)';
+        card.style.borderColor = 'rgba(6,182,212,0.3)';
+      };
+      card.onmouseleave = () => {
+        card.style.transform = 'translateY(0) scale(1)';
+        card.style.boxShadow = '0 4px 24px rgba(0,0,0,0.4)';
+        card.style.borderColor = 'rgba(255,255,255,0.07)';
+      };
+
+      // Tag colour map
+      const tagColors = {
+        'Agriculture': { bg:'rgba(34,197,94,0.12)', border:'rgba(34,197,94,0.3)', text:'#4ade80' },
+        'NGO':         { bg:'rgba(167,139,250,0.12)', border:'rgba(167,139,250,0.3)', text:'#a78bfa' },
+        'Portfolio':   { bg:'rgba(249,115,22,0.12)', border:'rgba(249,115,22,0.3)', text:'#fb923c' },
+        'Community':   { bg:'rgba(236,72,153,0.12)', border:'rgba(236,72,153,0.3)', text:'#f472b6' },
+        'Agency':      { bg:'rgba(6,182,212,0.12)', border:'rgba(6,182,212,0.3)', text:'#06b6d4' },
+      };
+      const tc = tagColors[project.tag] || { bg:'rgba(6,182,212,0.12)', border:'rgba(6,182,212,0.3)', text:'#06b6d4' };
 
       card.innerHTML = `
-        <img src="${project.image}" alt="${project.name}" class="w-full h-48 object-cover rounded-xl mb-4 shadow-inner" />
-        <div class="flex-grow">
-          <h3 class="text-2xl font-semibold text-gray-800 mb-2">${project.name}</h3>
-          <p class="text-gray-600 mb-4">${project.description}</p>
+        <!-- Browser bar -->
+        <div style="background:#0a1120;padding:9px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <span style="width:9px;height:9px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
+          <span style="width:9px;height:9px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
+          <span style="width:9px;height:9px;border-radius:50%;background:#22c55e;display:inline-block;"></span>
+          <div style="flex:1;background:#1e293b;border-radius:5px;padding:3px 10px;margin-left:8px;overflow:hidden;">
+            <span style="font-size:10px;color:#64748b;font-family:monospace;white-space:nowrap;">${project.link.replace('https://','')}</span>
+          </div>
         </div>
-        <a href="${project.link}" target="_blank" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300 text-center">
-          🚀 View Site
-        </a>
+        <!-- Screenshot -->
+        <div style="position:relative;overflow:hidden;height:190px;">
+          <img src="${project.image}" alt="${project.name}"
+            style="width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 0.6s ease;"
+            onmouseenter="this.style.transform='scale(1.07)'" onmouseleave="this.style.transform='scale(1)'" / loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(17,24,39,0.85) 0%,transparent 55%);"></div>
+          <!-- Hover CTA overlay -->
+          <div class="card-overlay" style="position:absolute;inset:0;background:rgba(6,182,212,0.08);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s ease;">
+            <a href="${project.link}" target="_blank"
+              style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff;padding:9px 22px;border-radius:999px;font-size:12px;font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(6,182,212,0.5);">
+              <i class="fas fa-external-link-alt" style="font-size:10px;"></i> Visit Site
+            </a>
+          </div>
+        </div>
+        <!-- Card footer -->
+        <div style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="min-width:0;flex:1;margin-right:12px;">
+            <h3 style="color:#f1f5f9;font-size:14px;font-weight:700;margin:0 0 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${project.name}</h3>
+            <span style="font-size:10px;font-weight:600;padding:2px 10px;border-radius:999px;background:${tc.bg};border:1px solid ${tc.border};color:${tc.text};">${project.tag || 'Web Design'}</span>
+          </div>
+          <a href="${project.link}" target="_blank"
+            style="width:34px;height:34px;border-radius:50%;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.25);display:flex;align-items:center;justify-content:center;color:#06b6d4;text-decoration:none;transition:all 0.3s;flex-shrink:0;"
+            onmouseenter="this.style.background='rgba(6,182,212,0.25)'" onmouseleave="this.style.background='rgba(6,182,212,0.1)'">
+            <i class="fas fa-arrow-up-right-from-square" style="font-size:11px;"></i>
+          </a>
+        </div>
       `;
+
+      card.addEventListener('mouseenter', () => {
+        const overlay = card.querySelector('.card-overlay');
+        if (overlay) overlay.style.opacity = '1';
+      });
+      card.addEventListener('mouseleave', () => {
+        const overlay = card.querySelector('.card-overlay');
+        if (overlay) overlay.style.opacity = '0';
+      });
 
       container.appendChild(card);
     });
@@ -1433,6 +1673,17 @@
     })();
   </script>
 
+
+
+
 </body>
 
 </html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service | Skope Designs</title>
+  <meta name="description" content="Read the Skope Designs Terms of Service to understand the rules and guidelines governing use of our website and services." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.skopedesigns.com/terms-of-service" />
+  <link rel="icon" href="fav.ico" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#06b6d4', secondary: '#f97316', dark: '#0f172a' }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes border-beam {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    #header {
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      position: fixed;
+      border-bottom: 2px solid transparent;
+      transition: all 0.4s ease;
+    }
+    #header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #06b6d4, #f97316, #06b6d4);
+      background-size: 200% 100%;
+      animation: border-beam 3s linear infinite;
+    }
+    #header.scrolled {
+      background: rgba(15,23,42,0.97);
+      box-shadow: 0 20px 50px -15px rgba(0,0,0,0.6);
+    }
+    .nav-link { position:relative; font-weight:500; color:rgba(255,255,255,0.85); transition:color 0.3s; }
+    .nav-link:hover { color:#06b6d4; }
+    .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#f97316; transition:width 0.3s; }
+    .nav-link:hover::after { width:100%; }
+    .header-btn {
+      background: linear-gradient(135deg,#06b6d4,#0891b2);
+      color:#fff; padding:0.6rem 1.5rem; border-radius:9999px;
+      font-weight:600; transition:all 0.3s;
+      box-shadow: 0 4px 15px rgba(6,182,212,0.4);
+    }
+    .header-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(6,182,212,0.5); }
+    .sidebar-menu { transform:translateX(100%); transition:transform 0.3s ease-in-out; }
+    .sidebar-menu.open { transform:translateX(0); }
+    .overlay-bg { opacity:0; pointer-events:none; transition:opacity 0.3s; }
+    .overlay-bg.open { opacity:1; pointer-events:auto; }
+    .hamburger-line { transition:all 0.3s ease-in-out; }
+    .menu-open .line-1 { transform:rotate(45deg) translate(5px,6px); }
+    .menu-open .line-2 { opacity:0; }
+    .menu-open .line-3 { transform:rotate(-45deg) translate(5px,-6px); }
+    .toc-link { display:block; padding:6px 14px; border-left:2px solid rgba(255,255,255,0.08); color:#94a3b8; font-size:13px; transition:all 0.2s; border-radius:0 6px 6px 0; }
+    .toc-link:hover, .toc-link.active { border-color:#f97316; color:#f97316; background:rgba(249,115,22,0.06); }
+    .policy-section h2 { font-size:1.5rem; font-weight:800; color:#f1f5f9; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.07); }
+    .policy-section h3 { font-size:1.1rem; font-weight:700; color:#f97316; margin:20px 0 10px; }
+    .policy-section p { color:#94a3b8; line-height:1.85; margin-bottom:14px; }
+    .policy-section ul { color:#94a3b8; padding-left:20px; margin-bottom:14px; }
+    .policy-section ul li { margin-bottom:6px; list-style:disc; line-height:1.7; }
+    .policy-section ul li::marker { color:#06b6d4; }
+  
+    /* Global Responsiveness & Speed Fixes */
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (max-width: 768px) {
+        .mobile-p-0 { padding: 0 !important; }
+        .mobile-m-0 { margin: 0 !important; }
+        .text-responsive { font-size: calc(1rem + 1vw); }
+    }
+</style>
+</head>
+
+<body class="bg-dark text-white font-sans overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header id="header" class="fixed w-full top-0 z-50 px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="logo.png" alt="Skope Logo" class="h-12 w-12 rounded-full border-2 border-secondary hover:rotate-12 transition-transform duration-300" />
+      <div>
+        <span class="font-bold text-lg tracking-wide">SKOPE DESIGNS</span>
+        <span class="block text-[10px] italic opacity-80">Design Beyond Boundaries</span>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="service.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="header-btn ml-2">Start Project</a>
+    </nav>
+    <button id="menu-btn" class="md:hidden z-[60] relative w-8 h-6 flex flex-col justify-between focus:outline-none">
+      <span class="w-full h-0.5 bg-white hamburger-line line-1 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-2 rounded-full"></span>
+      <span class="w-full h-0.5 bg-white hamburger-line line-3 rounded-full"></span>
+    </button>
+  </header>
+
+  <!-- SIDEBAR -->
+  <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[45] overlay-bg backdrop-blur-sm" onclick="toggleMenu()"></div>
+  <aside id="sidebar-menu" class="fixed top-0 right-0 h-full w-64 bg-white z-[60] sidebar-menu flex flex-col shadow-2xl overflow-y-auto">
+    <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="h-8 w-8 rounded-full border border-gray-200">
+        <span class="font-bold text-gray-800 text-base">Menu</span>
+      </div>
+      <button onclick="toggleMenu()" class="text-gray-400 hover:text-red-500 transition-colors"><i class="fas fa-times text-lg"></i></button>
+    </div>
+    <nav class="flex-1 py-2">
+      <ul class="flex flex-col">
+        <li><a href="index.html" class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-50 group">
+          <span class="w-7 h-7 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white text-sm"><i class="fas fa-home"></i></span>
+          <span class="font-medium text-sm">Home</span></a></li>
+        <li><a href="about.html" class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-50 group">
+          <span class="w-7 h-7 flex items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white text-sm"><i class="fas fa-user"></i></span>
+          <span class="font-medium text-sm">About</span></a></li>
+        <li><a href="service.html" class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-50 group">
+          <span class="w-7 h-7 flex items-center justify-center rounded-lg bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white text-sm"><i class="fas fa-list-ul"></i></span>
+          <span class="font-medium text-sm">Services</span></a></li>
+        <li><a href="portfolio.html" class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-50 group">
+          <span class="w-7 h-7 flex items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white text-sm"><i class="fas fa-briefcase"></i></span>
+          <span class="font-medium text-sm">Portfolio</span></a></li>
+        <li><a href="careers.html" class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-50 group">
+          <span class="w-7 h-7 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white text-sm"><i class="fas fa-user-tie"></i></span>
+          <span class="font-medium text-sm">Careers</span></a></li>
+        <li><a href="contact.html" class="flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-50 group">
+          <span class="w-7 h-7 flex items-center justify-center rounded-lg bg-gray-100 text-gray-600 group-hover:bg-gray-800 group-hover:text-white text-sm"><i class="fas fa-envelope"></i></span>
+          <span class="font-medium text-sm">Contact</span></a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- HERO -->
+  <section class="relative pt-32 pb-16 px-6 text-center overflow-hidden" style="background:linear-gradient(135deg,#0f172a 0%,#1a0f2e 60%,#0f172a 100%);">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(249,115,22,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,0.05) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;"></div>
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <span class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-orange-400 mb-4 bg-orange-400/10 px-4 py-1.5 rounded-full border border-orange-400/20">Legal</span>
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+        <span style="background:linear-gradient(90deg,#f97316,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Terms of Service</span>
+      </h1>
+      <p class="text-slate-400 text-lg max-w-xl mx-auto">The rules and guidelines that govern your use of Skope Designs.</p>
+      <p class="text-slate-500 text-sm mt-3"><i class="fas fa-calendar-alt mr-2 text-orange-400"></i>Last Updated: March 2026</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="max-w-7xl mx-auto px-6 py-16 flex gap-12 items-start">
+
+    <!-- TOC Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0 sticky top-28">
+      <div class="bg-slate-800/60 backdrop-blur-sm border border-white/[0.07] rounded-2xl p-5">
+        <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Contents</p>
+        <nav id="toc" class="flex flex-col gap-1">
+          <a href="#t1" class="toc-link">1. Acceptance of Terms</a>
+          <a href="#t2" class="toc-link">2. Description of Services</a>
+          <a href="#t3" class="toc-link">3. User Responsibilities</a>
+          <a href="#t4" class="toc-link">4. Intellectual Property</a>
+          <a href="#t5" class="toc-link">5. Client Project Materials</a>
+          <a href="#t6" class="toc-link">6. Service Availability</a>
+          <a href="#t7" class="toc-link">7. Limitation of Liability</a>
+          <a href="#t8" class="toc-link">8. Termination of Access</a>
+          <a href="#t9" class="toc-link">9. Modifications to Terms</a>
+          <a href="#t10" class="toc-link">10. Governing Law</a>
+          <a href="#t11" class="toc-link">11. Contact Information</a>
+        </nav>
+        <div class="mt-6 pt-5 border-t border-white/[0.06]">
+          <a href="privacy-policy.html" class="flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors font-semibold">
+            <i class="fas fa-shield-alt text-xs"></i> Privacy Policy →
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Terms Content -->
+    <main class="flex-1 min-w-0">
+      <div class="bg-slate-800/40 border border-white/[0.06] rounded-2xl p-8 md:p-12 space-y-12">
+
+        <section class="policy-section" id="t1">
+          <h2><span class="text-orange-400 mr-2">01.</span>Acceptance of Terms</h2>
+          <p>By accessing or using the website operated by Skope Designs, you acknowledge that you have read, understood, and agreed to these Terms of Service. If you disagree with any part of these terms, you must discontinue use of the website.</p>
+        </section>
+
+        <section class="policy-section" id="t2">
+          <h2><span class="text-orange-400 mr-2">02.</span>Description of Services</h2>
+          <p>Skope Designs provides digital services including but not limited to:</p>
+          <ul>
+            <li>Web design and development</li>
+            <li>Branding and graphic design</li>
+            <li>Website maintenance and optimization</li>
+            <li>Digital consulting and technical solutions</li>
+            <li>Media and content development</li>
+          </ul>
+          <p>Services may evolve over time as the company grows and introduces new offerings.</p>
+        </section>
+
+        <section class="policy-section" id="t3">
+          <h2><span class="text-orange-400 mr-2">03.</span>User Responsibilities</h2>
+          <p>Users of this website agree to:</p>
+          <ul>
+            <li>Provide accurate and truthful information</li>
+            <li>Use the platform in compliance with applicable laws</li>
+            <li>Respect intellectual property rights</li>
+            <li>Avoid any activity that may harm the website or its users</li>
+          </ul>
+          <p>Users must not:</p>
+          <ul>
+            <li>Attempt unauthorized access to systems</li>
+            <li>Upload malicious software or harmful content</li>
+            <li>Use the platform for fraudulent activities</li>
+            <li>Interfere with the functionality or security of the website</li>
+          </ul>
+        </section>
+
+        <section class="policy-section" id="t4">
+          <h2><span class="text-orange-400 mr-2">04.</span>Intellectual Property Rights</h2>
+          <p>All content on the Skope Designs website — including logos, branding elements, design assets, website layouts, text, graphics, and media — is owned by or licensed to Skope Designs and protected under intellectual property laws.</p>
+          <p>Users may not reproduce, distribute, or modify this content without written permission.</p>
+        </section>
+
+        <section class="policy-section" id="t5">
+          <h2><span class="text-orange-400 mr-2">05.</span>Client Project Materials</h2>
+          <p>Any materials provided by clients for design or development purposes remain the property of the client. However, Skope Designs reserves the right to showcase completed work in portfolios unless otherwise agreed in writing.</p>
+        </section>
+
+        <section class="policy-section" id="t6">
+          <h2><span class="text-orange-400 mr-2">06.</span>Service Availability</h2>
+          <p>While we strive to maintain uninterrupted service, we do not guarantee that the website or services will always be available or error-free. We may temporarily suspend services for:</p>
+          <ul>
+            <li>Maintenance</li>
+            <li>System upgrades</li>
+            <li>Security updates</li>
+            <li>Infrastructure improvements</li>
+          </ul>
+        </section>
+
+        <section class="policy-section" id="t7">
+          <h2><span class="text-orange-400 mr-2">07.</span>Limitation of Liability</h2>
+          <p>To the fullest extent permitted by law, Skope Designs shall not be liable for indirect or consequential damages, loss of business opportunities, data loss or service interruption, or issues arising from third-party services. Use of the website is at your own risk.</p>
+        </section>
+
+        <section class="policy-section" id="t8">
+          <h2><span class="text-orange-400 mr-2">08.</span>Termination of Access</h2>
+          <p>We reserve the right to suspend or terminate access to users who violate these Terms of Service or engage in harmful activities without prior notice.</p>
+        </section>
+
+        <section class="policy-section" id="t9">
+          <h2><span class="text-orange-400 mr-2">09.</span>Modifications to Terms</h2>
+          <p>Skope Designs may revise these Terms of Service at any time. Updates will be posted on this page with the latest revision date. Continued use of the website indicates acceptance of the updated terms.</p>
+        </section>
+
+        <section class="policy-section" id="t10">
+          <h2><span class="text-orange-400 mr-2">10.</span>Governing Law</h2>
+          <p>These Terms of Service shall be governed and interpreted according to the laws applicable within the jurisdiction where Skope Designs operates.</p>
+        </section>
+
+        <section class="policy-section" id="t11">
+          <h2><span class="text-orange-400 mr-2">11.</span>Contact Information</h2>
+          <p>For inquiries regarding these Terms of Service, contact us:</p>
+          <div class="mt-4 p-6 rounded-xl bg-slate-700/40 border border-orange-500/20 flex flex-col gap-3">
+            <div class="flex items-center gap-3 text-slate-300"><i class="fas fa-building text-orange-400 w-5"></i><span><strong class="text-white">Skope Designs</strong></span></div>
+            <div class="flex items-center gap-3 text-slate-300"><i class="fas fa-envelope text-orange-400 w-5"></i><a href="mailto:info@skopedesigns.com" class="hover:text-orange-400 transition-colors">info@skopedesigns.com</a></div>
+            <div class="flex items-center gap-3 text-slate-300"><i class="fas fa-globe text-orange-400 w-5"></i><a href="https://www.skopedesigns.com" target="_blank" class="hover:text-orange-400 transition-colors">www.skopedesigns.com</a></div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Also see Privacy -->
+      <div class="mt-8 flex flex-wrap gap-4 items-center justify-between">
+        <a href="privacy-policy.html" class="inline-flex items-center gap-2 bg-slate-800 border border-cyan-500/30 hover:border-cyan-400 text-cyan-400 px-6 py-3 rounded-full font-semibold text-sm transition-all hover:bg-cyan-400/10">
+          <i class="fas fa-shield-alt"></i> Read Privacy Policy
+        </a>
+        <a href="index.html" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm transition-colors">
+          <i class="fas fa-arrow-left text-xs"></i> Back to Home
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 border-t border-white/[0.05] py-10 px-6 text-center mt-8">
+    <p class="text-slate-500 text-sm">&copy; <span id="footer-year"></span> Skope Designs. All rights reserved.</p>
+    <div class="flex justify-center gap-6 mt-4">
+      <a href="privacy-policy.html" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+      <a href="terms-of-service.html" class="text-orange-400 text-sm font-semibold">Terms of Service</a>
+      <a href="contact.html" class="text-slate-400 hover:text-white text-sm transition-colors">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    function toggleMenu() {
+      const btn = document.getElementById('menu-btn');
+      const sidebar = document.getElementById('sidebar-menu');
+      const overlay = document.getElementById('menu-overlay');
+      btn.classList.toggle('menu-open');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('open');
+    }
+    document.getElementById('menu-btn').addEventListener('click', toggleMenu);
+    const sections = document.querySelectorAll('.policy-section');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) current = s.id; });
+      tocLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+
+  <script>
+    const yearSpan = document.getElementById('footer-year');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -90,7 +90,7 @@
   <meta name="p:domain_verify" content="YOUR_PINTEREST_VERIFICATION_CODE" />
   <meta name="yandex-verification" content="YOUR_YANDEX_VERIFICATION_CODE" />
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
+  <script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
     crossorigin="anonymous"></script>
 
   <!-- Favicon & App Icons -->
@@ -456,7 +456,123 @@
       opacity: 0.2;
       animation: float 8s ease-in-out infinite;
     }
-  </style>
+
+    /* Header CTA button */
+    .header-btn {
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      color: #fff;
+      padding: 0.6rem 1.6rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .header-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 8px 30px rgba(6, 182, 212, 0.6);
+      background: linear-gradient(135deg, #0891b2, #06b6d4);
+    }
+
+    /* Featured project card */
+    .project-card {
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(30,41,59,0.85);
+      backdrop-filter: blur(10px);
+      transition: transform 0.45s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s ease, border-color 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.025) translateY(-6px);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.45);
+    }
+
+    .project-card .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: #0f172a;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .project-card .browser-bar .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .project-card .browser-bar .url-bar {
+      flex: 1;
+      background: #1e293b;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-left: 6px;
+      font-size: 10px;
+      color: #64748b;
+      font-family: monospace;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .project-card .thumb {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .thumb {
+      transform: scale(1.06);
+    }
+
+    .project-card .thumb-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+    }
+
+    .project-card .thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.2) 55%, transparent 100%);
+    }
+
+    .project-card .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(90deg, #f97316, #ef4444);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 11px;
+      border-radius: 999px;
+      box-shadow: 0 0 16px rgba(249,115,22,0.65);
+    }
+  
+    /* Global Responsiveness & Speed Fixes */
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (max-width: 768px) {
+        .mobile-p-0 { padding: 0 !important; }
+        .mobile-m-0 { margin: 0 !important; }
+        .text-responsive { font-size: calc(1rem + 1vw); }
+    }
+</style>
 </head>
 
 <body class="bg-dark text-white font-sans overflow-x-hidden">
@@ -694,67 +810,94 @@
   </section>
 
   <!-- FEATURED WORK -->
-  <section class="py-20 px-6 bg-slate-900/50 relative">
+  <section class="py-20 px-6 relative" style="background: linear-gradient(180deg, rgba(15,23,42,0.6) 0%, #0f172a 100%);">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 fade-in"><span class="gradient-text">Featured
-          Work</span></h2>
-      <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto fade-in text-lg">Explore some of our recent projects
-        that
-        showcase our expertise in design and development.</p>
-      <div class="grid md:grid-cols-2 gap-8 mb-10">
-        <div
-          class="bg-slate-800/80 backdrop-blur-sm rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-500 slide-right group border border-slate-700/50 hover:border-primary/30">
-          <div
-            class="h-64 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative overflow-hidden">
-            <i
-              class="fas fa-image text-7xl text-white/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"></i>
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            </div>
-          </div>
-          <div class="p-8">
-            <h3 class="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">E-Commerce Platform</h3>
-            <p class="text-gray-400 mb-4">A modern online shopping experience with seamless checkout and inventory
-              management.</p>
-            <div class="flex gap-2 flex-wrap">
-              <span
-                class="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm border border-primary/30">React</span>
-              <span
-                class="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm border border-primary/30">Tailwind</span>
-              <span
-                class="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm border border-primary/30">MySQL</span>
-            </div>
-          </div>
-        </div>
-        <div
-          class="bg-slate-800/80 backdrop-blur-sm rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-500 slide-left group border border-slate-700/50 hover:border-secondary/30">
-          <div
-            class="h-64 bg-gradient-to-br from-secondary to-orange-700 flex items-center justify-center relative overflow-hidden">
-            <i
-              class="fas fa-image text-7xl text-white/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"></i>
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            </div>
-          </div>
-          <div class="p-8">
-            <h3 class="text-2xl font-bold mb-2 group-hover:text-secondary transition-colors">Brand Identity Design</h3>
-            <p class="text-gray-400 mb-4">Complete brand refresh including logo, color palette, and marketing materials.
-            </p>
-            <div class="flex gap-2 flex-wrap">
-              <span
-                class="bg-secondary/20 text-secondary px-4 py-1.5 rounded-full text-sm border border-secondary/30">Branding</span>
-              <span
-                class="bg-secondary/20 text-secondary px-4 py-1.5 rounded-full text-sm border border-secondary/30">UI/UX</span>
-              <span
-                class="bg-secondary/20 text-secondary px-4 py-1.5 rounded-full text-sm border border-secondary/30">Graphics</span>
-            </div>
-          </div>
-        </div>
+      <div class="text-center mb-4 fade-in">
+        <span class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-cyan-400 mb-3 bg-cyan-400/10 px-4 py-1.5 rounded-full border border-cyan-400/20">Full-Stack Projects</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-3"><span class="gradient-text">Featured Work</span></h2>
       </div>
+      <p class="text-center text-gray-400 mb-14 max-w-2xl mx-auto fade-in text-lg">Real-world websites we designed, built, and deployed — from concept to live production.</p>
+
+      <div class="grid md:grid-cols-2 gap-10 mb-12">
+
+        <!-- Card 1: Hamasta Media -->
+        <div class="project-card slide-right hover:border-cyan-500/30">
+          <!-- Browser Bar -->
+          <div class="browser-bar">
+            <span class="dot" style="background:#ef4444;"></span>
+            <span class="dot" style="background:#f59e0b;"></span>
+            <span class="dot" style="background:#22c55e;"></span>
+            <span class="url-bar">hamastamedia.com</span>
+          </div>
+          <!-- Screenshot -->
+          <div class="thumb-wrap">
+            <span class="badge">✦ New</span>
+            <img src="hamasta coverr.png" alt="Hamasta Media" class="thumb" / loading="lazy">
+            <div class="thumb-overlay"></div>
+          </div>
+          <!-- Info -->
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-2xl font-bold group-hover:text-primary transition-colors">Hamasta Media</h3>
+              <a href="https://hamastamedia.com" target="_blank"
+                style="width:36px;height:36px;border-radius:50%;background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);display:flex;align-items:center;justify-content:center;color:#06b6d4;text-decoration:none;flex-shrink:0;transition:all 0.3s;"
+                onmouseenter="this.style.background='rgba(6,182,212,0.25)'" onmouseleave="this.style.background='rgba(6,182,212,0.12)'">
+                <i class="fas fa-arrow-up-right-from-square" style="font-size:12px;"></i>
+              </a>
+            </div>
+            <p class="text-gray-400 mb-5 leading-relaxed">A modern media &amp; news platform built for speed, engagement, and a premium dark-themed experience. Fully responsive and SEO-optimised.</p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="bg-cyan-500/15 text-cyan-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-cyan-500/25">HTML/CSS</span>
+              <span class="bg-cyan-500/15 text-cyan-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-cyan-500/25">JavaScript</span>
+              <span class="bg-cyan-500/15 text-cyan-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-cyan-500/25">PHP</span>
+              <span class="bg-cyan-500/15 text-cyan-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-cyan-500/25">MySQL</span>
+              <span class="bg-orange-500/15 text-orange-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-orange-500/25">Full-Stack</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Victoria Agrotech -->
+        <div class="project-card slide-left hover:border-orange-500/30">
+          <!-- Browser Bar -->
+          <div class="browser-bar">
+            <span class="dot" style="background:#ef4444;"></span>
+            <span class="dot" style="background:#f59e0b;"></span>
+            <span class="dot" style="background:#22c55e;"></span>
+            <span class="url-bar">victoriaagrotechltd.com</span>
+          </div>
+          <!-- Screenshot -->
+          <div class="thumb-wrap">
+            <img src="victoria agrotech cover.png" alt="Victoria Agrotech Ltd" class="thumb" / loading="lazy">
+            <div class="thumb-overlay"></div>
+          </div>
+          <!-- Info -->
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-2xl font-bold group-hover:text-secondary transition-colors">Victoria Agrotech Ltd</h3>
+              <a href="https://victoriaagrotechltd.com" target="_blank"
+                style="width:36px;height:36px;border-radius:50%;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);display:flex;align-items:center;justify-content:center;color:#f97316;text-decoration:none;flex-shrink:0;transition:all 0.3s;"
+                onmouseenter="this.style.background='rgba(249,115,22,0.25)'" onmouseleave="this.style.background='rgba(249,115,22,0.12)'">
+                <i class="fas fa-arrow-up-right-from-square" style="font-size:12px;"></i>
+              </a>
+            </div>
+            <p class="text-gray-400 mb-5 leading-relaxed">A social enterprise platform engineering circular agribusiness solutions — covering soil regeneration, clean energy, and sustainable waste management.</p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="bg-orange-500/15 text-orange-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-orange-500/25">HTML/CSS</span>
+              <span class="bg-orange-500/15 text-orange-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-orange-500/25">JavaScript</span>
+              <span class="bg-orange-500/15 text-orange-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-orange-500/25">PHP</span>
+              <span class="bg-orange-500/15 text-orange-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-orange-500/25">MySQL</span>
+              <span class="bg-green-500/15 text-green-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-green-500/25">AgriTech</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
       <div class="text-center scale-in">
         <a href="portfolio.html"
-          class="bg-primary hover:bg-cyan-600 px-10 py-4 rounded-full inline-block transform hover:scale-105 transition-all hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] font-semibold">View
-          All Projects</a>
+          class="inline-flex items-center gap-2 bg-primary hover:bg-cyan-600 px-10 py-4 rounded-full transform hover:scale-105 transition-all hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] font-semibold">
+          View All Projects &nbsp;<i class="fas fa-arrow-right text-sm"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -891,7 +1034,7 @@
                 <i class="fas fa-paper-plane"></i>
               </button>
             </div>
-            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our Privacy Policy.</p>
+            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our <a href="privacy-policy.html" class="hover:text-cyan-400 underline">Privacy Policy</a>.</p>
           </form>
         </div>
       </div>
@@ -904,9 +1047,9 @@
           <i class="fas fa-heart text-red-500 animate-pulse"></i> by Sege Peter.
         </p>
         <div class="flex gap-8">
-          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors hover:underline">Privacy
+          <a href="privacy-policy.html" class="text-slate-500 hover:text-white text-xs transition-colors hover:underline">Privacy
             Policy</a>
-          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors hover:underline">Terms of
+          <a href="terms-of-service.html" class="text-slate-500 hover:text-white text-xs transition-colors hover:underline">Terms of
             Service</a>
           <a href="contact.html"
             class="text-slate-500 hover:text-white text-xs transition-colors hover:underline">Contact</a>
@@ -985,8 +1128,7 @@
       domain: "www.chatbase.co"
     };
   </script>
-  <script src="https://www.chatbase.co/embed.min.js" chatbotId="YCDDERnlEOB4ItW9207d_" domain="www.chatbase.co"
-    defer></script>
+  <script src="https://www.chatbase.co/embed.min.js" chatbotId="YCDDERnlEOB4ItW9207d_" domain="www.chatbase.co" defer></script>
 
   <!-- Structured Data for SEO -->
   <script type="application/ld+json">
@@ -1011,3 +1153,9 @@
 </body>
 
 </html>
+
+
+
+
+
+

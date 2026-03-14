@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -220,7 +220,16 @@
     .animation-delay-500 {
       animation-delay: 0.5s;
     }
-  </style>
+  
+    /* Global Responsiveness & Speed Fixes */
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (max-width: 768px) {
+        .mobile-p-0 { padding: 0 !important; }
+        .mobile-m-0 { margin: 0 !important; }
+        .text-responsive { font-size: calc(1rem + 1vw); }
+    }
+</style>
 </head>
 
 <body class="bg-dark text-white font-sans overflow-x-hidden">
@@ -443,13 +452,13 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="ceo sege.png" alt="Sege Peter - Founder & CEO of Skope Designs"
-                class="w-full h-96 object-cover" /></div>
+                class="w-full h-96 object-cover" / loading="lazy"></div>
             <div class="swiper-slide"><img src="DSC_0237.jpg" alt="Sege Peter Speaking at an Event"
-                class="w-full h-96 object-cover" /></div>
+                class="w-full h-96 object-cover" / loading="lazy"></div>
             <div class="swiper-slide"><img src="sege1.jpg" alt="Sege Peter - Creative Technologist"
-                class="w-full h-96 object-cover" /></div>
+                class="w-full h-96 object-cover" / loading="lazy"></div>
             <div class="swiper-slide"><img src="sege2.jpg" alt="Sege Peter Presenting Design Work"
-                class="w-full h-96 object-cover" /></div>
+                class="w-full h-96 object-cover" / loading="lazy"></div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -767,7 +776,7 @@
                 <i class="fas fa-paper-plane"></i>
               </button>
             </div>
-            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our Privacy Policy.</p>
+            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our <a href="privacy-policy.html" class="hover:text-cyan-400 underline">Privacy Policy</a>.</p>
           </form>
         </div>
       </div>
@@ -782,8 +791,8 @@
           <i class="fas fa-heart text-red-500 animate-pulse"></i> by Sege Peter.
         </p>
         <div class="flex gap-8">
-          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
-          <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
+          <a href="privacy-policy.html" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
+          <a href="terms-of-service.html" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
           <a href="contact.html" class="text-slate-500 hover:text-white text-xs transition-colors">Contact</a>
         </div>
       </div>
@@ -927,3 +936,9 @@
 </body>
 
 </html>
+
+
+
+
+
+
