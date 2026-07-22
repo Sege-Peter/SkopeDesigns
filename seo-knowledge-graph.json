@@ -1,0 +1,23 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sege Peter",
+  "alternateName": "Skope Designs",
+  "url": "https://www.skopedesigns.co.ke",
+  "image": "https://www.skopedesigns.co.ke/preview-logo.png",
+  "jobTitle": "CEO & Graphic Designer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Skope Designs",
+    "url": "https://www.skopedesigns.co.ke"
+  },
+  "sameAs": [
+    "https://web.facebook.com/engskope",
+    "https://x.com/SegePeter_ENG",
+    "https://www.linkedin.com/in/sege-peter-221831303/",
+    "https://www.youtube.com/@engskope",
+    "https://sege-peter.github.io/SkopeDesigns/"
+  ]
+}
+</script>

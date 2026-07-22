@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>About | Sege Peter | Designing Brands. Building Code. Beyond Boundaries.</title>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-7759647476755654">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7759647476755654"
+    crossorigin="anonymous"></script>
+
+  <!-- SEO Meta -->
+  <meta name="description"
+    content="Meet Sege Peter, founder of Skope Designs - a visionary creative technologist crafting compelling digital experiences. Specializing in branding, responsive web design, and modern development with Tailwind, Java, Python, MySQL.">
+  <meta name="keywords"
+    content="Skope Designs, Sege Peter, Branding, Web Developer, Tailwind CSS, UI/UX Design, Python Developer, Java Developer, MySQL, Kenya Web Designer">
+  <meta name="author" content="Sege Peter" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.skopedesigns.co.ke/about" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.skopedesigns.co.ke/about" />
+  <meta property="og:title" content="About Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
+  <meta property="og:description"
+    content="Discover the story behind Skope Designs and meet Sege Peter - a creative technologist transforming ideas into impactful digital experiences." />
+  <meta property="og:image" content="https://www.skopedesigns.co.ke/images/og-about.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Skope Designs | Designing Brands. Building Code. Beyond Boundaries." />
+  <meta name="twitter:description"
+    content="Discover the story behind Skope Designs and meet Sege Peter - a creative technologist transforming ideas into impactful digital experiences." />
+  <meta name="twitter:image" content="https://www.skopedesigns.co.ke/images/og-about.jpg" />
+
+  <link rel="icon" href="fav.ico" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Outfit', 'sans-serif'] },
+          colors: {
+            primary: '#06b6d4',
+            secondary: '#f97316',
+            dark: '#0f172a',
+            accent: '#8b5cf6'
+          },
+          keyframes: {
+            'fade-in': { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+            'fade-in-up': { '0%': { opacity: 0, transform: 'translateY(20px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            'slide-in-left': { '0%': { opacity: 0, transform: 'translateX(-50px)' }, '100%': { opacity: 1, transform: 'translateX(0)' } },
+            'slide-in-right': { '0%': { opacity: 0, transform: 'translateX(50px)' }, '100%': { opacity: 1, transform: 'translateX(0)' } },
+            'float': { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+          },
+          animation: {
+            'fade-in': 'fade-in 1s ease forwards',
+            'fade-in-up': 'fade-in-up 1s ease forwards',
+            'slide-in-left': 'slide-in-left 1s ease forwards',
+            'slide-in-right': 'slide-in-right 1s ease forwards',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+            'float': 'float 5s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    .static-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      transition: all 0.3s ease;
+    }
+
+    @keyframes border-beam {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 200% 50%;
+      }
+    }
+
+    #header {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 2px solid transparent;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: fixed;
+    }
+
+    #header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #06b6d4, #f97316, #06b6d4);
+      background-size: 200% 100%;
+      animation: border-beam 3s linear infinite;
+    }
+
+    #header.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-link-modern {
+      position: relative;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      transition: all 0.3s ease;
+    }
+
+    .nav-link-modern:hover {
+      color: #06b6d4;
+    }
+
+    .nav-link-modern::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f97316;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link-modern:hover::after {
+      width: 100%;
+    }
+
+    .nav-link-modern.active {
+      color: #fff;
+    }
+
+    .nav-link-modern.active::after {
+      width: 100%;
+      background: #06b6d4;
+    }
+
+    .header-btn {
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+    }
+
+    .logo-img {
+      height: 48px;
+      width: 48px;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50%;
+      border: 2px solid #f97316;
+    }
+
+    #header.scrolled .logo-img {
+      height: 38px;
+      width: 38px;
+    }
+
+    /* Sidebar Menu Animations */
+    .sidebar-menu {
+      transform: translateX(100%);
+      /* Start hidden to the right */
+      transition: transform 0.3s ease-in-out;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-menu.open {
+      transform: translateX(0);
+    }
+
+    .overlay-bg {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .overlay-bg.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Hamburger Animation */
+      /* Premium Hamburger Button Styling */
+  #menu-btn {
+    border: 1px solid rgba(6, 182, 212, 0.25) !important;
+    background: rgba(15, 23, 42, 0.55) !important;
+    backdrop-filter: blur(12px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  #menu-btn:hover {
+    background: rgba(6, 182, 212, 0.12) !important;
+    border-color: rgba(6, 182, 212, 0.7) !important;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.45) !important;
+    transform: translateY(-2px) scale(1.06) !important;
+  }
+  #menu-btn:active {
+    transform: translateY(0) scale(0.95) !important;
+  }
+  .hamburger-line {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  .menu-open .line-1 {
+    transform: translateY(7px) rotate(45deg) !important;
+    background: #06b6d4 !important;
+    width: 100% !important;
+  }
+  .menu-open .line-2 {
+    opacity: 0 !important;
+    transform: translateY(-50%) scaleX(0) !important;
+  }
+  .menu-open .line-3 {
+    transform: translateY(-7px) rotate(-45deg) !important;
+    background: #f97316 !important;
+    width: 100% !important;
+  }
+
+    .animation-delay-300 {
+      animation-delay: 0.3s;
+    }
+
+    .animation-delay-500 {
+      animation-delay: 0.5s;
+    }
+  
+    /* Global Responsiveness & Speed Fixes */
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (max-width: 768px) {
+        .mobile-p-0 { padding: 0 !important; }
+        .mobile-m-0 { margin: 0 !important; }
+        .text-responsive { font-size: calc(1rem + 1vw); }
+    }
+</style>
+
+<style>
+  html { scroll-behavior: smooth; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #0891b2; }
+  ::selection { background: rgba(6, 182, 212, 0.3); color: white; }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  /* Advanced Premium Noise Overlay */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Custom Cursor */
+    /* Custom Cursor */
+    /* Custom Cursor */
+  @media (pointer: fine) {
+    body { cursor: none; }
+    a, button, input, textarea, .cursor-pointer { cursor: none; }
+
+    .cursor-dot {
+      width: 10px;
+      height: 10px;
+      background: #06b6d4;
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 10001;
+      opacity: 0;
+      will-change: transform;
+      transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.3s ease;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-outline {
+      width: 38px;
+      height: 38px;
+      border: 2px solid rgba(6, 182, 212, 0.6);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 10000;
+      opacity: 0;
+      will-change: transform;
+      transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease,
+                  background 0.25s ease, opacity 0.3s ease;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-dot.visible    { opacity: 1; }
+    .cursor-outline.visible { opacity: 1; }
+
+    body.cursor-hover .cursor-dot {
+      width: 14px; height: 14px;
+      background: #f97316;
+    }
+    body.cursor-hover .cursor-outline {
+      width: 56px; height: 56px;
+      border-color: rgba(249, 115, 22, 0.55);
+      background: rgba(249, 115, 22, 0.08);
+    }
+  }
+
+  /* Animated Premium Glow Button */
+  .btn-premium-glow {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background: #0f172a;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+  .btn-premium-glow::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(from 90deg, transparent 0%, #06b6d4 25%, transparent 50%, #f97316 75%, transparent 100%);
+    z-index: -1;
+    animation: rotate-gradient 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .btn-premium-glow:hover::before {
+    opacity: 1;
+  }
+  .btn-premium-glow::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: #0f172a;
+    border-radius: inherit;
+    z-index: -1;
+    transition: background 0.3s ease;
+  }
+  .btn-premium-glow:hover::after {
+    background: rgba(15, 23, 42, 0.8);
+  }
+  @keyframes rotate-gradient {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
+</head>
+
+<body class="bg-dark text-white font-sans overflow-x-hidden">
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
+
+  <!-- HEADER -->
+  <!-- HEADER -->
+  <header id="header"
+    class="fixed w-full top-0 z-50 transition-all duration-400 px-6 py-4 flex items-center justify-between text-white">
+    <div class="flex items-center gap-3">
+      <img loading="lazy" src="logo.webp" alt="Skope Logo"
+        class="logo-img rounded-full border-2 border-secondary hover:rotate-12 transition-transform duration-300" />
+      <div>
+        <span class="font-bold text-lg tracking-wide">SKOPE DESIGNS</span>
+        <span class="block text-[10px] italic opacity-90">Design Beyond Boundaries</span>
+      </div>
+    </div>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="index.html" class="nav-link-modern">Home</a>
+      <a href="about.html" class="nav-link-modern active">About</a>
+      <a href="service.html" class="nav-link-modern">Services</a>
+      <a href="portfolio.html" class="nav-link-modern">Portfolio</a>
+      <a href="resources.html" class="nav-link-modern">Resources</a>
+      <a href="careers.html" class="nav-link-modern">Careers</a>
+      <a href="contact.html" class="header-btn ml-4">Start Project</a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-4">
+      <a href="https://wa.me/254742380183"
+        class="hidden sm:flex items-center gap-2 bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-lg">
+        <i class="fab fa-whatsapp text-lg"></i>
+        <span class="hidden lg:inline">Hire Sege</span>
+      </a>
+
+      <!-- Hamburger Button -->
+      <button id="menu-btn" class="md:hidden z-[60] relative w-12 h-12 flex items-center justify-center focus:outline-none bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-white/10 transition-all group shadow-lg">
+  <div class="relative w-6 h-4">
+    <span class="absolute top-0 left-0 w-full h-[2px] bg-white rounded-full transition-all duration-300 hamburger-line line-1 group-hover:bg-cyan-400"></span>
+    <span class="absolute top-1/2 -translate-y-1/2 left-0 w-3/4 h-[2px] bg-cyan-400 rounded-full transition-all duration-300 hamburger-line line-2 group-hover:w-full"></span>
+    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-white rounded-full transition-all duration-300 hamburger-line line-3 group-hover:bg-cyan-400"></span>
+  </div>
+</button>
+    </div>
+  </header>
+
+  <!-- SIDEBAR NAVIGATION DRAWER -->
+  <!-- Overlay Backdrop -->
+  <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[45] overlay-bg backdrop-blur-sm" onclick="toggleMenu()">
+  </div>
+
+  <!-- Sidebar Container -->
+  <aside id="sidebar-menu" class="fixed top-0 right-0 h-full w-full sm:w-80 bg-slate-900/95 backdrop-blur-2xl z-[60] sidebar-menu flex flex-col shadow-[-20px_0_50px_rgba(0,0,0,0.5)] border-l border-white/10 overflow-y-auto">
+<div class="p-6 border-b border-white/10 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+        <img loading="lazy" src="logo.webp" alt="Logo" class="h-10 w-10 rounded-full border border-cyan-500/30 p-0.5"> 
+        <span class="font-bold text-white tracking-wider text-lg">SKOPE</span>
+    </div>
+    <button onclick="toggleMenu()" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-500/80 transition-all border border-white/5 hover:border-red-500">
+        <i class="fas fa-times text-lg"></i>
+    </button>
+</div>
+<nav class="flex-1 py-6 px-4">
+    <ul class="flex flex-col gap-2">
+        <li><a href="index.html" class="flex items-center gap-4 px-4 py-3.5 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-xl transition-all group"><span class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-gray-400 group-hover:bg-cyan-500/20 group-hover:text-cyan-400 transition-all shadow-inner border border-white/5"><i class="fas fa-home"></i> </span><span class="font-semibold text-base">Home</span></a></li>
+        <li><a href="about.html" class="flex items-center gap-4 px-4 py-3.5 text-gray-300 hover:bg-white/5 hover:text-orange-400 rounded-xl transition-all group"><span class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-gray-400 group-hover:bg-orange-500/20 group-hover:text-orange-400 transition-all shadow-inner border border-white/5"><i class="fas fa-user"></i> </span><span class="font-semibold text-base">About</span></a></li>
+        <li><a href="service.html" class="flex items-center gap-4 px-4 py-3.5 text-gray-300 hover:bg-white/5 hover:text-purple-400 rounded-xl transition-all group"><span class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-gray-400 group-hover:bg-purple-500/20 group-hover:text-purple-400 transition-all shadow-inner border border-white/5"><i class="fas fa-list-ul"></i> </span><span class="font-semibold text-base">Services</span></a></li>
+        <li><a href="portfolio.html" class="flex items-center gap-4 px-4 py-3.5 text-gray-300 hover:bg-white/5 hover:text-cyan-400 rounded-xl transition-all group"><span class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-gray-400 group-hover:bg-cyan-500/20 group-hover:text-cyan-400 transition-all shadow-inner border border-white/5"><i class="fas fa-briefcase"></i> </span><span class="font-semibold text-base">Portfolio</span></a></li>
+        <li><a href="resources.html" class="flex items-center gap-4 px-4 py-3.5 text-gray-300 hover:bg-white/5 hover:text-green-400 rounded-xl transition-all group"><span class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-gray-400 group-hover:bg-green-500/20 group-hover:text-green-400 transition-all shadow-inner border border-white/5"><i class="fas fa-book-reader"></i> </span><span class="font-semibold text-base">Resources</span></a></li>
+        <li><a href="careers.html" class="flex items-center gap-4 px-4 py-3.5 text-gray-300 hover:bg-white/5 hover:text-indigo-400 rounded-xl transition-all group"><span class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-gray-400 group-hover:bg-indigo-500/20 group-hover:text-indigo-400 transition-all shadow-inner border border-white/5"><i class="fas fa-user-tie"></i> </span><span class="font-semibold text-base">Careers</span></a></li>
+        <li><a href="contact.html" class="flex items-center gap-4 px-4 py-3.5 text-gray-300 hover:bg-white/5 hover:text-white rounded-xl transition-all group"><span class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-gray-400 group-hover:bg-gray-100 group-hover:text-gray-900 transition-all shadow-inner border border-white/5"><i class="fas fa-envelope"></i> </span><span class="font-semibold text-base">Contact</span></a></li>
+    </ul>
+</nav>
+<div class="p-6 border-t border-white/10 mt-auto bg-white/5">
+    <p class="text-xs text-center text-gray-400 mb-4 tracking-wider uppercase">Follow us</p>
+    <div class="flex justify-center gap-4">
+        <a href="https://web.facebook.com/engskope" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:text-blue-500 hover:bg-blue-500/10 border border-white/5 transition-all"><i class="fab fa-facebook-f"></i></a> 
+        <a href="https://x.com/SegePeter_ENG" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 border border-white/5 transition-all"><i class="fab fa-x-twitter"></i></a> 
+        <a href="https://www.instagram.com/segepeter71/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:bg-pink-500/10 border border-white/5 transition-all"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
+</aside>
+
+  <!-- HERO SECTION -->
+  <section class="pt-32 pb-20 px-6 md:px-20 bg-gradient-to-br from-primary/10 to-dark relative overflow-hidden">
+    <div class="absolute top-10 right-10 w-40 h-40 rounded-full bg-secondary/10 animate-pulse-slow"></div>
+    <div class="absolute bottom-20 left-10 w-20 h-20 rounded-full bg-accent/10 animate-pulse-slow"></div>
+
+    <div class="max-w-6xl mx-auto text-center relative z-10">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+        Crafting Digital <span class="text-primary">Experiences</span> That <span class="text-secondary">Inspire</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 animate-fade-in-up animation-delay-300">
+        Where creative vision meets technical excellence to build brands that stand out and perform
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-500">
+        <a href="#story"
+          class="px-8 py-3 bg-primary text-white rounded-lg font-medium hover:bg-cyan-600 transition-colors shadow-lg">
+          Our Story
+        </a>
+        <a href="portfolio.html"
+          class="px-8 py-3 bg-secondary text-white rounded-lg font-medium hover:bg-orange-600 transition-colors shadow-lg">
+          View Our Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="bg-white text-gray-800 py-20 px-6 md:px-20">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-primary animate-fade-in">About Us</h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up">
+        Discover the story, vision, and the creative mind driving Skope Designs - where innovation meets execution to
+        deliver exceptional digital experiences.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+      <!-- Image Slider -->
+      <div class="relative overflow-hidden rounded-2xl shadow-2xl animate-slide-in-left">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="ceo sege.png" alt="Sege Peter - Founder & CEO of Skope Designs"
+                class="w-full h-96 object-cover" / loading="lazy"></div>
+            <div class="swiper-slide"><img src="DSC_0237.jpg" alt="Sege Peter Speaking at an Event"
+                class="w-full h-96 object-cover" / loading="lazy"></div>
+            <div class="swiper-slide"><img src="sege1.jpg" alt="Sege Peter - Creative Technologist"
+                class="w-full h-96 object-cover" / loading="lazy"></div>
+            <div class="swiper-slide"><img src="sege2.jpg" alt="Sege Peter Presenting Design Work"
+                class="w-full h-96 object-cover" / loading="lazy"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class="animate-slide-in-right">
+        <h3 class="text-2xl md:text-3xl font-semibold text-secondary mb-4">Meet Sege Peter</h3>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          <strong>Sege Peter</strong> is a passionate and innovative <strong>Software Developer</strong> &
+          <strong>Graphic Designer</strong> based in Kenya. As the Founder and CEO of <strong>Skope Designs</strong>, he
+          blends creativity and technology to design brands and build digital experiences that inspire, engage, and
+          perform.
+        </p>
+
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Sege's expertise spans <em>branding, UI/UX design, website development, digital marketing, and system
+            integration</em>. His mission is to empower startups and organizations through visuals and code that inspire
+          connection, growth, and lasting impact.
+        </p>
+
+        <p class="text-gray-700 leading-relaxed mb-6">
+          With over <strong>2 years of hands-on experience</strong> in the creative and tech industry, Sege has
+          successfully delivered impactful solutions using <strong>React.js</strong>, <strong>Laravel</strong>,
+          <strong>Tailwind CSS</strong>, <strong>Power BI</strong>, and <strong>MySQL</strong>. His projects help brands
+          establish a strong online presence, improve engagement, and achieve measurable results.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="https://wa.me/254742380183?text=Hi%20Sege%2C%20I'm%20interested%20in%20your%20design%20services!"
+            target="_blank"
+            class="px-6 py-3 bg-secondary text-white rounded-lg shadow hover:bg-orange-600 transition-colors font-medium">
+            <i class="fab fa-whatsapp mr-2"></i> Hire Sege
+          </a>
+
+          <a href="contact.html"
+            class="px-6 py-3 bg-primary text-white rounded-lg shadow hover:bg-cyan-600 transition-colors font-medium">
+            <i class="fas fa-envelope mr-2"></i> Get Quote
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+      <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl text-center shadow-lg border border-white/10">
+        <div class="text-3xl font-bold text-primary mb-2 stat-number" data-target="50">0</div>
+        <div class="text-gray-400">Brands Designed</div>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl text-center shadow-lg border border-white/10">
+        <div class="text-3xl font-bold text-secondary mb-2 stat-number" data-target="2">0</div>
+        <div class="text-gray-400">Years Experience</div>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl text-center shadow-lg border border-white/10">
+        <div class="text-3xl font-bold text-accent mb-2 stat-number" data-target="25">0</div>
+        <div class="text-gray-400">Dev Projects</div>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl text-center shadow-lg border border-white/10">
+        <div class="text-3xl font-bold text-primary mb-2 stat-number" data-target="75">0</div>
+        <div class="text-gray-400">Happy Clients</div>
+      </div>
+    </div>
+
+    <!-- Skills & Tools -->
+    <div class="mb-20">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-semibold text-primary mb-4">Skills & Expertise</h3>
+        <p class="max-w-2xl mx-auto text-gray-600">
+          A comprehensive blend of creative and technical skills that power impactful digital experiences — from design
+          to development, and data analytics.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+        <!-- Design Tools -->
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-html5 text-4xl text-orange-500 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">HTML & CSS</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-js-square text-4xl text-yellow-500 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">JavaScript</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-react text-4xl text-blue-500 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">React.js</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-laravel text-4xl text-red-500 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">Laravel (PHP)</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-python text-4xl text-blue-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">Python</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-java text-4xl text-red-600 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">Java</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fas fa-database text-4xl text-blue-600 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">MySQL</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fas fa-chart-bar text-4xl text-yellow-600 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">Power BI</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-figma text-4xl text-purple-500 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">Figma</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-adobe text-4xl text-red-500 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">Adobe Illustrator</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-tailwind-css text-4xl text-sky-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">Tailwind CSS</span>
+        </div>
+        <div
+          class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group flex flex-col items-center justify-center text-center hover:-translate-y-1">
+          <i class="fab fa-adobe text-4xl text-blue-500 mb-3 group-hover:scale-110 transition-transform"></i>
+          <span class="text-white font-semibold text-sm">Adobe Photoshop</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="grid md:grid-cols-2 gap-10 mb-20">
+      <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-2xl shadow-lg border border-primary/20">
+        <div class="flex items-center mb-4">
+          <div class="bg-primary text-white p-3 rounded-full mr-4">
+            <i class="fas fa-bullseye text-xl"></i>
+          </div>
+          <h4 class="text-2xl font-bold text-primary">Our Mission</h4>
+        </div>
+        <p class="text-gray-700 leading-relaxed">
+          To empower brands and individuals through creativity, innovation, and technology — crafting digital
+          experiences that speak, connect, and inspire action. We transform ideas into impactful digital solutions that
+          drive growth and create lasting impressions.
+        </p>
+      </div>
+      <div
+        class="bg-gradient-to-br from-secondary/5 to-secondary/10 p-8 rounded-2xl shadow-lg border border-secondary/20">
+        <div class="flex items-center mb-4">
+          <div class="bg-secondary text-white p-3 rounded-full mr-4">
+            <i class="fas fa-eye text-xl"></i>
+          </div>
+          <h4 class="text-2xl font-bold text-secondary">Our Vision</h4>
+        </div>
+        <p class="text-gray-700 leading-relaxed">
+          To be Africa's leading creative technology brand — redefining design and development across the digital
+          landscape. We envision a future where African creativity and innovation set global standards in digital
+          experiences.
+        </p>
+      </div>
+    </div>
+
+    <!-- About Skope Designs -->
+    <div class="bg-gradient-to-br from-dark to-primary/10 p-10 rounded-2xl text-center text-white">
+      <h3 class="text-3xl font-semibold mb-6">About Skope Designs</h3>
+      <p class="text-gray-200 leading-relaxed max-w-4xl mx-auto mb-6">
+        <strong>Skope Designs</strong> is more than just a design studio — it's a creative hub where ideas come to life
+        through strategy, aesthetics, and innovation. We specialize in <strong>branding, web design, content creation,
+          and digital strategy</strong>, helping businesses build a memorable presence both online and offline.
+      </p>
+      <p class="text-gray-200 leading-relaxed max-w-4xl mx-auto">
+        Our approach combines artistic vision with technical precision to deliver solutions that not only look stunning
+        but also perform exceptionally. We believe in creating digital experiences that resonate with audiences and
+        drive meaningful results for our clients.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="py-16 px-6 md:px-20 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Digital Presence?</h3>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Let's collaborate to create something extraordinary that captures your vision and drives results.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html"
+          class="px-8 py-3 bg-white text-primary rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg">
+          Start Your Project
+        </a>
+        <a href="portfolio.html"
+          class="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-bold hover:bg-white/10 transition-colors">
+          View Our Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODERN FOOTER -->
+  <footer class="relative bg-slate-950 pt-20 pb-10 overflow-hidden">
+    <!-- Background Accents -->
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent">
+    </div>
+    <div class="absolute -top-24 -left-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Brand Column -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <img loading="lazy" src="logo.webp" alt="Skope Logo" class="h-12 w-12 rounded-full border border-cyan-500/30 p-1" />
+            <div>
+              <span class="block font-bold text-xl tracking-wider text-white">SKOPE DESIGNS</span>
+              <span class="block text-[10px] uppercase tracking-[0.2em] text-cyan-400 font-medium">Design Beyond
+                Boundaries</span>
+            </div>
+          </div>
+          <p class="text-slate-400 leading-relaxed">
+            Crafting high-performing digital experiences through innovative web design, branding, and full-stack
+            development.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://web.facebook.com/engskope" target="_blank"
+              class="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-600 hover:bg-blue-600/20 hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] hover:scale-110 transition-all duration-300">
+              <i class="fab fa-facebook-f text-sm"></i>
+            </a>
+            <a href="https://x.com/SegePeter_ENG" target="_blank"
+              class="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-gray-400 hover:bg-gray-400/20 hover:shadow-[0_0_15px_rgba(156,163,175,0.5)] hover:scale-110 transition-all duration-300">
+              <i class="fab fa-x-twitter text-sm"></i>
+            </a>
+            <a href="https://www.instagram.com/segepeter71/" target="_blank"
+              class="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-pink-500 hover:bg-pink-500/20 hover:shadow-[0_0_15px_rgba(236,72,153,0.5)] hover:scale-110 transition-all duration-300">
+              <i class="fab fa-instagram text-sm"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/sege-peter-221831303/" target="_blank"
+              class="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500 hover:bg-blue-500/20 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:scale-110 transition-all duration-300">
+              <i class="fab fa-linkedin-in text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services Column -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-6 relative inline-block">
+            Our Services
+            <span class="absolute -bottom-2 left-0 w-8 h-1 bg-cyan-500 rounded-full"></span>
+          </h4>
+          <ul class="space-y-4">
+            <li><a href="service.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Web
+                Design</a></li>
+            <li><a href="service.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Full-Stack Dev</a></li>
+            <li><a href="service.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Brand
+                Identity</a></li>
+            <li><a href="shop.html"
+                class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Digital
+                Products</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-6 relative inline-block">
+            Quick Links
+            <span class="absolute -bottom-2 left-0 w-8 h-1 bg-orange-500 rounded-full"></span>
+          </h4>
+          <ul class="space-y-4">
+            <li><a href="about.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> About
+                Us</a></li>
+            <li><a href="portfolio.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Portfolio</a></li>
+            <li><a href="careers.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Careers</a></li>
+            <li><a href="resources.html"
+                class="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 group"><i
+                  class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i>
+                Resources</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-6 relative inline-block">
+            Newsletter
+            <span class="absolute -bottom-2 left-0 w-8 h-1 bg-cyan-500 rounded-full"></span>
+          </h4>
+          <p class="text-slate-400 mb-6 font-medium">Get the latest design insights and tech updates.</p>
+          <form action="https://formsubmit.co/segepeter71@gmail.com" method="POST" class="space-y-3">
+            <div class="relative group">
+              <input type="email" name="email" required placeholder="Email Address"
+                class="w-full bg-slate-900 border border-slate-800 rounded-xl px-5 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 transition-all">
+              <button type="submit"
+                class="absolute right-2 top-2 bottom-2 bg-cyan-500 hover:bg-cyan-600 text-white px-4 rounded-lg transition-all flex items-center justify-center">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+            <p class="text-[10px] text-slate-500 ml-1">By subscribing, you agree to our <a href="privacy-policy.html" class="hover:text-cyan-400 underline">Privacy Policy</a>.</p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-800 to-transparent mb-10"></div>
+
+      <!-- Footer Bottom -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-slate-500 text-sm">
+          &copy; <span id="footer-year"></span> <span class="text-white font-semibold">Skope Designs</span>. Made with
+          <i class="fas fa-heart text-red-500 animate-pulse"></i> by Sege Peter.
+        </p>
+        <div class="flex gap-8">
+          <a href="privacy-policy.html" class="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
+          <a href="terms-of-service.html" class="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</a>
+          <a href="contact.html" class="text-slate-500 hover:text-white text-xs transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // Swiper initialization
+    const swiper = new Swiper(".mySwiper", {
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      effect: 'fade',
+      fadeEffect: { crossFade: true }
+    });
+
+    // Sidebar Menu Logic with Icons
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('menu-overlay');
+
+    window.toggleMenu = function () {
+      const isOpen = sidebar.classList.contains('open');
+
+      if (isOpen) {
+        // Close
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        if (menuBtn) menuBtn.classList.remove('menu-open');
+      } else {
+        // Open
+        sidebar.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (menuBtn) menuBtn.classList.add('menu-open');
+      }
+    };
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Copyright year
+    const currentYear = new Date().getFullYear();
+    if (document.getElementById('year')) document.getElementById('year').textContent = currentYear;
+    if (document.getElementById('footer-year')) document.getElementById('footer-year').textContent = currentYear;
+
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animation classes
+    document.querySelectorAll('.animate-fade-in, .animate-fade-in-up, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+
+    // Stat counters animation
+    const statsSection = document.querySelector('.grid-cols-2.md\\:grid-cols-4');
+    const stats = document.querySelectorAll('.stat-number');
+    let counted = false;
+
+    const animateStats = () => {
+      stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const increment = target / 50;
+        let current = 0;
+
+        const updateCount = () => {
+          if (current < target) {
+            current += increment;
+            stat.textContent = Math.ceil(current) + (target > 5 ? "+" : "");
+            setTimeout(updateCount, 20);
+          } else {
+            stat.textContent = target + (target > 5 ? "+" : "");
+          }
+        };
+        updateCount();
+      });
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !counted) {
+        animateStats();
+        counted = true;
+      }
+    }, { threshold: 0.5 });
+
+    if (statsSection) statsObserver.observe(statsSection);
+  </script>
+
+  <!-- Floating WhatsApp Button -->
+<a href="https://wa.me/254742380183" target="_blank" class="fixed bottom-6 right-6 z-[99] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_14px_rgba(37,211,102,0.4)] hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+  <!-- Custom Cursor Script -->
+  <script>
+    (function () {
+      const dot = document.getElementById('cursor-dot');
+      const ring = document.getElementById('cursor-outline');
+      if (!dot || !ring) return;
+
+      // Only activate on pointer-fine (desktop) devices
+      if (!window.matchMedia('(pointer: fine)').matches) return;
+
+      let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+      let ringX = mouseX, ringY = mouseY;
+      let visible = false;
+
+      // Snap dot, lag ring
+      function tick() {
+        // Lerp ring toward mouse (0.12 = nice smooth lag)
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+
+        dot.style.transform  = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
+        ring.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%))`;
+        requestAnimationFrame(tick);
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!visible) {
+          dot.classList.add('visible');
+          ring.classList.add('visible');
+          visible = true;
+        }
+      });
+
+      // Hide when cursor leaves window
+      document.addEventListener('mouseleave', () => {
+        dot.classList.remove('visible');
+        ring.classList.remove('visible');
+        visible = false;
+      });
+      document.addEventListener('mouseenter', () => {
+        dot.classList.add('visible');
+        ring.classList.add('visible');
+        visible = true;
+      });
+
+      // Hover state on interactive elements
+      document.querySelectorAll('a, button, input, textarea, select, .cursor-pointer').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+
+      requestAnimationFrame(tick);
+    })();
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+
+

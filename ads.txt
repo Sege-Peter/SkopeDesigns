@@ -1,0 +1,2 @@
+# ads.txt for skopedesigns.co.ke
+google.com, pub-7759647476755654, DIRECT, f08c47fec0942fa0
