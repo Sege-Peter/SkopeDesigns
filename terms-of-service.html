@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,29 +26,8 @@
   </script>
   <style>
     @keyframes border-beam {
-      0%   { background-position: 0% 50%; }
+      0% { background-position: 0% 50%; }
       100% { background-position: 200% 50%; }
-    }
-    #header {
-      background: rgba(15,23,42,0.85);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      position: fixed;
-      border-bottom: 2px solid transparent;
-      transition: all 0.4s ease;
-    }
-    #header::after {
-      content: '';
-      position: absolute;
-      bottom: -1px; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #06b6d4, #f97316, #06b6d4);
-      background-size: 200% 100%;
-      animation: border-beam 3s linear infinite;
-    }
-    #header.scrolled {
-      background: rgba(15,23,42,0.97);
-      box-shadow: 0 20px 50px -15px rgba(0,0,0,0.6);
     }
     .nav-link { position:relative; font-weight:500; color:rgba(255,255,255,0.85); transition:color 0.3s; }
     .nav-link:hover { color:#06b6d4; }
@@ -62,14 +40,6 @@
       box-shadow: 0 4px 15px rgba(6,182,212,0.4);
     }
     .header-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(6,182,212,0.5); }
-    .sidebar-menu { transform:translateX(100%); transition:transform 0.3s ease-in-out; }
-    .sidebar-menu.open { transform:translateX(0); }
-    .overlay-bg { opacity:0; pointer-events:none; transition:opacity 0.3s; }
-    .overlay-bg.open { opacity:1; pointer-events:auto; }
-    .hamburger-line { transition:all 0.3s ease-in-out; }
-    .menu-open .line-1 { transform:rotate(45deg) translate(5px,6px); }
-    .menu-open .line-2 { opacity:0; }
-    .menu-open .line-3 { transform:rotate(-45deg) translate(5px,-6px); }
     .toc-link { display:block; padding:6px 14px; border-left:2px solid rgba(255,255,255,0.08); color:#94a3b8; font-size:13px; transition:all 0.2s; border-radius:0 6px 6px 0; }
     .toc-link:hover, .toc-link.active { border-color:#f97316; color:#f97316; background:rgba(249,115,22,0.06); }
     .policy-section h2 { font-size:1.5rem; font-weight:800; color:#f1f5f9; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.07); }
@@ -78,7 +48,6 @@
     .policy-section ul { color:#94a3b8; padding-left:20px; margin-bottom:14px; }
     .policy-section ul li { margin-bottom:6px; list-style:disc; line-height:1.7; }
     .policy-section ul li::marker { color:#06b6d4; }
-  
     /* Global Responsiveness & Speed Fixes */
     img { max-width: 100%; height: auto; display: block; }
     .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -87,8 +56,177 @@
         .mobile-m-0 { margin: 0 !important; }
         .text-responsive { font-size: calc(1rem + 1vw); }
     }
-</style>
+    .gradient-text {
+      background: linear-gradient(135deg, #06b6d4, #f97316, #06b6d4);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradient 4s ease infinite;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-glow {
+      animation: glow 3s ease-in-out infinite;
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
+      50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.8); }
+    }
+  
+    @keyframes border-beam {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 200% 50%;
+      }
+    }
 
+    #header {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 2px solid transparent;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: fixed; /* Ensures it is always fixed */
+    }
+
+    #header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #06b6d4, #f97316, #06b6d4);
+      background-size: 200% 100%;
+      animation: border-beam 3s linear infinite;
+    }
+    
+    #header.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .dark #header.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link-modern {
+      position: relative;
+      font-weight: 500;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link-modern:hover {
+      color: #06b6d4;
+    }
+
+    .nav-link-modern::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f97316;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link-modern:hover::after {
+      width: 100%;
+    }
+
+    .nav-link-modern.active {
+      color: inherit; font-weight: 800;
+    }
+
+    .nav-link-modern.active::after {
+      width: 100%;
+      background: #06b6d4;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: 48px;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50%;
+      border: 2px solid #f97316;
+    }
+
+    #header.scrolled .logo-img {
+      height: 38px;
+      width: 38px;
+    }
+
+    /* Sidebar Menu Animations */
+    .sidebar-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-menu.open {
+      transform: translateX(0);
+    }
+
+    .overlay-bg {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .overlay-bg.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Premium Hamburger Button Styling */
+    #menu-btn {
+      border: 1px solid rgba(6, 182, 212, 0.25) !important;
+      background: rgba(15, 23, 42, 0.55) !important;
+      backdrop-filter: blur(12px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    #menu-btn:hover {
+      background: rgba(6, 182, 212, 0.12) !important;
+      border-color: rgba(6, 182, 212, 0.7) !important;
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.45) !important;
+      transform: translateY(-2px) scale(1.06) !important;
+    }
+    #menu-btn:active {
+      transform: translateY(0) scale(0.95) !important;
+    }
+    .hamburger-line {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    .menu-open .line-1 {
+      transform: translateY(7px) rotate(45deg) !important;
+      background: #06b6d4 !important;
+      width: 100% !important;
+    }
+    .menu-open .line-2 {
+      opacity: 0 !important;
+      transform: translateY(-50%) scaleX(0) !important;
+    }
+    .menu-open .line-3 {
+      transform: translateY(-7px) rotate(-45deg) !important;
+      background: #f97316 !important;
+      width: 100% !important;
+    }
+
+</style>
 <style>
   html { scroll-behavior: smooth; }
   ::-webkit-scrollbar { width: 8px; }
@@ -97,38 +235,47 @@
   ::-webkit-scrollbar-thumb:hover { background: #0891b2; }
   ::selection { background: rgba(6, 182, 212, 0.3); color: white; }
 </style>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-
-<body class="bg-dark text-white font-sans overflow-x-hidden">
-
+<script src="theme.js"></script></head>
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-white font-sans overflow-x-hidden transition-colors duration-300">
   <!-- HEADER -->
-  <header id="header" class="fixed w-full top-0 z-50 px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <img src="logo.png" alt="Skope Logo" class="h-12 w-12 rounded-full border-2 border-secondary hover:rotate-12 transition-transform duration-300" />
+  <header id="header"
+    class="fixed w-full top-0 z-50 transition-all duration-300 px-6 py-4 flex items-center justify-between text-slate-900 dark:text-white">
+    <div class="flex items-center gap-3 group">
+      <img loading="lazy" src="logo.webp" alt="Skope Logo"
+        class="logo-img rounded-full border-2 border-secondary group-hover:rotate-12 transition-transform duration-500" />
       <div>
-        <span class="font-bold text-lg tracking-wide">SKOPE DESIGNS</span>
-        <span class="block text-[10px] italic opacity-80">Design Beyond Boundaries</span>
+        <span class="font-bold text-lg tracking-wide gradient-text">SKOPE DESIGNS</span>
+        <span class="block text-[10px] italic opacity-90">Design Beyond Boundaries</span>
       </div>
     </div>
-    <nav class="hidden md:flex items-center gap-8">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="service.html" class="nav-link">Services</a>
-      <a href="portfolio.html" class="nav-link">Portfolio</a>
-      <a href="careers.html" class="nav-link">Careers</a>
-      <a href="contact.html" class="header-btn ml-2">Start Project</a>
+    <!-- Desktop Nav -->
+    <div class="flex items-center gap-2 md:gap-4">
+      <nav class="hidden md:flex items-center gap-10">
+      <a href="index.html" class="nav-link-modern font-bold">Home</a>
+      <a href="about.html" class="nav-link-modern font-bold">About</a>
+      <a href="service.html" class="nav-link-modern font-bold">Services</a>
+      <a href="portfolio.html" class="nav-link-modern font-bold">Portfolio</a>
+      <a href="resources.html" class="nav-link-modern font-bold">Resources</a>
+      <a href="careers.html" class="nav-link-modern font-bold">Careers</a>
+      <a href="contact.html" class="header-btn ml-4 animate-glow">Start Project</a>
     </nav>
-    <button id="menu-btn" class="md:hidden z-[60] relative w-8 h-6 flex flex-col justify-between focus:outline-none">
-      <span class="w-full h-0.5 bg-white hamburger-line line-1 rounded-full"></span>
-      <span class="w-full h-0.5 bg-white hamburger-line line-2 rounded-full"></span>
-      <span class="w-full h-0.5 bg-white hamburger-line line-3 rounded-full"></span>
-    </button>
+    <!-- Theme Toggle Button -->
+      <a href="#" id="theme-toggle" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-slate-800 dark:bg-white/10 backdrop-blur-md border border-slate-700 dark:border-white/10 hover:bg-slate-700 dark:hover:bg-white/20 transition-all shadow-lg ml-2">
+        <i class="fas fa-moon text-lg"></i>
+      </a>
+      <!-- Hamburger Button -->
+    <button id="menu-btn" class="md:hidden z-[60] relative w-12 h-12 flex items-center justify-center focus:outline-none bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-white/10 transition-all group shadow-lg">
+  <div class="relative w-6 h-4">
+    <span class="absolute top-0 left-0 w-full h-[2px] bg-slate-900 dark:bg-white rounded-full transition-all duration-300 hamburger-line line-1 group-hover:bg-cyan-400"></span>
+    <span class="absolute top-1/2 -translate-y-1/2 left-0 w-3/4 h-[2px] bg-cyan-400 rounded-full transition-all duration-300 hamburger-line line-2 group-hover:w-full"></span>
+    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-slate-900 dark:bg-white rounded-full transition-all duration-300 hamburger-line line-3 group-hover:bg-cyan-400"></span>
+  </div>
+</button>
+    </div>
   </header>
-
   <!-- SIDEBAR -->
   <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[45] overlay-bg backdrop-blur-sm" onclick="toggleMenu()"></div>
   <aside id="sidebar-menu" class="fixed top-0 right-0 h-full w-64 bg-white z-[60] sidebar-menu flex flex-col shadow-2xl overflow-y-auto">
@@ -162,7 +309,6 @@
       </ul>
     </nav>
   </aside>
-
   <!-- HERO -->
   <section class="relative pt-32 pb-16 px-6 text-center overflow-hidden" style="background:linear-gradient(135deg,#0f172a 0%,#1a0f2e 60%,#0f172a 100%);">
     <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(249,115,22,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,0.05) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;"></div>
@@ -175,10 +321,8 @@
       <p class="text-slate-500 text-sm mt-3"><i class="fas fa-calendar-alt mr-2 text-orange-400"></i>Last Updated: March 2026</p>
     </div>
   </section>
-
   <!-- MAIN CONTENT -->
   <div class="max-w-7xl mx-auto px-6 py-16 flex gap-12 items-start">
-
     <!-- TOC Sidebar -->
     <aside class="hidden lg:block w-64 flex-shrink-0 sticky top-28">
       <div class="bg-slate-800/60 backdrop-blur-sm border border-white/[0.07] rounded-2xl p-5">
@@ -203,16 +347,13 @@
         </div>
       </div>
     </aside>
-
     <!-- Terms Content -->
     <main class="flex-1 min-w-0">
       <div class="bg-slate-800/40 border border-white/[0.06] rounded-2xl p-8 md:p-12 space-y-12">
-
         <section class="policy-section" id="t1">
           <h2><span class="text-orange-400 mr-2">01.</span>Acceptance of Terms</h2>
           <p>By accessing or using the website operated by Skope Designs, you acknowledge that you have read, understood, and agreed to these Terms of Service. If you disagree with any part of these terms, you must discontinue use of the website.</p>
         </section>
-
         <section class="policy-section" id="t2">
           <h2><span class="text-orange-400 mr-2">02.</span>Description of Services</h2>
           <p>Skope Designs provides digital services including but not limited to:</p>
@@ -225,7 +366,6 @@
           </ul>
           <p>Services may evolve over time as the company grows and introduces new offerings.</p>
         </section>
-
         <section class="policy-section" id="t3">
           <h2><span class="text-orange-400 mr-2">03.</span>User Responsibilities</h2>
           <p>Users of this website agree to:</p>
@@ -243,18 +383,15 @@
             <li>Interfere with the functionality or security of the website</li>
           </ul>
         </section>
-
         <section class="policy-section" id="t4">
           <h2><span class="text-orange-400 mr-2">04.</span>Intellectual Property Rights</h2>
           <p>All content on the Skope Designs website — including logos, branding elements, design assets, website layouts, text, graphics, and media — is owned by or licensed to Skope Designs and protected under intellectual property laws.</p>
           <p>Users may not reproduce, distribute, or modify this content without written permission.</p>
         </section>
-
         <section class="policy-section" id="t5">
           <h2><span class="text-orange-400 mr-2">05.</span>Client Project Materials</h2>
           <p>Any materials provided by clients for design or development purposes remain the property of the client. However, Skope Designs reserves the right to showcase completed work in portfolios unless otherwise agreed in writing.</p>
         </section>
-
         <section class="policy-section" id="t6">
           <h2><span class="text-orange-400 mr-2">06.</span>Service Availability</h2>
           <p>While we strive to maintain uninterrupted service, we do not guarantee that the website or services will always be available or error-free. We may temporarily suspend services for:</p>
@@ -265,27 +402,22 @@
             <li>Infrastructure improvements</li>
           </ul>
         </section>
-
         <section class="policy-section" id="t7">
           <h2><span class="text-orange-400 mr-2">07.</span>Limitation of Liability</h2>
           <p>To the fullest extent permitted by law, Skope Designs shall not be liable for indirect or consequential damages, loss of business opportunities, data loss or service interruption, or issues arising from third-party services. Use of the website is at your own risk.</p>
         </section>
-
         <section class="policy-section" id="t8">
           <h2><span class="text-orange-400 mr-2">08.</span>Termination of Access</h2>
           <p>We reserve the right to suspend or terminate access to users who violate these Terms of Service or engage in harmful activities without prior notice.</p>
         </section>
-
         <section class="policy-section" id="t9">
           <h2><span class="text-orange-400 mr-2">09.</span>Modifications to Terms</h2>
           <p>Skope Designs may revise these Terms of Service at any time. Updates will be posted on this page with the latest revision date. Continued use of the website indicates acceptance of the updated terms.</p>
         </section>
-
         <section class="policy-section" id="t10">
           <h2><span class="text-orange-400 mr-2">10.</span>Governing Law</h2>
           <p>These Terms of Service shall be governed and interpreted according to the laws applicable within the jurisdiction where Skope Designs operates.</p>
         </section>
-
         <section class="policy-section" id="t11">
           <h2><span class="text-orange-400 mr-2">11.</span>Contact Information</h2>
           <p>For inquiries regarding these Terms of Service, contact us:</p>
@@ -295,9 +427,7 @@
             <div class="flex items-center gap-3 text-slate-300"><i class="fas fa-globe text-orange-400 w-5"></i><a href="https://www.skopedesigns.co.ke" target="_blank" class="hover:text-orange-400 transition-colors">www.skopedesigns.co.ke</a></div>
           </div>
         </section>
-
       </div>
-
       <!-- Also see Privacy -->
       <div class="mt-8 flex flex-wrap gap-4 items-center justify-between">
         <a href="privacy-policy.html" class="inline-flex items-center gap-2 bg-slate-800 border border-cyan-500/30 hover:border-cyan-400 text-cyan-400 px-6 py-3 rounded-full font-semibold text-sm transition-all hover:bg-cyan-400/10">
@@ -309,7 +439,6 @@
       </div>
     </main>
   </div>
-
   <!-- FOOTER -->
   <footer class="bg-slate-900 border-t border-white/[0.05] py-10 px-6 text-center mt-8">
     <p class="text-slate-500 text-sm">&copy; <span id="footer-year"></span> Skope Designs. All rights reserved.</p>
@@ -319,7 +448,6 @@
       <a href="contact.html" class="text-slate-400 hover:text-white text-sm transition-colors">Contact</a>
     </div>
   </footer>
-
   <script>
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -344,17 +472,14 @@
       });
     });
   </script>
-
   <script>
     const yearSpan = document.getElementById('footer-year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
   </script>
-
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/254742380183?text=Hi%20Sege%2C%20I'm%20interested%20in%20your%20services!" target="_blank"
+    class="fixed bottom-6 right-6 z-[99] bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_14px_rgba(0,0,0,0.3)] hover:scale-110 hover:bg-green-600 transition-all duration-300">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 </body>
 </html>
-
-
-
-
-
-
