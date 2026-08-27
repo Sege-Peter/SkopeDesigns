@@ -27,8 +27,7 @@
   <style>
     @keyframes border-beam {
       0% { background-position: 0% 50%; }
-      100% { background-position: 200% 50%; }
-    }
+      }
     .nav-link { position:relative; font-weight:500; color:rgba(255,255,255,0.85); transition:color 0.3s; }
     .nav-link:hover { color:#06b6d4; }
     .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#f97316; transition:width 0.3s; }
@@ -83,10 +82,7 @@
       0% {
         background-position: 0% 50%;
       }
-      100% {
-        background-position: 200% 50%;
       }
-    }
 
     #header {
       background: rgba(15, 23, 42, 0.7);
@@ -95,6 +91,12 @@
       border-bottom: 2px solid transparent;
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       position: fixed; /* Ensures it is always fixed */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 100%;
+      margin-top: 0;
+      border-radius: 0;
     }
 
     #header::after {
@@ -110,16 +112,27 @@
     }
     
     #header.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      padding-top: 0.6rem;
-      padding-bottom: 0.6rem;
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      margin-top: 1rem;
+      width: calc(100% - 2rem);
+      max-width: 1200px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 9999px;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
     .dark #header.scrolled {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.85);
       box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    #header.scrolled::after {
+      display: none;
     }
 
     .nav-link-modern {
@@ -155,6 +168,7 @@
     .nav-link-modern.active::after {
       width: 100%;
       background: #06b6d4;
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
     }
 
     .logo-img {
@@ -264,10 +278,7 @@
       <a href="careers.html" class="nav-link-modern font-bold">Careers</a>
       <a href="contact.html" class="header-btn ml-4 animate-glow">Start Project</a>
     </nav>
-    <!-- Theme Toggle Button -->
-      <a href="#" id="theme-toggle" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-slate-800 dark:bg-white/10 backdrop-blur-md border border-slate-700 dark:border-white/10 hover:bg-slate-700 dark:hover:bg-white/20 transition-all shadow-lg ml-2">
-        <i class="fas fa-moon text-lg"></i>
-      </a>
+    
       <!-- Hamburger Button -->
     <button id="menu-btn" class="md:hidden z-[60] relative w-12 h-12 flex items-center justify-center focus:outline-none bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-white/10 transition-all group shadow-lg">
   <div class="relative w-6 h-4">
