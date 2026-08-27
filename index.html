@@ -391,7 +391,9 @@
     @keyframes slideDown {
       0% { transform: translateY(-100%); opacity: 0; }
       50% { opacity: 1; }
-      html { scroll-behavior: smooth; overflow-x: hidden; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: #0f172a; }
   ::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 10px; }
